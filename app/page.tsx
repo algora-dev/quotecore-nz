@@ -370,12 +370,12 @@ export default function HomePage() {
                   Build your business once. Quote it forever.
                 </h1>
                 <p className="mt-4 text-xl font-semibold leading-tight text-zinc-700 sm:text-2xl lg:whitespace-nowrap">
-                  Every Kiwi job starts with your way of working.
+                  QuoteCore+ lets Kiwis work how they like, with
                   <br />
-                  Smart Component™ built once, reused forever.
+                  Smart Component™&apos;s - build once, reuse forever.
                 </p>
                 <p className="mt-4 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
-                  Every New Zealand trade business has its own way of pricing, measuring and delivering work. QuoteCore+ captures that knowledge inside Smart Components™, turning your pricing, products, services and processes into a reusable system.
+                  Every New Zealand business has its own way of pricing, measuring and delivering work. QuoteCore+ captures that knowledge inside Smart Components™, turning your pricing, products, services and processes into a reusable system.
                 </p>
                 <p className="mt-3 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
                   Build everything once, then reuse it across every quote, job and invoice - saving time, reducing mistakes, and keeping work moving in one connected workflow built around how your business actually operates.
@@ -926,7 +926,7 @@ export default function HomePage() {
                   <p className="text-xl font-semibold text-zinc-950">Meet Shaun</p>
                   <div className="mt-4 space-y-4 text-base leading-7 text-zinc-600">
                     <p>QuoteCore+ wasn&apos;t created because I wanted to build software. It was created because I got tired of using it.</p>
-                    <p>After more than two decades building and running businesses across construction and technology, I kept running into the same problem. Every business had its own way of working, yet every software platform expected them to work exactly the same way.</p>
+                    <p>After more than two decades building and running businesses across construction and technology (in NZ), I kept running into the same problem. Every business had its own way of working, yet every software platform expected them to work exactly the same way.</p>
                     <p>Jobs were spread across multiple apps, spreadsheets, emails and documents. The same information was entered over and over again, wasting time, creating mistakes, and making something as simple as getting from quote to payment far more complicated than it needed to be.</p>
                     <p>I didn&apos;t start QuoteCore+ to change the way businesses work. I started it to build software that finally works the way businesses already do.</p>
                     <p>That idea became the foundation of QuoteCore+. Instead of forcing businesses into rigid workflows, we built a platform that adapts to the way each business already operates. Smart Components™ capture your products, services, pricing, measurements and processes, creating a reusable digital system that makes every future quote, job and invoice faster, easier and more consistent.</p>
@@ -1112,7 +1112,7 @@ export default function HomePage() {
                   Simple, transparent pricing.
                 </h2>
                 <p className="mt-3 text-zinc-400">
-                  Start with a full 14-day free trial. No card required. Founding customer pricing now available.
+                  Start with a full feature 14 day free trial. No card required, early user prices + full customer support.
                 </p>
               </div>
               <span className="inline-flex h-12 w-fit items-center justify-center gap-3 rounded-full border border-white/15 bg-white/10 px-6 text-sm font-semibold text-white transition-colors group-hover:bg-white/15">
