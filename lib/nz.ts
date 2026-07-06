@@ -14,6 +14,7 @@ export const nzMarket = {
 export const nzNav = [
   { href: "/roofing-quoting-software", label: "Roofing" },
   { href: "/construction-quoting-software", label: "Construction" },
+  { href: "/services", label: "Services" },
   { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
 ];

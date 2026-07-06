@@ -23,9 +23,9 @@ interface ChatMessage {
 const quickQuestions = [
   "What does QuoteCore+ do?",
   "Where are the docs?",
-  "How does the trial work?",
+  "How does the free trial work?",
   "What happens after the trial?",
-  "Can I use it for my trade?",
+  "Can I use it for my trade business?",
   "Can I talk to someone?",
 ];
 
@@ -448,13 +448,13 @@ export default function SiteAssistant() {
                   </p>
                 </div>
 
-                <div className="mt-5 grid grid-cols-2 gap-2">
+                <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
                   {quickQuestions.map((question) => (
                     <button
                       key={question}
                       type="button"
                       onClick={() => askQuestion(question)}
-                      className="min-h-10 rounded-full border border-zinc-200 bg-white px-2.5 py-2 text-center text-[11px] font-semibold leading-tight text-zinc-700 transition hover:border-[#FF6B35]/40 hover:text-[#FF6B35] sm:text-xs"
+                      className="min-h-10 rounded-full border border-zinc-200 bg-white px-3 py-2 text-left text-[12px] font-semibold leading-4 text-zinc-700 transition hover:border-[#FF6B35]/40 hover:text-[#FF6B35]"
                     >
                       {question}
                     </button>

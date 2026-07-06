@@ -21,29 +21,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "QuoteCore+ | Contractor Quoting Software for Trades",
+  title: "QuoteCore+ NZ | Contractor Quoting Software for Kiwi Trades",
   description:
-    "QuoteCore+ is contractor quoting software for trades that work from measurements. Measure jobs, build priced quotes, track approvals, order materials, manage work, invoice and get paid.",
+    "QuoteCore+ is contractor quoting software for New Zealand trades that work from measurements. Measure jobs, build priced quotes, track approvals, order materials, manage work, invoice and get paid.",
   metadataBase: new URL(site.url),
   alternates: {
     canonical: `${site.url}/`,
     languages: {
-      en: `${site.url}/`,
-      "en-GB": `${site.url}/`,
+      "en-NZ": `${site.url}/`,
       "x-default": `${site.url}/`,
     },
   },
   openGraph: {
-    title: "QuoteCore+ | Contractor Quoting Software for Trades",
-    description: "Contractor quoting software for trades that work from measurements.",
+    title: "QuoteCore+ NZ | Contractor Quoting Software for Kiwi Trades",
+    description: "Contractor quoting software for New Zealand trades that work from measurements.",
     url: `${site.url}/`,
     siteName: "QuoteCore+",
     type: "website",
-    locale: "en",
+    locale: "en_NZ",
   },
   twitter: {
     card: "summary_large_image",
-    title: "QuoteCore+ | Contractor Quoting Software for Trades",
+    title: "QuoteCore+ NZ | Contractor Quoting Software for Kiwi Trades",
     description: "Measure, quote, order, manage, invoice and get paid in one connected workflow.",
   },
 };
@@ -57,7 +56,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-NZ"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">

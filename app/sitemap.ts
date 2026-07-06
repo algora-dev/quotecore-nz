@@ -5,6 +5,7 @@ const paths = [
   "/",
   "/pricing",
   "/free-trial",
+  "/services",
   "/roofing-quoting-software",
   "/construction-quoting-software",
   "/privacy",
