@@ -16,6 +16,7 @@ export default function HomePage() {
   const [isPaused, setIsPaused] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
   const [videoHovered, setVideoHovered] = useState(false);
+  const [videoScrubbing, setVideoScrubbing] = useState(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [activeStep, setActiveStep] = useState(0);
@@ -33,12 +34,43 @@ export default function HomePage() {
     setVideoProgress((video.currentTime / video.duration) * 100);
   };
 
-  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const seekVideoFromClientX = (clientX: number, element: HTMLElement) => {
     const video = videoRef.current;
     if (!video) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const pct = (e.clientX - rect.left) / rect.width;
+    const rect = element.getBoundingClientRect();
+    const pct = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
     video.currentTime = pct * video.duration;
+    setVideoProgress(pct * 100);
+  };
+
+  const handleProgressPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    setVideoScrubbing(true);
+    seekVideoFromClientX(e.clientX, e.currentTarget);
+  };
+
+  const handleProgressPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!videoScrubbing) return;
+    seekVideoFromClientX(e.clientX, e.currentTarget);
+  };
+
+  const handleProgressPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    setVideoScrubbing(false);
+    seekVideoFromClientX(e.clientX, e.currentTarget);
+  };
+
+  const handleProgressKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const video = videoRef.current;
+    if (!video || !video.duration) return;
+    const step = e.shiftKey ? 10 : 5;
+    if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
+      e.preventDefault();
+      video.currentTime = Math.max(0, video.currentTime - step);
+    }
+    if (e.key === "ArrowRight" || e.key === "ArrowUp") {
+      e.preventDefault();
+      video.currentTime = Math.min(video.duration, video.currentTime + step);
+    }
   };
 
   useEffect(() => {
@@ -458,13 +490,23 @@ export default function HomePage() {
                 >
                   <source src="/kids-horizontal.mp4" type="video/mp4" />
                 </video>
-                {/* Progress bar - shows on hover */}
                 <div
-                  className={`absolute inset-x-0 bottom-0 h-1.5 cursor-pointer transition-opacity duration-200 ${videoHovered ? "opacity-100" : "opacity-0"}`}
-                  style={{background: "rgba(255,255,255,0.2)"}}
-                  onClick={handleProgressClick}
+                  className={`absolute inset-x-0 bottom-0 z-20 flex h-5 cursor-pointer items-end transition-opacity duration-200 ${videoHovered || videoScrubbing ? "opacity-100" : "opacity-80"}`}
+                  role="slider"
+                  aria-label="Video progress"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={Math.round(videoProgress)}
+                  tabIndex={0}
+                  onPointerDown={handleProgressPointerDown}
+                  onPointerMove={handleProgressPointerMove}
+                  onPointerUp={handleProgressPointerUp}
+                  onPointerCancel={() => setVideoScrubbing(false)}
+                  onKeyDown={handleProgressKeyDown}
                 >
-                  <div className="h-full bg-[#FF6B35] transition-all duration-100" style={{width: `${videoProgress}%`}} />
+                  <div className="h-1.5 w-full bg-white/25">
+                    <div className="h-full bg-[#FF6B35] transition-[width] duration-100" style={{width: `${videoProgress}%`}} />
+                  </div>
                 </div>
                 <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 px-5 pb-5">
                   <button
