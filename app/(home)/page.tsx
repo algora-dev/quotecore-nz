@@ -459,7 +459,7 @@ export default function HomePage() {
                   style={{display: "block"}}
                 >
                   <source src="/qc-hero-laptop.mp4" type="video/mp4" />
-                  <track kind="captions" srcLang="en" label="Product demo video" />
+                  <track kind="captions" srcLang="en" label="Product demo video" src="/captions/hero-demo.vtt" />
                 </video>
               </div>
             </div>
@@ -492,7 +492,7 @@ export default function HomePage() {
                   onTimeUpdate={handleVideoTimeUpdate}
                 >
                   <source src="/kids-horizontal.mp4" type="video/mp4" />
-                  <track kind="captions" srcLang="en" label="Brand story video" />
+                  <track kind="captions" srcLang="en" label="Brand story video" src="/captions/brand-story.vtt" />
                 </video>
                 <div
                   className={`absolute inset-x-0 bottom-0 z-20 flex h-5 cursor-pointer items-end transition-opacity duration-200 ${videoHovered || videoScrubbing ? "opacity-100" : "opacity-80"}`}
