@@ -27,12 +27,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   alternates: {
     canonical: `${site.url}/`,
-    languages: {
-      "en-NZ": `${site.url}/`,
-      "en-US": "https://quote-core.com/",
-      "en-GB": "https://quote-core.com/",
-      "x-default": "https://quote-core.com/",
-    },
   },
   openGraph: {
     title: "QuoteCore+ NZ | Contractor Quoting Software for Kiwi Trades",

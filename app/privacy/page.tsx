@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { NzFooter, NzHeader } from "@/components/NzSite";
 import { canonical, nzMarket } from "@/lib/nz";
 import { breadcrumbSchema, jsonLd } from "@/lib/seo";
+import { hreflangLanguages } from "@/lib/hreflang";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | QuoteCore+ NZ",
   description: "How QuoteCore+ NZ collects, uses, stores, and protects personal information and uploaded quote files.",
-  alternates: { canonical: canonical("/privacy") },
+  alternates: { canonical: canonical("/privacy"), languages: hreflangLanguages("/privacy") },
 };
 
 const schema = breadcrumbSchema([

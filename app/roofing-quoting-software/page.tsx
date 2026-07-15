@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import OrangeCheck from "@/components/OrangeCheck";
 import SiteFooter from "@/components/SiteFooter";
 import { breadcrumbSchema, jsonLd } from "@/lib/seo";
+import { hreflangLanguages } from "@/lib/hreflang";
 
 export const metadata: Metadata = {
   title: "Roofing Quoting Software for Contractors | QuoteCore+",
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     "QuoteCore+ is roofing quoting software built for contractors. Go from measurements to a client-ready quote in minutes - no spreadsheets, no double-handling.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/roofing-quoting-software",
+    languages: hreflangLanguages("/roofing-quoting-software"),
   },
 };
 

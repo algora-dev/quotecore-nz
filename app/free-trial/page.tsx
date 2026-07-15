@@ -5,6 +5,7 @@ import FreeTrialFaqPanel from "./FreeTrialFaqPanel";
 import SiteFooter from "@/components/SiteFooter";
 import BlogHeader from "@/components/BlogHeader";
 import { canonical } from "@/lib/nz";
+import { hreflangLanguages } from "@/lib/hreflang";
 
 export const metadata: Metadata = {
   title: "Free 14-Day Trial - No Card Required | QuoteCore+ NZ",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     "Try QuoteCore+ free for 14 days. Measure jobs, build professional quotes, track acceptances, and manage materials orders. No credit card needed.",
   alternates: {
     canonical: canonical("/free-trial"),
+    languages: hreflangLanguages("/free-trial"),
   },
 };
 

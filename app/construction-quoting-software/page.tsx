@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
 import { breadcrumbSchema, jsonLd, pricingOffers, site } from "@/lib/seo";
+import { hreflangLanguages } from "@/lib/hreflang";
 
 export const metadata: Metadata = {
   title: "Construction Quoting Software for Trades That Quote From Measurements | QuoteCore+",
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     "Construction quoting software for trades that measure, price, and quote jobs. Turn site measurements into professional quotes faster - no spreadsheets, no reformatting, no re-entering data.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/construction-quoting-software",
+    languages: hreflangLanguages("/construction-quoting-software"),
   },
 };
 

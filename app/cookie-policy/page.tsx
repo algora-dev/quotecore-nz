@@ -4,11 +4,12 @@ import OpenCookiePrefButton from "@/components/OpenCookiePrefButton";
 import { NzFooter, NzHeader } from "@/components/NzSite";
 import { canonical, nzMarket } from "@/lib/nz";
 import { breadcrumbSchema, jsonLd } from "@/lib/seo";
+import { hreflangLanguages } from "@/lib/hreflang";
 
 export const metadata: Metadata = {
   title: "Cookie Policy | QuoteCore+ NZ",
   description: "How QuoteCore+ NZ uses necessary, analytics, and marketing cookies on quote-core.co.nz.",
-  alternates: { canonical: canonical("/cookie-policy") },
+  alternates: { canonical: canonical("/cookie-policy"), languages: hreflangLanguages("/cookie-policy") },
 };
 
 const schema = breadcrumbSchema([

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { hreflangLanguages } from "@/lib/hreflang";
 
 export const metadata: Metadata = {
-  title: "Contact Us | QuoteCore+ NZ",
-  description: "Get in touch with the QuoteCore+ team. Ask a question, book a call, or send a message - we reply within 24 hours.",
-  alternates: { canonical: "https://www.quote-core.co.nz/contact" },
+  alternates: {
+    canonical: "https://www.quote-core.co.nz/contact",
+    languages: hreflangLanguages("/contact"),
+  },
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {

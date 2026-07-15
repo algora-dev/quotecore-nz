@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { NzFooter, NzHeader } from "@/components/NzSite";
 import { canonical, nzMarket } from "@/lib/nz";
 import { breadcrumbSchema, jsonLd } from "@/lib/seo";
+import { hreflangLanguages } from "@/lib/hreflang";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | QuoteCore+ NZ",
   description: "Terms governing access to QuoteCore+ NZ, free trials, subscriptions, quote review uploads, and use of the service.",
-  alternates: { canonical: canonical("/terms") },
+  alternates: { canonical: canonical("/terms"), languages: hreflangLanguages("/terms") },
 };
 
 const schema = breadcrumbSchema([
