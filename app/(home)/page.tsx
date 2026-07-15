@@ -304,7 +304,7 @@ export default function HomePage() {
                     key={image.src}
                     onClick={() => setActiveImageIndex(index)}
                     className={`h-2 w-2 rounded-full transition-colors ${
-                      index === activeImageIndex ? "bg-[#FF6B35]" : "bg-zinc-600 hover:bg-zinc-400"
+                      index === activeImageIndex ? "bg-[#BD4A1A]" : "bg-zinc-600 hover:bg-zinc-400"
                     }`}
                     aria-label={`Show ${image.label}`}
                     aria-current={index === activeImageIndex ? "true" : undefined}
@@ -509,7 +509,7 @@ export default function HomePage() {
                   onKeyDown={handleProgressKeyDown}
                 >
                   <div className="h-1.5 w-full bg-white/25">
-                    <div className="h-full bg-[#FF6B35] transition-[width] duration-100" style={{width: `${videoProgress}%`}} />
+                    <div className="h-full bg-[#BD4A1A] transition-[width] duration-100" style={{width: `${videoProgress}%`}} />
                   </div>
                 </div>
                 <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 px-5 pb-5">
@@ -693,7 +693,7 @@ export default function HomePage() {
                         className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-base font-semibold ${
                           i === activeStep
                             ? "bg-[#BD4A1A] text-white shadow-[0_10px_24px_rgba(255,107,53,0.32)]"
-                            : "bg-zinc-100 text-zinc-500"
+                            : "bg-zinc-100 text-zinc-600"
                         }`}
                       >
                         {item.number}
@@ -707,7 +707,7 @@ export default function HomePage() {
                             <div className="mt-5 space-y-3">
                               {item.options.map((option) => (
                                 <div key={option.title} className="flex items-center gap-4 rounded-2xl border border-zinc-100 bg-white px-4 py-3 shadow-[0_8px_22px_rgba(15,23,42,0.07)]">
-                                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#FF6B35]/10 text-[#BD4A1A]" aria-hidden="true">
+                                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#BD4A1A]/10 text-[#BD4A1A]" aria-hidden="true">
                                     <img src={option.icon} alt="" className="h-6 w-6 object-contain" />
                                   </span>
                                   <div className="min-w-0 flex-1">
@@ -843,7 +843,7 @@ export default function HomePage() {
                     type="button"
                     onClick={() => setActiveTutorial(index)}
                     className={`h-1.5 rounded-full transition-all ${
-                      index === tutorialOffsetIndex ? "w-16 bg-[#FF6B35]" : "w-16 bg-zinc-200 hover:bg-zinc-300"
+                      index === tutorialOffsetIndex ? "w-16 bg-[#BD4A1A]" : "w-16 bg-zinc-200 hover:bg-zinc-300"
                     }`}
                     aria-label={`Show tutorial set ${index + 1}`}
                     aria-current={index === tutorialOffsetIndex ? "true" : undefined}
@@ -887,7 +887,7 @@ export default function HomePage() {
                     You build the business.
                     <span className="block text-[#BD4A1A]">We&apos;ll build the quote.</span>
                   </h2>
-                  <div className="mt-4 h-0.5 w-16 rounded-full bg-[#FF6B35]" />
+                  <div className="mt-4 h-0.5 w-16 rounded-full bg-[#BD4A1A]" />
                   <p className="mt-6 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
                     Whether you need measurements only, a complete quote, or someone to handle the entire process, our team becomes your estimating department.
                   </p>
@@ -949,7 +949,7 @@ export default function HomePage() {
         {[0,1,2,3,4,5].map((i) => (
           <span key={i} className="banner-item inline-flex items-center shrink-0 whitespace-nowrap">
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700 px-6 lg:px-16">{carouselMounted ? "AT LEAST 25% FASTER - OR IT'S FREE" : "\u00a0"}</span>
-            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF6B35]"></span>
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#BD4A1A]"></span>
           </span>
         ))}
       </div>
@@ -957,7 +957,7 @@ export default function HomePage() {
   </div>
 )}
         {/* About Shaun */}
-        <section className="bg-[#FF6B35]/5 py-16">
+        <section className="bg-[#BD4A1A]/5 py-16">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
             <div className="overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-[0_20px_80px_rgba(0,0,0,0.06)]">
               <div className="grid lg:grid-cols-2">
@@ -1005,7 +1005,7 @@ export default function HomePage() {
         </div>
 
         {/* Tell us what you need */}
-        <section className="bg-[#FF6B35]/10 pt-14 pb-8">
+        <section className="bg-[#BD4A1A]/10 pt-14 pb-8">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
             <div className="rounded-[2rem] shadow-[0_22px_55px_rgba(255,107,53,0.22)]">
               <div className="relative overflow-hidden rounded-[2rem] border border-[#FF6B35]/25 bg-[radial-gradient(circle_at_15%_0%,rgba(255,255,255,0.12),transparent_30%),linear-gradient(135deg,#242424_0%,#111318_58%,#090a0d_100%)] px-8 py-12 sm:px-12 sm:py-14 lg:px-14 lg:py-16">
@@ -1054,7 +1054,7 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials */}
-        <section className="bg-[#FF6B35]/10 pt-4 pb-12">
+        <section className="bg-[#BD4A1A]/10 pt-4 pb-12">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
             <div className="text-center">
               <h2 className="text-3xl font-semibold text-zinc-950 sm:text-4xl">What users say</h2>
@@ -1084,7 +1084,7 @@ export default function HomePage() {
                         <TestimonialStars rating={t.rating ?? 5} />
                         <p className="flex-1 text-base leading-relaxed text-zinc-600">{carouselMounted ? <>&ldquo;{t.quote}&rdquo;</> : null}</p>
                         <div className="mt-8 flex items-center gap-3">
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF6B35] text-xs font-semibold text-white">{carouselMounted ? t.initials : null}</div>
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#BD4A1A] text-xs font-semibold text-white">{carouselMounted ? t.initials : null}</div>
                           <div>
                             <p className="text-sm font-semibold text-zinc-950">{carouselMounted ? t.name : null}</p>
                             {carouselMounted && t.business ? <p className="text-xs text-zinc-500">{t.business}</p> : null}
@@ -1105,7 +1105,7 @@ export default function HomePage() {
               <div className="mt-6 flex justify-center gap-1">
                 {testimonials.map((_, idx) => (
                   <button key={idx} type="button" onClick={() => setActiveTestimonial(idx)} className="inline-flex h-11 w-11 items-center justify-center rounded-full" aria-label={`Go to testimonial ${idx + 1}`}>
-                    <span className={`h-2 w-2 rounded-full transition-colors ${idx === activeTestimonial ? "bg-[#FF6B35]" : "bg-zinc-300"}`} />
+                    <span className={`h-2 w-2 rounded-full transition-colors ${idx === activeTestimonial ? "bg-[#BD4A1A]" : "bg-zinc-300"}`} />
                   </button>
                 ))}
               </div>
@@ -1125,7 +1125,7 @@ export default function HomePage() {
                         <TestimonialStars rating={t.rating ?? 5} />
                         <p className="flex-1 text-base leading-relaxed text-zinc-600">{carouselMounted ? <>&ldquo;{t.quote}&rdquo;</> : null}</p>
                         <div className="mt-8 flex items-center gap-3">
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF6B35] text-xs font-semibold text-white">{carouselMounted ? t.initials : null}</div>
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#BD4A1A] text-xs font-semibold text-white">{carouselMounted ? t.initials : null}</div>
                           <div>
                             <p className="text-sm font-semibold text-zinc-950">{carouselMounted ? t.name : null}</p>
                             {carouselMounted && t.business ? <p className="text-xs text-zinc-500">{t.business}</p> : null}
@@ -1268,7 +1268,7 @@ export default function HomePage() {
         {/* Bottom philosophy and CTA */}
         <section className="relative overflow-hidden bg-white py-20 sm:py-24">
           <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-zinc-100/80 to-transparent" aria-hidden="true" />
-          <div className="absolute left-0 top-44 hidden h-52 w-1/2 rounded-br-full bg-[#FF6B35]/5 blur-2xl lg:block" aria-hidden="true" />
+          <div className="absolute left-0 top-44 hidden h-52 w-1/2 rounded-br-full bg-[#BD4A1A]/5 blur-2xl lg:block" aria-hidden="true" />
           <div className="absolute right-28 top-52 hidden h-24 w-24 bg-[radial-gradient(circle,#FF6B35_1.2px,transparent_1.2px)] opacity-10 [background-size:14px_14px] lg:block" aria-hidden="true" />
 
           <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -1281,7 +1281,7 @@ export default function HomePage() {
                 <p className="text-2xl font-semibold leading-snug text-zinc-950 sm:text-3xl">
                   Most top software says: &lsquo;Here&rsquo;s our system - make your business fit around it.&rsquo;
                 </p>
-                <div className="mx-auto my-6 h-0.5 w-12 bg-[#FF6B35]" aria-hidden="true" />
+                <div className="mx-auto my-6 h-0.5 w-12 bg-[#BD4A1A]" aria-hidden="true" />
                 <p className="text-3xl font-semibold leading-tight text-[#BD4A1A] sm:text-4xl">
                   We say: &lsquo;Smart Components™ provide a flexible system - make it work for your business.&rsquo;
                 </p>
@@ -1481,8 +1481,8 @@ function ServicesPlanGraphic() {
       <div className="absolute inset-0 rounded-[2rem] bg-white/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]" />
       <div className="absolute right-8 top-6 hidden text-[11px] font-semibold text-[#BD4A1A] sm:block">9.15m</div>
       <div className="absolute left-10 top-24 hidden -rotate-90 text-[11px] font-semibold text-[#BD4A1A] sm:block">6.1m</div>
-      <div className="absolute left-[17%] top-[13%] hidden h-px w-[48%] bg-[#FF6B35]/65 sm:block before:absolute before:left-0 before:top-1/2 before:h-3 before:w-px before:-translate-y-1/2 before:bg-[#FF6B35] after:absolute after:right-0 after:top-1/2 after:h-3 after:w-px after:-translate-y-1/2 after:bg-[#FF6B35]" />
-      <div className="absolute left-[16%] top-[25%] hidden h-[44%] w-px bg-[#FF6B35]/65 sm:block before:absolute before:left-1/2 before:top-0 before:h-px before:w-3 before:-translate-x-1/2 before:bg-[#FF6B35] after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-3 after:-translate-x-1/2 after:bg-[#FF6B35]" />
+      <div className="absolute left-[17%] top-[13%] hidden h-px w-[48%] bg-[#BD4A1A]/65 sm:block before:absolute before:left-0 before:top-1/2 before:h-3 before:w-px before:-translate-y-1/2 before:bg-[#BD4A1A] after:absolute after:right-0 after:top-1/2 after:h-3 after:w-px after:-translate-y-1/2 after:bg-[#BD4A1A]" />
+      <div className="absolute left-[16%] top-[25%] hidden h-[44%] w-px bg-[#BD4A1A]/65 sm:block before:absolute before:left-1/2 before:top-0 before:h-px before:w-3 before:-translate-x-1/2 before:bg-[#BD4A1A] after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-3 after:-translate-x-1/2 after:bg-[#BD4A1A]" />
 
       <div className="relative w-[82%] max-w-[430px] rotate-[-4deg] overflow-hidden rounded-2xl border border-zinc-200/80 bg-white/75 p-4 opacity-85 shadow-[0_18px_50px_rgba(15,23,42,0.08)] backdrop-blur">
         <img
@@ -1541,7 +1541,7 @@ function HeroFloatingCard({
           style={{"--hero-card-float-delay": floatDelay} as React.CSSProperties}
         >
           <div className="flex items-start gap-2.5">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FF6B35]/10 text-[#BD4A1A]">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#BD4A1A]/10 text-[#BD4A1A]">
               <HeroFloatingIcon type={icon} />
             </span>
             <span className="min-w-0">
