@@ -1,24 +1,31 @@
 import type { MetadataRoute } from "next";
-import { nzMarket } from "@/lib/nz";
+import { site } from "@/lib/seo";
 
-const paths = [
-  "/",
-  "/pricing",
-  "/free-trial",
-  "/services",
-  "/roofing-quoting-software",
-  "/construction-quoting-software",
-  "/privacy",
-  "/terms",
-  "/cookie-policy",
-  "/contact",
-];
-
+/**
+ * NZ sitemap — canonical host only (https://www.quote-core.co.nz).
+ * Static marketing routes; add new pages here when they ship.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  return paths.map((path, index) => ({
-    url: `${nzMarket.domain}${path === "/" ? "" : path}`,
-    lastModified: new Date(),
-    changeFrequency: index < 7 ? "weekly" : "monthly",
-    priority: index === 0 ? 1 : index < 7 ? 0.8 : 0.6,
+  const routes = [
+    "/",
+    "/about",
+    "/construction-quoting-software",
+    "/contact",
+    "/free-trial",
+    "/pricing",
+    "/privacy",
+    "/roofing-quoting-software",
+    "/services",
+    "/terms",
+    "/cookie-policy",
+    "/coffee-terms",
+  ];
+
+  const now = new Date();
+  return routes.map((path) => ({
+    url: `${site.url}${path === "/" ? "/" : path}`,
+    lastModified: now,
+    changeFrequency: path === "/" ? "weekly" : "monthly",
+    priority: path === "/" ? 1 : 0.7,
   }));
 }

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Construction quoting software for trades that measure, price, and quote jobs. Turn site measurements into professional quotes faster - no spreadsheets, no reformatting, no re-entering data.",
   alternates: {
-    canonical: "https://quote-core.co.nz/construction-quoting-software",
+    canonical: "https://www.quote-core.co.nz/construction-quoting-software",
   },
 };
 

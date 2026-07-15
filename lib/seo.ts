@@ -1,8 +1,8 @@
 export const site = {
   name: "QuoteCore+",
   legalName: "T3 Play Limited",
-  url: "https://quote-core.co.nz",
-  logo: "https://quote-core.co.nz/MainQCP.png",
+  url: "https://www.quote-core.co.nz",
+  logo: "https://www.quote-core.co.nz/MainQCP.png",
   email: "info@quote-core.com",
   linkedin: "https://www.linkedin.com/company/quotecore/",
   locale: "en-NZ",

@@ -1,6 +1,6 @@
 export const nzMarket = {
   market: "nz",
-  domain: "https://quote-core.co.nz",
+  domain: "https://www.quote-core.co.nz",
   globalDomain: "https://quote-core.com",
   country: "New Zealand",
   locale: "en-NZ",

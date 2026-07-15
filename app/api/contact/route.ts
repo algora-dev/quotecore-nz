@@ -90,7 +90,7 @@ export async function POST(req: NextRequest) {
 
     const senderHtml = `
       <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;">
-        <img src="https://quote-core.co.nz/MainQCP.png" alt="QuoteCore+" style="height:36px;margin-bottom:24px;" />
+        <img src="https://www.quote-core.co.nz/MainQCP.png" alt="QuoteCore+" style="height:36px;margin-bottom:24px;" />
         <h2 style="color:#111;margin-bottom:8px;">We've got your message, ${name}.</h2>
         <p style="color:#444;line-height:1.6;">Thanks for getting in touch. We'll reply within 24 hours - usually much sooner.</p>
         <div style="background:#f8f8f8;border-radius:8px;padding:16px;margin:24px 0;">
@@ -100,7 +100,7 @@ export async function POST(req: NextRequest) {
         <p style="color:#444;line-height:1.6;">If you'd prefer to jump on a quick call, you can <a href="https://calendly.com/quote-core-info/15-minute-meeting" style="color:#FF6B35;">book a free 15-minute chat here</a>.</p>
         <p style="color:#444;line-height:1.6;margin-top:24px;">Talk soon,<br/><strong>The QuoteCore+ team</strong></p>
         <hr style="border:none;border-top:1px solid #eee;margin:32px 0;" />
-        <p style="font-size:12px;color:#999;margin:0;">QuoteCore+ &mdash; quoting software for contractors and trade businesses.<br/><a href="https://quote-core.co.nz" style="color:#999;">quote-core.co.nz</a></p>
+        <p style="font-size:12px;color:#999;margin:0;">QuoteCore+ &mdash; quoting software for contractors and trade businesses.<br/><a href="https://www.quote-core.co.nz" style="color:#999;">quote-core.co.nz</a></p>
       </div>
     `;
 

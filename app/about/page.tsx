@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
+import { canonical } from "@/lib/nz";
 
 export const metadata: Metadata = {
   title: "About QuoteCore+ | Construction Quoting Software Built From the Industry",
   description: "QuoteCore+ is founder-led, team-built software shaped by Shaun's 12+ years in construction and built by the QuoteCore+ team.",
+  alternates: { canonical: canonical("/about") },
 };
 
 export default function AboutPage() {

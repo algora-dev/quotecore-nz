@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Done-for-you roofing quote service | QuoteCore+",
   description:
     "Send QuoteCore+ your plans, scope, photos and pricing. We measure the job, build the quote, and you stay in control of final approval.",
+  alternates: { canonical: `${siteUrl}/services` },
 };
 
 const steps = [

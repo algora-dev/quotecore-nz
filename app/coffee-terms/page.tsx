@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
+import { canonical } from "@/lib/nz";
 
 export const metadata: Metadata = {
   title: "Coffee Offer Terms & Conditions | QuoteCore+",
   description: "Terms and conditions for the QuoteCore+ free coffee offer.",
+  alternates: { canonical: canonical("/coffee-terms") },
 };
 
 export default function CoffeeTermsPage() {

@@ -1,7 +1,7 @@
 import type { FaqItem } from "./faqs";
 import { schemaPricingPlans } from "./pricing";
 
-export const siteUrl = "https://quote-core.co.nz";
+export const siteUrl = "https://www.quote-core.co.nz";
 export const organizationId = `${siteUrl}/#organization`;
 export const websiteId = `${siteUrl}/#website`;
 export const softwareId = `${siteUrl}/#software`;
