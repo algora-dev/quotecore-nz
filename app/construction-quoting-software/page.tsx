@@ -207,7 +207,7 @@ export default function ConstructionQuotingSoftwarePage() {
             </nav>
             <a
               href="/free-trial"
-              className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#e85d2b]"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#BD4A1A] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#A03E15]"
             >
               Start free trial
             </a>
@@ -218,7 +218,7 @@ export default function ConstructionQuotingSoftwarePage() {
         <section className="relative overflow-hidden pb-16 pt-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,107,53,0.10),transparent_34%)]" />
           <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Construction Quoting Software</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BD4A1A]">Construction Quoting Software</p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
               Construction quoting software for trades that quote from measurements
             </h1>
@@ -227,13 +227,13 @@ export default function ConstructionQuotingSoftwarePage() {
             </p>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-zinc-600">
               QuoteCore+ is quoting software built for construction businesses that need to turn measurements into professional quotes faster. Built from real{" "}
-              <a href="/roofing-quoting-software" className="text-[#FF6B35] hover:underline">roofing</a>{" "}
+              <a href="/roofing-quoting-software" className="text-[#BD4A1A] hover:underline">roofing</a>{" "}
               experience. Designed for any trade.
             </p>
             <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a
                 href="/free-trial"
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-[#e85d2b]"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#BD4A1A] px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-[#A03E15]"
               >
                 Start free 14-day trial - no card required
               </a>
@@ -287,7 +287,7 @@ export default function ConstructionQuotingSoftwarePage() {
         {/* Smart Components™ */}
         <section id="smart-components" className="bg-zinc-50 py-20">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Smart Components™</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BD4A1A]">Smart Components™</p>
             <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Your quoting knowledge, saved properly.</h2>
             <p className="mt-6 text-lg leading-8 text-zinc-600">
               Most construction businesses already know how they price jobs. The problem is that knowledge is scattered across spreadsheets, old quotes, memory, photos, folders and notes.
@@ -344,7 +344,7 @@ export default function ConstructionQuotingSoftwarePage() {
                   <img src="/shaun-smiling.jpg" alt="Shaun" className="h-14 w-14 rounded-full object-cover border-2 border-[#FF6B35]/20 shrink-0" />
                   <div>
                     <p className="font-semibold text-zinc-950">Shaun</p>
-                    <p className="text-sm text-[#FF6B35]">Founder and construction lead, QuoteCore+</p>
+                    <p className="text-sm text-[#BD4A1A]">Founder and construction lead, QuoteCore+</p>
                   </div>
                 </div>
                 <h2 className="text-2xl font-semibold text-zinc-950">Built from inside the industry</h2>
@@ -359,7 +359,7 @@ export default function ConstructionQuotingSoftwarePage() {
                     He couldn&apos;t find software that understood how construction workflows actually work, so the QuoteCore+ team built the platform around that gap.
                   </p>
                   <p>
-                    QuoteCore+ started with <a href="/roofing-quoting-software" className="text-[#FF6B35] hover:underline">roofing</a> because that was the problem Shaun knew best. But the system solves a wider problem - for any trade that needs to turn measurements into professional quotes faster.
+                    QuoteCore+ started with <a href="/roofing-quoting-software" className="text-[#BD4A1A] hover:underline">roofing</a> because that was the problem Shaun knew best. But the system solves a wider problem - for any trade that needs to turn measurements into professional quotes faster.
                   </p>
                   <p className="font-medium text-zinc-800 italic">
                     &ldquo;I lived the quoting problem for years. The team built QuoteCore+ to clean up the workflow from measurement to getting paid.&rdquo;
@@ -380,7 +380,7 @@ export default function ConstructionQuotingSoftwarePage() {
                   <p className="font-semibold text-zinc-950">{f.q}</p>
                   <p className="mt-3 text-sm leading-7 text-zinc-600">
                     {f.a === "contact-link" ? (
-                      <>Email <a href="mailto:info@quote-core.com" className="text-[#FF6B35] hover:underline">info@quote-core.com</a> or book a free <a href="https://calendly.com/quote-core-info/15-minute-meeting" target="_blank" rel="noopener noreferrer" className="text-[#FF6B35] hover:underline">15-minute call with Shaun, who leads the team behind QuoteCore+</a>.</>
+                      <>Email <a href="mailto:info@quote-core.com" className="text-[#BD4A1A] hover:underline">info@quote-core.com</a> or book a free <a href="https://calendly.com/quote-core-info/15-minute-meeting" target="_blank" rel="noopener noreferrer" className="text-[#BD4A1A] hover:underline">15-minute call with Shaun, who leads the team behind QuoteCore+</a>.</>
                     ) : f.a}
                   </p>
                 </div>
@@ -397,7 +397,7 @@ export default function ConstructionQuotingSoftwarePage() {
           </p>
           <a
             href="/free-trial"
-            className="mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-10 py-3 text-base font-semibold text-white transition-colors hover:bg-[#e85d2b]"
+            className="mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-[#BD4A1A] px-10 py-3 text-base font-semibold text-white transition-colors hover:bg-[#A03E15]"
           >
             Start your free 14-day trial →
           </a>

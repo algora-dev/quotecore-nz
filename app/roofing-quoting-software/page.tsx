@@ -138,7 +138,7 @@ export default function RoofingQuotingSoftwarePage() {
             </nav>
             <a
               href="/free-trial"
-              className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#e85d2b]"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#BD4A1A] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#A03E15]"
             >
               Start free trial
             </a>
@@ -148,7 +148,7 @@ export default function RoofingQuotingSoftwarePage() {
         {/* Cross-trade notice */}
         <div className="bg-zinc-50 border-b border-zinc-200 py-3 px-6 text-center text-sm text-zinc-600">
           QuoteCore+ also works across cladding, flooring, fencing, landscaping, and other construction trades.{" "}
-          <a href="/construction-quoting-software" className="font-medium text-[#FF6B35] hover:underline">See the full construction quoting software page →</a>
+          <a href="/construction-quoting-software" className="font-medium text-[#BD4A1A] hover:underline">See the full construction quoting software page →</a>
         </div>
 
         {/* Hero */}
@@ -162,13 +162,13 @@ export default function RoofingQuotingSoftwarePage() {
               From takeoff to a professional, priced quote in minutes - without the spreadsheets, the re-entry, or the back-and-forth.
             </p>
             <div className="mt-6 mx-auto max-w-2xl rounded-xl border border-zinc-200 bg-zinc-50 px-5 py-4 text-left">
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#FF6B35] mb-2">Quick answer</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#BD4A1A] mb-2">Quick answer</p>
               <p className="text-sm leading-6 text-zinc-600">QuoteCore+ is roofing quoting software for contractors who quote from plans and want one connected workflow from digital takeoff to priced quote, customer approval, materials ordering, and job management. It may not be the right fit for roofers doing mostly reactive repair work or teams that mainly need mobile job dispatch.</p>
             </div>
             <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a
                 href="/free-trial"
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-[#e85d2b]"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#BD4A1A] px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-[#A03E15]"
               >
                 Start your free 14-day trial
               </a>
@@ -215,7 +215,7 @@ export default function RoofingQuotingSoftwarePage() {
 
         {/* Smart Components™ */}
         <section id="smart-components" className="mx-auto max-w-4xl px-6 py-20 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Smart Components™</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BD4A1A]">Smart Components™</p>
           <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Smart Components™ for roofing quotes</h2>
           <p className="mt-6 text-lg leading-8 text-zinc-600">
             Roofing quotes repeat more than people think. Materials, labour, waste, pitch, angles, lengths, areas, flashing details and pricing rules all come back again and again.
@@ -311,7 +311,7 @@ export default function RoofingQuotingSoftwarePage() {
           </p>
           <a
             href="/free-trial"
-            className="mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-10 py-3 text-base font-semibold text-white transition-colors hover:bg-[#e85d2b]"
+            className="mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-[#BD4A1A] px-10 py-3 text-base font-semibold text-white transition-colors hover:bg-[#A03E15]"
           >
             Start your free 14-day trial
           </a>

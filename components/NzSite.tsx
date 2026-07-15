@@ -31,7 +31,7 @@ export function NzHeader() {
           </a>
           <a
             href={nzMarket.trialUrl}
-            className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#e85d2b]"
+            className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#BD4A1A] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#A03E15]"
           >
             Start free trial
           </a>
@@ -85,7 +85,7 @@ export function CtaBand({
         <h2 className="mt-4 text-3xl font-semibold sm:text-5xl">{title}</h2>
         <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-zinc-300">{body}</p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <a href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-8 text-base font-semibold text-white hover:bg-[#e85d2b]">
+          <a href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#BD4A1A] px-8 text-base font-semibold text-white hover:bg-[#A03E15]">
             Contact us
           </a>
           <a href={nzMarket.callUrl} className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 px-8 text-base font-medium text-white hover:bg-white/10">

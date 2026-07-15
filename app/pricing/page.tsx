@@ -50,7 +50,7 @@ export default function PricingPage() {
               <a href="/contact" className="hidden min-h-11 items-center justify-center rounded-full border border-zinc-200 bg-white px-5 py-2.5 text-sm font-medium text-zinc-900 transition hover:border-[#FF6B35]/50 sm:inline-flex">
                 Contact us
               </a>
-              <a href="/free-trial" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#e85d2b]">
+              <a href="/free-trial" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#BD4A1A] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#A03E15]">
                 Start free trial
               </a>
             </div>
@@ -78,7 +78,7 @@ export default function PricingPage() {
                     Founding customer price:
                   </p>
                 )}
-                <p className="text-3xl font-semibold text-[#FF6B35]">{plan.price}</p>
+                <p className="text-3xl font-semibold text-[#BD4A1A]">{plan.price}</p>
                 {plan.regularPrice && (
                   <p className="text-sm text-zinc-500">
                     Regular price <s>{plan.regularPrice}</s>
@@ -91,7 +91,7 @@ export default function PricingPage() {
                   <li key={feature} className="flex items-start gap-2"><OrangeCheck />{feature}</li>
                 ))}
               </ul>
-              <a href="/free-trial" className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-5 text-sm font-semibold text-white hover:bg-[#e85d2b]">
+              <a href="/free-trial" className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full bg-[#BD4A1A] px-5 text-sm font-semibold text-white hover:bg-[#A03E15]">
                 Start free trial
               </a>
             </div>

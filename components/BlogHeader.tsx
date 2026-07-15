@@ -26,7 +26,7 @@ export default function BlogHeader({ backLabel, backHref = "/" }: { backLabel?: 
     `${headerButton} pill-shimmer border border-zinc-300 bg-white font-medium text-zinc-900 shadow-[0_6px_24px_rgba(255,255,255,0.18)_inset,0_10px_30px_rgba(0,0,0,0.04)] backdrop-blur-3xl hover:border-[#FF6B35]/40`;
 
   const trialButton =
-    `${headerButton} bg-[#FF6B35] font-semibold text-white shadow-[0_14px_34px_rgba(255,107,53,0.22)] hover:bg-[#e85d2b]`;
+    `${headerButton} bg-[#BD4A1A] font-semibold text-white shadow-[0_14px_34px_rgba(255,107,53,0.22)] hover:bg-[#A03E15]`;
 
   const menuButton =
     "pill-shimmer inline-flex h-12 w-12 items-center justify-center rounded-full border border-zinc-300 bg-white text-zinc-900 shadow-[0_8px_22px_rgba(15,23,42,0.08)] transition-colors duration-200 hover:border-[#FF6B35]/40";
@@ -90,7 +90,7 @@ export default function BlogHeader({ backLabel, backHref = "/" }: { backLabel?: 
                 <a
                   key={item.label}
                   href={item.href}
-                  className="flex items-center justify-between border-b border-zinc-100 py-3.5 text-base font-medium text-zinc-800 transition-colors hover:text-[#FF6B35]"
+                  className="flex items-center justify-between border-b border-zinc-100 py-3.5 text-base font-medium text-zinc-800 transition-colors hover:text-[#BD4A1A]"
                   onClick={() => setMenuOpen(false)}
                   {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 >
@@ -111,7 +111,7 @@ export default function BlogHeader({ backLabel, backHref = "/" }: { backLabel?: 
           <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 pb-6 pt-2 sm:flex-row lg:px-8">
             <a
               href="/free-trial"
-              className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full bg-[#FF6B35] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#e85d2b]"
+              className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full bg-[#BD4A1A] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#A03E15]"
               onClick={() => { trackEvent("free_trial_click", { location: "nav-menu" }); setMenuOpen(false); }}
             >
               Start free trial

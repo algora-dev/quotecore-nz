@@ -5,7 +5,7 @@ type OrangeCheckProps = {
 export default function OrangeCheck({ className = "" }: OrangeCheckProps) {
   return (
     <svg
-      className={`mt-[0.2em] h-4 w-4 shrink-0 text-[#FF6B35] ${className}`}
+      className={`mt-[0.2em] h-4 w-4 shrink-0 text-[#BD4A1A] ${className}`}
       viewBox="0 0 20 20"
       fill="currentColor"
       aria-hidden="true"
