@@ -55,6 +55,8 @@ export function NzFooter() {
         {" · "}
         <a href="/contact" className="hover:text-zinc-800">Contact</a>
         {" · "}
+        <a href="https://app.quote-core.com/docs" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-800">Documentation</a>
+        {" · "}
         <a href="/privacy" className="hover:text-zinc-800">Privacy</a>
         {" · "}
         <a href="/terms" className="hover:text-zinc-800">Terms</a>
