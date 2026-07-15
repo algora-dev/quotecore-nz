@@ -1120,7 +1120,7 @@ export default function HomePage() {
                 >
                   {[...testimonials, ...testimonials].map((t, idx) => (
                   // eslint-disable-next-line jsx-a11y/no-redundant-roles
-                    <div key={idx} className="w-1/3 shrink-0 px-3" aria-hidden="true">
+                    <div key={idx} className="w-1/3 shrink-0 px-3">
                       <div className="flex h-full flex-col rounded-[2rem] bg-white p-8 shadow-sm">
                         <TestimonialStars rating={t.rating ?? 5} />
                         <p className="flex-1 text-base leading-relaxed text-zinc-600">{carouselMounted ? <>&ldquo;{t.quote}&rdquo;</> : null}</p>
