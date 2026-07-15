@@ -29,7 +29,9 @@ export const metadata: Metadata = {
     canonical: `${site.url}/`,
     languages: {
       "en-NZ": `${site.url}/`,
-      "x-default": `${site.url}/`,
+      "en-US": "https://quote-core.com/",
+      "en-GB": "https://quote-core.com/",
+      "x-default": "https://quote-core.com/",
     },
   },
   openGraph: {
