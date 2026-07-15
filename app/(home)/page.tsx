@@ -453,11 +453,13 @@ export default function HomePage() {
                   autoPlay
                   muted
                   playsInline
-                  preload="auto"
+                  preload="metadata"
+                  aria-label="Product demo: QuoteCore+ quoting interface"
                   className="hero-video-float relative z-10 w-full max-w-none lg:w-[96%] lg:translate-x-4 xl:w-[104%] 2xl:w-[108%]"
                   style={{display: "block"}}
                 >
                   <source src="/qc-hero-laptop.mp4" type="video/mp4" />
+                  <track kind="descriptions" srcLang="en" label="Product demo video" />
                 </video>
               </div>
             </div>
@@ -485,10 +487,12 @@ export default function HomePage() {
                   muted
                   loop
                   playsInline
-                  preload="auto"
+                  preload="metadata"
+                  aria-label="Brand story video showing the QuoteCore+ team and product in action"
                   onTimeUpdate={handleVideoTimeUpdate}
                 >
                   <source src="/kids-horizontal.mp4" type="video/mp4" />
+                  <track kind="descriptions" srcLang="en" label="Brand story video" />
                 </video>
                 <div
                   className={`absolute inset-x-0 bottom-0 z-20 flex h-5 cursor-pointer items-end transition-opacity duration-200 ${videoHovered || videoScrubbing ? "opacity-100" : "opacity-80"}`}
@@ -560,7 +564,7 @@ export default function HomePage() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">The platform</p>
               <h2 className="mt-3 max-w-2xl text-3xl font-semibold text-white sm:text-4xl">Built for the way your business actually works.</h2>
               <p className="mt-3 max-w-2xl text-lg font-semibold text-white">Stop running one job through five different apps.</p>
-              <div className="mt-4 max-w-4xl space-y-4 text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
+              <div className="mt-4 max-w-4xl space-y-4 text-base leading-7 text-zinc-200 sm:text-lg sm:leading-8">
                 <p>
                   Every business has its own way of pricing, measuring and delivering work. Led by a Kiwi who knows how messy trade admin can get, QuoteCore+ captures that knowledge using Smart Components™ — turning your pricing, products, services, materials, labour and processes into a reusable digital workflow.
                 </p>
@@ -570,7 +574,7 @@ export default function HomePage() {
               </div>
               <div className="mt-5 rounded-xl border border-white/10 bg-white/5 px-5 py-3 sm:mt-6 sm:py-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#FF6B35] mb-2">Who&apos;s it for?</p>
-                <p className="text-base leading-7 text-zinc-300">QuoteCore+ is built for New Zealand trade, construction and service businesses that need to quote, manage work and get paid. From roofers and builders to electricians, landscapers, manufacturers and service teams, Smart Components™ adapt to the way you already work — making every future quote, job and invoice faster, easier and more consistent.</p>
+                <p className="text-base leading-7 text-zinc-200">QuoteCore+ is built for New Zealand trade, construction and service businesses that need to quote, manage work and get paid. From roofers and builders to electricians, landscapers, manufacturers and service teams, Smart Components™ adapt to the way you already work — making every future quote, job and invoice faster, easier and more consistent.</p>
               </div>
             </div>
             <div className="relative mt-5 flex flex-wrap gap-4 sm:mt-8">
@@ -959,7 +963,7 @@ export default function HomePage() {
               <div className="grid lg:grid-cols-2">
                 <div className="flex flex-col justify-center p-10">
                   <div className="mb-6 flex items-center gap-4">
-                    <img src="/shaun-smiling.jpg" alt="Shaun" className="h-14 w-14 rounded-full object-cover border-2 border-[#FF6B35]/20 shrink-0" />
+                    <img src="/shaun-smiling.jpg" alt="" className="h-14 w-14 rounded-full object-cover border-2 border-[#FF6B35]/20 shrink-0" />
                     <div>
                       <p className="font-semibold text-zinc-950">Shaun</p>
                       <p className="text-sm text-[#FF6B35]">Founder, <span className="brand-wordmark">QuoteCore<span className="brand-plus">+</span></span></p>
@@ -990,7 +994,7 @@ export default function HomePage() {
         </section>
 
         <div className="flex items-center justify-center gap-4 bg-zinc-200 px-6 py-6 sm:gap-6 sm:py-7">
-          <img src="/shaun-smiling.jpg" alt="Shaun" className="h-20 w-20 rounded-full object-cover border-2 border-[#FF6B35]/50 shrink-0 sm:h-24 sm:w-24" />
+          <img src="/shaun-smiling.jpg" alt="" className="h-20 w-20 rounded-full object-cover border-2 border-[#FF6B35]/50 shrink-0 sm:h-24 sm:w-24" />
           <div className="min-w-0 flex-1 sm:flex-none">
             <p className="mb-3 text-sm text-zinc-500 sm:mb-2">Book a 15-minute call with Shaun</p>
             <div className="grid max-w-xs grid-cols-1 gap-2 sm:flex sm:max-w-none sm:gap-3">
@@ -1010,7 +1014,7 @@ export default function HomePage() {
                     <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">
                       Help shape the future of QuoteCore+
                     </h2>
-                    <p className="mt-5 text-base leading-7 text-zinc-300 sm:text-lg sm:leading-8">
+                    <p className="mt-5 text-base leading-7 text-zinc-200 sm:text-lg sm:leading-8">
                       QuoteCore+ is built alongside the businesses that use it. If there&apos;s a feature, workflow or improvement that would genuinely make your day easier, tell us. Every suggestion is reviewed by our team, and if it helps businesses like yours, there&apos;s a good chance it&apos;ll become part of QuoteCore+.
                     </p>
                     <a
@@ -1029,7 +1033,7 @@ export default function HomePage() {
                     <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">
                       Think your current software does something better?
                     </h2>
-                    <p className="mt-5 text-base leading-7 text-zinc-300 sm:text-lg sm:leading-8">
+                    <p className="mt-5 text-base leading-7 text-zinc-200 sm:text-lg sm:leading-8">
                       Tell us why. We built QuoteCore+ to adapt to the way businesses actually work, and we&apos;re always looking for ways to improve. If your idea makes QuoteCore+ better for everyone, we&apos;ll seriously consider building it.
                     </p>
                     <a
@@ -1067,7 +1071,8 @@ export default function HomePage() {
               ))}
             </ul>
             {/* Mobile: single card carousel - decorative only, text rendered via data attrs to avoid crawler duplication */}
-            <div className="relative mt-14 lg:hidden" aria-hidden="true" data-nosnippet>
+            {/* Mobile: single card carousel - decorative card content hidden from crawlers; controls remain focusable */}
+            <div className="relative mt-14 lg:hidden" data-nosnippet>
               <div className="overflow-hidden">
                 <div
                   className="flex transition-transform duration-500 ease-in-out"
@@ -1090,21 +1095,24 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <button type="button" onClick={() => setActiveTestimonial((p) => (p - 1 + testimonials.length) % testimonials.length)} className="absolute -left-5 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white shadow-sm transition-colors hover:bg-zinc-50" aria-label="Previous">
+              <button type="button" onClick={() => setActiveTestimonial((p) => (p - 1 + testimonials.length) % testimonials.length)} className="absolute -left-5 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 bg-white shadow-sm transition-colors hover:bg-zinc-50" aria-label="Previous">
                 <svg className="h-4 w-4 text-zinc-600" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
               </button>
-              <button type="button" onClick={() => setActiveTestimonial((p) => (p + 1) % testimonials.length)} className="absolute -right-5 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white shadow-sm transition-colors hover:bg-zinc-50" aria-label="Next">
+              <button type="button" onClick={() => setActiveTestimonial((p) => (p + 1) % testimonials.length)} className="absolute -right-5 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 bg-white shadow-sm transition-colors hover:bg-zinc-50" aria-label="Next">
                 <svg className="h-4 w-4 text-zinc-600" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" /></svg>
               </button>
-              {/* Dot indicators */}
-              <div className="mt-6 flex justify-center gap-2">
+              {/* Dot indicators — larger hit area, small visual dot */}
+              <div className="mt-6 flex justify-center gap-1">
                 {testimonials.map((_, idx) => (
-                  <button key={idx} type="button" onClick={() => setActiveTestimonial(idx)} className={`h-2 w-2 rounded-full transition-colors ${idx === activeTestimonial ? "bg-[#FF6B35]" : "bg-zinc-300"}`} aria-label={`Go to testimonial ${idx + 1}`} />
+                  <button key={idx} type="button" onClick={() => setActiveTestimonial(idx)} className="inline-flex h-11 w-11 items-center justify-center rounded-full" aria-label={`Go to testimonial ${idx + 1}`}>
+                    <span className={`h-2 w-2 rounded-full transition-colors ${idx === activeTestimonial ? "bg-[#FF6B35]" : "bg-zinc-300"}`} />
+                  </button>
                 ))}
               </div>
             </div>
             {/* Desktop: 3-column carousel - decorative only, text suppressed from crawlers */}
-            <div className="relative mt-14 hidden lg:block" aria-hidden="true" data-nosnippet>
+            {/* Desktop: 3-column carousel - decorative card content hidden from crawlers; controls remain focusable */}
+            <div className="relative mt-14 hidden lg:block" data-nosnippet>
               <div className="overflow-hidden">
                 <div
                   className="flex transition-transform duration-500 ease-in-out"
@@ -1112,7 +1120,7 @@ export default function HomePage() {
                 >
                   {[...testimonials, ...testimonials].map((t, idx) => (
                   // eslint-disable-next-line jsx-a11y/no-redundant-roles
-                    <div key={idx} className="w-1/3 shrink-0 px-3" aria-hidden="true">
+                    <div key={idx} className="w-1/3 shrink-0 px-3" aria-hidden="true" tabIndex={-1}>
                       <div className="flex h-full flex-col rounded-[2rem] bg-white p-8 shadow-sm">
                         <TestimonialStars rating={t.rating ?? 5} />
                         <p className="flex-1 text-base leading-relaxed text-zinc-600">{carouselMounted ? <>&ldquo;{t.quote}&rdquo;</> : null}</p>
@@ -1128,10 +1136,10 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <button type="button" onClick={() => setActiveTestimonial((p) => (p - 1 + testimonials.length) % testimonials.length)} className="absolute -left-5 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white shadow-sm transition-colors hover:bg-zinc-50" aria-label="Previous">
+              <button type="button" onClick={() => setActiveTestimonial((p) => (p - 1 + testimonials.length) % testimonials.length)} className="absolute -left-5 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 bg-white shadow-sm transition-colors hover:bg-zinc-50" aria-label="Previous">
                 <svg className="h-4 w-4 text-zinc-600" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
               </button>
-              <button type="button" onClick={() => setActiveTestimonial((p) => (p + 1) % (testimonials.length * 2 - 2))} className="absolute -right-5 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white shadow-sm transition-colors hover:bg-zinc-50" aria-label="Next">
+              <button type="button" onClick={() => setActiveTestimonial((p) => (p + 1) % (testimonials.length * 2 - 2))} className="absolute -right-5 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 bg-white shadow-sm transition-colors hover:bg-zinc-50" aria-label="Next">
                 <svg className="h-4 w-4 text-zinc-600" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" /></svg>
               </button>
             </div>
@@ -1153,7 +1161,7 @@ export default function HomePage() {
                 <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
                   Simple, transparent pricing.
                 </h2>
-                <p className="mt-3 text-zinc-400">
+                <p className="mt-3 text-zinc-200">
                   Start with a full feature 14 day free trial. No card required, early user prices + full customer support.
                 </p>
               </div>
@@ -1192,18 +1200,18 @@ export default function HomePage() {
                           {plan.nzd}
                           {!plan.isFree && !plan.comingSoon && (
                             <span className={`ml-1 align-baseline text-sm font-medium ${
-                              plan.featured ? "text-zinc-400" : "text-zinc-500"
+                              plan.featured ? "text-zinc-200" : "text-zinc-400"
                             }`}>/mo</span>
                           )}
                         </p>
                         {!plan.isFree && !plan.comingSoon && plan.originalNzd && (
-                          <p className={`text-sm ${plan.featured ? "text-zinc-500" : "text-zinc-400"}`}>
+                          <p className={`text-sm ${plan.featured ? "text-zinc-400" : "text-zinc-500"}`}>
                             Regular price <s>{plan.originalNzd}/mo</s>
                           </p>
                         )}
                       </div>
                       <p className={`mt-3 text-sm ${
-                        plan.featured ? "text-zinc-500" : "text-zinc-400"
+                        plan.featured ? "text-zinc-400" : "text-zinc-500"
                       }`}>{plan.subtitle}</p>
                       <ul className="mt-6 flex-1 space-y-2">
                         {plan.features.map((f) => (
@@ -1211,7 +1219,7 @@ export default function HomePage() {
                             <svg className="h-4 w-4 shrink-0 text-[#FF6B35]" viewBox="0 0 20 20" fill="currentColor">
                               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                             </svg>
-                            <span className={plan.featured ? "text-zinc-700" : "text-zinc-300"}>{f}</span>
+                            <span className={plan.featured ? "text-zinc-600" : "text-zinc-400"}>{f}</span>
                           </li>
                         ))}
                       </ul>
@@ -1239,7 +1247,7 @@ export default function HomePage() {
                 <p className="mt-8 text-center text-sm text-zinc-500">
                   Founding customer pricing shown. GST and taxes are calculated at checkout where applicable.
                 </p>
-                <p className="mt-3 text-center text-sm text-zinc-400">
+                <p className="mt-3 text-center text-sm text-zinc-200">
                   Not sure which plan fits?{" "}
                   <a
                     href="https://calendly.com/quote-core-info/15-minute-meeting"
@@ -1313,7 +1321,7 @@ export default function HomePage() {
                       Book a Call
                     </a>
                   </div>
-                  <p className="mt-5 text-sm text-zinc-400">No card required. 14 days free.</p>
+                  <p className="mt-5 text-sm text-zinc-500">No card required. 14 days free.</p>
                 </div>
 
                 <div className="relative min-h-[240px] overflow-hidden bg-[radial-gradient(circle_at_85%_24%,rgba(255,255,255,0.18),transparent_28%),linear-gradient(160deg,#ff965a_0%,#ff6b35_45%,#ff4f25_100%)] p-6 sm:min-h-[360px] sm:p-12">
