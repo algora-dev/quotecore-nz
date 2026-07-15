@@ -12,7 +12,12 @@ export function NzHeader() {
         </a>
         <nav className="hidden items-center gap-5 text-sm font-medium text-zinc-600 lg:flex">
           {nzNav.map((item) => (
-            <a key={item.href} href={item.href} className="hover:text-zinc-950">
+            <a
+              key={item.href}
+              href={item.href}
+              className="hover:text-zinc-950"
+              {...("external" in item && item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            >
               {item.label}
             </a>
           ))}
