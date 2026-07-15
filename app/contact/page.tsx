@@ -196,8 +196,8 @@ export default function ContactPage() {
                 )}
 
                 {status === "success" && (
-                  <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#d7ff00]/40 bg-[#d7ff00]/10 px-6 py-8 text-center">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#d7ff00] text-xl font-bold text-zinc-900">&#10003;</div>
+                  <div className="flex flex-col items-center gap-3 rounded-2xl border border-green-200 bg-green-50 px-6 py-8 text-center">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-xl font-bold text-white">&#10003;</div>
                     <p className="text-lg font-bold text-zinc-900">Message sent!</p>
                     <p className="text-sm text-zinc-500">We&apos;ll be in touch within 24 hours. Check your inbox - we&apos;ve sent you a copy too.</p>
                   </div>
