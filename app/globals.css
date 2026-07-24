@@ -19,9 +19,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-a, button, [role="button"], select, label[for] {
+a, button:not(:disabled), [role="button"], select, label[for] {
   cursor: pointer;
 }
+
+/* ── Marketing styles ── */
 
 .banner-track {
   display: flex;
@@ -36,52 +38,255 @@ a, button, [role="button"], select, label[for] {
   color: #FF6B35;
 }
 
+/* Premium pill shimmer effect */
 .pill-shimmer {
   position: relative;
-  isolation: isolate;
-  overflow: hidden;
+  background: white;
 }
 
 .pill-shimmer::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
-  border-radius: inherit;
+  border-radius: 9999px;
   padding: 2px;
   background: linear-gradient(
     90deg,
     transparent 0%,
     transparent 40%,
-    #ff6b35 50%,
+    #FF6B35 50%,
     transparent 60%,
     transparent 100%
   );
   background-size: 200% 100%;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  background-repeat: no-repeat;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none;
 }
 
+.pill-shimmer--playing::before {
+  opacity: 1;
+  animation: shimmer 0.975s linear 1 forwards;
+}
+
+@keyframes shimmer {
+  0% { background-position: -50% center; }
+  100% { background-position: 150% center; }
+}
+
+/* Legacy pill shimmer (hover-based, for components that still use it) */
 .pill-shimmer:hover::before {
   opacity: 1;
-  animation: shimmerBorder 1.5s linear infinite;
-}
-
-@keyframes shimmerBorder {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
+  animation: shimmer 1.5s linear infinite;
 }
 
 @keyframes floatBubble {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
+}
+
+/* Assistant launcher pulse */
+@keyframes assistant-launcher-pulse {
+  0%, 100% {
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.28),
+                0 0 0 0 rgba(255, 107, 53, 0.0);
+  }
+  50% {
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.28),
+                0 0 14px 3px rgba(255, 107, 53, 0.32);
+  }
+}
+.assistant-launcher {
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.28);
+  animation: assistant-launcher-pulse 3.2s ease-in-out infinite;
+  transition: transform 0.15s ease-out;
+}
+.assistant-launcher:hover {
+  animation-play-state: paused;
+  transform: scale(1.12);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.32),
+              0 0 16px 4px rgba(255, 107, 53, 0.55);
+}
+
+/* Assistant typing indicator */
+.assistant-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 0;
+}
+.assistant-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: currentColor;
+  opacity: 0.4;
+  animation: assistant-typing-bounce 1.2s infinite ease-in-out both;
+}
+.assistant-typing span:nth-child(2) { animation-delay: 0.15s; }
+.assistant-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes assistant-typing-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ── Legal document typography ── */
+
+.legal-doc h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e2e8f0;
+  scroll-margin-top: 6rem;
+}
+.legal-doc h2:first-child { border-top: 0; padding-top: 0; margin-top: 0.5rem; }
+
+.legal-doc h3 {
+  font-size: 1.05rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-doc p {
+  margin-top: 0.85rem;
+  margin-bottom: 0.85rem;
+  color: #334155;
+}
+
+.legal-doc ul, .legal-doc ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.85rem;
+  padding-left: 1.5rem;
+}
+.legal-doc ul { list-style: disc; }
+.legal-doc ol { list-style: decimal; }
+.legal-doc li {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  color: #334155;
+}
+.legal-doc li > p { margin-top: 0; margin-bottom: 0; }
+
+.legal-doc a {
+  color: #ea580c;
+  text-decoration: none;
+}
+.legal-doc a:hover { text-decoration: underline; }
+
+.legal-doc strong { color: #0f172a; font-weight: 600; }
+
+.legal-doc code {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.85em;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+  padding: 0.05rem 0.35rem;
+  color: #334155;
+}
+
+.legal-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+.legal-doc th, .legal-doc td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+.legal-doc th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #0f172a;
+  border-bottom: 2px solid #e2e8f0;
+}
+.legal-doc td code { white-space: nowrap; }
+
+/* ── Mobile foundation utilities ── */
+
+.safe-top { padding-top: env(safe-area-inset-top); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+.safe-left { padding-left: env(safe-area-inset-left); }
+.safe-right { padding-right: env(safe-area-inset-right); }
+
+.dvh-screen {
+  height: 100vh;
+  height: 100dvh;
+}
+.min-dvh-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-thin {
+  overflow-x: scroll !important;
+  overflow-y: hidden !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 107, 53, 0.4) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 107, 53, 0.4);
+  border-radius: 3px;
+}
+.scrollbar-thin:hover::-webkit-scrollbar-thumb,
+.scrollbar-thin:active::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 107, 53, 0.75);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid rgba(255, 107, 53, 0.55);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (max-width: 767px) {
+  .help-drawer-panel {
+    width: 100vw !important;
+  }
 }

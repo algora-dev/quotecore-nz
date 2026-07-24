@@ -10,6 +10,7 @@ export type PricingPlan = {
   comingSoon: boolean;
   isFree: boolean;
   includeInSchema: boolean;
+  contactUs?: boolean;
 };
 
 export const pricingPlans: PricingPlan[] = [

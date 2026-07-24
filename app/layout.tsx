@@ -6,6 +6,7 @@ import CookieConsent from "@/components/CookieConsent";
 import BrandFormatter from "@/components/BrandFormatter";
 import SiteAssistant from "@/components/SiteAssistant";
 import { homepageSchema, jsonLd, site } from "@/lib/seo";
+import { PillShimmerScript } from "./components/PillShimmerScript";
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -62,6 +63,7 @@ export default function RootLayout({
         <CookieConsent />
         <BrandFormatter />
         <SiteAssistant />
+        <PillShimmerScript />
         {/* Google Analytics 4 — loads gtag.js with Consent Mode default denied.
             Optional tracking scripts (Clarity, Meta Pixel, LinkedIn) are
             loaded conditionally by CookieConsent after user accepts. */}

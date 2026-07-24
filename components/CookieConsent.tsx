@@ -128,7 +128,7 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={() => apply(true, true)}
-                className="rounded-full bg-[#BD4A1A] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#A03E15]"
+                className="rounded-full bg-[#FF6B35] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#E55A28]"
               >
                 Accept all
               </button>
@@ -176,7 +176,7 @@ export default function CookieConsent() {
                   role="switch"
                   aria-checked={analyticsChecked}
                   onClick={() => setAnalyticsChecked((p) => !p)}
-                  className={`mt-1 shrink-0 relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${
+                  className={`mt-1 shrink-0 relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:ring-offset-2 ${
                     analyticsChecked ? "bg-[#FF6B35]" : "bg-zinc-300"
                   }`}
                 >
@@ -201,7 +201,7 @@ export default function CookieConsent() {
                   role="switch"
                   aria-checked={marketingChecked}
                   onClick={() => setMarketingChecked((p) => !p)}
-                  className={`mt-1 shrink-0 relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${
+                  className={`mt-1 shrink-0 relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:ring-offset-2 ${
                     marketingChecked ? "bg-[#FF6B35]" : "bg-zinc-300"
                   }`}
                 >
@@ -225,7 +225,7 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={() => apply(analyticsChecked, marketingChecked)}
-                className="rounded-full bg-[#BD4A1A] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#A03E15]"
+                className="rounded-full bg-[#FF6B35] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#E55A28]"
               >
                 Save choices
               </button>

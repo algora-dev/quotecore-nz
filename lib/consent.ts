@@ -1,5 +1,4 @@
 export const CONSENT_KEY = "qc_cookie_consent";
-export const CURRENCY_KEY = "qc_currency";
 export const CONSENT_VERSION = "1.0";
 
 export interface ConsentPrefs {
@@ -34,16 +33,4 @@ export function saveConsent(analytics: boolean, marketing: boolean): ConsentPref
 
 export function hasConsented(): boolean {
   return getConsent() !== null;
-}
-
-export function getSavedCurrency(): "NZD" | null {
-  if (typeof window === "undefined") return null;
-  const val = localStorage.getItem(CURRENCY_KEY);
-  return val === "NZD" ? val : null;
-}
-
-export function saveCurrency(currency: "NZD"): void {
-  if (typeof window !== "undefined") {
-    localStorage.setItem(CURRENCY_KEY, currency);
-  }
 }

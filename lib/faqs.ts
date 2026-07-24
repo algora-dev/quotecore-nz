@@ -7,7 +7,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "Who is QuoteCore+ built for?",
     answer:
-      "Built for New Zealand contractors, builders, roofers, and trade businesses who want a faster, cleaner, and more professional way to measure, quote, store, and manage jobs digitally.",
+      "Built for contractors, builders, and tradespeople who want a faster, cleaner, and a more professional way to measure, quote, store, and manage jobs digitally.",
   },
   {
     question: "How fast can I create a quote?",
@@ -27,11 +27,11 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "Why do contractors switch to QuoteCore+?",
     answer:
-      "Because it saves time, reduces quote admin, connects disjointed systems, improves professionalism, and keeps job information organised in one place. It also helps Kiwi trade businesses quote with more confidence around materials, labour, waste, and margin.",
+      "Because it saves time, reduces paperwork, solidifies disjointed systems, improves professionalism, and keeps everything organised in one place. It is also a very accurate system, allowing precise quotes and confident profit margins.",
   },
   {
     question: "Is QuoteCore+ only for roofers?",
     answer:
-      "No. QuoteCore+ started in roofing - that's where our founder's trade experience is - but it's built for businesses that measure, price, and quote jobs. Roofing, cladding, flooring, fencing, landscaping, general building work, exterior works, and more.",
+      "No. QuoteCore+ started in roofing - that's where our founder's experience is - but it's built for construction businesses that measure, price, and quote jobs. Roofing, cladding, flooring, fencing, landscaping, general building work, and more.",
   },
 ];

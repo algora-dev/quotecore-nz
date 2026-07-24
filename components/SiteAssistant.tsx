@@ -35,85 +35,85 @@ const docsTopics = [
   {
     pattern: /(first quote|getting started|start|setup|set up|company)/,
     label: "Read the getting started docs",
-    href: "/docs/getting-started/your-first-quote",
+    href: "https://app.quote-core.com/docs/getting-started/your-first-quote",
     text: "The docs walk through setting up your company and creating your first quote, which is the best place to start if you are new to QuoteCore+.",
   },
   {
     pattern: /(digital takeoff|takeoff|measure|measuring|plan|plans)/,
     label: "Read the digital takeoff docs",
-    href: "/docs/building-a-quote/digital-takeoff",
+    href: "https://app.quote-core.com/docs/building-a-quote/digital-takeoff",
     text: "Digital takeoff is covered in the docs, including how to measure from a plan and use those measurements in your quoting workflow.",
   },
   {
     pattern: /(component|components|smart component|smart components|extras)/,
     label: "Read the components docs",
-    href: "/docs/components/overview",
+    href: "https://app.quote-core.com/docs/components/overview",
     text: "Components are reusable quote items you can save and reuse, including measurements, materials, labour, waste, and pricing rules.",
   },
   {
     pattern: /(catalog|catalogue|supplier price|price list|price lists)/,
     label: "Read the catalog docs",
-    href: "/docs/catalog/overview",
+    href: "https://app.quote-core.com/docs/catalog/overview",
     text: "The catalog docs cover uploading supplier price lists, mapping columns, and using catalog items in quotes and orders.",
   },
   {
     pattern: /(attachment|attachments|file|files|quote files|storage)/,
     label: "Read the attachments docs",
-    href: "/docs/attachments/overview",
+    href: "https://app.quote-core.com/docs/attachments/overview",
     text: "The docs explain how attachments and quote files work, including reusable library files and sending attachments to customers.",
   },
   {
     pattern: /(template|templates|quote template|email template|customer quote template)/,
     label: "Read the templates docs",
-    href: "/docs/templates/quote-templates",
+    href: "https://app.quote-core.com/docs/templates/quote-templates",
     text: "Templates help speed up repeat work. The docs cover quote templates, customer quote templates, email templates, and labour sheet templates.",
   },
   {
     pattern: /(send|acceptance|accepted|customer editor|customer quote|withdraw|approval)/,
     label: "Read the customer quote docs",
-    href: "/docs/customer-facing/sending-and-acceptance",
+    href: "https://app.quote-core.com/docs/customer-facing/sending-and-acceptance",
     text: "The customer-facing docs explain how customers view, accept, and interact with quotes, plus how withdrawing a quote works.",
   },
   {
     pattern: /(follow up|follow-up|follow ups|follow-ups|reminder|reminders)/,
     label: "Read the follow-up docs",
-    href: "/docs/follow-ups/follow-ups",
+    href: "https://app.quote-core.com/docs/follow-ups/follow-ups",
     text: "Follow-ups are covered in the docs, including how automated quote reminders help you keep track after sending a quote.",
   },
   {
     pattern: /(material|materials|order|orders|supplier|suppliers)/,
     label: "Read the material orders docs",
-    href: "/docs/material-orders/order-from-a-quote",
+    href: "https://app.quote-core.com/docs/material-orders/order-from-a-quote",
     text: "Material order docs cover creating orders, choosing order layouts, supplier templates, line-by-line editing, and ordering from a quote.",
   },
   {
     pattern: /(invoice|invoices|invoicing|payment|paid)/,
     label: "Read the invoice docs",
-    href: "/docs/invoices/create-an-invoice",
+    href: "https://app.quote-core.com/docs/invoices/create-an-invoice",
     text: "The invoice docs explain creating invoices, editing invoice details, sending invoices, invoice templates, and tracking payment.",
   },
   {
     pattern: /(message|messages|notification|notifications|inbox|activity)/,
     label: "Read the Message Center docs",
-    href: "/docs/message-center/overview",
+    href: "https://app.quote-core.com/docs/message-center/overview",
     text: "Message Center docs cover where alerts, quote activity, order updates, invoice updates, and messages are managed.",
   },
   {
     pattern: /(trial|free trial|14 day|14-day|credit card|card)/,
     label: "Read the free trial docs",
-    href: "/docs/account/trial",
+    href: "https://app.quote-core.com/docs/account/trial",
     text: "The free trial docs explain the 14-day trial, what is included, and what happens when the trial ends.",
   },
   {
     pattern: /(billing|upgrade|cancel|plan|plans|tier|limit|limits|pricing|price|cost|starter|lite)/,
     label: "Read the billing docs",
-    href: "/docs/account/billing",
+    href: "https://app.quote-core.com/docs/account/billing",
     text: "Billing and account docs cover plans, tier limits, upgrading, cancelling, and account settings.",
   },
   {
     pattern: /(q|copilot|guide me|guide|assistant|support|contact)/,
     label: "Read the support docs",
-    href: "/docs/help/support-and-contact",
+    href: "https://app.quote-core.com/docs/help/support-and-contact",
     text: "The help docs cover Q, Guide me, support, contact options, FAQs, and product updates.",
   },
 ];
@@ -130,14 +130,14 @@ function shouldShowHowItWorks(message: string, matchedTopic?: (typeof docsTopics
   if (!matchedTopic) return false;
 
   return [
-    "/docs/getting-started/your-first-quote",
-    "/docs/building-a-quote/digital-takeoff",
-    "/docs/components/overview",
-    "/docs/customer-facing/sending-and-acceptance",
-    "/docs/follow-ups/follow-ups",
-    "/docs/material-orders/order-from-a-quote",
-    "/docs/invoices/create-an-invoice",
-    "/docs/message-center/overview",
+    "https://app.quote-core.com/docs/getting-started/your-first-quote",
+    "https://app.quote-core.com/docs/building-a-quote/digital-takeoff",
+    "https://app.quote-core.com/docs/components/overview",
+    "https://app.quote-core.com/docs/customer-facing/sending-and-acceptance",
+    "https://app.quote-core.com/docs/follow-ups/follow-ups",
+    "https://app.quote-core.com/docs/material-orders/order-from-a-quote",
+    "https://app.quote-core.com/docs/invoices/create-an-invoice",
+    "https://app.quote-core.com/docs/message-center/overview",
   ].includes(matchedTopic.href);
 }
 
@@ -158,7 +158,7 @@ function getAnswer(rawMessage: string): ChatMessage {
       sectionLink: howItWorksLink,
       link: {
         label: "Open the docs library",
-        href: docsLink("/docs"),
+        href: docsLink("https://app.quote-core.com/docs"),
       },
     };
   }
@@ -170,7 +170,7 @@ function getAnswer(rawMessage: string): ChatMessage {
       sectionLink: howItWorksLink,
       link: {
         label: matchedTopic?.label || "Open the docs library",
-        href: matchedTopic ? docsLink(matchedTopic.href) : docsLink("/docs"),
+        href: matchedTopic ? docsLink(matchedTopic.href) : docsLink("https://app.quote-core.com/docs"),
       },
     };
   }
@@ -201,7 +201,7 @@ function getAnswer(rawMessage: string): ChatMessage {
       text: "QuoteCore+ starts with a 14-day free trial. After that, there is a limited Lite plan, plus paid plans from Starter at $19/month for solo traders who quote regularly.",
       link: {
         label: "Read the billing docs",
-        href: docsLink("/docs/account/billing"),
+        href: docsLink("https://app.quote-core.com/docs/account/billing"),
       },
     };
   }
@@ -212,7 +212,7 @@ function getAnswer(rawMessage: string): ChatMessage {
       text: "The free trial gives you 14 days to test the full quoting workflow. No credit card is required.",
       link: {
         label: "Read the free trial docs",
-        href: docsLink("/docs/account/trial"),
+        href: docsLink("https://app.quote-core.com/docs/account/trial"),
       },
     };
   }
@@ -223,7 +223,7 @@ function getAnswer(rawMessage: string): ChatMessage {
       text: "You can start with the 14-day free trial. After the trial, you can continue on a limited free plan or upgrade when you are ready.",
       link: {
         label: "Read the free trial docs",
-        href: docsLink("/docs/account/trial"),
+        href: docsLink("https://app.quote-core.com/docs/account/trial"),
       },
     };
   }
@@ -235,7 +235,7 @@ function getAnswer(rawMessage: string): ChatMessage {
       sectionLink: howItWorksLink,
       link: {
         label: "Read the invoice docs",
-        href: docsLink("/docs/invoices/create-an-invoice"),
+        href: docsLink("https://app.quote-core.com/docs/invoices/create-an-invoice"),
       },
     };
   }
@@ -247,7 +247,7 @@ function getAnswer(rawMessage: string): ChatMessage {
       sectionLink: howItWorksLink,
       link: {
         label: "Read the material orders docs",
-        href: docsLink("/docs/material-orders/order-from-a-quote"),
+        href: docsLink("https://app.quote-core.com/docs/material-orders/order-from-a-quote"),
       },
     };
   }
@@ -259,7 +259,7 @@ function getAnswer(rawMessage: string): ChatMessage {
       sectionLink: howItWorksLink,
       link: {
         label: "Read the quote builder docs",
-        href: docsLink("/docs/building-a-quote/quote-builder"),
+        href: docsLink("https://app.quote-core.com/docs/building-a-quote/quote-builder"),
       },
     };
   }
@@ -278,7 +278,7 @@ function getAnswer(rawMessage: string): ChatMessage {
       sectionLink: howItWorksLink,
       link: {
         label: "Open the docs library",
-        href: docsLink("/docs"),
+        href: docsLink("https://app.quote-core.com/docs"),
       },
     };
   }
@@ -454,7 +454,7 @@ export default function SiteAssistant() {
                       key={question}
                       type="button"
                       onClick={() => askQuestion(question)}
-                      className="min-h-10 rounded-full border border-zinc-200 bg-white px-3 py-2 text-left text-[12px] font-semibold leading-4 text-zinc-700 transition hover:border-[#FF6B35]/40 hover:text-[#BD4A1A]"
+                      className="min-h-10 rounded-full border border-zinc-200 bg-white px-3 py-2 text-left text-[12px] font-semibold leading-4 text-zinc-700 transition hover:border-[#FF6B35]/40 hover:text-[#FF6B35]"
                     >
                       {question}
                     </button>
@@ -465,12 +465,12 @@ export default function SiteAssistant() {
                   <div className="mt-5 space-y-3">
                     {messages.map((message, index) => (
                       <div key={`${message.sender}-${index}`} className={`flex ${message.sender === "visitor" ? "justify-end" : "justify-start"}`}>
-                        <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-6 ${message.sender === "visitor" ? "bg-[#BD4A1A] text-white" : "bg-zinc-100 text-zinc-700"}`}>
+                        <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-6 ${message.sender === "visitor" ? "bg-[#FF6B35] text-white" : "bg-zinc-100 text-zinc-700"}`}>
                           {message.text}
                           {message.sectionLink && (
                             <a
                               href={message.sectionLink.href}
-                              className={`mt-3 block w-fit rounded-full px-4 py-2 text-xs font-semibold transition ${message.sender === "visitor" ? "bg-white text-[#BD4A1A]" : "bg-[#BD4A1A] text-white hover:bg-[#A03E15]"}`}
+                              className={`mt-3 block w-fit rounded-full px-4 py-2 text-xs font-semibold transition ${message.sender === "visitor" ? "bg-white text-[#FF6B35]" : "bg-[#FF6B35] text-white hover:bg-[#E55A28]"}`}
                             >
                               {message.sectionLink.label}
                             </a>
@@ -480,7 +480,7 @@ export default function SiteAssistant() {
                               href={message.link.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={`mt-3 block w-fit rounded-full px-4 py-2 text-xs font-semibold transition ${message.sender === "visitor" ? "bg-white text-[#BD4A1A]" : "bg-white text-[#BD4A1A] hover:bg-orange-50"}`}
+                              className={`mt-3 block w-fit rounded-full px-4 py-2 text-xs font-semibold transition ${message.sender === "visitor" ? "bg-white text-[#FF6B35]" : "bg-white text-[#FF6B35] hover:bg-orange-50"}`}
                             >
                               {message.link.label}
                             </a>
@@ -489,7 +489,7 @@ export default function SiteAssistant() {
                             <button
                               type="button"
                               onClick={startContact}
-                              className="mt-3 block rounded-full bg-white px-4 py-2 text-xs font-semibold text-[#BD4A1A]"
+                              className="mt-3 block rounded-full bg-white px-4 py-2 text-xs font-semibold text-[#FF6B35]"
                             >
                               Get in touch
                             </button>
@@ -513,7 +513,7 @@ export default function SiteAssistant() {
                 />
                 <button
                   type="submit"
-                  className="rounded-full bg-[#BD4A1A] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#A03E15]"
+                  className="rounded-full bg-[#FF6B35] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#E55A28]"
                 >
                   Send
                 </button>
@@ -529,7 +529,7 @@ export default function SiteAssistant() {
                   <button
                     type="button"
                     onClick={() => setMode("ask")}
-                    className="mt-6 rounded-full bg-[#BD4A1A] px-5 py-2.5 text-sm font-semibold text-white"
+                    className="mt-6 rounded-full bg-[#FF6B35] px-5 py-2.5 text-sm font-semibold text-white"
                   >
                     Back to Q
                   </button>
@@ -574,7 +574,7 @@ export default function SiteAssistant() {
                   <button
                     type="submit"
                     disabled={contactStatus === "loading"}
-                    className="w-full rounded-full bg-[#BD4A1A] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#A03E15] disabled:opacity-60"
+                    className="w-full rounded-full bg-[#FF6B35] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#E55A28] disabled:opacity-60"
                   >
                     {contactStatus === "loading" ? "Sending..." : "Send message"}
                   </button>

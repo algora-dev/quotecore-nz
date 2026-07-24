@@ -1,27 +1,18 @@
 import type { Metadata } from "next";
+import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
-import { canonical } from "@/lib/nz";
-import { hreflangLanguages } from "@/lib/hreflang";
+import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
   title: "Coffee Offer Terms & Conditions | QuoteCore+",
   description: "Terms and conditions for the QuoteCore+ free coffee offer.",
-  alternates: { canonical: canonical("/coffee-terms"), languages: hreflangLanguages("/coffee-terms") },
+  alternates: { canonical: "https://quote-core.com/coffee-terms", languages: hreflangLanguages("/coffee-terms") },
 };
 
 export default function CoffeeTermsPage() {
   return (
     <main className="min-h-screen bg-white text-zinc-950">
-      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          <a href="/" className="flex items-center gap-3">
-            <img src="/MainQCP.png" alt="QuoteCore+" className="h-10 w-auto" />
-          </a>
-          <a href="/" className="inline-flex h-11 items-center justify-center rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-50">
-            Back to homepage
-          </a>
-        </div>
-      </header>
+      <BlogHeader />
 
       <div className="mx-auto max-w-3xl px-6 py-20 lg:px-8">
         <h1 className="text-4xl font-semibold tracking-tight">Coffee Offer Terms & Conditions</h1>
@@ -31,8 +22,8 @@ export default function CoffeeTermsPage() {
           <p>These Terms & Conditions apply to the QuoteCore+ free coffee offer.</p>
 
           <h2>1. The offer</h2>
-          <p>QuoteCore+ is offering eligible participants a free coffee voucher as a thank-you for attending a short 15-minute call with Shaun, who leads the team behind QuoteCore+, and providing genuine, constructive feedback.</p>
-          <p>During the call, Shaun may show how the QuoteCore+ platform works and how it can help trade businesses with quoting, materials, job tracking, invoicing, and getting paid.</p>
+          <p>QuoteCore+ is offering eligible participants a free coffee voucher as a thank-you for attending a short 15-minute call with Shaun about QuoteCore+ and providing genuine, constructive feedback.</p>
+          <p>During the call, Shaun may show how QuoteCore+ works and how it can help roofing businesses with quoting, materials, and job admin.</p>
 
           <h2>2. Eligibility</h2>
           <p>To qualify for the free coffee voucher, you must:</p>

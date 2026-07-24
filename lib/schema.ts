@@ -38,20 +38,25 @@ export function buildSoftwareApplicationSchema() {
     name: "QuoteCore+",
     alternateName: ["QuoteCore", "Quote Core", "Quote Core Plus", "QuoteCore Plus"],
     applicationCategory: "BusinessApplication",
-    applicationSubCategory: "Contractor quoting software",
+    applicationSubCategory: "Quoting software",
     operatingSystem: "Web",
     browserRequirements: "Requires a modern web browser",
     url: `${siteUrl}/`,
     description:
-      "Contractor quoting software for New Zealand roofers, builders, and trade businesses, including digital takeoff, quote building, approval tracking, materials ordering, and quote-to-job workflow.",
+      "Quoting software for contractors and trade businesses, including digital takeoff, quote building, approval tracking, materials ordering, and quote-to-job workflow.",
     publisher: {
       "@id": organizationId,
     },
     audience: {
       "@type": "BusinessAudience",
-      audienceType: "New Zealand contractors, roofers, builders, and trade businesses",
+      audienceType: "Contractors, roofers, builders, and trade businesses",
     },
-    areaServed: [{ "@type": "Country", name: "New Zealand" }],
+    areaServed: [
+      { "@type": "Country", name: "New Zealand" },
+      { "@type": "Country", name: "Australia" },
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "United Kingdom" },
+    ],
     featureList: [
       "Digital takeoff from plans",
       "Reusable Smart Components",
@@ -64,7 +69,7 @@ export function buildSoftwareApplicationSchema() {
       "Job and quote information tracking",
     ],
     keywords:
-      "New Zealand contractor quoting software, roofing quoting software NZ, construction quoting software NZ, digital takeoff, quote builder, material orders, Smart Components",
+      "contractor quoting software, roofing quoting software, construction quoting software, digital takeoff, quote builder, material orders, Smart Components",
     offers: buildPricingOffers(),
   };
 }
@@ -97,5 +102,36 @@ export function buildFaqSchema(faqs: FaqItem[]) {
         text: faq.answer,
       },
     })),
+  };
+}
+
+export function buildBlogPostingSchema(post: {
+  title: string;
+  description: string;
+  date: string;
+  slug: string;
+}) {
+  const url = `https://quote-core.com/blog/${post.slug}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    url,
+    author: {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: "QuoteCore+",
+    },
+    publisher: {
+      "@id": organizationId,
+    },
+    datePublished: post.date,
+    dateModified: post.date,
   };
 }

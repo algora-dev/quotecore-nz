@@ -6,9 +6,11 @@ import CoffeePopup from "@/components/CoffeePopup";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { trackEvent } from "@/lib/analytics";
+
 import { homepageFaqs } from "@/lib/faqs";
 import { pricingPlans } from "@/lib/pricing";
 import { buildBreadcrumbSchema, buildFaqSchema, siteUrl } from "@/lib/schema";
+import { buildSoftwareApplicationSchema } from "@/lib/schema";
 
 export default function HomePage() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -16,8 +18,8 @@ export default function HomePage() {
   const [isPaused, setIsPaused] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
   const [videoHovered, setVideoHovered] = useState(false);
-  const [videoScrubbing, setVideoScrubbing] = useState(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  // NZ site uses NZD only — no currency detection needed
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [activeStep, setActiveStep] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -34,44 +36,33 @@ export default function HomePage() {
     setVideoProgress((video.currentTime / video.duration) * 100);
   };
 
-  const seekVideoFromClientX = (clientX: number, element: HTMLElement) => {
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const video = videoRef.current;
     if (!video) return;
-    const rect = element.getBoundingClientRect();
-    const pct = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
     video.currentTime = pct * video.duration;
-    setVideoProgress(pct * 100);
   };
 
-  const handleProgressPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    e.currentTarget.setPointerCapture(e.pointerId);
-    setVideoScrubbing(true);
-    seekVideoFromClientX(e.clientX, e.currentTarget);
-  };
-
-  const handleProgressPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!videoScrubbing) return;
-    seekVideoFromClientX(e.clientX, e.currentTarget);
-  };
-
-  const handleProgressPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
-    setVideoScrubbing(false);
-    seekVideoFromClientX(e.clientX, e.currentTarget);
-  };
-
-  const handleProgressKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  useEffect(() => {
+    // Lazy-load the story video: only play when scrolled into view
     const video = videoRef.current;
-    if (!video || !video.duration) return;
-    const step = e.shiftKey ? 10 : 5;
-    if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
-      e.preventDefault();
-      video.currentTime = Math.max(0, video.currentTime - step);
-    }
-    if (e.key === "ArrowRight" || e.key === "ArrowUp") {
-      e.preventDefault();
-      video.currentTime = Math.min(video.duration, video.currentTime + step);
-    }
-  };
+    if (!video) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {/* autoplay may be blocked */});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const PAUSE_MS = 3000;
@@ -132,6 +123,8 @@ export default function HomePage() {
     video.pause();
     setIsPaused(true);
   };
+
+
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -278,6 +271,8 @@ export default function HomePage() {
           <div className="relative z-10 flex items-center justify-center">
             <img
               key={currentImage.src}
+              loading="lazy"
+              decoding="async"
               src={currentImage.src}
               alt={currentImage.label}
               className="block h-auto max-w-full rounded-xl shadow-[0_24px_70px_rgba(15,23,42,0.16)] sm:rounded-[1.5rem]"
@@ -285,7 +280,8 @@ export default function HomePage() {
           </div>
 
           {hasMultipleStepImages && (
-            <div className="absolute bottom-0 left-1/2 z-20 flex -translate-x-1/2 items-center justify-center gap-2 rounded-full bg-white/90 px-3 py-2 shadow-[0_12px_35px_rgba(15,23,42,0.12)] backdrop-blur">
+            <div className="absolute bottom-0 left-1/2 z-20 flex -translate-x-1/2 items-center justify-center gap-2">
+              <div className="flex items-center justify-center gap-2 rounded-full bg-white/90 px-3 py-2 shadow-[0_12px_35px_rgba(15,23,42,0.12)] backdrop-blur">
               <button
                 type="button"
                 onClick={showPreviousStepImage}
@@ -303,12 +299,14 @@ export default function HomePage() {
                     type="button"
                     key={image.src}
                     onClick={() => setActiveImageIndex(index)}
-                    className={`h-2 w-2 rounded-full transition-colors ${
-                      index === activeImageIndex ? "bg-[#BD4A1A]" : "bg-zinc-600 hover:bg-zinc-400"
-                    }`}
+                    className="flex h-11 w-11 items-center justify-center rounded-full"
                     aria-label={`Show ${image.label}`}
                     aria-current={index === activeImageIndex ? "true" : undefined}
-                  />
+                  >
+                    <span className={`h-2 w-2 rounded-full transition-colors ${
+                      index === activeImageIndex ? "bg-[#FF6B35]" : "bg-zinc-600 hover:bg-zinc-400"
+                    }`} />
+                  </button>
                 ))}
               </div>
 
@@ -322,6 +320,18 @@ export default function HomePage() {
                   <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
+              </div>
+              <a
+                href="https://app.quote-core.com/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 rounded-full bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-[0_12px_35px_rgba(15,23,42,0.12)] transition-colors hover:bg-zinc-700"
+              >
+                Docs
+                <svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M11 3h6v6M17 3l-7 7M14 11v6a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1h6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
             </div>
           )}
         </div>
@@ -371,7 +381,7 @@ export default function HomePage() {
   ];
 
   const primaryButton =
-    "inline-flex min-h-11 items-center justify-center rounded-full bg-[#BD4A1A] px-5 py-2.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-[#A03E15]";
+    "inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-5 py-2.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-[#E55A28]";
 
   const shimmerButton =
     "pill-shimmer inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-medium text-zinc-900 transition-colors duration-200 hover:border-[#FF6B35]/40";
@@ -388,6 +398,11 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }])) }}
       />
+      <Script
+        id="home-software-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...buildSoftwareApplicationSchema() }) }}
+      />
       <main className="min-h-screen bg-white text-zinc-950">
         <BlogHeader />
 
@@ -397,23 +412,23 @@ export default function HomePage() {
             <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-10 xl:gap-12">
               {/* Left: text */}
               <div className="relative z-20 flex-1 text-center lg:flex-[1.12] lg:text-left">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BD4A1A]">Built from real New Zealand trade experience</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Each feature built from real experience</p>
                 <h1 className="mt-6 text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl">
                   Build your business once. Quote it forever.
                 </h1>
                 <p className="mt-4 text-xl font-semibold leading-tight text-zinc-700 sm:text-2xl lg:whitespace-nowrap">
-                  QuoteCore+ lets Kiwis work how they like, with
+                  Every quote starts with a Smart Component™
                   <br />
-                  Smart Component™&apos;s - build once, reuse forever.
+                  Built once, reused forever.
                 </p>
                 <p className="mt-4 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
-                  Every New Zealand business has its own way of pricing, measuring and delivering work. QuoteCore+ captures that knowledge inside Smart Components™, turning your pricing, products, services and processes into a reusable system.
+                  Every business has its own way of pricing, measuring and delivering work. QuoteCore+ captures that knowledge inside Smart Components™, allowing you to build a reusable digital system for the way your business operates.
                 </p>
                 <p className="mt-3 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
-                  Build everything once, then reuse it across every quote, job and invoice - saving time, reducing mistakes, and keeping work moving in one connected workflow built around how your business actually operates.
+                  Build your pricing, products, services and processes once, then reuse them across every quote, job and invoice - saving time, reducing mistakes and creating a faster, more consistent workflow.
                 </p>
                 <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-                  <a href="/free-trial" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#BD4A1A] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#A03E15]" onClick={() => trackEvent("free_trial_click", { location: "hero" })}>
+                  <a href="/free-trial" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]" onClick={() => trackEvent("free_trial_click", { location: "hero" })}>
                     Start free trial
                   </a>
                   <a href="https://calendly.com/quote-core-info/15-minute-meeting" target="_blank" rel="noopener noreferrer" className="pill-shimmer inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 bg-white px-7 py-2.5 text-sm font-medium text-zinc-900 transition-colors duration-200 hover:border-[#FF6B35]/40" onClick={() => trackEvent("book_call_click", { location: "hero" })}>
@@ -483,7 +498,6 @@ export default function HomePage() {
                 <video
                   ref={videoRef}
                   className="block w-full aspect-video"
-                  autoPlay
                   muted
                   loop
                   playsInline
@@ -494,23 +508,13 @@ export default function HomePage() {
                   <source src="/kids-horizontal.mp4" type="video/mp4" />
                   <track kind="captions" srcLang="en" label="Brand story video" src="/captions/brand-story.vtt" />
                 </video>
+                {/* Progress bar - shows on hover */}
                 <div
-                  className={`absolute inset-x-0 bottom-0 z-20 flex h-5 cursor-pointer items-end transition-opacity duration-200 ${videoHovered || videoScrubbing ? "opacity-100" : "opacity-80"}`}
-                  role="slider"
-                  aria-label="Video progress"
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  aria-valuenow={Math.round(videoProgress)}
-                  tabIndex={0}
-                  onPointerDown={handleProgressPointerDown}
-                  onPointerMove={handleProgressPointerMove}
-                  onPointerUp={handleProgressPointerUp}
-                  onPointerCancel={() => setVideoScrubbing(false)}
-                  onKeyDown={handleProgressKeyDown}
+                  className={`absolute inset-x-0 bottom-0 h-1.5 cursor-pointer transition-opacity duration-200 ${videoHovered ? "opacity-100" : "opacity-0"}`}
+                  style={{background: "rgba(255,255,255,0.2)"}}
+                  onClick={handleProgressClick}
                 >
-                  <div className="h-1.5 w-full bg-white/25">
-                    <div className="h-full bg-[#BD4A1A] transition-[width] duration-100" style={{width: `${videoProgress}%`}} />
-                  </div>
+                  <div className="h-full bg-[#FF6B35] transition-all duration-100" style={{width: `${videoProgress}%`}} />
                 </div>
                 <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 px-5 pb-5">
                   <button
@@ -561,20 +565,15 @@ export default function HomePage() {
           <div className="relative overflow-hidden rounded-[2rem] bg-zinc-950 px-6 py-10 shadow-[0_30px_80px_rgba(0,0,0,0.15)] sm:px-10 sm:py-14">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,107,53,0.12),transparent_55%)]" />
             <div className="relative">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BD4A1A]">The platform</p>
-              <h2 className="mt-3 max-w-2xl text-3xl font-semibold text-white sm:text-4xl">Built for the way your business actually works.</h2>
-              <p className="mt-3 max-w-2xl text-lg font-semibold text-white">Stop running one job through five different apps.</p>
-              <div className="mt-4 max-w-4xl space-y-4 text-base leading-7 text-zinc-200 sm:text-lg sm:leading-8">
-                <p>
-                  Every business has its own way of pricing, measuring and delivering work. Led by a Kiwi who knows how messy trade admin can get, QuoteCore+ captures that knowledge using Smart Components™ — turning your pricing, products, services, materials, labour and processes into a reusable digital workflow.
-                </p>
-                <p>
-                  From the first measure-up and customer conversation, through to quoting, materials ordering, job tracking, invoicing and payment, QuoteCore+ helps keep everything moving in one connected platform.
-                </p>
-              </div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">The platform</p>
+              <h2 className="mt-3 max-w-2xl text-3xl font-semibold text-white sm:text-4xl">Built for the way your business works.</h2>
+              <p className="mt-3 max-w-2xl text-lg font-semibold text-white">Because no two businesses work the same.</p>
+              <p className="mt-4 max-w-4xl text-base leading-7 text-zinc-200 sm:text-lg sm:leading-8">
+                Every business has its own way of pricing, measuring and delivering work. QuoteCore+ captures that knowledge using Smart Components™, creating a reusable digital workflow that&apos;s built around your business. Whether you&apos;re quoting products, services or complete projects, every future quote, job and invoice becomes faster, easier and more consistent.
+              </p>
               <div className="mt-5 rounded-xl border border-white/10 bg-white/5 px-5 py-3 sm:mt-6 sm:py-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#BD4A1A] mb-2">Who&apos;s it for?</p>
-                <p className="text-base leading-7 text-zinc-200">QuoteCore+ is built for New Zealand trade, construction and service businesses that need to quote, manage work and get paid. From roofers and builders to electricians, landscapers, manufacturers and service teams, Smart Components™ adapt to the way you already work — making every future quote, job and invoice faster, easier and more consistent.</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#FF6B35] mb-2">Who&apos;s it for?</p>
+                <p className="text-base leading-7 text-zinc-200">QuoteCore+ is built for any business that needs to quote, manage work and get paid. From roofers and builders to electricians, landscapers, manufacturers and service businesses, Smart Components™ adapt to the way you already work - giving you one connected workflow from your first quote to your final invoice.</p>
               </div>
             </div>
             <div className="relative mt-5 flex flex-wrap gap-4 sm:mt-8">
@@ -597,7 +596,7 @@ export default function HomePage() {
               {/* Left: text content */}
               <div className="flex-1">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500"><span className="brand-wordmark">QuoteCore<span className="brand-plus">+</span></span> remembers how you work.</p>
-                <h2 className="mt-3 text-3xl font-semibold sm:text-4xl text-[#BD4A1A]">Introducing Smart Components™</h2>
+                <h2 className="mt-3 text-3xl font-semibold sm:text-4xl text-[#FF6B35]">Introducing Smart Components™</h2>
                 <p className="mt-4 text-base font-medium leading-7 text-zinc-700 sm:text-lg">Smart Components aren&apos;t templates.</p>
                 <p className="mt-4 text-base leading-7 text-zinc-600 sm:text-lg sm:leading-8">
                   They aren&apos;t products. They aren&apos;t quote libraries.
@@ -620,14 +619,14 @@ export default function HomePage() {
                     "Custom Rules",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-3 leading-6 text-zinc-700">
-                      <span className="shrink-0 text-[#BD4A1A] font-bold leading-none">✓</span>
+                      <span className="shrink-0 text-[#FF6B35] font-bold leading-none">✓</span>
                       {item}
                     </li>
                   ))}
                 </ul>
                 <p className="mt-8 text-base font-semibold leading-7 text-zinc-950 sm:text-lg">Build it once. Quote it forever.</p>
                 <div className="mt-8 flex flex-wrap gap-4">
-                  <a href="/free-trial" className="inline-flex items-center justify-center rounded-full bg-[#BD4A1A] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#A03E15]">Start free trial</a>
+                  <a href="/free-trial" className="inline-flex items-center justify-center rounded-full bg-[#FF6B35] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]">Start free trial</a>
                   <a href="https://calendly.com/quote-core-info/15-minute-meeting" target="_blank" rel="noopener noreferrer" className="pill-shimmer inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-7 py-3 text-sm font-medium text-zinc-900 transition-colors duration-200 hover:border-[#FF6B35]/40">Book a call</a>
                 </div>
               </div>
@@ -640,6 +639,10 @@ export default function HomePage() {
                     style={{ zIndex: 1 }}
                   >
                     <img
+                      loading="lazy"
+                      decoding="async"
+                      width={1200}
+                      height={750}
                       src="/smart-components-laptop-1.png"
                       alt="Smart Components - component list"
                       className="w-full h-auto"
@@ -651,6 +654,10 @@ export default function HomePage() {
                     style={{ zIndex: 2 }}
                   >
                     <img
+                      loading="lazy"
+                      decoding="async"
+                      width={1200}
+                      height={750}
                       src="/smart-components-laptop-2.png"
                       alt="Smart Components - component editor"
                       className="w-full h-auto"
@@ -692,7 +699,7 @@ export default function HomePage() {
                       <div
                         className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-base font-semibold ${
                           i === activeStep
-                            ? "bg-[#BD4A1A] text-white shadow-[0_10px_24px_rgba(255,107,53,0.32)]"
+                            ? "bg-[#FF6B35] text-white shadow-[0_10px_24px_rgba(255,107,53,0.32)]"
                             : "bg-zinc-100 text-zinc-600"
                         }`}
                       >
@@ -707,8 +714,8 @@ export default function HomePage() {
                             <div className="mt-5 space-y-3">
                               {item.options.map((option) => (
                                 <div key={option.title} className="flex items-center gap-4 rounded-2xl border border-zinc-100 bg-white px-4 py-3 shadow-[0_8px_22px_rgba(15,23,42,0.07)]">
-                                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#BD4A1A]/10 text-[#BD4A1A]" aria-hidden="true">
-                                    <img src={option.icon} alt="" className="h-6 w-6 object-contain" />
+                                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#FF6B35]/10 text-[#FF6B35]" aria-hidden="true">
+                                    <img src={option.icon} alt="" loading="lazy" decoding="async" width={24} height={24} className="h-6 w-6 object-contain" />
                                   </span>
                                   <div className="min-w-0 flex-1">
                                     <p className="text-base font-semibold text-zinc-950">{option.title}</p>
@@ -723,7 +730,7 @@ export default function HomePage() {
                         )}
                       </div>
                       {i !== activeStep && (
-                        <svg viewBox="0 0 24 24" className="mt-3 h-5 w-5 shrink-0 text-zinc-500 transition-transform group-hover:translate-x-1 group-hover:text-[#BD4A1A]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" className="mt-3 h-5 w-5 shrink-0 text-zinc-500 transition-transform group-hover:translate-x-1 group-hover:text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                           <path d="M9 18l6-6-6-6" />
                         </svg>
                       )}
@@ -748,7 +755,7 @@ export default function HomePage() {
         <section id="tutorials" className="overflow-hidden bg-white pb-16">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
             <div className="mb-10 max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BD4A1A]">Tutorials</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Tutorials</p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
                 Watch <span className="brand-wordmark">QuoteCore<span className="brand-plus">+</span></span> in action
               </h2>
@@ -786,6 +793,8 @@ export default function HomePage() {
                     >
                       <div className="overflow-hidden rounded-xl border border-zinc-100 bg-zinc-50">
                         <img
+                          loading="lazy"
+                          decoding="async"
                           src={tutorial.image}
                           alt={tutorial.title}
                           className="aspect-video h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
@@ -803,7 +812,7 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={showNextTutorial}
-                  className="absolute -right-4 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-[#BD4A1A] shadow-[0_14px_40px_rgba(15,23,42,0.10)] transition-colors hover:bg-zinc-50 lg:flex"
+                  className="absolute -right-4 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-[#FF6B35] shadow-[0_14px_40px_rgba(15,23,42,0.10)] transition-colors hover:bg-zinc-50 lg:flex"
                   aria-label="Next tutorial"
                 >
                   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -822,6 +831,8 @@ export default function HomePage() {
               >
                 <div className="overflow-hidden rounded-xl border border-zinc-100 bg-zinc-50">
                   <img
+                    loading="lazy"
+                    decoding="async"
                     src={tutorials[activeTutorial]?.image ?? tutorials[0].image}
                     alt={tutorials[activeTutorial]?.title ?? tutorials[0].title}
                     className="aspect-video h-auto w-full object-cover"
@@ -843,7 +854,7 @@ export default function HomePage() {
                     type="button"
                     onClick={() => setActiveTutorial(index)}
                     className={`h-1.5 rounded-full transition-all ${
-                      index === tutorialOffsetIndex ? "w-16 bg-[#BD4A1A]" : "w-16 bg-zinc-200 hover:bg-zinc-300"
+                      index === tutorialOffsetIndex ? "w-16 bg-[#FF6B35]" : "w-16 bg-zinc-200 hover:bg-zinc-300"
                     }`}
                     aria-label={`Show tutorial set ${index + 1}`}
                     aria-current={index === tutorialOffsetIndex ? "true" : undefined}
@@ -882,12 +893,12 @@ export default function HomePage() {
             <div className="relative overflow-hidden rounded-[2rem] border border-[#FF6B35]/20 bg-[radial-gradient(circle_at_18%_20%,rgba(255,107,53,0.10),transparent_34%),linear-gradient(135deg,#fff_0%,#fff7f3_48%,#fff_100%)] p-6 shadow-[0_24px_80px_rgba(15,23,42,0.08)] sm:p-8 lg:p-10">
               <div className="grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr]">
                 <div className="relative z-10">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BD4A1A]">Estimating Services</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Estimating Services</p>
                   <h2 className="mt-4 max-w-xl text-3xl font-semibold leading-tight text-zinc-950 sm:text-4xl">
                     You build the business.
-                    <span className="block text-[#BD4A1A]">We&apos;ll build the quote.</span>
+                    <span className="block text-[#FF6B35]">We&apos;ll build the quote.</span>
                   </h2>
-                  <div className="mt-4 h-0.5 w-16 rounded-full bg-[#BD4A1A]" />
+                  <div className="mt-4 h-0.5 w-16 rounded-full bg-[#FF6B35]" />
                   <p className="mt-6 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
                     Whether you need measurements only, a complete quote, or someone to handle the entire process, our team becomes your estimating department.
                   </p>
@@ -902,7 +913,7 @@ export default function HomePage() {
                         "Ongoing estimating support",
                       ].map((item) => (
                         <li key={item} className="flex items-center gap-3 whitespace-nowrap leading-6">
-                          <span className="shrink-0 font-bold leading-none text-[#BD4A1A]">✓</span>
+                          <span className="shrink-0 font-bold leading-none text-[#FF6B35]">✓</span>
                           {item}
                         </li>
                       ))}
@@ -910,7 +921,7 @@ export default function HomePage() {
                   </div>
                   <a
                     href="/services"
-                    className="mt-8 inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-[#BD4A1A] px-7 py-2.5 text-sm font-semibold text-white shadow-[0_14px_32px_rgba(255,107,53,0.24)] transition-colors hover:bg-[#A03E15]"
+                    className="mt-8 inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white shadow-[0_14px_32px_rgba(255,107,53,0.24)] transition-colors hover:bg-[#E55A28]"
                     onClick={() => trackEvent("services_click", { location: "home_services" })}
                   >
                     Find out more
@@ -949,7 +960,7 @@ export default function HomePage() {
         {[0,1,2,3,4,5].map((i) => (
           <span key={i} className="banner-item inline-flex items-center shrink-0 whitespace-nowrap">
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700 px-6 lg:px-16">{carouselMounted ? "AT LEAST 25% FASTER - OR IT'S FREE" : "\u00a0"}</span>
-            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#BD4A1A]"></span>
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF6B35]"></span>
           </span>
         ))}
       </div>
@@ -957,22 +968,22 @@ export default function HomePage() {
   </div>
 )}
         {/* About Shaun */}
-        <section className="bg-[#BD4A1A]/5 py-16">
+        <section className="bg-[#FF6B35]/5 py-16">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
             <div className="overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-[0_20px_80px_rgba(0,0,0,0.06)]">
               <div className="grid lg:grid-cols-2">
                 <div className="flex flex-col justify-center p-10">
                   <div className="mb-6 flex items-center gap-4">
-                    <img src="/shaun-smiling.jpg" alt="" className="h-14 w-14 rounded-full object-cover border-2 border-[#FF6B35]/20 shrink-0" />
+                    <img loading="lazy" decoding="async" width={56} height={56} src="/shaun-smiling.jpg" alt="" className="h-14 w-14 rounded-full object-cover border-2 border-[#FF6B35]/20 shrink-0" />
                     <div>
                       <p className="font-semibold text-zinc-950">Shaun</p>
-                      <p className="text-sm text-[#BD4A1A]">Founder, <span className="brand-wordmark">QuoteCore<span className="brand-plus">+</span></span></p>
+                      <p className="text-sm text-[#FF6B35]">Founder, <span className="brand-wordmark">QuoteCore<span className="brand-plus">+</span></span></p>
                     </div>
                   </div>
                   <p className="text-xl font-semibold text-zinc-950">Meet Shaun</p>
                   <div className="mt-4 space-y-4 text-base leading-7 text-zinc-600">
                     <p>QuoteCore+ wasn&apos;t created because I wanted to build software. It was created because I got tired of using it.</p>
-                    <p>After more than two decades building and running businesses across construction and technology (in NZ), I kept running into the same problem. Every business had its own way of working, yet every software platform expected them to work exactly the same way.</p>
+                    <p>After more than two decades building and running businesses across construction and technology, I kept running into the same problem. Every business had its own way of working, yet every software platform expected them to work exactly the same way.</p>
                     <p>Jobs were spread across multiple apps, spreadsheets, emails and documents. The same information was entered over and over again, wasting time, creating mistakes, and making something as simple as getting from quote to payment far more complicated than it needed to be.</p>
                     <p>I didn&apos;t start QuoteCore+ to change the way businesses work. I started it to build software that finally works the way businesses already do.</p>
                     <p>That idea became the foundation of QuoteCore+. Instead of forcing businesses into rigid workflows, we built a platform that adapts to the way each business already operates. Smart Components™ capture your products, services, pricing, measurements and processes, creating a reusable digital system that makes every future quote, job and invoice faster, easier and more consistent.</p>
@@ -982,7 +993,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="relative hidden overflow-hidden rounded-r-[2rem] lg:block" style={{minHeight: "400px"}}>
-                  <img src="/shaun.jpg" alt="" className="h-full w-full object-cover object-left" />
+                  <img loading="lazy" decoding="async" width={600} height={400} src="/shaun.jpg" alt="" className="h-full w-full object-cover object-left" />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
                     <p className="font-semibold text-white">Shaun</p>
                     <p className="text-sm text-white/70">Founder, <span className="brand-wordmark">QuoteCore<span className="brand-plus">+</span></span></p>
@@ -994,18 +1005,18 @@ export default function HomePage() {
         </section>
 
         <div className="flex items-center justify-center gap-4 bg-zinc-200 px-6 py-6 sm:gap-6 sm:py-7">
-          <img src="/shaun-smiling.jpg" alt="" className="h-20 w-20 rounded-full object-cover border-2 border-[#FF6B35]/50 shrink-0 sm:h-24 sm:w-24" />
+          <img loading="lazy" decoding="async" width={80} height={80} src="/shaun-smiling.jpg" alt="" className="h-20 w-20 rounded-full object-cover border-2 border-[#FF6B35]/50 shrink-0 sm:h-24 sm:w-24" />
           <div className="min-w-0 flex-1 sm:flex-none">
             <p className="mb-3 text-sm text-zinc-600 sm:mb-2">Book a 15-minute call with Shaun</p>
             <div className="grid max-w-xs grid-cols-1 gap-2 sm:flex sm:max-w-none sm:gap-3">
-              <a href="https://calendly.com/quote-core-info/15-minute-meeting" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#BD4A1A] px-7 py-3 text-base font-semibold text-white transition-colors hover:bg-[#A03E15] sm:min-h-11 sm:px-8" onClick={() => trackEvent("book_call_click", { location: "mid" })}>Book a Call</a>
+              <a href="https://calendly.com/quote-core-info/15-minute-meeting" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-7 py-3 text-base font-semibold text-white transition-colors hover:bg-[#E55A28] sm:min-h-11 sm:px-8" onClick={() => trackEvent("book_call_click", { location: "mid" })}>Book a Call</a>
               <a href="/free-trial" className="pill-shimmer inline-flex min-h-12 items-center justify-center rounded-full border border-zinc-300 bg-white px-7 py-3 text-sm font-medium text-zinc-900 transition-colors duration-200 hover:border-[#FF6B35]/40 sm:min-h-11 sm:px-8" onClick={() => trackEvent("free_trial_click", { location: "mid" })}>Start free trial</a>
             </div>
           </div>
         </div>
 
         {/* Tell us what you need */}
-        <section className="bg-[#BD4A1A]/10 pt-14 pb-8">
+        <section className="bg-[#FF6B35]/10 pt-14 pb-8">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
             <div className="rounded-[2rem] shadow-[0_22px_55px_rgba(255,107,53,0.22)]">
               <div className="relative overflow-hidden rounded-[2rem] border border-[#FF6B35]/25 bg-[radial-gradient(circle_at_15%_0%,rgba(255,255,255,0.12),transparent_30%),linear-gradient(135deg,#242424_0%,#111318_58%,#090a0d_100%)] px-8 py-12 sm:px-12 sm:py-14 lg:px-14 lg:py-16">
@@ -1019,7 +1030,7 @@ export default function HomePage() {
                     </p>
                     <a
                       href="/contact"
-                      className="mt-auto inline-flex min-h-12 w-fit translate-y-4 items-center justify-center gap-3 rounded-full border border-white/20 bg-[#BD4A1A] px-8 py-2.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(255,107,53,0.35)] transition-colors hover:bg-[#ff5a1f] sm:text-base"
+                      className="mt-auto inline-flex min-h-12 w-fit translate-y-4 items-center justify-center gap-3 rounded-full border border-white/20 bg-[#FF6B35] px-8 py-2.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(255,107,53,0.35)] transition-colors hover:bg-[#ff5a1f] sm:text-base"
                     >
                       Share your idea
                       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -1054,7 +1065,7 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials */}
-        <section className="bg-[#BD4A1A]/10 pt-4 pb-12">
+        <section className="bg-[#FF6B35]/10 pt-4 pb-12">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
             <div className="text-center">
               <h2 className="text-3xl font-semibold text-zinc-950 sm:text-4xl">What users say</h2>
@@ -1070,7 +1081,6 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            {/* Mobile: single card carousel - decorative only, text rendered via data attrs to avoid crawler duplication */}
             {/* Mobile: single card carousel - decorative card content hidden from crawlers; controls remain focusable */}
             <div className="relative mt-14 lg:hidden" data-nosnippet>
               <div className="overflow-hidden">
@@ -1084,7 +1094,7 @@ export default function HomePage() {
                         <TestimonialStars rating={t.rating ?? 5} />
                         <p className="flex-1 text-base leading-relaxed text-zinc-600">{carouselMounted ? <>&ldquo;{t.quote}&rdquo;</> : null}</p>
                         <div className="mt-8 flex items-center gap-3">
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#BD4A1A] text-xs font-semibold text-white">{carouselMounted ? t.initials : null}</div>
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF6B35] text-xs font-semibold text-white">{carouselMounted ? t.initials : null}</div>
                           <div>
                             <p className="text-sm font-semibold text-zinc-950">{carouselMounted ? t.name : null}</p>
                             {carouselMounted && t.business ? <p className="text-xs text-zinc-500">{t.business}</p> : null}
@@ -1105,12 +1115,11 @@ export default function HomePage() {
               <div className="mt-6 flex justify-center gap-1">
                 {testimonials.map((_, idx) => (
                   <button key={idx} type="button" onClick={() => setActiveTestimonial(idx)} className="inline-flex h-11 w-11 items-center justify-center rounded-full" aria-label={`Go to testimonial ${idx + 1}`}>
-                    <span className={`h-2 w-2 rounded-full transition-colors ${idx === activeTestimonial ? "bg-[#BD4A1A]" : "bg-zinc-300"}`} />
+                    <span className={`h-2 w-2 rounded-full transition-colors ${idx === activeTestimonial ? "bg-[#FF6B35]" : "bg-zinc-300"}`} />
                   </button>
                 ))}
               </div>
             </div>
-            {/* Desktop: 3-column carousel - decorative only, text suppressed from crawlers */}
             {/* Desktop: 3-column carousel - decorative card content hidden from crawlers; controls remain focusable */}
             <div className="relative mt-14 hidden lg:block" data-nosnippet>
               <div className="overflow-hidden">
@@ -1125,7 +1134,7 @@ export default function HomePage() {
                         <TestimonialStars rating={t.rating ?? 5} />
                         <p className="flex-1 text-base leading-relaxed text-zinc-600">{carouselMounted ? <>&ldquo;{t.quote}&rdquo;</> : null}</p>
                         <div className="mt-8 flex items-center gap-3">
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#BD4A1A] text-xs font-semibold text-white">{carouselMounted ? t.initials : null}</div>
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF6B35] text-xs font-semibold text-white">{carouselMounted ? t.initials : null}</div>
                           <div>
                             <p className="text-sm font-semibold text-zinc-950">{carouselMounted ? t.name : null}</p>
                             {carouselMounted && t.business ? <p className="text-xs text-zinc-500">{t.business}</p> : null}
@@ -1198,13 +1207,13 @@ export default function HomePage() {
                       <div className="mt-4 space-y-1">
                         <p className="text-4xl font-semibold">
                           {plan.nzd}
-                          {!plan.isFree && !plan.comingSoon && (
+                          {!plan.isFree && !plan.comingSoon && !plan.contactUs && (
                             <span className={`ml-1 align-baseline text-sm font-medium ${
                               plan.featured ? "text-zinc-200" : "text-zinc-500"
                             }`}>/mo</span>
                           )}
                         </p>
-                        {!plan.isFree && !plan.comingSoon && plan.originalNzd && (
+                        {!plan.isFree && !plan.comingSoon && !plan.contactUs && plan.originalNzd && (
                           <p className={`text-sm ${plan.featured ? "text-zinc-300" : "text-zinc-500"}`}>
                             Regular price <s>{plan.originalNzd}/mo</s>
                           </p>
@@ -1216,28 +1225,48 @@ export default function HomePage() {
                       <ul className="mt-6 flex-1 space-y-2">
                         {plan.features.map((f) => (
                           <li key={f} className="flex items-center gap-2 text-sm">
-                            <svg className="h-4 w-4 shrink-0 text-[#BD4A1A]" viewBox="0 0 20 20" fill="currentColor">
+                            <svg className="h-4 w-4 shrink-0 text-[#FF6B35]" viewBox="0 0 20 20" fill="currentColor">
                               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                             </svg>
                             <span className={plan.featured ? "text-zinc-300" : "text-zinc-500"}>{f}</span>
                           </li>
                         ))}
                       </ul>
-                      {plan.comingSoon ? (
+                      {plan.contactUs ? (
+                        <a
+                          href="/contact"
+                          className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full border border-white/20 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                          onClick={() => trackEvent("contact_us_click", { location: "pricing" })}
+                        >
+                          Contact Us
+                        </a>
+                      ) : plan.comingSoon ? (
                         <span className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-600 text-sm text-zinc-600">
                           Coming soon
                         </span>
-                      ) : (
+                      ) : plan.isFree ? (
                         <a
                           href="/free-trial"
                           className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-full text-sm font-semibold transition-colors ${
                             plan.featured
-                              ? "bg-[#BD4A1A] text-white hover:bg-[#A03E15]"
+                              ? "bg-[#FF6B35] text-white hover:bg-[#E55A28]"
                               : "border border-white/20 text-white hover:bg-white/10"
                           }`}
                           onClick={() => trackEvent("free_trial_click", { location: "pricing" })}
                         >
                           Start free trial
+                        </a>
+                      ) : (
+                        <a
+                          href="https://app.quote-core.com/signup"
+                          className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-full text-sm font-semibold transition-colors ${
+                            plan.featured
+                              ? "bg-[#FF6B35] text-white hover:bg-[#E55A28]"
+                              : "border border-white/20 text-white hover:bg-white/10"
+                          }`}
+                          onClick={() => trackEvent("choose_plan_click", { location: "pricing", plan: plan.name })}
+                        >
+                          Choose Plan
                         </a>
                       )}
                     </div>
@@ -1245,7 +1274,10 @@ export default function HomePage() {
                 </div>
 
                 <p className="mt-8 text-center text-sm text-zinc-600">
-                  Founding customer pricing shown. GST and taxes are calculated at checkout where applicable.
+                  VAT calculated at checkout where applicable.
+                </p>
+                <p className="mt-3 text-center text-sm text-zinc-200">
+                  NZD pricing shown. GST calculated at checkout where applicable.
                 </p>
                 <p className="mt-3 text-center text-sm text-zinc-200">
                   Not sure which plan fits?{" "}
@@ -1268,21 +1300,21 @@ export default function HomePage() {
         {/* Bottom philosophy and CTA */}
         <section className="relative overflow-hidden bg-white py-20 sm:py-24">
           <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-zinc-100/80 to-transparent" aria-hidden="true" />
-          <div className="absolute left-0 top-44 hidden h-52 w-1/2 rounded-br-full bg-[#BD4A1A]/5 blur-2xl lg:block" aria-hidden="true" />
+          <div className="absolute left-0 top-44 hidden h-52 w-1/2 rounded-br-full bg-[#FF6B35]/5 blur-2xl lg:block" aria-hidden="true" />
           <div className="absolute right-28 top-52 hidden h-24 w-24 bg-[radial-gradient(circle,#FF6B35_1.2px,transparent_1.2px)] opacity-10 [background-size:14px_14px] lg:block" aria-hidden="true" />
 
           <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
             <div className="relative mx-auto max-w-5xl text-center">
-              <div className="pointer-events-none absolute -left-10 top-14 hidden text-[11rem] font-semibold leading-none text-[#BD4A1A]/5 lg:block" aria-hidden="true">&ldquo;</div>
-              <div className="pointer-events-none absolute -right-8 top-32 hidden text-[11rem] font-semibold leading-none text-[#BD4A1A]/5 lg:block" aria-hidden="true">&rdquo;</div>
+              <div className="pointer-events-none absolute -left-10 top-14 hidden text-[11rem] font-semibold leading-none text-[#FF6B35]/5 lg:block" aria-hidden="true">&ldquo;</div>
+              <div className="pointer-events-none absolute -right-8 top-32 hidden text-[11rem] font-semibold leading-none text-[#FF6B35]/5 lg:block" aria-hidden="true">&rdquo;</div>
 
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BD4A1A]">Our philosophy</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Our philosophy</p>
               <blockquote className="mx-auto mt-5 max-w-4xl">
                 <p className="text-2xl font-semibold leading-snug text-zinc-950 sm:text-3xl">
                   Most top software says: &lsquo;Here&rsquo;s our system - make your business fit around it.&rsquo;
                 </p>
-                <div className="mx-auto my-6 h-0.5 w-12 bg-[#BD4A1A]" aria-hidden="true" />
-                <p className="text-3xl font-semibold leading-tight text-[#BD4A1A] sm:text-4xl">
+                <div className="mx-auto my-6 h-0.5 w-12 bg-[#FF6B35]" aria-hidden="true" />
+                <p className="text-3xl font-semibold leading-tight text-[#FF6B35] sm:text-4xl">
                   We say: &lsquo;Smart Components™ provide a flexible system - make it work for your business.&rsquo;
                 </p>
               </blockquote>
@@ -1291,7 +1323,7 @@ export default function HomePage() {
             <div className="mt-12 overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.10)]">
               <div className="grid lg:grid-cols-[1fr_0.95fr]">
                 <div className="flex flex-col justify-center px-8 py-10 sm:px-12 lg:px-20">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BD4A1A]">Built for growing businesses</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Built for growing businesses</p>
                   <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight text-zinc-950 sm:text-5xl">
                     Quote. Manage. Grow.
                   </h2>
@@ -1302,7 +1334,7 @@ export default function HomePage() {
                   <div className="mt-7 flex flex-col gap-4 sm:flex-row">
                     <a
                       href="/free-trial"
-                      className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-[#BD4A1A] px-9 text-base font-semibold text-white transition-colors hover:bg-[#A03E15]"
+                      className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-[#FF6B35] px-9 text-base font-semibold text-white transition-colors hover:bg-[#E55A28]"
                       onClick={() => trackEvent("free_trial_click", { location: "bottom" })}
                     >
                       Start free trial
@@ -1328,6 +1360,10 @@ export default function HomePage() {
                   <div className="absolute -right-20 bottom-0 h-64 w-96 rotate-[-12deg] rounded-[50%] bg-white/35 blur-xl" aria-hidden="true" />
                   <div className="relative flex h-full items-center justify-center">
                     <img
+                      loading="lazy"
+                      decoding="async"
+                      width={576}
+                      height={360}
                       src="/resource-library-preview.png"
                       alt="QuoteCore resource library screen"
                       className="w-full max-w-xl rounded-xl border border-zinc-100 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.16)]"
@@ -1373,7 +1409,7 @@ export default function HomePage() {
             </div>
             {/* Image */}
             <div className="flex-1 flex items-start justify-center px-4 pb-8">
-              <img src="/QuoteExample.png" alt="Example Quote" className="w-full max-w-3xl rounded-[1.5rem] shadow-2xl" />
+              <img loading="lazy" decoding="async" width={768} height={500} src="/QuoteExample.png" alt="Example Quote" className="w-full max-w-3xl rounded-[1.5rem] shadow-2xl" />
             </div>
           </div>
         </div>
@@ -1479,13 +1515,17 @@ function ServicesPlanGraphic() {
   return (
     <div className="relative mx-auto hidden min-h-[320px] w-full max-w-[620px] items-center justify-center md:flex sm:min-h-[360px]">
       <div className="absolute inset-0 rounded-[2rem] bg-white/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]" />
-      <div className="absolute right-8 top-6 hidden text-[11px] font-semibold text-[#BD4A1A] sm:block">9.15m</div>
-      <div className="absolute left-10 top-24 hidden -rotate-90 text-[11px] font-semibold text-[#BD4A1A] sm:block">6.1m</div>
-      <div className="absolute left-[17%] top-[13%] hidden h-px w-[48%] bg-[#BD4A1A]/65 sm:block before:absolute before:left-0 before:top-1/2 before:h-3 before:w-px before:-translate-y-1/2 before:bg-[#BD4A1A] after:absolute after:right-0 after:top-1/2 after:h-3 after:w-px after:-translate-y-1/2 after:bg-[#BD4A1A]" />
-      <div className="absolute left-[16%] top-[25%] hidden h-[44%] w-px bg-[#BD4A1A]/65 sm:block before:absolute before:left-1/2 before:top-0 before:h-px before:w-3 before:-translate-x-1/2 before:bg-[#BD4A1A] after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-3 after:-translate-x-1/2 after:bg-[#BD4A1A]" />
+      <div className="absolute right-8 top-6 hidden text-[11px] font-semibold text-[#FF6B35] sm:block">9.15m</div>
+      <div className="absolute left-10 top-24 hidden -rotate-90 text-[11px] font-semibold text-[#FF6B35] sm:block">6.1m</div>
+      <div className="absolute left-[17%] top-[13%] hidden h-px w-[48%] bg-[#FF6B35]/65 sm:block before:absolute before:left-0 before:top-1/2 before:h-3 before:w-px before:-translate-y-1/2 before:bg-[#FF6B35] after:absolute after:right-0 after:top-1/2 after:h-3 after:w-px after:-translate-y-1/2 after:bg-[#FF6B35]" />
+      <div className="absolute left-[16%] top-[25%] hidden h-[44%] w-px bg-[#FF6B35]/65 sm:block before:absolute before:left-1/2 before:top-0 before:h-px before:w-3 before:-translate-x-1/2 before:bg-[#FF6B35] after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-3 after:-translate-x-1/2 after:bg-[#FF6B35]" />
 
       <div className="relative w-[82%] max-w-[430px] rotate-[-4deg] overflow-hidden rounded-2xl border border-zinc-200/80 bg-white/75 p-4 opacity-85 shadow-[0_18px_50px_rgba(15,23,42,0.08)] backdrop-blur">
         <img
+          loading="lazy"
+          decoding="async"
+          width={1200}
+          height={800}
           src="/services-roof-plan.png"
           alt="Roof plan measurement example"
           className="h-auto w-full"
@@ -1505,7 +1545,7 @@ function ServicesPlanGraphic() {
           </div>
           <div className="flex items-center justify-between gap-4">
             <span className="font-semibold text-zinc-950">Total</span>
-            <span className="font-semibold text-[#BD4A1A]">$12,486</span>
+            <span className="font-semibold text-[#FF6B35]">$12,486</span>
           </div>
         </div>
       </div>
@@ -1541,7 +1581,7 @@ function HeroFloatingCard({
           style={{"--hero-card-float-delay": floatDelay} as React.CSSProperties}
         >
           <div className="flex items-start gap-2.5">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#BD4A1A]/10 text-[#BD4A1A]">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FF6B35]/10 text-[#FF6B35]">
               <HeroFloatingIcon type={icon} />
             </span>
             <span className="min-w-0">
@@ -1599,7 +1639,7 @@ function TestimonialStars({rating}: {rating: number}) {
             <svg className="absolute inset-0 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
-            <span className="absolute inset-0 overflow-hidden text-[#BD4A1A]" style={{width: `${fillPercent}%`}}>
+            <span className="absolute inset-0 overflow-hidden text-[#FF6B35]" style={{width: `${fillPercent}%`}}>
               <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
@@ -1657,7 +1697,7 @@ function ShaunQuoteBubble() {
     >
       <div className="relative rounded-2xl rounded-bl-sm bg-white px-5 py-5 shadow-[0_8px_32px_rgba(0,0,0,0.14)] border border-zinc-100 animate-[floatBubble_6s_ease-in-out_infinite]">
         <p className="text-lg font-semibold leading-snug text-zinc-800">&ldquo;Software should adapt to your business. Not the other way around.&rdquo;</p>
-        <p className="mt-3 text-base font-semibold text-[#BD4A1A]">- Shaun, founder</p>
+        <p className="mt-3 text-base font-semibold text-[#FF6B35]">- Shaun, founder</p>
         <span className="absolute -bottom-2.5 left-5 h-0 w-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-white" />
       </div>
     </div>
