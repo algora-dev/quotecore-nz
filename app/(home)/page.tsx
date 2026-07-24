@@ -417,13 +417,13 @@ export default function HomePage() {
                   The quoting tool that gets long-run roofing.
                 </h1>
                 <p className="mt-4 text-xl font-semibold leading-tight text-zinc-700 sm:text-2xl">
-                  Finally — a measurement and quoting app that understands long-run roofing, built by a long-run roofer for NZ roofs.
+                  Finally a measuring and quoting app that understands long-run roofing, built by a Kiwi roofer for Kiwi roofs.
                 </p>
                 <p className="mt-4 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
                   AI roof scans, digital takeoffs, and Smart Components™ for smart measuring and quoting in any industry.
                 </p>
                 <p className="mt-3 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
-                  QuoteCore+ doesn&apos;t force you to work to suit the app — you build it to work for you. Create your Smart Components™ once, and every quote you build makes the next one faster and easier. Free tools, calculators, material ordering, invoicing, job management — all connected, all working the way you already work. No matter how you work, QuoteCore+ can work for you.
+                  QuoteCore+ doesn&apos;t ask you to change how you work. It adapts to how you work, and helps you do it better. Create your Smart Components™ once, and every quote you build makes the next one faster and easier. Free tools, calculators, material ordering, invoicing, job management. All connected, all working the way you already work. No matter how you work, QuoteCore+ can work for you.
                 </p>
                 <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
                   <a href="/free-trial" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]" onClick={() => trackEvent("free_trial_click", { location: "hero" })}>
