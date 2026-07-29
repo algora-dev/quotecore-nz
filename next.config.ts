@@ -22,6 +22,17 @@ const nextConfig: NextConfig = {
         destination: "https://quote-core.com/free-tools",
         permanent: true,
       },
+      // Redirect NZ /blog to the global blog (NZ-specific content strategy TBD; for now, all blog content lives on .com)
+      {
+        source: "/blog",
+        destination: "https://quote-core.com/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/:path*",
+        destination: "https://quote-core.com/blog/:path*",
+        permanent: true,
+      },
       {
         source: "/:path*",
         has: [{ type: "host", value: "quote-core.co.nz" }],
