@@ -12,10 +12,16 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     // Canonical host is https://www.quote-core.co.nz (locked 2026-07-15).
-    // Every other hostname 308s straight to the www canonical — single hop,
+    // Every other hostname 308s straight to the www canonical - single hop,
     // path and query string preserved by Next's :path* + automatic query
     // forwarding. Do NOT redirect any of these to the global .com site.
     return [
+      // Redirect NZ /free-tools to the global free tools hub (single canonical source)
+      {
+        source: "/free-tools",
+        destination: "https://quote-core.com/free-tools",
+        permanent: true,
+      },
       {
         source: "/:path*",
         has: [{ type: "host", value: "quote-core.co.nz" }],
