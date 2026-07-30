@@ -93,7 +93,75 @@ export const softwareSchema = {
   offers: pricingOffers,
 };
 
+// VideoObject schema for YouTube videos on the homepage
+const heroVideoSchema = {
+  "@type": "VideoObject",
+  name: "Create a complex roofing quote in under 3min for less than $1!",
+  description: "See how QuoteCore+ lets you create a complex roofing quote in under 3 minutes for less than a dollar per quote.",
+  thumbnailUrl: `https://i.ytimg.com/vi/DziFjqnPdqQ/maxresdefault.jpg`,
+  uploadDate: "2026-07-28",
+  embedUrl: `https://www.youtube-nocookie.com/embed/DziFjqnPdqQ`,
+  contentUrl: `https://www.youtube.com/watch?v=DziFjqnPdqQ`,
+};
+
+const storyVideoSchema = {
+  "@type": "VideoObject",
+  name: "Still looking for the long wait?",
+  description: "Discover how QuoteCore+ eliminates the long wait for roofing contractors who need to measure, quote and invoice efficiently.",
+  thumbnailUrl: `https://i.ytimg.com/vi/rqmEtartkYw/maxresdefault.jpg`,
+  uploadDate: "2026-07-28",
+  embedUrl: `https://www.youtube-nocookie.com/embed/rqmEtartkYw`,
+  contentUrl: `https://www.youtube.com/watch?v=rqmEtartkYw`,
+};
+
+// Tutorial video schema
+const tutorialVideoSchemas = [
+  {
+    "@type": "VideoObject",
+    name: "What are Smart Components?",
+    description: "Discover how QuoteCore+ Smart Components help businesses turn the way they already quote, price and deliver work into a repeatable digital system.",
+    thumbnailUrl: `https://i.ytimg.com/vi/aFXJwOiliPI/maxresdefault.jpg`,
+    uploadDate: "2026-07-28",
+    embedUrl: `https://www.youtube-nocookie.com/embed/aFXJwOiliPI`,
+    contentUrl: `https://www.youtube.com/watch?v=aFXJwOiliPI`,
+  },
+  {
+    "@type": "VideoObject",
+    name: "How to Set Up Roofing Smart Components in QuoteCore+",
+    description: "Step-by-step tutorial showing how to set up roofing Smart Components in QuoteCore+.",
+    thumbnailUrl: `https://i.ytimg.com/vi/XZSTIfGUHAU/maxresdefault.jpg`,
+    uploadDate: "2026-07-28",
+    embedUrl: `https://www.youtube-nocookie.com/embed/XZSTIfGUHAU`,
+    contentUrl: `https://www.youtube.com/watch?v=XZSTIfGUHAU`,
+  },
+  {
+    "@type": "VideoObject",
+    name: "How to Order Materials from an Accepted Quote",
+    description: "Tutorial showing how to create a materials order from an accepted quote in QuoteCore+.",
+    thumbnailUrl: `https://i.ytimg.com/vi/kOkQuUy8MWQ/maxresdefault.jpg`,
+    uploadDate: "2026-07-28",
+    embedUrl: `https://www.youtube-nocookie.com/embed/kOkQuUy8MWQ`,
+    contentUrl: `https://www.youtube.com/watch?v=kOkQuUy8MWQ`,
+  },
+  {
+    "@type": "VideoObject",
+    name: "Create a Quote from Start to Finish with QuoteCore+",
+    description: "Full walkthrough showing how to create a quote from start to finish using QuoteCore+.",
+    thumbnailUrl: `https://i.ytimg.com/vi/pqIfx-rOcmo/maxresdefault.jpg`,
+    uploadDate: "2026-07-28",
+    embedUrl: `https://www.youtube-nocookie.com/embed/pqIfx-rOcmo`,
+    contentUrl: `https://www.youtube.com/watch?v=pqIfx-rOcmo`,
+  },
+];
+
 export const homepageSchema = {
   "@context": "https://schema.org",
-  "@graph": [organizationSchema, websiteSchema, softwareSchema],
+  "@graph": [
+    organizationSchema,
+    websiteSchema,
+    softwareSchema,
+    heroVideoSchema,
+    storyVideoSchema,
+    ...tutorialVideoSchemas,
+  ],
 };
