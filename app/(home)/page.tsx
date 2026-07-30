@@ -377,31 +377,12 @@ export default function HomePage() {
                 </div>
                 <p className="mt-3 text-sm text-zinc-600">All features for 14 days, no card required, risk free</p>
               </div>
-              {/* Right: laptop video - bg matches section so edges blend */}
-              <div className="relative z-10 flex flex-1 items-end justify-center overflow-visible lg:-ml-12 lg:flex-[0.96] lg:justify-end xl:flex-[1.08]">
-                <HeroFloatingCard
-                  icon="measure"
-                  title="Measure"
-                  description="Use plan measurements, roof areas, lengths and quantities."
-                  className="right-4 top-1 w-52 xl:right-8 xl:top-2"
-                />
-                <HeroFloatingCard
-                  icon="quote"
-                  title="Quote"
-                  description="Turn measurements into priced customer quotes."
-                  className="-right-1 top-[47%] w-48 -translate-y-1/2 2xl:-right-8"
-                />
-                <HeroFloatingCard
-                  icon="order"
-                  title="Order + Invoice"
-                  description="Create material orders, manage the job and invoice from the same workflow."
-                  className="bottom-3 left-[48%] w-56 -translate-x-1/2 translate-y-6"
-                />
+              {/* Right: hero video */}
+              <div className="relative z-10 flex flex-1 items-center justify-center overflow-hidden lg:flex-1">
                 <YouTubeLite
                   videoId="DziFjqnPdqQ"
                   title="Create a complex roofing quote in under 3min for less than $1!"
-                  className="hero-video-float relative z-10 w-full max-w-none lg:w-[96%] lg:translate-x-4 xl:w-[104%] 2xl:w-[108%]"
-                  rounded={false}
+                  className="w-full"
                 />
               </div>
             </div>
@@ -1419,81 +1400,6 @@ function ServicesPlanGraphic() {
         </div>
       </div>
     </div>
-  );
-}
-
-function HeroFloatingCard({
-  icon,
-  title,
-  description,
-  className,
-}: {
-  icon: "measure" | "quote" | "order";
-  title: string;
-  description: string;
-  className: string;
-}) {
-  const revealDelay = icon === "measure" ? "3s" : icon === "order" ? "3.45s" : "3.9s";
-  const floatDelay = icon === "quote" ? "1.2s" : icon === "order" ? "2.2s" : "0s";
-
-  return (
-    <div
-      className={`pointer-events-none absolute z-30 hidden xl:block ${className}`}
-      aria-hidden="true"
-    >
-      <div
-        className="hero-floating-card-reveal"
-        style={{"--hero-card-reveal-delay": revealDelay} as React.CSSProperties}
-      >
-        <div
-          className="hero-floating-card rounded-xl border border-zinc-200/80 bg-white/95 p-3 shadow-[0_14px_42px_rgba(15,23,42,0.12)] backdrop-blur-md"
-          style={{"--hero-card-float-delay": floatDelay} as React.CSSProperties}
-        >
-          <div className="flex items-start gap-2.5">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FF6B35]/10 text-[#FF6B35]">
-              <HeroFloatingIcon type={icon} />
-            </span>
-            <span className="min-w-0">
-              <span className="block text-sm font-semibold leading-5 text-zinc-950">{title}</span>
-              <span className="mt-0.5 block text-xs leading-4 text-zinc-600">{description}</span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function HeroFloatingIcon({type}: {type: "measure" | "quote" | "order"}) {
-  if (type === "measure") {
-    return (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 17 17 4l3 3L7 20l-3-3Z" />
-        <path d="m14 7 3 3" />
-        <path d="m11 10 2 2" />
-        <path d="m8 13 3 3" />
-      </svg>
-    );
-  }
-
-  if (type === "quote") {
-    return (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M6 3h8l4 4v14H6V3Z" />
-        <path d="M14 3v5h5" />
-        <path d="M9 12h6" />
-        <path d="M9 16h6" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 6h2l1.2 8.4a2 2 0 0 0 2 1.6h6.9a2 2 0 0 0 1.9-1.4L21 8H8" />
-      <path d="M10 20h.01" />
-      <path d="M18 20h.01" />
-      <path d="M12 8h4" />
-    </svg>
   );
 }
 
