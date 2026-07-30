@@ -5,6 +5,7 @@ import Script from "next/script";
 import CoffeePopup from "@/components/CoffeePopup";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
+import YouTubeLite from "@/components/YouTubeLite";
 import { trackEvent } from "@/lib/analytics";
 
 import { homepageFaqs } from "@/lib/faqs";
@@ -13,11 +14,6 @@ import { buildBreadcrumbSchema, buildFaqSchema, siteUrl } from "@/lib/schema";
 import { buildSoftwareApplicationSchema } from "@/lib/schema";
 
 export default function HomePage() {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPaused, setIsPaused] = useState(false);
-  const [videoProgress, setVideoProgress] = useState(0);
-  const [videoHovered, setVideoHovered] = useState(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   // NZ site uses NZD only — no currency detection needed
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -29,40 +25,6 @@ export default function HomePage() {
   const [pricingOpen, setPricingOpen] = useState(false);
   const bannerTrackRef = useRef<HTMLDivElement | null>(null);
   const bannerPosRef = useRef(0);
-
-  const handleVideoTimeUpdate = () => {
-    const video = videoRef.current;
-    if (!video || !video.duration) return;
-    setVideoProgress((video.currentTime / video.duration) * 100);
-  };
-
-  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const video = videoRef.current;
-    if (!video) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const pct = (e.clientX - rect.left) / rect.width;
-    video.currentTime = pct * video.duration;
-  };
-
-  useEffect(() => {
-    // Lazy-load the story video: only play when scrolled into view
-    const video = videoRef.current;
-    if (!video) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            video.play().catch(() => {/* autoplay may be blocked */});
-          } else {
-            video.pause();
-          }
-        });
-      },
-      { rootMargin: '200px' }
-    );
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const PAUSE_MS = 3000;
@@ -98,33 +60,6 @@ export default function HomePage() {
     timerId = setTimeout(step, PAUSE_MS);
     return () => { clearTimeout(timerId); cancelAnimationFrame(rafId); };
   }, []);
-
-  const toggleMute = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.muted = !video.muted;
-    setIsMuted(video.muted);
-  };
-
-  const togglePlayback = async () => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (video.paused) {
-      try {
-        await video.play();
-        setIsPaused(false);
-      } catch {
-        setIsPaused(true);
-      }
-      return;
-    }
-
-    video.pause();
-    setIsPaused(true);
-  };
-
-
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -462,18 +397,12 @@ export default function HomePage() {
                   description="Create material orders, manage the job and invoice from the same workflow."
                   className="bottom-3 left-[48%] w-56 -translate-x-1/2 translate-y-6"
                 />
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  preload="metadata"
-                  aria-label="Product demo: QuoteCore+ quoting interface"
+                <YouTubeLite
+                  videoId="QyYa1VbQkbQ"
+                  title="Roofing Quoting Software That Actually Works | QuoteCore+"
                   className="hero-video-float relative z-10 w-full max-w-none lg:w-[96%] lg:translate-x-4 xl:w-[104%] 2xl:w-[108%]"
-                  style={{display: "block"}}
-                >
-                  <source src="/qc-hero-laptop.mp4" type="video/mp4" />
-                  <track kind="captions" srcLang="en" label="Product demo video" src="/captions/hero-demo.vtt" />
-                </video>
+                  rounded={false}
+                />
               </div>
             </div>
             {/* Scroll indicator */}
@@ -484,72 +413,14 @@ export default function HomePage() {
               </svg>
             </div>
           </div>
-          {/* Video below centered */}
+          {/* Video below centered (YouTube lite embed) */}
           <div className="relative mx-auto max-w-4xl px-6 lg:px-8 -mt-6">
             <div id="hero-story-video" className="relative">
-              <div
-                className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-black shadow-[0_30px_120px_rgba(0,0,0,0.15)]"
-                style={{borderRadius: "2rem"}}
-                onMouseEnter={() => setVideoHovered(true)}
-                onMouseLeave={() => setVideoHovered(false)}
-              >
-                <video
-                  ref={videoRef}
-                  className="block w-full aspect-video"
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  aria-label="Brand story video showing the QuoteCore+ team and product in action"
-                  onTimeUpdate={handleVideoTimeUpdate}
-                >
-                  <source src="/kids-horizontal.mp4" type="video/mp4" />
-                  <track kind="captions" srcLang="en" label="Brand story video" src="/captions/brand-story.vtt" />
-                </video>
-                {/* Progress bar - shows on hover */}
-                <div
-                  className={`absolute inset-x-0 bottom-0 h-1.5 cursor-pointer transition-opacity duration-200 ${videoHovered ? "opacity-100" : "opacity-0"}`}
-                  style={{background: "rgba(255,255,255,0.2)"}}
-                  onClick={handleProgressClick}
-                >
-                  <div className="h-full bg-[#FF6B35] transition-all duration-100" style={{width: `${videoProgress}%`}} />
-                </div>
-                <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 px-5 pb-5">
-                  <button
-                    type="button"
-                    onClick={togglePlayback}
-                    aria-label={isPaused ? "Play video" : "Pause video"}
-                    className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white backdrop-blur-md transition-colors duration-200 hover:bg-black/50"
-                  >
-                    {isPaused ? (
-                      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
-                        <path d="M8 5.14v13.72c0 .78.84 1.26 1.5.86l10-6.86a1 1 0 000-1.72l-10-6.86A1 1 0 008 5.14z" />
-                      </svg>
-                    ) : (
-                      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
-                        <path d="M7 5h4v14H7zM13 5h4v14h-4z" />
-                      </svg>
-                    )}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={toggleMute}
-                    aria-label={isMuted ? "Unmute video" : "Mute video"}
-                    className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white backdrop-blur-md transition-colors duration-200 hover:bg-black/50"
-                  >
-                    {isMuted ? (
-                      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
-                        <path d="M13 5.23v13.54a1 1 0 01-1.64.77L6.91 16H3a1 1 0 01-1-1v-6a1 1 0 011-1h3.91l4.45-3.54A1 1 0 0113 5.23zM20.78 8.8a1 1 0 010 1.41L19 12l1.78 1.79a1 1 0 11-1.41 1.41L17.59 13.4l-1.8 1.8a1 1 0 01-1.41-1.41L16.17 12l-1.79-1.79a1 1 0 011.41-1.41l1.8 1.8 1.78-1.8a1 1 0 011.41 0z" />
-                      </svg>
-                    ) : (
-                      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
-                        <path d="M14 5.23v13.54a1 1 0 01-1.64.77L7.91 16H4a1 1 0 01-1-1v-6a1 1 0 011-1h3.91l4.45-3.54A1 1 0 0114 5.23z" />
-                        <path d="M16.5 9.5a1 1 0 011.41 0A4.97 4.97 0 0119.5 13a4.97 4.97 0 01-1.59 3.5 1 1 0 01-1.41-1.42A2.98 2.98 0 0017.5 13a2.98 2.98 0 00-1-2.08 1 1 0 010-1.42z" />
-                      </svg>
-                    )}
-                  </button>
-                </div>
-              </div>
+              <YouTubeLite
+                videoId="ntyS1giH5p0"
+                title="A Better Way to Measure, Quote and Invoice with QuoteCore+"
+                className="w-full"
+              />
             </div>
           </div>
         </section>
