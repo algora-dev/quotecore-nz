@@ -18,7 +18,7 @@ export default function SiteFooter() {
         {" · "}
         <a href="/#pricing" className="hover:text-zinc-800">Pricing</a>
         {" · "}
-        <a href="https://quote-core.com/blog" className="hover:text-zinc-800">Blog</a>
+        <a href="https://quote-core.com/blog" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-800">Blog</a>
         {" · "}
         <a href="https://app.quote-core.com/docs" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-800">Documentation</a>
         {" · "}

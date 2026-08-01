@@ -9,7 +9,7 @@ const navItems = [
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/#pricing" },
   { label: "Free Tools", href: "/free-tools" },
-  { label: "Blog", href: "https://quote-core.com/blog" },
+  { label: "Blog", href: "https://quote-core.com/blog", external: true },
   { label: "Documentation", href: "https://app.quote-core.com/docs", external: true },
   { label: "App", href: "https://app.quote-core.com", external: true },
   { label: "Contact us", href: "/contact" },
