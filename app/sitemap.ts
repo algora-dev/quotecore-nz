@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/free-trial",
     "/free-tools",
+    "/free-roofing-takeoff-builder",
     "/pricing",
     "/privacy",
     "/roofing-quoting-software",

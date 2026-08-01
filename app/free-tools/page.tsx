@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import BlogHeader from '@/components/BlogHeader';
 import SiteFooter from '@/components/SiteFooter';
-import { FreeToolsAuthProvider } from '@/app/(public)/_components/FreeToolsAuthProvider';
+import { FreeToolsAuthProvider } from '@/components/free-tools/FreeToolsAuthProvider';
 import { TOOLS, CALCULATORS, CALCULATOR_COUNT, NZ_TOOL_DESCRIPTIONS } from './tools-data';
 import { site } from '@/lib/seo';
 

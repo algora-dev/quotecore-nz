@@ -11,7 +11,7 @@ export interface ToolEntry {
 }
 
 export const TOOLS: ToolEntry[] = [
-  { slug: 'free-roofing-takeoff-builder', name: 'Roof Takeoff Builder', industry: 'Roofing', description: 'Build a complete roof takeoff with pitch calculations for all components.', keywords: ['takeoff', 'roof', 'area', 'pitch', 'hip', 'valley', 'ridge', 'barge', 'spouting', 'material'], isCore: true, category: 'takeoff', ported: false },
+  { slug: 'free-roofing-takeoff-builder', name: 'Roof Takeoff Builder', industry: 'Roofing', description: 'Build a complete roof takeoff with pitch calculations for all components.', keywords: ['takeoff', 'roof', 'area', 'pitch', 'hip', 'valley', 'ridge', 'barge', 'spouting', 'material'], isCore: true, category: 'takeoff', ported: true },
   { slug: 'free-roofing-calculator', name: 'Roofing Calculator', industry: 'Roofing', description: 'Roof pitch, rafter and hip/valley lengths, surface area, and roofing material quantities.', keywords: ['pitch', 'rafter', 'hip', 'valley', 'area', 'battens', 'angle'], isCore: true, category: 'calculator', ported: false },
   { slug: 'free-construction-calculator', name: 'Construction Calculator', industry: 'Construction', description: 'Floor and wall areas, timber and stud lengths, material quantities, and cutting angles.', keywords: ['area', 'timber', 'stud', 'materials', 'angle', 'wall', 'floor'], isCore: true, category: 'calculator', ported: false },
   { slug: 'free-concrete-calculator', name: 'Concrete Calculator', industry: 'Concrete', description: 'Slab and footing volumes with depth presets, formwork areas, falls, and ready-mix pricing.', keywords: ['slab', 'footing', 'volume', 'formwork', 'falls', 'gradient', 'ready-mix'], isCore: true, category: 'calculator', ported: false },
