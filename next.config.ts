@@ -16,12 +16,6 @@ const nextConfig: NextConfig = {
     // path and query string preserved by Next's :path* + automatic query
     // forwarding. Do NOT redirect any of these to the global .com site.
     return [
-      // Redirect NZ /free-tools to the global free tools hub (single canonical source)
-      {
-        source: "/free-tools",
-        destination: "https://quote-core.com/free-tools",
-        permanent: true,
-      },
       // Redirect NZ /blog to the global blog (NZ-specific content strategy TBD; for now, all blog content lives on .com)
       {
         source: "/blog",
