@@ -3,7 +3,8 @@ import BlogHeader from '@/components/BlogHeader';
 import SiteFooter from '@/components/SiteFooter';
 import { FreeToolsAuthProvider } from '@/components/free-tools/FreeToolsAuthProvider';
 import { TOOLS, CALCULATORS, CALCULATOR_COUNT, NZ_TOOL_DESCRIPTIONS } from './tools-data';
-import { site } from '@/lib/seo';
+import CalculatorSearchGrid from './CalculatorSearchGrid';
+import { QuoteGeneratorSection, RoofTakeoffSection, CalculatorsSection, PurchaseOrderSection, InvoiceSection } from './ToolSections';
 
 const COM_URL = 'https://quote-core.com';
 
@@ -31,9 +32,7 @@ export default function FreeToolsPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,107,53,0.06),transparent_60%)]" />
           <div className="relative mx-auto max-w-5xl px-2 md:px-6 pt-10 md:pt-14 pb-6 md:pb-8 text-center">
-            <h1 className="text-xl md:text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-              Free Tools for Kiwi Trades
-            </h1>
+            <h1 className="text-xl md:text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Free Tools for Kiwi Trades</h1>
             <p className="mt-3 md:mt-4 text-sm md:text-lg text-slate-500 max-w-2xl mx-auto px-2">
               Professional calculators and document generators built for New Zealand trades. NZD pricing, GST included, no signup required.
             </p>
@@ -42,44 +41,15 @@ export default function FreeToolsPage() {
 
         {/* Tool sections */}
         <div className="mx-auto max-w-5xl px-2 md:px-6 pb-12 md:pb-20 space-y-12 md:space-y-20">
-          {/* Takeoff Builder */}
-          <section className="text-center">
-            <h2 className="text-lg md:text-2xl font-semibold text-slate-900">Roof Takeoff Builder</h2>
-            <p className="mt-2 text-sm text-slate-500 max-w-2xl mx-auto">
-              Build a complete roof takeoff with pitch calculations, waste allowances, and material quantities.
-              Designed for NZ long-run, corrugated, and tile roofs.
-            </p>
-            <Link
-              href={toolHref('free-roofing-takeoff-builder', false)}
-              target={false ? undefined : '_blank'}
-              rel={false ? undefined : 'noopener noreferrer'}
-              className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:shadow-[0_0_16px_rgba(255,107,53,0.4)] min-h-[44px]"
-            >
-              Open Takeoff Builder
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
-          </section>
-
-          {/* Calculators */}
-          <section className="text-center">
-            <h2 className="text-lg md:text-2xl font-semibold text-slate-900">
-              {CALCULATOR_COUNT} Free Calculators
-            </h2>
-            <p className="mt-2 text-sm text-slate-500 max-w-2xl mx-auto">
-              From roof pitch to concrete volumes. NZ-specific measurements, materials, and pricing.
-            </p>
-          </section>
-
-          {/* Generators */}
-          <section className="text-center">
-            <h2 className="text-lg md:text-2xl font-semibold text-slate-900">Document Generators</h2>
-            <p className="mt-2 text-sm text-slate-500 max-w-2xl mx-auto">
-              Create professional quotes, invoices, and purchase orders with GST 15% defaults and NZ formats.
-            </p>
-          </section>
+          <QuoteGeneratorSection />
+          <RoofTakeoffSection />
+          <CalculatorsSection calculatorCount={CALCULATOR_COUNT} />
+          <PurchaseOrderSection />
+          <InvoiceSection />
         </div>
+
+        {/* All calculators search + grid (client component) */}
+        <CalculatorSearchGrid />
 
         {/* Static crawl-friendly tool directory */}
         <section className="mx-auto max-w-5xl px-2 md:px-6 py-10 md:py-16">
