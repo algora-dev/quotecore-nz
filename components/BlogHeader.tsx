@@ -8,7 +8,7 @@ const navItems = [
   { label: "How it works", href: "/#how-it-works" },
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/#pricing" },
-  { label: "Free Tools", href: "https://quote-core.com/free-tools" },
+  { label: "Free Tools", href: "/free-tools" },
   { label: "Blog", href: "https://quote-core.com/blog" },
   { label: "Documentation", href: "https://app.quote-core.com/docs", external: true },
   { label: "App", href: "https://app.quote-core.com", external: true },
@@ -52,9 +52,7 @@ export default function BlogHeader({ backLabel, backHref = "/" }: { backLabel?: 
               </a>
             )}
             <a
-              href="https://quote-core.com/free-tools"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/free-tools"
               className={freeToolsButton}
               onClick={() => trackEvent("free_tools_click", { location: "nav" })}
             >

@@ -1,0 +1,216 @@
+import Link from 'next/link';
+import BlogHeader from '@/components/BlogHeader';
+import SiteFooter from '@/components/SiteFooter';
+import { FreeToolsAuthProvider } from '@/app/(public)/_components/FreeToolsAuthProvider';
+import { TOOLS, CALCULATORS, CALCULATOR_COUNT, NZ_TOOL_DESCRIPTIONS } from './tools-data';
+import { site } from '@/lib/seo';
+
+const COM_URL = 'https://quote-core.com';
+
+export default function FreeToolsPage() {
+  const roofingCalcs = CALCULATORS.filter(c => c.industry === 'Roofing');
+  const concreteCalcs = CALCULATORS.filter(c => c.industry === 'Concrete');
+  const constructionCalcs = CALCULATORS.filter(c => c.industry === 'Construction');
+  const landscapingCalcs = CALCULATORS.filter(c => c.industry === 'Landscaping');
+
+  function toolHref(slug: string, ported: boolean) {
+    return ported ? `/${slug}` : `${COM_URL}/${slug}`;
+  }
+
+  function toolDesc(slug: string, fallback: string) {
+    return NZ_TOOL_DESCRIPTIONS[slug] || fallback;
+  }
+
+  return (
+    <FreeToolsAuthProvider>
+      <main className="min-h-screen bg-white">
+        <BlogHeader />
+
+        {/* Hero */}
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,107,53,0.06),transparent_60%)]" />
+          <div className="relative mx-auto max-w-5xl px-2 md:px-6 pt-10 md:pt-14 pb-6 md:pb-8 text-center">
+            <h1 className="text-xl md:text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+              Free Tools for Kiwi Trades
+            </h1>
+            <p className="mt-3 md:mt-4 text-sm md:text-lg text-slate-500 max-w-2xl mx-auto px-2">
+              Professional calculators and document generators built for New Zealand trades. NZD pricing, GST included, no signup required.
+            </p>
+          </div>
+        </section>
+
+        {/* Tool sections */}
+        <div className="mx-auto max-w-5xl px-2 md:px-6 pb-12 md:pb-20 space-y-12 md:space-y-20">
+          {/* Takeoff Builder */}
+          <section className="text-center">
+            <h2 className="text-lg md:text-2xl font-semibold text-slate-900">Roof Takeoff Builder</h2>
+            <p className="mt-2 text-sm text-slate-500 max-w-2xl mx-auto">
+              Build a complete roof takeoff with pitch calculations, waste allowances, and material quantities.
+              Designed for NZ long-run, corrugated, and tile roofs.
+            </p>
+            <Link
+              href={toolHref('free-roofing-takeoff-builder', false)}
+              target={false ? undefined : '_blank'}
+              rel={false ? undefined : 'noopener noreferrer'}
+              className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:shadow-[0_0_16px_rgba(255,107,53,0.4)] min-h-[44px]"
+            >
+              Open Takeoff Builder
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          </section>
+
+          {/* Calculators */}
+          <section className="text-center">
+            <h2 className="text-lg md:text-2xl font-semibold text-slate-900">
+              {CALCULATOR_COUNT} Free Calculators
+            </h2>
+            <p className="mt-2 text-sm text-slate-500 max-w-2xl mx-auto">
+              From roof pitch to concrete volumes. NZ-specific measurements, materials, and pricing.
+            </p>
+          </section>
+
+          {/* Generators */}
+          <section className="text-center">
+            <h2 className="text-lg md:text-2xl font-semibold text-slate-900">Document Generators</h2>
+            <p className="mt-2 text-sm text-slate-500 max-w-2xl mx-auto">
+              Create professional quotes, invoices, and purchase orders with GST 15% defaults and NZ formats.
+            </p>
+          </section>
+        </div>
+
+        {/* Static crawl-friendly tool directory */}
+        <section className="mx-auto max-w-5xl px-2 md:px-6 py-10 md:py-16">
+          <h2 className="text-lg md:text-2xl font-semibold text-slate-900 mb-2">Complete Tool Directory</h2>
+          <p className="text-xs md:text-sm text-slate-500 mb-6">
+            All {TOOLS.length} free tools available on QuoteCore+. No signup required. NZD pricing, GST included.
+          </p>
+
+          {/* Generators and takeoff */}
+          <div className="mb-8">
+            <h3 className="text-sm font-semibold text-slate-700 mb-3">Generators &amp; Takeoff</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+              {TOOLS.filter(t => t.category !== 'calculator').map((tool) => (
+                <Link
+                  key={tool.slug}
+                  href={toolHref(tool.slug, tool.ported)}
+                  prefetch={false}
+                  target={tool.ported ? undefined : '_blank'}
+                  rel={tool.ported ? undefined : 'noopener noreferrer'}
+                  className="block bg-white border rounded-xl p-4 hover:border-[#FF6B35] hover:shadow-[0_0_8px_rgba(255,107,53,0.08)] hover:bg-orange-50/40 transition-all group"
+                >
+                  <div className="font-medium text-sm text-slate-900 group-hover:text-[#BD4A1A]">{tool.name}</div>
+                  <div className="text-xs text-slate-400 mt-0.5">{tool.industry}</div>
+                  <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">{toolDesc(tool.slug, tool.description)}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Roofing calculators */}
+          <div className="mb-8">
+            <h3 className="text-sm font-semibold text-slate-700 mb-3">Roofing Calculators ({roofingCalcs.length})</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+              {roofingCalcs.map((tool) => (
+                <Link
+                  key={tool.slug}
+                  href={toolHref(tool.slug, tool.ported)}
+                  prefetch={false}
+                  target={tool.ported ? undefined : '_blank'}
+                  rel={tool.ported ? undefined : 'noopener noreferrer'}
+                  className="block bg-white border rounded-xl p-4 hover:border-[#FF6B35] hover:shadow-[0_0_8px_rgba(255,107,53,0.08)] hover:bg-orange-50/40 transition-all group"
+                >
+                  <div className="font-medium text-sm text-slate-900 group-hover:text-[#BD4A1A]">{tool.name}</div>
+                  <p className="mt-1 text-xs text-slate-500 leading-relaxed line-clamp-2">{toolDesc(tool.slug, tool.description)}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Concrete calculators */}
+          <div className="mb-8">
+            <h3 className="text-sm font-semibold text-slate-700 mb-3">Concrete Calculators ({concreteCalcs.length})</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+              {concreteCalcs.map((tool) => (
+                <Link
+                  key={tool.slug}
+                  href={toolHref(tool.slug, tool.ported)}
+                  prefetch={false}
+                  target={tool.ported ? undefined : '_blank'}
+                  rel={tool.ported ? undefined : 'noopener noreferrer'}
+                  className="block bg-white border rounded-xl p-4 hover:border-[#FF6B35] hover:shadow-[0_0_8px_rgba(255,107,53,0.08)] hover:bg-orange-50/40 transition-all group"
+                >
+                  <div className="font-medium text-sm text-slate-900 group-hover:text-[#BD4A1A]">{tool.name}</div>
+                  <p className="mt-1 text-xs text-slate-500 leading-relaxed line-clamp-2">{toolDesc(tool.slug, tool.description)}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Construction calculators */}
+          <div className="mb-8">
+            <h3 className="text-sm font-semibold text-slate-700 mb-3">Construction Calculators ({constructionCalcs.length})</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+              {constructionCalcs.map((tool) => (
+                <Link
+                  key={tool.slug}
+                  href={toolHref(tool.slug, tool.ported)}
+                  prefetch={false}
+                  target={tool.ported ? undefined : '_blank'}
+                  rel={tool.ported ? undefined : 'noopener noreferrer'}
+                  className="block bg-white border rounded-xl p-4 hover:border-[#FF6B35] hover:shadow-[0_0_8px_rgba(255,107,53,0.08)] hover:bg-orange-50/40 transition-all group"
+                >
+                  <div className="font-medium text-sm text-slate-900 group-hover:text-[#BD4A1A]">{tool.name}</div>
+                  <p className="mt-1 text-xs text-slate-500 leading-relaxed line-clamp-2">{toolDesc(tool.slug, tool.description)}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Landscaping calculators */}
+          {landscapingCalcs.length > 0 && (
+            <div className="mb-8">
+              <h3 className="text-sm font-semibold text-slate-700 mb-3">Landscaping Calculators ({landscapingCalcs.length})</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                {landscapingCalcs.map((tool) => (
+                  <Link
+                    key={tool.slug}
+                    href={toolHref(tool.slug, tool.ported)}
+                    prefetch={false}
+                    target={tool.ported ? undefined : '_blank'}
+                    rel={tool.ported ? undefined : 'noopener noreferrer'}
+                    className="block bg-white border rounded-xl p-4 hover:border-[#FF6B35] hover:shadow-[0_0_8px_rgba(255,107,53,0.08)] hover:bg-orange-50/40 transition-all group"
+                  >
+                    <div className="font-medium text-sm text-slate-900 group-hover:text-[#BD4A1A]">{tool.name}</div>
+                    <p className="mt-1 text-xs text-slate-500 leading-relaxed line-clamp-2">{toolDesc(tool.slug, tool.description)}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+
+        {/* Why free? */}
+        <section className="mx-auto max-w-3xl px-2 md:px-6 py-10 md:py-16 text-center">
+          <h2 className="text-lg md:text-2xl font-semibold text-slate-900">Why are these free?</h2>
+          <p className="mt-3 text-xs md:text-sm text-slate-500 leading-relaxed">
+            We build tools for Kiwi trades. These calculators and generators are the same ones powering QuoteCore+ - our full quoting and job management platform built for New Zealand contractors. We give them away because they should be free. If you want the full system - takeoffs, components, quotes, orders, invoices, scheduling - that is where QuoteCore+ comes in.
+          </p>
+          <Link
+            href="/free-trial"
+            className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-[#FF6B35] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#E55A2B] hover:shadow-[0_0_16px_rgba(255,107,53,0.4)] min-h-[44px]"
+          >
+            Try QuoteCore+ Free
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </Link>
+        </section>
+
+        <SiteFooter />
+      </main>
+    </FreeToolsAuthProvider>
+  );
+}

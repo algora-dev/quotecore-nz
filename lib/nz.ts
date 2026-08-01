@@ -15,6 +15,7 @@ export const nzNav = [
   { href: "/roofing-quoting-software", label: "Roofing" },
   { href: "/construction-quoting-software", label: "Construction" },
   { href: "/services", label: "Services" },
+  { href: "/free-tools", label: "Free Tools" },
   { href: "/pricing", label: "Pricing" },
   { href: "https://app.quote-core.com/docs", label: "Documentation", external: true },
   { href: "/contact", label: "Contact" },

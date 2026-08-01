@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/construction-quoting-software",
     "/contact",
     "/free-trial",
+    "/free-tools",
     "/pricing",
     "/privacy",
     "/roofing-quoting-software",
