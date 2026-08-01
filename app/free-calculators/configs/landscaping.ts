@@ -2,7 +2,7 @@ import type { TradeConfig } from '../_shared/types';
 
 export const landscapingConfig: TradeConfig = {
   slug: 'free-landscaping-calculator',
-  defaultCurrency: 'GBP',
+  defaultCurrency: 'NZD',
   name: 'Landscaping Calculator',
   metaTitle: 'Free Landscaping Calculator - Turf, Topsoil & Slopes | QuoteCore+',
   metaDescription:

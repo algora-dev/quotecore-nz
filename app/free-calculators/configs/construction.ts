@@ -4,7 +4,7 @@ const COMMON_SLOPES = [0, 5, 10, 15, 20, 25, 30, 40, 45];
 
 export const constructionConfig: TradeConfig = {
   slug: 'free-construction-calculator',
-  defaultCurrency: 'GBP',
+  defaultCurrency: 'NZD',
   name: 'Construction Calculator',
   metaTitle: 'Free Construction Calculator - Areas, Materials & Angles | QuoteCore+',
   metaDescription:

@@ -4,7 +4,7 @@ const COMMON_PITCHES = [10, 15, 20, 25, 30, 35, 40, 45];
 
 export const roofingConfig: TradeConfig = {
   slug: 'free-roofing-calculator',
-  defaultCurrency: 'GBP',
+  defaultCurrency: 'NZD',
   name: 'Roofing Calculator',
   metaTitle: 'Roofing Calculator - Pitch, Area, Rafter Length, Materials | QuoteCore+',
   metaDescription:

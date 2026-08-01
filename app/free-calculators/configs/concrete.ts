@@ -2,7 +2,7 @@ import type { TradeConfig } from '../_shared/types';
 
 export const concreteConfig: TradeConfig = {
   slug: 'free-concrete-calculator',
-  defaultCurrency: 'GBP',
+  defaultCurrency: 'NZD',
   name: 'Concrete Calculator',
   metaTitle: 'Free Concrete Calculator - Slabs, Footings & Volumes | QuoteCore+',
   metaDescription:

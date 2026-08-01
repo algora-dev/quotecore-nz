@@ -2,7 +2,7 @@ import type { TradeConfig } from '../_shared/types';
 
 export const birdsmouthConfig: TradeConfig = {
   slug: 'free-birds-mouth-calculator',
-  defaultCurrency: 'GBP',
+  defaultCurrency: 'NZD',
   name: "Bird's Mouth Calculator",
   metaTitle: "Free Bird's Mouth Calculator - Rafter & Stringer Seat Cuts | QuoteCore+",
   metaDescription:
