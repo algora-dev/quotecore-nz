@@ -3,6 +3,7 @@ import Script from "next/script";
 import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { site } from "@/lib/seo";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
@@ -84,7 +85,8 @@ export default function InvoicingPage() {
       <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <main className="min-h-screen bg-white text-zinc-950">
-        <BlogHeader />
+       <BlogHeader />
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Features", href: "/features" }, { label: "Invoicing NZ" }]} />
 
         {/* Hero */}
         <section className="relative overflow-hidden pb-12 pt-16">

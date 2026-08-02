@@ -7,8 +7,15 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "How it works", href: "/#how-it-works" },
   { label: "Features", href: "/features" },
+  { label: "Digital Roof Takeoff", href: "/features/digital-roof-takeoff" },
+  { label: "Smart Components", href: "/features/smart-components" },
+  { label: "Material Ordering", href: "/features/material-ordering" },
+  { label: "Invoicing", href: "/features/invoicing" },
+  { label: "Supplier Resources", href: "/features/supplier-resources" },
+  { label: "Roofing Software NZ", href: "/roofing-quoting-software" },
+  { label: "Construction Software NZ", href: "/construction-quoting-software" },
   { label: "Services", href: "/services" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Free Tools", href: "/free-tools" },
   { label: "Blog", href: "https://quote-core.com/blog", external: true },
   { label: "Documentation", href: "https://app.quote-core.com/docs", external: true },
@@ -143,6 +150,15 @@ export default function BlogHeader({ backLabel, backHref = "/" }: { backLabel?: 
               onClick={() => { trackEvent("contact_click", { location: "nav-menu" }); setMenuOpen(false); }}
             >
               Contact us
+            </a>
+          </div>
+          <div className="mx-auto max-w-7xl px-6 pb-6 lg:px-8">
+            <a
+              href="https://quote-core.com"
+              className="inline-flex min-h-11 items-center rounded-full border border-zinc-300 px-4 text-sm font-medium text-zinc-800 transition-colors hover:border-[#FF6B35]/50"
+              onClick={() => setMenuOpen(false)}
+            >
+              Switch to Global
             </a>
           </div>
         </div>

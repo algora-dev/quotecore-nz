@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
@@ -20,7 +21,8 @@ export default function AboutPage() {
   return (
     <>
       <main className="min-h-screen bg-white text-zinc-950">
-        <BlogHeader />
+       <BlogHeader />
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
 
         {/* Hero */}
         <section className="relative overflow-hidden pb-12 pt-16">
