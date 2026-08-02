@@ -4,21 +4,21 @@ import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NzContextPanel from "@/components/NzContextPanel";
 import { site } from "@/lib/seo";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
-  title: "Smart Components: Reusable Quoting Components | QuoteCore+",
+  title: "Reusable Quoting Components for NZ Trades | QuoteCore+",
   description:
-    "Smart Components™ are reusable quoting components that know their own measurements, waste allowances, and pricing rules. Anything in your business can be a component. Build a roof quote in minutes, not hours.",
+    "Create reusable NZD pricing rules for materials, labour, services, metric coverage and waste. Quote repeatable New Zealand trade work consistently.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/smart-components",
     languages: hreflangLanguages("/features/smart-components"),
   },
   openGraph: {
-    title: "Smart Components: Reusable Quoting Components | QuoteCore+",
-    description:
-      "Reusable quoting components that know their own measurements, waste allowances, and pricing rules. Build a roof quote in minutes.",
+    title: "Reusable Quoting Components for NZ Trades | QuoteCore+",
+    description: "Store reusable material, labour, waste and pricing rules for consistent New Zealand trade quotes.",
     url: "https://www.quote-core.co.nz/features/smart-components",
     siteName: "QuoteCore+",
     type: "website",
@@ -118,6 +118,16 @@ export default function SmartComponentsPage() {
             </div>
           </div>
         </section>
+
+        <NzContextPanel
+          title="Store the pricing logic behind repeatable New Zealand work"
+          intro="Smart Components turn materials, labour, services and fees into reusable rules so your team can quote consistently without rebuilding every calculation."
+          items={[
+            { title: "NZD and GST", description: "Store cost and selling prices in New Zealand dollars and apply the appropriate tax treatment." },
+            { title: "Metric coverage and waste", description: "Base calculations on area, length, quantity, coverage, laps and waste allowances." },
+            { title: "Your products and rates", description: "Keep the product codes, supplier prices, labour rates and margins that match how your business works." },
+          ]}
+        />
 
         {/* Screenshot showcase - quote view */}
         <section className="mx-auto max-w-5xl px-6 pb-8 lg:px-8">

@@ -1,20 +1,44 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import OrangeCheck from "@/components/OrangeCheck";
+import Link from "next/link";
+import BlogHeader from "@/components/BlogHeader";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import SiteFooter from "@/components/SiteFooter";
+import { pricingPlans } from "@/lib/pricing";
+import { buildFaqSchema } from "@/lib/schema";
 import { breadcrumbSchema, jsonLd, pricingOffers, site } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Pricing | QuoteCore+ NZ",
+  title: "Roofing & Construction Quoting Software Pricing NZ | QuoteCore+",
   description:
-    "Simple pricing for NZ tradies and contractors. Start a 14-day free trial and test QuoteCore+ for measuring, pricing, quote approvals, materials ordering, and job workflow.",
+    "Compare QuoteCore+ plans in NZD. Start with a 14-day full-feature trial with no credit card, then choose the quote and storage limits that fit your New Zealand trade business.",
   alternates: { canonical: `${site.url}/pricing` },
+  openGraph: {
+    title: "QuoteCore+ Pricing New Zealand",
+    description: "Compare QuoteCore+ monthly plans and limits in NZD for New Zealand trade businesses.",
+    url: `${site.url}/pricing`,
+    siteName: "QuoteCore+",
+    type: "website",
+  },
 };
 
-const plans = [
-  { name: "Full trial", price: "14 days free", regularPrice: null, note: "Full platform access. No card required.", features: ["Digital takeoff", "Quote builder", "Approval tracking", "Materials ordering"] },
-  { name: "Starter", price: "NZ$30/mo", regularPrice: "NZ$65/mo", note: "For owner-operators and solo tradies.", features: ["Saved components", "Customer-ready quotes", "Core quote workflow", "Email support"] },
-  { name: "Professional", price: "NZ$65/mo", regularPrice: "NZ$149/mo", note: "For small teams quoting regularly.", features: ["Higher usage", "Reusable pricing rules", "Materials lists", "Priority setup help"] },
-  { name: "Pro Plus", price: "NZ$99/mo", regularPrice: "NZ$200/mo", note: "For established teams with higher quote volume.", features: ["Higher limits", "Reusable pricing rules", "Materials lists", "Priority setup help"] },
+const faqs = [
+  {
+    question: "Is QuoteCore+ pricing shown in New Zealand dollars?",
+    answer: "Yes. Prices on this page are shown in NZD. GST is calculated at checkout where applicable.",
+  },
+  {
+    question: "Is a credit card required for the trial?",
+    answer: "No. You can start the 14-day Full trial without entering a credit card.",
+  },
+  {
+    question: "What happens when the trial ends?",
+    answer: "The account moves to the Lite free plan unless you choose to upgrade to a paid plan.",
+  },
+  {
+    question: "What limits differ between plans?",
+    answer: "Plans differ by monthly quote allowance, storage and the support or usage features listed on each plan card.",
+  },
 ];
 
 const schema = {
@@ -22,11 +46,12 @@ const schema = {
   "@graph": [
     {
       "@type": "SoftwareApplication",
+      "@id": `${site.url}/#software`,
       name: "QuoteCore+",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       url: `${site.url}/pricing`,
-      description: "Contractor quoting software for trades that work from measurements.",
+      description: "Roofing and construction quoting software for New Zealand measured trades.",
       offers: pricingOffers.map((offer) => ({ ...offer, url: `${site.url}/pricing` })),
     },
     breadcrumbSchema([
@@ -40,86 +65,77 @@ export default function PricingPage() {
   return (
     <>
       <Script id="pricing-nz-schema" type="application/ld+json" dangerouslySetInnerHTML={jsonLd(schema)} />
+      <Script id="pricing-nz-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={jsonLd(buildFaqSchema(faqs))} />
+      <BlogHeader />
       <main className="min-h-screen bg-white text-zinc-950">
-        <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white/90 backdrop-blur">
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-8">
-            <a href="/" className="flex items-center gap-3">
-              <img src="/MainQCP.png" alt="QuoteCore+" className="h-10 w-auto" />
-            </a>
-            <div className="flex items-center gap-3">
-              <a href="/contact" className="hidden min-h-11 items-center justify-center rounded-full border border-zinc-200 bg-white px-5 py-2.5 text-sm font-medium text-zinc-900 transition hover:border-[#FF6B35]/50 sm:inline-flex">
-                Contact us
-              </a>
-              <a href="/free-trial" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#BD4A1A] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#A03E15]">
-                Start free trial
-              </a>
-            </div>
-          </div>
-        </header>
-        <section className="bg-[linear-gradient(180deg,#fff_0%,#fff7f2_70%,#fff_100%)] px-6 py-20 text-center lg:px-8">
-          <h1 className="mx-auto max-w-4xl text-5xl font-semibold tracking-tight sm:text-6xl">
-            Simple pricing for NZ tradies and contractors
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Pricing" }]} />
+        <section className="mx-auto max-w-7xl px-6 pb-14 pt-12 text-center lg:px-8 lg:pb-20">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#BD4A1A]">NZD monthly plans</p>
+          <h1 className="mx-auto mt-4 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+            QuoteCore+ pricing for New Zealand trade businesses.
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
-            Start with 14 days free. QuoteCore+ helps trade businesses measure, price, send, approve, and manage quotes
-            in one connected workflow.
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-600">
+            Start with every feature for 14 days, no card required. Compare the quote and storage limits before choosing the plan that fits your workload.
           </p>
-          <p className="mt-4 text-sm font-medium text-zinc-500">
-            Founding customer pricing is available for early users. Regular prices are shown separately for clarity.
-          </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link href="/free-trial" className="inline-flex min-h-11 items-center justify-center rounded-full bg-black px-7 text-sm font-semibold text-white transition-shadow hover:shadow-[0_0_18px_rgba(255,107,53,0.32)]">Start free trial</Link>
+            <Link href="/features" className="inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 px-7 text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-500">Compare features</Link>
+          </div>
         </section>
-        <section className="mx-auto grid max-w-6xl gap-6 px-6 py-12 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
-          {plans.map((plan) => (
-            <div key={plan.name} className="flex flex-col rounded-2xl border border-zinc-200 bg-white p-7 shadow-sm">
-              <h2 className="text-xl font-semibold">{plan.name}</h2>
-              <div className="mt-4 space-y-1">
-                {plan.regularPrice && (
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">
-                    Founding customer price:
-                  </p>
+
+        <section className="border-y border-zinc-200 bg-zinc-50 py-16">
+          <div className="mx-auto grid max-w-7xl gap-6 px-6 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
+            {pricingPlans.map((plan) => (
+              <article key={plan.name} className={`relative flex flex-col rounded-[2rem] border bg-white p-8 ${plan.featured ? "border-[#BD4A1A] shadow-[0_18px_50px_rgba(24,24,27,0.10)]" : "border-zinc-200"} ${plan.comingSoon ? "opacity-75" : ""}`}>
+                {plan.featured && <span className="absolute right-6 top-6 rounded-full bg-zinc-950 px-3 py-1 text-xs font-semibold text-white">Most popular</span>}
+                <h2 className="text-xl font-semibold">{plan.displayName}</h2>
+                <p className="mt-2 min-h-10 text-sm leading-6 text-zinc-600">{plan.subtitle}</p>
+                <div className="mt-6 rounded-xl border border-zinc-200 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">NZD</p>
+                  <p className="mt-1 text-3xl font-semibold">{plan.nzd}</p>
+                  {!plan.isFree && !plan.comingSoon && <p className="text-xs text-zinc-500">per month</p>}
+                </div>
+                {plan.originalNzd && <p className="mt-3 text-xs text-zinc-500">Regular monthly price: <s>{plan.originalNzd}</s></p>}
+                <ul className="mt-6 flex-1 space-y-3">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex gap-3 text-sm text-zinc-700">
+                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-[#BD4A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                {plan.comingSoon ? (
+                  <span className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 px-6 text-sm font-semibold text-zinc-500">Coming soon</span>
+                ) : (
+                  <Link href="/free-trial" className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-full px-6 text-sm font-semibold transition-colors ${plan.featured ? "bg-black text-white hover:bg-zinc-800" : "border border-zinc-300 text-zinc-900 hover:border-zinc-500"}`}>
+                    {plan.isFree ? "Start free trial" : "Try this plan"}
+                  </Link>
                 )}
-                <p className="text-3xl font-semibold text-[#BD4A1A]">{plan.price}</p>
-                {plan.regularPrice && (
-                  <p className="text-sm text-zinc-500">
-                    Regular price <s>{plan.regularPrice}</s>
-                  </p>
-                )}
+              </article>
+            ))}
+          </div>
+          <p className="mx-auto mt-8 max-w-3xl px-6 text-center text-sm text-zinc-600">NZD pricing shown. GST is calculated at checkout where applicable.</p>
+        </section>
+
+        <section className="mx-auto max-w-4xl px-6 py-20 lg:px-8">
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#BD4A1A]">New Zealand pricing questions</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Know what happens before you start.</h2>
+          </div>
+          <div className="mt-10 divide-y divide-zinc-200 border-y border-zinc-200">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="py-6">
+                <h3 className="font-semibold text-zinc-950">{faq.question}</h3>
+                <p className="mt-2 leading-7 text-zinc-600">{faq.answer}</p>
               </div>
-              <p className="mt-3 text-sm leading-6 text-zinc-500">{plan.note}</p>
-              <ul className="mt-6 flex-1 space-y-3 text-sm text-zinc-700">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2"><OrangeCheck />{feature}</li>
-                ))}
-              </ul>
-              <a href="/free-trial" className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full bg-[#BD4A1A] px-5 text-sm font-semibold text-white hover:bg-[#A03E15]">
-                Start free trial
-              </a>
-            </div>
-          ))}
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link href="/contact" className="inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 px-7 text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-500">Ask a pricing question</Link>
+          </div>
         </section>
-        <section className="mx-auto max-w-4xl px-6 pb-20 text-center lg:px-8">
-          <p className="text-zinc-600">
-            Not sure which plan fits your business? Contact us and we will help you choose the right setup.
-          </p>
-          <a href="/contact" className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full border border-zinc-300 px-7 text-sm font-semibold text-zinc-900 hover:border-[#FF6B35]/50">
-            Contact us
-          </a>
-        </section>
-        <footer className="border-t border-zinc-200 py-10 text-center text-sm text-zinc-500">
-          <p className="mb-4 text-xs text-zinc-400">QuoteCore+ is quoting software for contractors and trade businesses.</p>
-          <p>
-            <a href="/" className="hover:text-zinc-800">Home</a>
-            {" · "}
-            <a href="/free-trial" className="hover:text-zinc-800">Free Trial</a>
-            {" · "}
-            <a href="/contact" className="hover:text-zinc-800">Contact</a>
-            {" · "}
-            <a href="/privacy" className="hover:text-zinc-800">Privacy</a>
-            {" · "}
-            <a href="/terms" className="hover:text-zinc-800">Terms</a>
-          </p>
-        </footer>
       </main>
+      <SiteFooter />
     </>
   );
 }

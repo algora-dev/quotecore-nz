@@ -4,21 +4,21 @@ import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NzContextPanel from "@/components/NzContextPanel";
 import { site } from "@/lib/seo";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
-  title: "Professional Invoicing for Contractors | QuoteCore+",
+  title: "Contractor Invoicing Software for New Zealand Trades | QuoteCore+",
   description:
-    "Create professional invoices from accepted quotes, imported quotes, or from scratch. Line items, payment instructions, and online payment tracking. Standalone invoicing built for contractors.",
+    "Turn accepted quotes into professional NZD invoices with clear GST treatment, line items and customer payment instructions for New Zealand trade work.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/invoicing",
     languages: hreflangLanguages("/features/invoicing"),
   },
   openGraph: {
-    title: "Professional Invoicing for Contractors | QuoteCore+",
-    description:
-      "Create professional invoices from quotes or from scratch. Line items, payment instructions, and online payment tracking.",
+    title: "Contractor Invoicing Software for New Zealand Trades | QuoteCore+",
+    description: "Create professional NZD invoices from accepted quotes or from scratch, with clear GST treatment and payment instructions.",
     url: "https://www.quote-core.co.nz/features/invoicing",
     siteName: "QuoteCore+",
     type: "website",
@@ -94,7 +94,7 @@ export default function InvoicingPage() {
           <div className="relative mx-auto max-w-3xl px-6 lg:px-8">
             <p className="text-sm font-medium text-[#FF6B35]">Feature</p>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Professional invoices, standalone or from a quote.
+Turn accepted contractor quotes into professional NZD invoices.
             </h1>
             <p className="mt-4 text-lg text-zinc-600">
               Create a branded, professional invoice from an accepted quote, import a quote from another tool, or start from scratch. Line items, pricing, and payment instructions flow automatically. No formatting, no spreadsheets.
@@ -109,6 +109,16 @@ export default function InvoicingPage() {
             </div>
           </div>
         </section>
+
+        <NzContextPanel
+          title="Create invoices that fit a New Zealand trade workflow"
+          intro="Carry the agreed scope and value forward from a quote or create an invoice independently, with clear NZD totals and GST treatment for the customer."
+          items={[
+            { title: "NZD totals", description: "Present line items, subtotals and invoice totals in New Zealand dollars." },
+            { title: "Clear GST treatment", description: "Show the tax treatment used on the invoice so totals are easy for both parties to understand." },
+            { title: "Payment instructions", description: "Provide the reference and payment details the customer needs without implying that QuoteCore+ processes the payment." },
+          ]}
+        />
 
         {/* Screenshot showcase */}
         <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">

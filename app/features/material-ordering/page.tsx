@@ -4,21 +4,21 @@ import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NzContextPanel from "@/components/NzContextPanel";
 import { site } from "@/lib/seo";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
-  title: "Material Ordering Software for Contractors | QuoteCore+",
+  title: "Roofing & Construction Material Ordering Software NZ | QuoteCore+",
   description:
-    "Create material orders from accepted quotes, imported quotes, or from scratch. Quantities, codes, and supplier details included. Standalone material ordering built for roofing and construction.",
+    "Create supplier-ready material orders for New Zealand jobs with metric quantities, cut lengths, product codes, delivery details and fabrication notes.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/material-ordering",
     languages: hreflangLanguages("/features/material-ordering"),
   },
   openGraph: {
-    title: "Material Ordering Software for Contractors | QuoteCore+",
-    description:
-      "Create material orders from quotes or from scratch. Material ordering built for roofing and construction.",
+    title: "Material Ordering Software for New Zealand Trades | QuoteCore+",
+    description: "Turn accepted quotes into clear New Zealand supplier orders with metric quantities, delivery details and fabrication information.",
     url: "https://www.quote-core.co.nz/features/material-ordering",
     siteName: "QuoteCore+",
     type: "website",
@@ -94,7 +94,7 @@ export default function MaterialOrderingPage() {
           <div className="relative mx-auto max-w-3xl px-6 lg:px-8">
             <p className="text-sm font-medium text-[#FF6B35]">Feature</p>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Material ordering, standalone or from a quote.
+Create supplier-ready material orders for New Zealand jobs.
             </h1>
             <p className="mt-4 text-lg text-zinc-600">
               Create a material order from an accepted quote, import a quote from another tool, or start from scratch. Quantities, product codes, and profile drawings included. No re-counting, no spreadsheets, no phone calls with missing details.
@@ -109,6 +109,16 @@ export default function MaterialOrderingPage() {
             </div>
           </div>
         </section>
+
+        <NzContextPanel
+          title="Turn job quantities into clear orders for New Zealand suppliers"
+          intro="Prepare the product, quantity, delivery and fabrication detail a supplier needs, whether the order begins from an accepted quote or as a standalone document."
+          items={[
+            { title: "Metric cut lengths", description: "Present quantities, dimensions and cut lengths in the metric format used by local trade suppliers." },
+            { title: "Local delivery detail", description: "Include the New Zealand delivery address, contact details, order references and site instructions." },
+            { title: "Fabrication information", description: "Attach product codes, notes and custom flashing drawings so specialised items are clear." },
+          ]}
+        />
 
         {/* Screenshot showcase */}
         <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">

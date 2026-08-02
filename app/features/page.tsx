@@ -3,21 +3,21 @@ import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NzContextPanel from "@/components/NzContextPanel";
 import { site } from "@/lib/seo";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
-  title: "Features | QuoteCore+",
+  title: "Roofing & Construction Software Features NZ | QuoteCore+",
   description:
-    "Digital roof takeoffs, Smart Components™, material ordering, and invoicing. Explore the features that make QuoteCore+ the connected quoting platform for roofing and construction.",
+    "Explore digital roof takeoffs, reusable NZD pricing rules, material ordering and invoicing for New Zealand roofing and measured trade businesses.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features",
     languages: hreflangLanguages("/features"),
   },
   openGraph: {
-    title: "Features | QuoteCore+",
-    description:
-      "Digital roof takeoffs, Smart Components™, material ordering, quote approval tracking, and invoicing. Explore the features of QuoteCore+.",
+    title: "Roofing & Construction Software Features NZ | QuoteCore+",
+    description: "Take New Zealand trade work from metric measurement to NZD quote, supplier-ready order and invoice in one connected platform.",
     url: "https://www.quote-core.co.nz/features",
     siteName: "QuoteCore+",
     type: "website",
@@ -90,13 +90,23 @@ export default function FeaturesHubPage() {
           <div className="relative mx-auto max-w-3xl px-6 lg:px-8">
             <p className="text-sm font-medium text-[#FF6B35]">Features</p>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Every part of the quoting workflow, connected.
+              Everything a New Zealand contractor needs from measurement to invoice.
             </h1>
             <p className="mt-4 text-lg text-zinc-600">
               From the first measurement to the final invoice, QuoteCore+ keeps every step of the quoting process in one place. Explore the features that make it work.
             </p>
           </div>
         </section>
+
+        <NzContextPanel
+          title="A quoting workflow grounded in New Zealand trade work"
+          intro="QuoteCore+ keeps measurements, pricing, approvals, material orders and invoices connected while giving New Zealand contractors the local context their jobs require."
+          items={[
+            { title: "NZD and GST", description: "Build prices in New Zealand dollars and carry the right GST treatment through quotes and invoices." },
+            { title: "Metric by default", description: "Work with metres, millimetres, square metres and the measurement types used on New Zealand jobs." },
+            { title: "One connected workflow", description: "Move from takeoff to quote, approval, supplier-ready order and invoice without re-entering the same job data." },
+          ]}
+        />
 
         {/* Feature cards */}
         <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">

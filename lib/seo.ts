@@ -38,21 +38,21 @@ export const pricingOffers = [
     name: "Starter",
     price: "30",
     priceCurrency: site.currency,
-    url: `${site.url}/#pricing`,
+    url: `${site.url}/pricing`,
   },
   {
     "@type": "Offer",
     name: "Professional",
     price: "65",
     priceCurrency: site.currency,
-    url: `${site.url}/#pricing`,
+    url: `${site.url}/pricing`,
   },
   {
     "@type": "Offer",
     name: "Pro Plus",
     price: "99",
     priceCurrency: site.currency,
-    url: `${site.url}/#pricing`,
+    url: `${site.url}/pricing`,
   },
 ];
 

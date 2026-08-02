@@ -347,7 +347,7 @@ export default function HomePage() {
             <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-10 xl:gap-12">
               {/* Left: text */}
               <div className="relative z-20 flex-1 text-center lg:flex-[1.12] lg:text-left">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">NZ&apos;s best quoting software!</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BD4A1A]">Built in New Zealand for measured trade work</p>
                 <h1 className="mt-6 text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl">
                   The quoting tool that gets long-run roofing.
                 </h1>
@@ -355,7 +355,7 @@ export default function HomePage() {
                   Finally a measuring and quoting app that understands long-run roofing, built by a Kiwi roofer for Kiwi roofs.
                 </p>
                 <p className="mt-4 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
-                  AI roof scans, digital takeoffs, and Smart Components™ for smart measuring and quoting in any industry.
+                  AI roof scans, digital takeoffs, and Smart Components™ for roofing and selected measured trades.
                 </p>
                 <p className="mt-3 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
                   QuoteCore+ doesn&apos;t ask you to change how you work. It adapts to how you work, and helps you do it better. Create your Smart Components™ once, and every quote you build makes the next one faster and easier. Free tools, calculators, material ordering, invoicing, job management. All connected, all working the way you already work. No matter how you work, QuoteCore+ can work for you.
@@ -1153,10 +1153,7 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <p className="mt-8 text-center text-sm text-zinc-600">
-                  VAT calculated at checkout where applicable.
-                </p>
-                <p className="mt-3 text-center text-sm text-zinc-200">
+                <p className="mt-8 text-center text-sm text-zinc-200">
                   NZD pricing shown. GST calculated at checkout where applicable.
                 </p>
                 <p className="mt-3 text-center text-sm text-zinc-200">

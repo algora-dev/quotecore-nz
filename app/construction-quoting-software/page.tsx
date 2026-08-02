@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NzContextPanel from "@/components/NzContextPanel";
 import YouTubeLite from "@/components/YouTubeLite";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
-  title: "Construction Quoting Software for Trades | QuoteCore+",
+  title: "Construction Quoting Software NZ | QuoteCore+",
   description:
-    "Construction quoting software for trades that quote from measurements. Measure jobs, build professional quotes, order materials, manage work, invoice clients and get paid in one connected workflow.",
+    "Construction quoting software for New Zealand measured trades. Build metric estimates, NZD quotes, material orders and invoices in one connected workflow.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/construction-quoting-software",
     languages: hreflangLanguages("/construction-quoting-software"),
@@ -222,7 +223,7 @@ export default function ConstructionQuotingSoftwarePage() {
             </p>
 
             <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-              Construction quoting software for trades that work from measurements.
+Construction quoting software for New Zealand measured trades.
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-600 sm:text-xl">
@@ -259,6 +260,16 @@ export default function ConstructionQuotingSoftwarePage() {
             <p className="mt-3 text-sm text-zinc-400">No card required. 14 days free.</p>
           </div>
         </section>
+
+        <NzContextPanel
+          title="A practical workflow for New Zealand measured trades"
+          intro="Use the measurements, rates and repeatable rules behind your work to produce consistent documents from the first estimate through to the final invoice."
+          items={[
+            { title: "Metric estimating", description: "Calculate work from area, length, quantity, hours and fixed charges using metric job measurements." },
+            { title: "NZD and GST", description: "Keep local pricing and tax treatment clear across quotes, orders and invoices." },
+            { title: "Built for focused teams", description: "Give sole traders and small teams a connected alternative to scattered spreadsheets and generic documents." },
+          ]}
+        />
 
         {/* Problem section */}
         <section className="mx-auto max-w-3xl px-6 py-16 lg:px-8">

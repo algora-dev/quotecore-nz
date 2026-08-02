@@ -4,21 +4,21 @@ import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NzContextPanel from "@/components/NzContextPanel";
 import { site } from "@/lib/seo";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
-  title: "Digital Roof Takeoff Software | QuoteCore+",
+  title: "Digital Roof Takeoff Software for NZ Roofers | QuoteCore+",
   description:
-    "Upload roof plans and measure digitally with AI Scan Assist or manual drawing. Pitch, waste, and material quantities auto-calculated. A faster, simpler alternative to expensive takeoff software.",
+    "Upload New Zealand roof plans, review metric measurements with AI Scan Assist or manual drawing, and connect approved quantities to an NZD roofing quote.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/digital-roof-takeoff",
     languages: hreflangLanguages("/features/digital-roof-takeoff"),
   },
   openGraph: {
-    title: "Digital Roof Takeoff Software | QuoteCore+",
-    description:
-      "Upload roof plans, measure digitally, and build a complete roof takeoff. AI Scan Assist or manual drawing. Auto-calculated pitch, waste, and quantities.",
+    title: "Digital Roof Takeoff Software for NZ Roofers | QuoteCore+",
+    description: "Measure New Zealand roof plans in metric, review every result and pass approved quantities into a connected roofing quote.",
     url: "https://www.quote-core.co.nz/features/digital-roof-takeoff",
     siteName: "QuoteCore+",
     type: "website",
@@ -126,7 +126,7 @@ export default function DigitalRoofTakeoffPage() {
           <div className="relative mx-auto max-w-3xl px-6 lg:px-8">
             <p className="text-sm font-medium text-[#FF6B35]">Feature</p>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Digital roof takeoff that actually works.
+Digital roof takeoff software for New Zealand roofing contractors.
             </h1>
             <p className="mt-4 text-lg text-zinc-600">
               Upload a plan, draw what you see, and let the system handle the rest. Pitch, waste, and material quantities auto-calculate. Use AI Scan Assist or draw manually - both paths lead to a complete, priced takeoff.
@@ -141,6 +141,16 @@ export default function DigitalRoofTakeoffPage() {
             </div>
           </div>
         </section>
+
+        <NzContextPanel
+          title="Measure New Zealand roof plans in the units your team uses"
+          intro="Review plans in metric, capture the roof geometry and pass approved measurements into a connected NZD quote. AI Scan Assist remains reviewable and manual drawing is always available."
+          items={[
+            { title: "Metric measurements", description: "Measure roof areas and linear details in metres, millimetres and square metres." },
+            { title: "Long-run roofing detail", description: "Capture ridges, hips, valleys, barges and other roof elements needed for a complete takeoff." },
+            { title: "Connected NZD quoting", description: "Use reviewed takeoff quantities with your reusable material, labour and waste pricing rules." },
+          ]}
+        />
 
         {/* Screenshot showcase */}
         <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">

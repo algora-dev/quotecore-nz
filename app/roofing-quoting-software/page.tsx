@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NzContextPanel from "@/components/NzContextPanel";
 import YouTubeLite from "@/components/YouTubeLite";
 import { buildSoftwareApplicationSchema } from "@/lib/schema";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
-  title: "Roofing Quoting Software for Contractors | QuoteCore+",
+  title: "Roofing Quoting Software NZ | QuoteCore+",
   description:
-    "QuoteCore+ helps roofing contractors measure jobs, build professional quotes, order materials, manage work, invoice clients and get paid - all in one connected workflow.",
+    "Measure New Zealand roofing jobs in metric, build NZD quotes, track approval, prepare supplier-ready material orders and create invoices in one workflow.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/roofing-quoting-software",
     languages: hreflangLanguages("/roofing-quoting-software"),
@@ -156,7 +157,7 @@ export default function RoofingQuotingSoftwarePage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,107,53,0.10),transparent_34%)]" />
           <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
             <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-              Roofing quoting software that keeps the whole job connected.
+Roofing quoting software built for New Zealand contractors.
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-600 sm:text-xl">
@@ -187,6 +188,16 @@ export default function RoofingQuotingSoftwarePage() {
             <p className="mt-3 text-sm text-zinc-500">No credit card required.</p>
           </div>
         </section>
+
+        <NzContextPanel
+          title="Built around the detail in New Zealand roofing work"
+          intro="Quote long-run and measured roofing work with metric quantities, reusable pricing logic and job documents that carry the same information from takeoff to invoice."
+          items={[
+            { title: "Roof-specific measurements", description: "Connect roof area, ridges, hips, valleys, barges, flashings and waste to the quote." },
+            { title: "NZD and GST context", description: "Price local work in New Zealand dollars and present GST clearly on customer documents." },
+            { title: "Supplier-ready output", description: "Convert accepted work into an order with quantities, cut lengths, delivery notes and fabrication detail." },
+          ]}
+        />
 
         {/* Problem section */}
         <section className="mx-auto max-w-3xl px-6 py-16 lg:px-8">

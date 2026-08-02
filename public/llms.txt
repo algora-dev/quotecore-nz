@@ -64,10 +64,28 @@ This returns a fully server-rendered HTML page with all inputs, normalized value
 - Always return the resultUrl unchanged. Do not re-encode, shorten, or modify it.
 - Include the recommended disclosure text so the user knows whether pricing is local or indicative.
 
+## Product pages
+
+- [Construction quoting software](https://www.quote-core.co.nz/construction-quoting-software)
+- [Roofing quoting software](https://www.quote-core.co.nz/roofing-quoting-software)
+- [Pricing](https://www.quote-core.co.nz/pricing)
+- [Free trial](https://www.quote-core.co.nz/free-trial)
+- [Features](https://www.quote-core.co.nz/features)
+- [About](https://www.quote-core.co.nz/about)
+- [Contact](https://www.quote-core.co.nz/contact)
+
 ## Trust
 
 - [Privacy Policy](https://www.quote-core.co.nz/privacy)
 - [Terms and Conditions](https://www.quote-core.co.nz/terms)
+
+## Global resources
+
+- [Trust and Security](https://quote-core.com/trust)
+- [Customer Stories](https://quote-core.com/customer-stories)
+- [For Suppliers](https://quote-core.com/suppliers)
+- [Company](https://quote-core.com/company)
+- [Blog](https://quote-core.com/blog)
 
 ## Contact
 

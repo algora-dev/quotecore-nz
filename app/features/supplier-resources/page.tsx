@@ -4,21 +4,21 @@ import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NzContextPanel from "@/components/NzContextPanel";
 import { site } from "@/lib/seo";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
-  title: "Supplier Resources: Catalogs & Component Libraries | QuoteCore+",
+  title: "New Zealand Supplier Catalogues & Pricing Libraries | QuoteCore+",
   description:
-    "Search supplier pricing catalogs and component libraries by area or product type. Import ready-made components into your account. Convert supplier catalogs into Smart Components™ in bulk. Save hours of manual pricing setup.",
+    "Find available New Zealand supplier catalogues and component libraries, review product information and import useful pricing resources into QuoteCore+.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/supplier-resources",
     languages: hreflangLanguages("/features/supplier-resources"),
   },
   openGraph: {
-    title: "Supplier Resources: Catalogs & Component Libraries | QuoteCore+",
-    description:
-      "Search supplier pricing catalogs and component libraries. Import components, convert catalogs to Smart Components™, and start quoting with real pricing.",
+    title: "New Zealand Supplier Catalogues & Pricing Libraries | QuoteCore+",
+    description: "Discover available local supplier resources and use reviewed product and pricing information in reusable quoting components.",
     url: "https://www.quote-core.co.nz/features/supplier-resources",
     siteName: "QuoteCore+",
     type: "website",
@@ -103,7 +103,7 @@ export default function SupplierResourcesPage() {
           <div className="relative mx-auto max-w-3xl px-6 lg:px-8">
             <p className="text-sm font-medium text-[#FF6B35]">Feature</p>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Supplier pricing catalogs and component libraries, ready to use.
+Import New Zealand supplier pricing and component libraries.
             </h1>
             <p className="mt-4 text-lg text-zinc-600">
               Search for suppliers in your area, browse their pricing catalogs and component libraries, and import ready-made components directly into your account. No more calling around for price lists. No more manual data entry. Real pricing, ready to quote with.
@@ -118,6 +118,16 @@ export default function SupplierResourcesPage() {
             </div>
           </div>
         </section>
+
+        <NzContextPanel
+          title="Build reusable pricing from supplier information"
+          intro="Find available supplier resources, review what they contain and bring useful product and pricing data into the component workflow your business controls."
+          items={[
+            { title: "Regional discovery", description: "Search available resources by supplier area and product category before importing anything." },
+            { title: "Local product detail", description: "Work with metric products, product codes and descriptions used in New Zealand supply chains." },
+            { title: "Pricing under your control", description: "Review imported information and maintain the private rates and adjustments used by your business." },
+          ]}
+        />
 
         {/* Feature callouts */}
         <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">
