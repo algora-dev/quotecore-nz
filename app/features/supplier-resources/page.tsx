@@ -4,6 +4,7 @@ import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { site } from "@/lib/seo";
+import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
   title: "Supplier Resources: Catalogs & Component Libraries | QuoteCore+",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Search supplier pricing catalogs and component libraries by area or product type. Import ready-made components into your account. Convert supplier catalogs into Smart Components™ in bulk. Save hours of manual pricing setup.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/supplier-resources",
+    languages: hreflangLanguages("/features/supplier-resources"),
   },
   openGraph: {
     title: "Supplier Resources: Catalogs & Component Libraries | QuoteCore+",

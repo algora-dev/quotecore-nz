@@ -12,7 +12,7 @@ export const metadata = {
     canonical: `${NZ_URL}/free-tools`,
     languages: {
       'en-NZ': `${NZ_URL}/free-tools`,
-      'en-US': `https://quote-core.com/free-tools`,
+      en: `https://quote-core.com/free-tools`,
       'x-default': `https://quote-core.com/free-tools`,
     },
   },

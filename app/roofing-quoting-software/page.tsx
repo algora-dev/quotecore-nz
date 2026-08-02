@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "QuoteCore+ helps roofing contractors measure jobs, build professional quotes, order materials, manage work, invoice clients and get paid - all in one connected workflow.",
   alternates: {
-    canonical: "https://quote-core.com/roofing-quoting-software",
+    canonical: "https://www.quote-core.co.nz/roofing-quoting-software",
     languages: hreflangLanguages("/roofing-quoting-software"),
   },
 };

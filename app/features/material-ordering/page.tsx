@@ -4,6 +4,7 @@ import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { site } from "@/lib/seo";
+import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
   title: "Material Ordering Software for Contractors | QuoteCore+",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Create material orders from accepted quotes, imported quotes, or from scratch. Quantities, codes, and supplier details included. Standalone material ordering built for roofing and construction.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/material-ordering",
+    languages: hreflangLanguages("/features/material-ordering"),
   },
   openGraph: {
     title: "Material Ordering Software for Contractors | QuoteCore+",

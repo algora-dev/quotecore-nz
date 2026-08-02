@@ -5,7 +5,7 @@ import { hreflangLanguages } from '@/lib/seo/hreflang';
 export const metadata = {
   title: 'Terms of Service - QuoteCore+',
   description: 'The terms under which QuoteCore+ is provided.',
-  alternates: { canonical: 'https://quote-core.com/terms', languages: hreflangLanguages('/terms') },
+  alternates: { canonical: 'https://www.quote-core.co.nz/terms', languages: hreflangLanguages('/terms') },
 };
 
 const TOC = [

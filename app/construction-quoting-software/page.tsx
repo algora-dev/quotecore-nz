@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Construction quoting software for trades that quote from measurements. Measure jobs, build professional quotes, order materials, manage work, invoice clients and get paid in one connected workflow.",
   alternates: {
-    canonical: "https://quote-core.com/construction-quoting-software",
+    canonical: "https://www.quote-core.co.nz/construction-quoting-software",
     languages: hreflangLanguages("/construction-quoting-software"),
   },
 };

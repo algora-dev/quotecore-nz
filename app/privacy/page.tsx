@@ -5,7 +5,7 @@ import { hreflangLanguages } from '@/lib/seo/hreflang';
 export const metadata = {
   title: 'Privacy Policy - QuoteCore+',
   description: 'How QuoteCore+ collects, uses, and protects your personal data.',
-  alternates: { canonical: 'https://quote-core.com/privacy', languages: hreflangLanguages('/privacy') },
+  alternates: { canonical: 'https://www.quote-core.co.nz/privacy', languages: hreflangLanguages('/privacy') },
 };
 
 const TOC = [

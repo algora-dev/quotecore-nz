@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { TradeConfig } from './types';
+import { hreflangLanguages } from '@/lib/seo/hreflang';
 import { signupHref } from './types';
 import { FreeToolsAuthProvider } from '@/components/free-tools/FreeToolsAuthProvider';
 import { FreeToolsAuthButton } from '@/components/free-tools/FreeToolsAuthButton';
@@ -13,7 +14,10 @@ export function buildTradeMetadata(config: TradeConfig) {
   return {
     title: config.metaTitle,
     description: config.metaDescription,
-    alternates: { canonical: `${SITE_URL}/${config.slug}` },
+    alternates: {
+      canonical: `${SITE_URL}/${config.slug}`,
+      languages: hreflangLanguages(`/${config.slug}`),
+    },
     openGraph: {
       title: config.ogTitle,
       description: config.ogDescription,
@@ -37,7 +41,7 @@ export function TradeLayoutShell({ config, children }: { config: TradeConfig; ch
     description: config.ogDescription,
     applicationCategory: 'CalculatorApplication',
     operatingSystem: 'Web',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'NZD' },
     url: `${SITE_URL}/${config.slug}`,
   };
 

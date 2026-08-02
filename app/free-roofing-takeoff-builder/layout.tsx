@@ -11,7 +11,7 @@ export const metadata = {
     canonical: `${NZ_URL}/free-roofing-takeoff-builder`,
     languages: {
       'en-NZ': `${NZ_URL}/free-roofing-takeoff-builder`,
-      'en-US': `https://quote-core.com/free-roofing-takeoff-builder`,
+      en: `https://quote-core.com/free-roofing-takeoff-builder`,
       'x-default': `https://quote-core.com/free-roofing-takeoff-builder`,
     },
   },

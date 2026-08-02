@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Free 14-Day Trial - No Card Required | QuoteCore+",
   description: "Try QuoteCore+ free for 14 days. Measure jobs, build professional quotes, track acceptances, and manage materials orders. No credit card needed.",
   alternates: {
-    canonical: "https://quote-core.com/free-trial",
+    canonical: "https://www.quote-core.co.nz/free-trial",
     languages: hreflangLanguages("/free-trial"),
   },
 };

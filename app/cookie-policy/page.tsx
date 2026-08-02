@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Cookie Policy | QuoteCore+",
   description: "How QuoteCore+ uses cookies and similar technologies on our website.",
   alternates: {
-    canonical: "https://quote-core.com/cookie-policy",
+    canonical: "https://www.quote-core.co.nz/cookie-policy",
     languages: hreflangLanguages("/cookie-policy"),
   },
 };

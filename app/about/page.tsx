@@ -6,11 +6,11 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 export const metadata: Metadata = {
   title: "About QuoteCore+ | Construction Quoting Software Built From the Industry",
   description: "QuoteCore+ was built by an ex-roofer who spent 12 years quoting jobs the hard way. Meet Shaun and the story behind the software.",
-  alternates: { canonical: "https://quote-core.com/about", languages: hreflangLanguages("/about") },
+  alternates: { canonical: "https://www.quote-core.co.nz/about", languages: hreflangLanguages("/about") },
   openGraph: {
     title: "About QuoteCore+ | Construction Quoting Software Built From the Industry",
     description: "QuoteCore+ was built by an ex-roofer who spent 12 years quoting jobs the hard way.",
-    url: "https://quote-core.com/about",
+    url: "https://www.quote-core.co.nz/about",
     siteName: "QuoteCore+",
     type: "website",
   },

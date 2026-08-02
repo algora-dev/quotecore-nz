@@ -14,7 +14,7 @@ export const metadata = {
     canonical: `${NZ_URL}/free-calculators`,
     languages: {
       'en-NZ': `${NZ_URL}/free-calculators`,
-      'en-US': `${COM_URL}/free-calculators`,
+      en: `${COM_URL}/free-calculators`,
       'x-default': `${COM_URL}/free-calculators`,
     },
   },

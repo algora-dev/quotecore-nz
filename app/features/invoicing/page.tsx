@@ -4,6 +4,7 @@ import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { site } from "@/lib/seo";
+import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
   title: "Professional Invoicing for Contractors | QuoteCore+",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Create professional invoices from accepted quotes, imported quotes, or from scratch. Line items, payment instructions, and online payment tracking. Standalone invoicing built for contractors.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/invoicing",
+    languages: hreflangLanguages("/features/invoicing"),
   },
   openGraph: {
     title: "Professional Invoicing for Contractors | QuoteCore+",

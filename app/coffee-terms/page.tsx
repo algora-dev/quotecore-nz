@@ -6,7 +6,7 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 export const metadata: Metadata = {
   title: "Coffee Offer Terms & Conditions | QuoteCore+",
   description: "Terms and conditions for the QuoteCore+ free coffee offer.",
-  alternates: { canonical: "https://quote-core.com/coffee-terms", languages: hreflangLanguages("/coffee-terms") },
+  alternates: { canonical: "https://www.quote-core.co.nz/coffee-terms", languages: hreflangLanguages("/coffee-terms") },
 };
 
 export default function CoffeeTermsPage() {

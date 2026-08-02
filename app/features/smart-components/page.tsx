@@ -4,6 +4,7 @@ import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { site } from "@/lib/seo";
+import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
   title: "Smart Components: Reusable Quoting Components | QuoteCore+",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Smart Components™ are reusable quoting components that know their own measurements, waste allowances, and pricing rules. Anything in your business can be a component. Build a roof quote in minutes, not hours.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/smart-components",
+    languages: hreflangLanguages("/features/smart-components"),
   },
   openGraph: {
     title: "Smart Components: Reusable Quoting Components | QuoteCore+",

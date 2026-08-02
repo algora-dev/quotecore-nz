@@ -4,6 +4,7 @@ import Link from "next/link";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { site } from "@/lib/seo";
+import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
   title: "Digital Roof Takeoff Software | QuoteCore+",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Upload roof plans and measure digitally with AI Scan Assist or manual drawing. Pitch, waste, and material quantities auto-calculated. A faster, simpler alternative to expensive takeoff software.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/digital-roof-takeoff",
+    languages: hreflangLanguages("/features/digital-roof-takeoff"),
   },
   openGraph: {
     title: "Digital Roof Takeoff Software | QuoteCore+",
@@ -32,7 +34,7 @@ const softwareSchema = {
   description: "Digital roof takeoff software with AI Scan Assist and manual drawing tools. Upload plans, measure digitally, and auto-calculate pitch, waste, and material quantities.",
   url: `${site.url}/features/digital-roof-takeoff`,
   publisher: { "@id": `${site.url}/#organization` },
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD", description: "14-day free trial, no credit card required" },
+  offers: { "@type": "Offer", price: "0", priceCurrency: "NZD", description: "14-day free trial, no credit card required" },
 };
 
 const breadcrumbSchema = {
