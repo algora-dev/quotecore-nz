@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "/",
     "/about",
+    "/features",
+    "/features/digital-roof-takeoff",
+    "/features/smart-components",
+    "/features/material-ordering",
+    "/features/invoicing",
+    "/features/supplier-resources",
     "/construction-quoting-software",
     "/contact",
     "/free-trial",

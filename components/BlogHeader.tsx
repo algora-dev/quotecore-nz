@@ -6,6 +6,7 @@ import { trackEvent } from "@/lib/analytics";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "How it works", href: "/#how-it-works" },
+  { label: "Features", href: "/features" },
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/#pricing" },
   { label: "Free Tools", href: "/free-tools" },
