@@ -384,7 +384,6 @@ export default function HomePage() {
                   title="Create a complex roofing quote in under 3min for less than $1!"
                   className="w-full"
                 />
-                <p className="mt-2 text-center text-xs text-zinc-500">Once components are configured, the result is repeatable.</p>
               </div>
             </div>
             {/* Scroll indicator */}
