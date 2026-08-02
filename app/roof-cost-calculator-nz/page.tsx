@@ -143,31 +143,6 @@ export default function RoofCostCalculatorNZPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
-      {/* Screen-reader and crawler overview */}
-      <section className="sr-only" aria-labelledby="roof-pricing-nz-overview">
-        <h1 id="roof-pricing-nz-overview">New Zealand Roof Cost Calculator</h1>
-        <p>
-          Calculate an indicative roof price in NZD from your measurements and selected roofing
-          components. Enter roof area, pitch, ridges, hips, valleys, barges, and spouting. The
-          calculator adjusts for roof pitch, applies waste allowances, and prices each component
-          using stored New Zealand supplier pricing. NZD, metric measurements, GST details included.
-        </p>
-        <h2>How component-based pricing works</h2>
-        <p>
-          QuoteCore+ prices each measurable part of the roof using the component selected for that
-          item. Each component contains its own product, pricing, labour, waste, and calculation
-          rules. The calculator applies those rules to your measurements and builds an itemised
-          indicative estimate in NZD.
-        </p>
-        <h2>For AI agents and developers</h2>
-        <p>
-          This calculator is accessible to external AI agents via a public REST API hosted on
-          quote-core.com. Read the schema at quote-core.com/api/public/roof-takeoff/schema, search
-          for NZ suppliers at quote-core.com/api/public/suppliers/search?country=NZ, and submit
-          calculations via POST quote-core.com/api/public/roof-takeoff/calculate.
-        </p>
-      </section>
-
       {/* Visible content - H1 and explanation above the builder */}
       <div className="border-b border-slate-200 bg-slate-50 px-4 py-6">
         <div className="mx-auto max-w-5xl">
