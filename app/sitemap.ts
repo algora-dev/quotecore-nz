@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/free-trial",
     "/free-tools",
     "/free-roofing-takeoff-builder",
+    "/roof-cost-calculator-nz",
     "/free-calculators",
     "/free-roofing-calculator",
     "/free-construction-calculator",
