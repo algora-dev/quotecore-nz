@@ -4,24 +4,13 @@ import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "How it works", href: "/#how-it-works" },
   { label: "Features", href: "/features" },
-  { label: "Digital Roof Takeoff", href: "/features/digital-roof-takeoff" },
-  { label: "Smart Components", href: "/features/smart-components" },
-  { label: "Material Ordering", href: "/features/material-ordering" },
-  { label: "Invoicing", href: "/features/invoicing" },
-  { label: "Supplier Resources", href: "/features/supplier-resources" },
   { label: "Roofing Software NZ", href: "/roofing-quoting-software" },
   { label: "Construction Software NZ", href: "/construction-quoting-software" },
-  { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
   { label: "Free Tools", href: "/free-tools" },
   { label: "Blog", href: "https://quote-core.com/blog", external: true },
-  { label: "Documentation", href: "https://app.quote-core.com/docs", external: true },
-  { label: "App", href: "https://app.quote-core.com", external: true },
   { label: "Contact us", href: "/contact" },
-  { label: "Free trial", href: "/free-trial" },
 ];
 
 export default function BlogHeader({ backLabel, backHref = "/" }: { backLabel?: string; backHref?: string }) {
