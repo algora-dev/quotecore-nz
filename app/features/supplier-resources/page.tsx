@@ -86,6 +86,7 @@ const faqs = [
   { q: "What is the difference between a catalog and a component library?", a: "A catalog is a CSV file of pricing from a supplier - product codes, names, and prices. A component library is a full set of Smart Components™ that a supplier has created, including measurement types, waste rules, labour rates, and pricing. Component libraries are ready to use immediately; catalogs can be converted into components." },
   { q: "What is the catalog to component converter?", a: "The catalog to component converter lets you open a supplier catalog (CSV) and convert each row into a Smart Component. You select which columns map to which component fields - name, price, measurement type, product code - and the converter creates all the components at once. You can then fine-tune each component individually." },
   { q: "Can I use supplier pricing if I don't have my own prices yet?", a: "Yes. Supplier resources are designed for contractors who don't have established pricing yet. Search for a supplier in your area, import their component library or catalog, and start quoting with real pricing from day one. You can adjust the imported prices to match your trade discount or markup." },
+  { q: "Which NZ suppliers can I find in supplier resources?", a: "Any NZ roofing supplier can publish their catalogue on QuoteCore+. This includes suppliers like Roofing Industries (roof.co.nz) and Stratco (stratco.co.nz) that supply long-run steel, corrugate, tray, and other roofing profiles common in NZ. Suppliers are referenced as suppliers, not partners or integrations. Check supplier coverage in your area by searching the supplier directory." },
 ];
 
 export default function SupplierResourcesPage() {
@@ -255,6 +256,23 @@ Import New Zealand supplier pricing and component libraries.
                 <p className="mt-2 leading-7 text-zinc-600">{step.text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Worked example */}
+        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+          <h2 className="text-2xl font-semibold tracking-tight">Worked example: importing a Roofing Industries catalogue</h2>
+          <div className="mt-6 rounded-xl border border-slate-200 p-6">
+            <p className="text-sm text-zinc-600">A roofing contractor in Auckland imports a Roofing Industries (roof.co.nz) catalogue as a CSV:</p>
+            <ol className="mt-4 space-y-3 text-sm text-zinc-600">
+              <li><strong>1. Download CSV:</strong> Download the Roofing Industries product catalogue CSV - product codes, names, and NZD prices + GST.</li>
+              <li><strong>2. Upload to converter:</strong> Open the catalog-to-component converter in QuoteCore+ and upload the CSV.</li>
+              <li><strong>3. Map columns:</strong> Match CSV columns to component fields: product code to SKU, product name to component name, price to material cost (NZD).</li>
+              <li><strong>4. Set measurement types:</strong> Assign area (m²) to sheet products, linear (m) to flashings and ridges, per-unit to fixings.</li>
+              <li><strong>5. Convert:</strong> The converter creates Smart Components™ for every row. Adjust waste allowances and labour rates individually.</li>
+              <li><strong>6. Quote:</strong> Components are ready to use in quotes with current NZ pricing. Re-import when Roofing Industries updates their catalogue.</li>
+            </ol>
+            <p className="mt-4 text-xs text-slate-500">Supplier catalogue content is indicative, sourced from publicly available supplier data. Prices do not auto-update - re-import when the supplier publishes new pricing. Roofing Industries and Stratco are referenced as suppliers, not partners or integrations.</p>
           </div>
         </section>
 

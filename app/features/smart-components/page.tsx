@@ -86,6 +86,7 @@ const faqs = [
   { q: "What measurement types do Smart Components™ support?", a: "Smart Components™ support area-based measurements (square metres, square feet, roofing squares), linear measurements (metres, feet), volume, per-unit counts, and fixed-cost items. You choose the measurement type that fits the component, and it calculates accordingly." },
   { q: "Can I import components from my supplier's price list?", a: "Yes. You can import components from supplier catalogs and price lists. You can also search for supplier component libraries by area or product type and add them to your account. This gives you a baseline pricing source even if you don't have your own prices yet." },
   { q: "Can I create my own Smart Components™?", a: "Yes. You can create Smart Components™ for any material, assembly, service, or workflow you use regularly. There is no limit to what can be a component - if it has a price and a measurement, it can be a Smart Component." },
+  { q: "Can I use NZ supplier pricing in Smart Components?", a: "Yes. Import pricing from NZ suppliers like Roofing Industries (roof.co.nz) or Stratco (stratco.co.nz) via their CSV catalogues. Set up components with NZD pricing and apply GST treatment appropriately. Re-import when supplier pricing changes." },
 ];
 
 export default function SmartComponentsPage() {
@@ -233,6 +234,24 @@ export default function SmartComponentsPage() {
                 <p className="mt-2 leading-7 text-zinc-600">{step.text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Worked example */}
+        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+          <h2 className="text-2xl font-semibold tracking-tight">Worked example: NZ long-run roofing component</h2>
+          <div className="mt-6 rounded-xl border border-slate-200 p-6">
+            <p className="text-sm text-zinc-600">Setting up a long-run roofing component for a typical NZ residential job:</p>
+            <ol className="mt-4 space-y-3 text-sm text-zinc-600">
+              <li><strong>1. Component name:</strong> 0.40mm long-run roofing (corrugate profile)</li>
+              <li><strong>2. Measurement type:</strong> Area (m²)</li>
+              <li><strong>3. Material cost:</strong> NZ$32/m² + GST (based on Roofing Industries pricing)</li>
+              <li><strong>4. Labour rate:</strong> NZ$18/m² + GST</li>
+              <li><strong>5. Waste allowance:</strong> 10% for offcuts and laps</li>
+              <li><strong>6. Coverage:</strong> 1.0 (effective width accounted for in pricing)</li>
+              <li><strong>7. Auto-calculation:</strong> On a 180 m² roof, the component calculates 198 m² with waste. Total: NZ$6,336 + GST material + NZ$3,564 + GST labour = NZ$9,900 + GST.</li>
+            </ol>
+            <p className="mt-4 text-xs text-slate-500">Pricing is indicative only. Use current supplier pricing from Roofing Industries (roof.co.nz) or Stratco (stratco.co.nz) for accurate quotes.</p>
           </div>
         </section>
 

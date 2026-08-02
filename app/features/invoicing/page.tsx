@@ -77,6 +77,7 @@ const faqs = [
   { q: "Do I need a quote to create an invoice?", a: "No. You can generate an invoice from an accepted quote in QuoteCore+, import a quote from another tool, or create a blank invoice from scratch. The invoicing tool works standalone." },
   { q: "Do invoices include payment instructions?", a: "Yes. Every invoice includes a payment instructions panel with the amount due, payment reference, and due date. Customers can copy payment details with one click." },
   { q: "Can customers confirm payment or dispute an invoice online?", a: "Yes. Invoices include action buttons for customers to mark payment as sent or dispute the invoice. QuoteCore+ does not process payments - customers pay using the included payment instructions (such as bank details) and mark payment as sent. This gives both parties a clear record of invoice status." },
+  { q: "Do invoices include GST and my NZ business details?", a: "Yes. Invoices show GST inclusive/exclusive amounts, your GST number, and your NZBN. You can set up your business details once and every invoice includes them automatically. GST is calculated at the current NZ rate - verify at ird.govt.nz." },
 ];
 
 export default function InvoicingPage() {
@@ -186,6 +187,22 @@ Turn accepted contractor quotes into professional NZD invoices.
                 <p className="mt-2 leading-7 text-zinc-600">{step.text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Worked example */}
+        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+          <h2 className="text-2xl font-semibold tracking-tight">Worked example: NZ roofing invoice with GST</h2>
+          <div className="mt-6 rounded-xl border border-slate-200 p-6">
+            <p className="text-sm text-zinc-600">Invoicing a residential re-roof in Auckland for NZ$16,500 (GST inclusive):</p>
+            <ol className="mt-4 space-y-3 text-sm text-zinc-600">
+              <li><strong>1. Generate from accepted quote:</strong> The accepted quote (NZ$16,500 incl GST) converts to an invoice with one click. Line items, quantities, and pricing carry over.</li>
+              <li><strong>2. GST breakdown:</strong> Subtotal: NZ$14,347.83. GST (15%): NZ$2,152.17. Total: NZ$16,500.00.</li>
+              <li><strong>3. Payment instructions:</strong> Bank transfer to 12-3456-7890123-01. Reference: INV-2026-042. Due: 14 days from issue.</li>
+              <li><strong>4. Customer actions:</strong> Customer receives the invoice, marks payment as sent once they transfer the funds, and the invoice status updates for both parties.</li>
+              <li><strong>5. Business details:</strong> Your NZBN, GST number, and business address appear on every invoice.</li>
+            </ol>
+            <p className="mt-4 text-xs text-slate-500">GST calculation and invoicing requirements follow Inland Revenue rules. Verify current GST rate and requirements at ird.govt.nz.</p>
           </div>
         </section>
 
