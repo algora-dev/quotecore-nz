@@ -347,7 +347,7 @@ export default function HomePage() {
             <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-10 xl:gap-12">
               {/* Left: text */}
               <div className="relative z-20 flex-1 text-center lg:flex-[1.12] lg:text-left">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BD4A1A]">Built in New Zealand for measured trade work</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Built in New Zealand for measured trade work</p>
                 <h1 className="mt-6 text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl">
                   The quoting tool that gets long-run roofing.
                 </h1>
