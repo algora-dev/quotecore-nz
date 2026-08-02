@@ -77,6 +77,7 @@ const faqs = [
   { q: "Do I need a quote to create a material order?", a: "No. You can create a material order from an accepted quote in QuoteCore+, import a quote from another tool, or start with a blank order from scratch. The material ordering tool works standalone." },
   { q: "Can I send material orders to my supplier?", a: "Yes. Material orders can be sent directly from QuoteCore+. The order includes quantities, product codes, cut lengths, delivery details, and profile drawings for custom components." },
   { q: "Can I edit a material order before sending it?", a: "Yes. You can adjust quantities, add or remove items, and edit delivery details before sending the order to your supplier." },
+  { q: "Can I order from NZ suppliers like Roofing Industries or Stratco?", a: "Yes. Material orders include product codes, cut lengths, and quantities in the format suppliers expect. Send orders to any NZ roofing supplier - Roofing Industries, Stratco, or any other. The order is a document you can email or print." },
 ];
 
 export default function MaterialOrderingPage() {
@@ -186,6 +187,21 @@ Create supplier-ready material orders for New Zealand jobs.
                 <p className="mt-2 leading-7 text-zinc-600">{step.text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Worked example */}
+        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+          <h2 className="text-2xl font-semibold tracking-tight">Worked example: NZ long-run steel order</h2>
+          <div className="mt-6 rounded-xl border border-slate-200 p-6">
+            <p className="text-sm text-zinc-600">Ordering materials for a 180 m² residential re-roof in Wellington, using long-run steel from Roofing Industries:</p>
+            <ol className="mt-4 space-y-3 text-sm text-zinc-600">
+              <li><strong>1. Generate order from quote:</strong> The accepted quote has 198 m² of 0.40mm corrugate long-run, 12 m ridge, 16 m hip, 12 m barge, and underlay.</li>
+              <li><strong>2. Review line items:</strong> Each item shows product code, quantity, cut lengths (e.g. 6 m lengths for the ridge), and NZD pricing + GST.</li>
+              <li><strong>3. Add delivery details:</strong> Site address in Wellington, delivery date, and contact on site. Freight noted separately.</li>
+              <li><strong>4. Send to supplier:</strong> The order goes to Roofing Industries with all product codes, quantities, and specifications. You keep a copy in QuoteCore+.</li>
+            </ol>
+            <p className="mt-4 text-xs text-slate-500">Product codes and pricing are indicative. Check current availability and pricing with your NZ supplier before ordering.</p>
           </div>
         </section>
 

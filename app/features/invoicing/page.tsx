@@ -57,10 +57,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Can customers pay or dispute invoices online?",
+      name: "Can customers confirm payment or dispute an invoice online?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Invoices include action buttons for customers to mark payment as sent or dispute the invoice. This gives both parties a clear record of invoice status.",
+        text: "Yes. Invoices include action buttons for customers to mark payment as sent or dispute the invoice. QuoteCore+ does not process payments - customers use the payment instructions provided (such as bank details) to pay, then mark payment as sent. This gives both parties a clear record of invoice status.",
       },
     },
   ],
@@ -76,7 +76,8 @@ const steps = [
 const faqs = [
   { q: "Do I need a quote to create an invoice?", a: "No. You can generate an invoice from an accepted quote in QuoteCore+, import a quote from another tool, or create a blank invoice from scratch. The invoicing tool works standalone." },
   { q: "Do invoices include payment instructions?", a: "Yes. Every invoice includes a payment instructions panel with the amount due, payment reference, and due date. Customers can copy payment details with one click." },
-  { q: "Can customers pay or dispute invoices online?", a: "Yes. Invoices include action buttons for customers to mark payment as sent or dispute the invoice. This gives both parties a clear record of invoice status." },
+  { q: "Can customers confirm payment or dispute an invoice online?", a: "Yes. Invoices include action buttons for customers to mark payment as sent or dispute the invoice. QuoteCore+ does not process payments - customers pay using the included payment instructions (such as bank details) and mark payment as sent. This gives both parties a clear record of invoice status." },
+  { q: "Do invoices include GST and my NZ business details?", a: "Yes. Invoices show GST inclusive/exclusive amounts, your GST number, and your NZBN. You can set up your business details once and every invoice includes them automatically. GST is calculated at the current NZ rate - verify at ird.govt.nz." },
 ];
 
 export default function InvoicingPage() {
@@ -157,7 +158,7 @@ Turn accepted contractor quotes into professional NZD invoices.
                 <svg className="h-5 w-5 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
               </div>
               <h3 className="mt-3 font-semibold text-slate-900">Customer actions</h3>
-              <p className="mt-1 text-sm text-zinc-600">Customers can mark payment as sent or dispute the invoice. Clear status for both parties.</p>
+              <p className="mt-1 text-sm text-zinc-600">Customers can mark payment as sent or dispute the invoice. QuoteCore+ does not process payments - it tracks status so both parties stay informed.</p>
             </div>
           </div>
         </section>
@@ -186,6 +187,22 @@ Turn accepted contractor quotes into professional NZD invoices.
                 <p className="mt-2 leading-7 text-zinc-600">{step.text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Worked example */}
+        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+          <h2 className="text-2xl font-semibold tracking-tight">Worked example: NZ roofing invoice with GST</h2>
+          <div className="mt-6 rounded-xl border border-slate-200 p-6">
+            <p className="text-sm text-zinc-600">Invoicing a residential re-roof in Auckland for NZ$16,500 (GST inclusive):</p>
+            <ol className="mt-4 space-y-3 text-sm text-zinc-600">
+              <li><strong>1. Generate from accepted quote:</strong> The accepted quote (NZ$16,500 incl GST) converts to an invoice with one click. Line items, quantities, and pricing carry over.</li>
+              <li><strong>2. GST breakdown:</strong> Subtotal: NZ$14,347.83. GST (15%): NZ$2,152.17. Total: NZ$16,500.00.</li>
+              <li><strong>3. Payment instructions:</strong> Bank transfer to 12-3456-7890123-01. Reference: INV-2026-042. Due: 14 days from issue.</li>
+              <li><strong>4. Customer actions:</strong> Customer receives the invoice, marks payment as sent once they transfer the funds, and the invoice status updates for both parties.</li>
+              <li><strong>5. Business details:</strong> Your NZBN, GST number, and business address appear on every invoice.</li>
+            </ol>
+            <p className="mt-4 text-xs text-slate-500">GST calculation and invoicing requirements follow Inland Revenue rules. Verify current GST rate and requirements at ird.govt.nz.</p>
           </div>
         </section>
 

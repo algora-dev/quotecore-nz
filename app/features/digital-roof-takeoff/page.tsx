@@ -107,7 +107,8 @@ const faqs = [
   { q: "Does QuoteCore+ have AI takeoff scanning?", a: "Yes. AI Scan Assist can scan an uploaded roof plan and automatically identify individual roof areas, ridges, hips, valleys, and barges. You can review and adjust what it finds before generating the takeoff. You can also skip AI entirely and draw everything manually." },
   { q: "Can I use QuoteCore+ takeoff without AI?", a: "Yes. The manual drawing tool lets you upload a plan and draw all areas, lines, and points yourself. You have full control over every measurement. AI Scan Assist is optional." },
   { q: "Does the takeoff calculate pitch automatically?", a: "Yes. When you draw a roof section, the pitch and pitch type are auto-calculated. Areas, waste allowances, and material quantities all update automatically based on the pitch. You just draw what you see and the system handles the calculations." },
-  { q: "What roof types does the takeoff support?", a: "The takeoff builder supports hips, valleys, ridges, eaves, flashings, and custom components. It works with metal, tile, shingle, and membrane roof types." },
+  { q: "What roof types does the takeoff support?", a: "The takeoff builder supports hips, valleys, ridges, eaves, flashings, and custom components. It works with long-run steel, corrugate, tray, tile, shingle, and membrane roof types common in NZ." },
+  { q: "Can I use NZ supplier pricing in my takeoff?", a: "Yes. Smart Components store your pricing, so you can set up components using current pricing from NZ suppliers like Roofing Industries or Stratco. The takeoff quantities flow through to your NZD quote with GST noted separately." },
 ];
 
 export default function DigitalRoofTakeoffPage() {
@@ -252,6 +253,23 @@ Digital roof takeoff software for New Zealand roofing contractors.
                 <p className="mt-2 leading-7 text-zinc-600">{step.text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Worked example */}
+        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+          <h2 className="text-2xl font-semibold tracking-tight">Worked example: NZ long-run roof takeoff</h2>
+          <div className="mt-6 rounded-xl border border-slate-200 p-6">
+            <p className="text-sm text-zinc-600">A 180 m² gable roof in Auckland with a 25-degree pitch and long-run steel cladding:</p>
+            <ol className="mt-4 space-y-3 text-sm text-zinc-600">
+              <li><strong>1. Upload plan:</strong> Load the roof plan (PDF or image) into the takeoff builder.</li>
+              <li><strong>2. Draw roof area:</strong> Trace the two roof planes. Total area: 180 m². Pitch auto-calculated at 25 degrees.</li>
+              <li><strong>3. Linear details:</strong> Draw the ridge (12 m), two hips (8 m each), barges (12 m total), and eaves (24 m total).</li>
+              <li><strong>4. Waste allowance:</strong> 10% waste added for long-run steel offcuts and laps. Total material area: 198 m².</li>
+              <li><strong>5. Smart Components:</strong> Each measurement links to a Smart Component with pricing - e.g. long-run roofing at NZ$32/m² + GST, ridge flashing at NZ$18/m + GST.</li>
+              <li><strong>6. Quote total:</strong> The takeoff flows into the quote with NZD pricing, GST noted separately, and supplier-ready material order.</li>
+            </ol>
+            <p className="mt-4 text-xs text-slate-500">Pricing is indicative only. Use current supplier pricing from Roofing Industries (roof.co.nz) or Stratco (stratco.co.nz) for accurate quotes.</p>
           </div>
         </section>
 
