@@ -257,7 +257,7 @@ Create supplier-ready material orders for New Zealand jobs.
               <h3 className="font-semibold text-slate-900">Digital roof takeoff</h3>
               <p className="mt-1 text-sm text-zinc-600">Measure the job. Smart Components™ price it. Material orders flow from it.</p>
             </Link>
-            <Link href="/free-purchase-order-generator" className="rounded-xl border border-slate-200 p-6 transition-all hover:border-orange-200 hover:bg-orange-50/40">
+            <Link href="https://quote-core.com/free-purchase-order-generator" className="rounded-xl border border-slate-200 p-6 transition-all hover:border-orange-200 hover:bg-orange-50/40">
               <h3 className="font-semibold text-slate-900">Free purchase order generator</h3>
               <p className="mt-1 text-sm text-zinc-600">Create a purchase order for free, no signup required.</p>
             </Link>

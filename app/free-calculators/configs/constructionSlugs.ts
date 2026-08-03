@@ -125,7 +125,7 @@ export const CONSTRUCTION_SLUGS: ConstrSlugDef[] = [
     ],
     faqs: [
       ['How much paint for a standard room (4m × 4m × 2.4m)?', 'Wall area = 2×(4+4)×2.4 = 38.4 m². Minus 1 door (1.9) + 1 window (1.5) = 35.0 m². Ceiling = 16 m². Total = 51 m². Two coats at 12 m²/L: 51×2/12 = 8.5L. Buy 2×5L tins.'],
-      ['How much does paint cost per litre?', 'Trade emulsion: £3-6/L. Designer emulsion: £8-15/L. Gloss: £5-8/L. Masonry: £3-5/L. Buying 5L tins is cheaper per litre than 1L tins. Trade paint is generally better value than retail.'],
+      ['How much does paint cost per litre?', 'Trade emulsion: NZ$15-25/L. Designer emulsion: NZ$20-35/L. Gloss: NZ$15-25/L. Masonry: NZ$10-15/L. Buying 5L tins is cheaper per litre than 1L tins. Trade paint is generally better value than retail.'],
       ['Can I use this for exterior painting?', 'Yes - enter the wall dimensions and use masonry paint coverage (6-8 m²/L on rough render). Add 15% waste for exterior work due to overspray and uneven surfaces. Don\'t paint in direct sunlight or below 5°C.'],
       ['How long does paint last?', 'Unopened: 2-5 years if stored correctly. Opened: 1-2 years if resealed properly. Water-based paint that has been frozen is unusable. Oil-based paint lasts longer but check for skinning before use.'],
     ],
@@ -138,7 +138,7 @@ export const CONSTRUCTION_SLUGS: ConstrSlugDef[] = [
       'Total paintable = 58.3 m²',
       'Paint at 12 m²/L, 2 coats: 58.3 × 2 / 12 = 9.7L',
       'With 10% waste: 10.7L - buy 2×5L + 1L tins',
-      'Cost at £5/L: about £55',
+      'Cost at NZ$20/L: about NZ$110',
     ],
     assumptions: [
       'Coverage of 12 m²/L is typical for trade emulsion on smooth, primed walls.',
@@ -185,7 +185,7 @@ export const CONSTRUCTION_SLUGS: ConstrSlugDef[] = [
       'With 10% waste: 12 × 1.10 = 13.2 m²',
       'Tiles needed: ceil(13.2 × 5.56) = 74 tiles',
       'Grout at 0.5 kg/m²: 12 × 0.5 = 6 kg (2 bags of 5kg)',
-      'Cost at £2.50/tile: 74 × £2.50 = £185.00',
+      'Cost at NZ$5/tile: 74 × NZ$5 = NZ$370.00',
     ],
     assumptions: [
       'Tile dimensions include grout gap in calculation. Actual tile size may vary by ±1mm.',
@@ -226,13 +226,13 @@ export const CONSTRUCTION_SLUGS: ConstrSlugDef[] = [
       ['How much expansion gap do I need for laminate?', '10mm minimum around all edges, doorways, and fixed obstacles (pipes, radiators). The gap is hidden by skirting boards or scotia/quarter-round beading. Failure to leave gaps causes buckling.'],
     ],
     workedExample: [
-      'Worked example: 5m × 4m living room, laminate at 1.48 m²/pack, £28/pack',
+      'Worked example: 5m × 4m living room, laminate at 1.48 m²/pack, NZ$50/pack',
       'Room area = 5 × 4 = 20 m²',
       'With 10% waste: 20 × 1.10 = 22 m²',
       'Packs needed: ceil(22 / 1.48) = 15 packs',
       'Underlay (15 m² rolls): ceil(22 / 15) = 2 rolls',
-      'Cost: 15 × £28 = £420.00 (flooring only)',
-      'Add underlay at £30/roll: +£60 = £480 total',
+      'Cost: 15 × NZ$50 = NZ$750.00 (flooring only)',
+      'Add underlay at NZ$50/roll: +NZ$100 = NZ$850 total',
     ],
     assumptions: [
       'Pack coverage varies by manufacturer - always check the box label for m² per pack.',

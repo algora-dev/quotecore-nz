@@ -262,7 +262,7 @@ Turn accepted contractor quotes into professional NZD invoices.
               <h3 className="font-semibold text-slate-900">Material ordering</h3>
               <p className="mt-1 text-sm text-zinc-600">Order materials from suppliers and invoice customers from the same data.</p>
             </Link>
-            <Link href="/free-invoice-generator" className="rounded-xl border border-slate-200 p-6 transition-all hover:border-orange-200 hover:bg-orange-50/40">
+            <Link href="https://quote-core.com/free-invoice-generator" className="rounded-xl border border-slate-200 p-6 transition-all hover:border-orange-200 hover:bg-orange-50/40">
               <h3 className="font-semibold text-slate-900">Free invoice generator</h3>
               <p className="mt-1 text-sm text-zinc-600">Create a professional invoice for free, no signup required.</p>
             </Link>

@@ -79,17 +79,17 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
       ['Cost', 'cost = V_total × price_per_m³'],
     ],
     faqs: [
-      ['How much concrete do I need for a 4m × 3m slab at 100mm?', 'Volume = 4 × 3 × 0.1 = 1.2 m³. With 5% waste: 1.26 m³. At £120/m³ ready-mix: about £151. You would need about 101 bags of 25kg concrete.'],
-      ['What depth should my concrete slab be?', 'Patios and shed bases: 100mm. Driveways and car parks: 150mm. House footings: 225mm minimum (consult building control). Heavy-duty industrial: 200-300mm. Always check local building regulations.'],
+      ['How much concrete do I need for a 4m × 3m slab at 100mm?', 'Volume = 4 × 3 × 0.1 = 1.2 m³. With 5% waste: 1.26 m³. At NZ$220/m³ ready-mix: about NZ$277. You would need about 101 bags of 25kg concrete.'],
+      ['What depth should my concrete slab be?', 'Patios and shed bases: 100mm. Driveways and car parks: 150mm. House footings: 225mm minimum (consult your local council). Heavy-duty industrial: 200-300mm. Always check local building regulations.'],
       ['How many 25kg bags of concrete make 1m³?', 'Approximately 80 bags of 25kg concrete make 1m³ at standard mix ratio. Each bag yields about 0.0125m³. For a 1m³ slab, order at least 84 bags to account for 5% waste.'],
-      ['How do I calculate concrete cost?', 'Multiply the volume in m³ by the price per m³ of ready-mix concrete. Typical UK ready-mix prices range from £100-150/m³ depending on mix design and delivery distance.'],
+      ['How do I calculate concrete cost?', 'Multiply the volume in m³ by the price per m³ of ready-mix concrete. Typical NZ ready-mix prices range from NZ$200-250/m³ depending on mix design and delivery distance.'],
     ],
     workedExample: [
       'Worked example: 5m × 4m driveway slab at 150mm depth',
       'Volume = 5m × 4m × 0.15m = 3.0 m³',
       'With 5% waste: 3.0 × 1.05 = 3.15 m³',
       'Bags needed (25kg, 0.0125m³ yield): ceil(3.15 / 0.0125) = 252 bags',
-      'Ready-mix cost at £120/m³: 3.15 × £120 = £378.00',
+      'Ready-mix cost at NZ$220/m³: 3.15 × NZ$220 = NZ$693.00',
       'Ready-mix is clearly cheaper than bagged for this volume',
     ],
     assumptions: [
@@ -99,7 +99,7 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
       'Waste percentages are guidelines - add more for irregular shapes or difficult access.',
       'Ready-mix prices vary by location, mix design, and delivery distance.',
     ],
-    whenToAskPro: 'For structural concrete (foundations, retaining walls, suspended slabs), consult a structural engineer for mix design, reinforcement specification, and loading calculations. Building control approval may be required for concrete work in the UK.',
+    whenToAskPro: 'For structural concrete (foundations, retaining walls, suspended slabs), consult a structural engineer for mix design, reinforcement specification, and loading calculations. Building control approval may be required for concrete work in New Zealand.',
   },
   {
     slug: 'free-concrete-bag-calculator',
@@ -127,7 +127,7 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
     faqs: [
       ['How many 25kg bags of concrete do I need for 1m³?', 'You need approximately 80 bags of 25kg concrete for 1m³. With 5% waste allowance, order 84 bags. Each 25kg bag yields about 0.0125m³.'],
       ['How many 40kg bags make 1 cubic metre?', 'Approximately 50 bags of 40kg concrete make 1m³. Each 40kg bag yields about 0.02m³. With 5% waste, order 53 bags.'],
-      ['How much does a bag of concrete cost?', 'In the UK, a 25kg bag of general-purpose concrete costs £4-6. In the US, an 80lb (36kg) bag costs $4-7. Bulk discounts apply for orders over 50 bags.'],
+      ['How much does a bag of concrete cost?', 'In New Zealand, a 25kg bag of general-purpose concrete costs NZ$8-12. In the US, an 80lb (36kg) bag costs $4-7. Bulk discounts apply for orders over 50 bags.'],
       ['Can I use this calculator for post-hole concrete?', 'Yes - enter the post hole diameter as width, depth as depth, and a small length. For a 300mm diameter hole at 600mm deep, use width=0.3, length=0.3, depth=0.6.'],
     ],
     workedExample: [
@@ -136,7 +136,7 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
       'With 10% waste: 0.3 × 1.10 = 0.33 m³',
       'Bags needed: ceil(0.33 / 0.0125) = 27 bags of 25kg',
       'Total weight: 27 × 25 = 675 kg',
-      'Cost at £4.50/bag: 27 × £4.50 = £121.50',
+      'Cost at NZ$10/bag: 27 × NZ$10 = NZ$270.00',
     ],
     assumptions: [
       'Yield per bag is approximate (0.0125m³ for 25kg, 0.02m³ for 40kg) - check manufacturer specifications.',
@@ -159,8 +159,8 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
     defaultTab: 'slab-volume',
     tips: [
       ['Strip footing vs trench fill', 'Strip footings are typically 225mm deep with a width of 600mm minimum. Trench fill is a full-depth concrete pour (usually 900mm-1m) that eliminates the need for brickwork below ground. Trench fill uses more concrete but is faster to build.'],
-      ['Footing depth and building regs', 'UK building regulations require footings to be at least 1m below ground level to reach stable subsoil. In clay soils or near trees, footings may need to be 1.5-2m+ deep. Always consult building control before pouring.'],
-      ['Reinforcement in footings', 'Most strip footings don\'t need reinforcement if the subsoil is stable. However, on clay, made ground, or near trees, reinforcement mesh (A193 or A252) is often specified by building control or a structural engineer.'],
+      ['Footing depth and building regs', 'NZ building regulations require footings to be at least 1m below ground level to reach stable subsoil. In clay soils or near trees, footings may need to be 1.5-2m+ deep. Always consult your local council before pouring.'],
+      ['Reinforcement in footings', 'Most strip footings don\'t need reinforcement if the subsoil is stable. However, on clay, made ground, or near trees, reinforcement mesh (A193 or A252) is often specified by your local council or a structural engineer.'],
       ['Excavation volume vs concrete volume', 'The excavation volume is always larger than the concrete volume because you need working space (typically 150mm each side) and the trench may be deeper than the concrete pour. Order concrete based on the actual pour dimensions, not the excavation size.'],
     ],
     formulas: [
@@ -170,17 +170,17 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
       ['Concrete cost', 'cost = V_total × price_per_m³'],
     ],
     faqs: [
-      ['How deep should a house footing be?', 'UK building regulations require footings at least 1m deep in stable subsoil. In clay or near trees, they may need to be 1.5-2.5m deep. Always check with building control before excavating.'],
-      ['What width should a strip footing be?', 'Minimum 600mm for single-storey buildings, 750mm for two-storey. The width must be at least 3× the wall thickness. Consult building control for specific requirements.'],
-      ['How much concrete for a 10m footing?', 'At 600mm wide × 225mm deep: V = 10 × 0.6 × 0.225 = 1.35 m³. With 5% waste: 1.42 m³. At £120/m³: about £170. For trench fill at 1m deep: 10 × 0.6 × 1.0 = 6.0 m³ = £720.'],
-      ['Do I need reinforcement in my footings?', 'Most strip footings on stable ground don\'t need reinforcement. On clay, made ground, or near trees, building control may require reinforcement mesh. A structural engineer can advise on specific cases.'],
+      ['How deep should a house footing be?', 'NZ building regulations require footings at least 1m deep in stable subsoil. In clay or near trees, they may need to be 1.5-2.5m deep. Always check with your local council before excavating.'],
+      ['What width should a strip footing be?', 'Minimum 600mm for single-storey buildings, 750mm for two-storey. The width must be at least 3× the wall thickness. Consult your local council for specific requirements.'],
+      ['How much concrete for a 10m footing?', 'At 600mm wide × 225mm deep: V = 10 × 0.6 × 0.225 = 1.35 m³. With 5% waste: 1.42 m³. At NZ$220/m³: about NZ$374. For trench fill at 1m deep: 10 × 0.6 × 1.0 = 6.0 m³ = NZ$1,320.'],
+      ['Do I need reinforcement in my footings?', 'Most strip footings on stable ground don\'t need reinforcement. On clay, made ground, or near trees, your local council may require reinforcement mesh. A structural engineer can advise on specific cases.'],
     ],
     workedExample: [
       'Worked example: 12m strip footing at 600mm wide × 225mm deep',
       'Volume = 12 × 0.6 × 0.225 = 1.62 m³',
       'With 5% waste: 1.62 × 1.05 = 1.70 m³',
       'Excavation (with 150mm working space each side): 12 × 0.9 × 0.325 = 3.51 m³',
-      'Concrete cost at £120/m³: 1.70 × £120 = £204.00',
+      'Concrete cost at NZ$220/m³: 1.70 × NZ$220 = NZ$374.00',
       'Order 1.75 m³ from ready-mix supplier (rounds up to nearest 0.5m³)',
     ],
     assumptions: [
@@ -190,7 +190,7 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
       'Concrete waste allowance of 5% is standard for footings. Use 10% for irregular trenches.',
       'Soil conditions vary - always obtain a site investigation before specifying footing depths.',
     ],
-    whenToAskPro: 'Footings are structural and building-regulation controlled in the UK. Always consult building control and/or a structural engineer before excavation. Soil conditions, tree proximity, and nearby structures can all affect footing design. Never pour footings without building control inspection.',
+    whenToAskPro: 'Footings are structural and building-regulation controlled in New Zealand. Always consult your local council and/or a structural engineer before excavation. Soil conditions, tree proximity, and nearby structures can all affect footing design. Never pour footings without council inspection.',
   },
   {
     slug: 'free-rebar-calculator',
@@ -218,8 +218,8 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
     faqs: [
       ['What mesh do I need for a driveway slab?', 'Use A252 mesh (8mm wires at 200mm spacing) for driveways and house floor slabs. For patios and shed bases, A193 is sufficient. For heavy-duty industrial slabs, use A393.'],
       ['How much rebar mesh do I need for a 5m × 4m slab?', 'Area = 20 m². Standard mesh sheet is 4.8m × 2.4m = 11.52 m². With 5% waste: 21 m² needed. Sheets = ceil(21 / 11.52) = 2 sheets. Weight at 2.47 kg/m² (A252): 20 × 2.47 = 49.4 kg.'],
-      ['How much does reinforcement mesh cost?', 'A252 mesh sheets (4.8m × 2.4m) cost approximately £30-45 per sheet in the UK. A193 is about £20-30. A393 is about £50-70. Prices vary with steel market fluctuations.'],
-      ['Do I need rebar in my concrete footing?', 'Most strip footings on stable ground don\'t need reinforcement. On clay, near trees, or for pad footings, building control may require mesh. A structural engineer can advise.'],
+      ['How much does reinforcement mesh cost?', 'A252 mesh sheets (4.8m × 2.4m) cost approximately NZ$60-90 per sheet in New Zealand. A193 is about NZ$40-60. A393 is about NZ$100-140. Prices vary with steel market fluctuations.'],
+      ['Do I need rebar in my concrete footing?', 'Most strip footings on stable ground don\'t need reinforcement. On clay, near trees, or for pad footings, your local council may require mesh. A structural engineer can advise.'],
     ],
     workedExample: [
       'Worked example: 6m × 5m driveway slab with A252 mesh',
@@ -228,16 +228,16 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
       'With 10% waste for laps and cuts: 30 × 1.10 = 33 m²',
       'Sheets needed: ceil(33 / 11.52) = 3 sheets of A252',
       'Weight at 2.47 kg/m²: 30 × 2.47 = 74.1 kg',
-      'Cost at £35/sheet: 3 × £35 = £105.00',
+      'Cost at NZ$70/sheet: 3 × NZ$70 = NZ$210.00',
     ],
     assumptions: [
       'Standard mesh sheet size is 4.8m × 2.4m (11.52 m²). Check supplier for actual sheet sizes.',
       'Weight per m²: A193=1.71, A252=2.47, A393=3.88 kg/m². These are nominal values.',
       'Waste allowance of 5-10% covers lap joints and cuts. Use 10% for irregular shapes.',
       'Spacing assumes standard 200mm grid. Custom spacing requires individual bar calculation.',
-      'Always follow structural engineer or building control specifications for mesh type and placement.',
+      'Always follow structural engineer or council specifications for mesh type and placement.',
     ],
-    whenToAskPro: 'Reinforcement design is structural engineering. For load-bearing slabs, footings, retaining walls, or any building-regulation-controlled concrete work, consult a structural engineer. Incorrect reinforcement can lead to structural failure. Always follow engineer specifications and building control approval.',
+    whenToAskPro: 'Reinforcement design is structural engineering. For load-bearing slabs, footings, retaining walls, or any building-consent-controlled concrete work, consult a structural engineer. Incorrect reinforcement can lead to structural failure. Always follow engineer specifications and council approval.',
   },
   {
     slug: 'free-trench-calculator',
@@ -251,8 +251,8 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
     tipsH: 'Trench calculation tips',
     defaultTab: 'slab-volume',
     tips: [
-      ['Trench excavation working space', 'UK building regulations require 150mm working space each side of the footing. So a 600mm footing needs a 900mm trench. For deeper trenches, you may need to widen further for safe access.'],
-      ['Battering and shoring', 'Trenches over 1.2m deep must be shored or battered back to prevent collapse. HSE regulations require trench support for any excavation where personnel enter. Always follow HSE guidance on trench safety.'],
+      ['Trench excavation working space', 'NZ building regulations require 150mm working space each side of the footing. So a 600mm footing needs a 900mm trench. For deeper trenches, you may need to widen further for safe access.'],
+      ['Battering and shoring', 'Trenches over 1.2m deep must be shored or battered back to prevent collapse. WorkSafe regulations require trench support for any excavation where personnel enter. Always follow WorkSafe guidance on trench safety.'],
       ['Backfill compaction', 'Backfill in 150mm layers, compacting each layer with a vibrating plate. Uncompacted backfill will settle over time, causing problems with paving, floors, or landscaping above. Do not use clay or organic material as backfill.'],
       ['Soil type affects trenching', 'Sand and gravel are stable and easy to excavate. Clay can be unstable when wet. Chalk is generally stable. Made ground (previously disturbed soil) is unpredictable and may need engineering assessment. Always check soil type before excavation.'],
     ],
@@ -264,9 +264,9 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
     ],
     faqs: [
       ['How do I calculate trench excavation volume?', 'Multiply trench length by trench width (including working space) by depth. For a 10m trench at 900mm wide × 1m deep: V = 10 × 0.9 × 1.0 = 9.0 m³. Remember to add 20% bulking factor for muck-away.'],
-      ['How much concrete do I need for a trench fill footing?', 'For a 10m trench at 600mm wide × 1m deep (full trench fill): V = 10 × 0.6 × 1.0 = 6.0 m³. With 5% waste: 6.3 m³. At £120/m³: about £756.'],
+      ['How much concrete do I need for a trench fill footing?', 'For a 10m trench at 600mm wide × 1m deep (full trench fill): V = 10 × 0.6 × 1.0 = 6.0 m³. With 5% waste: 6.3 m³. At NZ$220/m³: about NZ$1,386.'],
       ['What is the bulking factor for excavated soil?', 'Typical bulking factors: sand/gravel 1.1-1.2, clay 1.2-1.3, chalk 1.3, mixed soil 1.2-1.25. This means 1m³ of in-situ soil becomes 1.1-1.3m³ when excavated and loose.'],
-      ['How wide should a trench be for a footing?', 'Footing width (typically 600mm) plus 150mm working space each side = 900mm minimum. For deeper trenches over 1.5m, widen to 1.2m for safe access. Check HSE and building regulations.'],
+      ['How wide should a trench be for a footing?', 'Footing width (typically 600mm) plus 150mm working space each side = 900mm minimum. For deeper trenches over 1.5m, widen to 1.2m for safe access. Check WorkSafe and building regulations.'],
     ],
     workedExample: [
       'Worked example: 15m trench for strip footing, 600mm wide × 225mm deep concrete, 1m deep excavation',
@@ -278,13 +278,13 @@ export const CONCRETE_SLUGS: ConcreteSlugDef[] = [
       'Muck-away (with 1.2 bulking): 13.5 × 1.2 = 16.2 m³ loose',
     ],
     assumptions: [
-      'Working space of 150mm each side is the UK minimum. Deeper trenches may require more.',
+      'Working space of 150mm each side is the NZ minimum. Deeper trenches may require more.',
       'Bulking factor of 1.2 is typical for mixed soil. Actual factor depends on soil type.',
       'Trench assumed to be rectangular. For stepped or benched trenches, calculate each section.',
       'Concrete depth is the actual pour depth, not the excavation depth.',
-      'Always follow HSE guidance on trench safety - excavations over 1.2m deep require shoring or battering.',
+      'Always follow WorkSafe guidance on trench safety - excavations over 1.2m deep require shoring or battering.',
     ],
-    whenToAskPro: 'Trenching is dangerous. Excavations over 1.2m deep require shoring, battering, or trench boxes under HSE regulations. Always check for underground services before excavation (dial before you dig). On unstable ground or near existing structures, consult a groundworks contractor or structural engineer.',
+    whenToAskPro: 'Trenching is dangerous. Excavations over 1.2m deep require shoring, battering, or trench boxes under WorkSafe regulations. Always check for underground services before excavation (dial before you dig). On unstable ground or near existing structures, consult a groundworks contractor or structural engineer.',
   },
 ];
 

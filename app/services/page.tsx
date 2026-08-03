@@ -6,14 +6,14 @@ import { buildBreadcrumbSchema, siteUrl } from "@/lib/schema";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
-  title: "Done-for-you roofing quote service | QuoteCore+",
+  title: "Done-for-you roofing quote service NZ | QuoteCore+",
   description:
-    "Send QuoteCore+ your plans, scope, photos and pricing. We measure the job, build the quote, and you stay in control of final approval.",
+    "Send QuoteCore+ your plans, scope, photos and pricing. We measure the job, build the quote in NZD, and you stay in control of final approval.",
   alternates: { canonical: "https://www.quote-core.co.nz/services", languages: hreflangLanguages("/services") },
   openGraph: {
-    title: "Done-for-you roofing quote service | QuoteCore+",
+    title: "Done-for-you roofing quote service NZ | QuoteCore+",
     description:
-      "Send QuoteCore+ your plans, scope, photos and pricing. We measure the job, build the quote, and you stay in control of final approval.",
+      "Send QuoteCore+ your plans, scope, photos and pricing. We measure the job, build the quote in NZD, and you stay in control of final approval.",
     url: "https://www.quote-core.co.nz/services",
     siteName: "QuoteCore+",
     type: "website",
@@ -163,7 +163,7 @@ export default function ServicesPage() {
                 <span className="text-[#FF6B35]">Your quote.</span>
               </h1>
               <p className="mt-6 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
-                We take care of the measuring and quote build so you can focus on running your business and closing more jobs.
+                We take care of the measuring and quote build so you can focus on running your business and closing more jobs across New Zealand.
               </p>
               <p className="mt-4 max-w-xl rounded-2xl border border-[#FF6B35]/15 bg-[radial-gradient(circle_at_18%_20%,rgba(255,107,53,0.10),transparent_38%),linear-gradient(135deg,rgba(255,255,255,0.74)_0%,rgba(255,247,243,0.68)_48%,rgba(255,255,255,0.74)_100%)] px-5 py-4 text-base font-semibold leading-7 text-zinc-950 shadow-[0_18px_55px_rgba(15,23,42,0.08),inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur-xl">
                 Let us quote a job for you using QuoteCore+. If it&apos;s not better than your current system, get a free coffee on us!

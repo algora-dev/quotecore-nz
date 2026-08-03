@@ -526,7 +526,7 @@ export function RoofTakeoffBuilder({ embed = false }: { embed?: boolean }) {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l9-9 9 9M5 10v10h14V10" />
                       </svg>
                       <span className="text-sm font-semibold text-slate-700">Roof Pitch</span>
-                      <InfoIcon text="Roof pitch is the angle of the roof slope. E.g. 25 degrees is a common UK roof pitch. We use this to calculate the real sloped lengths from your plan measurements." />
+                      <InfoIcon text="Roof pitch is the angle of the roof slope. E.g. 25 degrees is a common NZ roof pitch. We use this to calculate the real sloped lengths from your plan measurements." />
                     </div>
                     <div className="flex items-center gap-1 rounded-full border border-slate-200 bg-white p-0.5">
                       <button onClick={() => setPitchMode('degrees')} className={`rounded-full px-3 py-1 text-xs font-medium transition ${pitchMode === 'degrees' ? 'bg-slate-900 text-white' : 'text-slate-500'}`}>Degrees</button>

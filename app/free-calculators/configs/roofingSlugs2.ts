@@ -136,7 +136,7 @@ export const SLUGS_2: SlugDef[] = [
       ['Flat roofs aren\'t actually flat', 'Building regs require a minimum 1:80 fall (1.25% slope, ~0.7°) for water drainage. Most flat roofs are 1:40 to 1:60 (1.4° to 2.4°). The fall directs water to outlets or gutters.'],
       ['Membrane types and coverage', 'Bitumen felt: 2-3 layers, each covering full area (multiply by layers). EPDM rubber: single sheet, area + 150mm perimeter upturn. GRP fibreglass: resin + matting, ~1.5kg/m² resin per layer. TPO: single-ple, similar to EPDM.'],
       ['Insulation on flat roofs', 'Warm deck: insulation above the deck (most common). Cold deck: insulation below (requires ventilation). Typical PIR insulation: 100-150mm for U-value compliance. Calculate by area × thickness.'],
-      ['Drainage and outlet sizing', 'Flat roof outlets sized by plan area and rainfall intensity. 1 outlet per 40-80 m² (UK typical). Check fall directs water to outlets - any ponding area is a failure point.'],
+      ['Drainage and outlet sizing', 'Flat roof outlets sized by plan area and rainfall intensity. 1 outlet per 40-80 m² (NZ typical). Check fall directs water to outlets - any ponding area is a failure point.'],
     ],
     formulas: [
       ['Flat roof area', 'area = length × width'],
@@ -145,7 +145,7 @@ export const SLUGS_2: SlugDef[] = [
       ['Insulation volume', 'volume = area × thickness_m'],
     ],
     faqs: [
-      ['What fall does a flat roof need?', 'Minimum 1:80 (0.7°) per UK Building Regs. Recommended 1:40 (1.4°) to 1:60 (1.0°) for positive drainage.'],
+      ['What fall does a flat roof need?', 'Minimum 1:80 (0.7°) per NZ Building Code. Recommended 1:40 (1.4°) to 1:60 (1.0°) for positive drainage.'],
       ['How much membrane for a flat roof?', 'Area × number of layers + 150mm upstand perimeter. 3-layer felt on 50 m² roof: 50 × 3 = 150 m² + ~6 m² upstands = ~156 m².'],
       ['What insulation thickness for flat roofs?', 'Typically 100-150mm PIR for U-value compliance. Check Part L for current requirements. Calculate volume = area × thickness.'],
       ['Best free flat roof calculator?', 'One that handles area, falls, membrane layers, and insulation. This tool does all, free.'],

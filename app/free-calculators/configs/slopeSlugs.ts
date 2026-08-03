@@ -67,7 +67,7 @@ export const SLOPE_SLUGS: SlopeSlugDef[] = [
     defaultTab: 'gradient',
     tips: [
       ['Minimum gradients for drainage', 'Surface water drainage requires a minimum 1:100 (1%) fall. Soakaways and French drains: 1:80 minimum. Sewer connections: 1:40 to 1:80 depending on pipe size. Patio drainage: 1:60 to 1:80. Always check building regulations.'],
-      ['Ramp gradients for accessibility', 'UK Building Regulations Part M: maximum 1:12 for ramps up to 5m. For 5-10m: maximum 1:15. Over 10m: maximum 1:20. Landings required every 5m of ramp run at 1:15 or steeper.'],
+      ['Ramp gradients for accessibility', 'NZ Building Code clause D1: maximum 1:12 for ramps up to 5m. For 5-10m: maximum 1:15. Over 10m: maximum 1:20. Landings required every 5m of ramp run at 1:15 or steeper.'],
       ['Converting between slope formats', 'Percentage = (rise / run) × 100. Degrees = arctan(rise / run). Ratio = 1 : (run / rise). A 1:20 slope = 5% = 2.86°. A 1:12 ramp = 8.33% = 4.76°. A 45° slope = 100% = 1:1.'],
       ['Measuring slope on-site', 'Use a spirit level and a straight edge (1m or 2m). Measure the gap under the level at one end - that\'s the rise over the length of the level. For a 1m level with a 20mm gap: slope = 20mm/1000mm = 1:50 = 2%.'],
     ],
@@ -93,8 +93,8 @@ export const SLOPE_SLUGS: SlopeSlugDef[] = [
     ],
     assumptions: [
       'Slope calculations assume a constant gradient. Variable terrain requires section-by-section calculation.',
-      'Drainage gradients are UK building regulation minimums. Local water authority may require steeper falls.',
-      'Ramp gradients follow UK Building Regulations Part M. Other countries have different requirements.',
+      'Drainage gradients are NZ Building Code minimums. Local council may require steeper falls.',
+      'Ramp gradients follow NZ Building Code clause D1. Other countries have different requirements.',
       'All calculations assume straight-line slope. Curved or benched slopes need professional surveying.',
     ],
     whenToAskPro: 'For drainage connections to public sewers, soakaway design, and any slope stability concerns (retaining walls over 1m, embankments, or sloped building sites), consult a civil engineer or drainage specialist. Building control approval is required for drainage works.',
@@ -123,7 +123,7 @@ export const SLOPE_SLUGS: SlopeSlugDef[] = [
       ['Angle', 'angle = arctan(fall / pipe_length)'],
     ],
     faqs: [
-      ['What is the minimum slope for a 100mm drainage pipe?', 'UK Building Regulations: 1:40 (2.5%) for 100mm foul drains, 1:80 (1.25%) for 100mm surface water. Check local water authority for specific requirements - some require steeper gradients.'],
+      ['What is the minimum slope for a 100mm drainage pipe?', 'NZ Building Code: 1:40 (2.5%) for 100mm foul drains, 1:80 (1.25%) for 100mm surface water. Check local council for specific requirements - some require steeper gradients.'],
       ['How much fall do I need on a 15m drain at 1:40?', 'Fall = 15 × (1/40) = 0.375m = 375mm. The inlet needs to be 375mm higher than the outlet. At 1:80 (surface water): 15 × (1/80) = 187.5mm fall.'],
       ['What happens if a drain slope is too steep?', 'If the gradient exceeds about 1:10 (10%), liquids flow too fast and leave solids behind, causing blockages. The ideal range is 1:40 to 1:80 for most domestic drains. For steep sites, use drop chambers to maintain proper gradient between sections.'],
       ['Can I use this for sewer lateral calculations?', 'Yes, but sewer connections must comply with local water authority specifications. Typical lateral gradients are 1:40 to 1:80 for 100-150mm pipes. Always get water company approval before connecting to a public sewer.'],
@@ -138,7 +138,7 @@ export const SLOPE_SLUGS: SlopeSlugDef[] = [
       'Access point needed at mid-point (12m > 15m limit is fine, but add one if there\'s a bend)',
     ],
     assumptions: [
-      'Minimum gradients follow UK Building Regulations Approved Document H. Local water authority may require different gradients.',
+      'Minimum gradients follow NZ Building Code clause G13 (foul water) and E1 (surface water). Local council may require different gradients.',
       'Self-cleansing velocity of 0.75 m/s assumed for flow calculations. Actual velocity depends on pipe material, roughness, and flow rate.',
       'Calculations assume uniform gradient along the pipe run. Changes in gradient require access points.',
       'Pipe diameter must be specified by a drainage designer based on expected flow rates.',

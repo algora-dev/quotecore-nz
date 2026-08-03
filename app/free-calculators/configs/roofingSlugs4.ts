@@ -14,9 +14,9 @@ export const SLUGS_4: SlugDef[] = [
     tipsH: 'Guttering - did you know?',
     tips: [
       ['Gutter sizing from roof area', 'Effective roof area for gutter sizing = plan area × pitch factor (bigger roof = more water). Half-round 112mm gutter handles ~36 m² effective area per downpipe. Square 125mm: ~50 m². Always check manufacturer flow rates.'],
-      ['Downpipe spacing', 'UK rule of thumb: 1 downpipe per 6m of gutter run, or per 36 m² effective roof area (whichever is less). At 35° pitch with 100 m² plan (122 m² effective): 122 ÷ 36 = 3.4 → 4 downpipes minimum.'],
+      ['Downpipe spacing', 'NZ rule of thumb: 1 downpipe per 6m of gutter run, or per 36 m² effective roof area (whichever is less). At 35° pitch with 100 m² plan (122 m² effective): 122 ÷ 36 = 3.4 → 4 downpipes minimum.'],
       ['Fascia and soffit calculation', 'Fascia length = total eaves length (both sides for gable, all 4 sides for hip). Soffit area = eaves overhang × perimeter. Standard overhang: 150-300mm. Fascia board: 150-200mm deep typically.'],
-      ['Rainwater capacity check', 'UK design rainfall: 75mm/hour intensity. Each downpipe should handle roof_area × 75mm/h. A 68mm circular downpipe handles ~12 m² at 75mm/h. A 100mm square: ~50 m². Size up in high-rainfall regions.'],
+      ['Rainwater capacity check', 'NZ design rainfall: 75mm/hour intensity. Each downpipe should handle roof_area × 75mm/h. A 68mm circular downpipe handles ~12 m² at 75mm/h. A 100mm square: ~50 m². Size up in high-rainfall regions.'],
     ],
     formulas: [
       ['Effective roof area', 'effective = plan_area × (1 ÷ cos(pitch°))'],
@@ -74,8 +74,8 @@ export const SLUGS_4: SlugDef[] = [
     tipsH: 'Roof replacement - did you know?',
     tips: [
       ['Cost components of a roof replacement', 'Materials (30-40%): tiles, membrane, battens, nails. Labour (40-50%): strip, dispose, re-batten, re-tile. Scaffolding (10-15%): front and rear access. Skip (2-5%): roofing waste is bulky. Extras: flashing, verges, ridge ventilation.'],
-      ['Cost per m² by material', 'Concrete tile re-roof: £60-90/m². Clay tile: £80-120/m². Slate: £100-180/m². Metal standing seam: £70-110/m². EPDM flat roof: £50-80/m². These are UK 2024 averages including labour.'],
-      ['Strip and dispose costs', 'Stripping adds ~£15-25/m² to the job. Disposal: 1 tonne of tile per ~8 m² of roof. 100 m² roof = 12.5 tonnes. Skip hire: £250-400. Some merchants take back tiles (reduces skip cost). Asbestos cement: specialist disposal, £500+.'],
+      ['Cost per m² by material', 'Concrete tile re-roof: NZ$80-120/m². Clay tile: NZ$100-150/m². Slate: NZ$120-200/m². Metal standing seam: NZ$90-130/m². EPDM flat roof: NZ$70-100/m². These are NZ 2024 averages including labour.'],
+      ['Strip and dispose costs', 'Stripping adds ~NZ$25-40/m² to the job. Disposal: 1 tonne of tile per ~8 m² of roof. 100 m² roof = 12.5 tonnes. Skip hire: NZ$500-800. Some merchants take back tiles (reduces skip cost). Asbestos cement: specialist disposal, NZ$800+.'],
       ['When to repair vs replace', 'Repair if: <20% of tiles damaged, isolated leak, flashings failed. Replace if: >30% tiles damaged, sagging roof, multiple leaks, no membrane (pre-1970s), battens rotten. Borderline (20-30%): get a structural survey first.'],
     ],
     formulas: [
@@ -85,8 +85,8 @@ export const SLUGS_4: SlugDef[] = [
       ['Strip cost', 'strip = area × strip_rate_per_m²'],
     ],
     faqs: [
-      ['How much does a roof replacement cost?', 'UK: £60-90/m² concrete, £80-120/m² clay, £100-180/m² slate, £70-110/m² metal. 100 m² concrete tile re-roof: £6,000-9,000+ including labour and scaffold.'],
-      ['How much to strip and dispose of old roof?', '£15-25/m². 100 m² roof generates ~12.5 tonnes of waste. Skip: £250-400. Some merchants take back undamaged tiles.'],
+      ['How much does a roof replacement cost?', 'NZ: NZ$80-120/m² concrete, NZ$100-150/m² clay, NZ$120-200/m² slate, NZ$90-130/m² metal. 100 m² concrete tile re-roof: NZ$8,000-12,000+ including labour and scaffold.'],
+      ['How much to strip and dispose of old roof?', 'NZ$25-40/m². 100 m² roof generates ~12.5 tonnes of waste. Skip: NZ$500-800. Some merchants take back undamaged tiles.'],
       ['Should I repair or replace my roof?', 'Repair if <20% damage. Replace if >30% damage, sagging, multiple leaks, no membrane, or rotten battens. 20-30%: get a survey.'],
       ['Best free roof replacement cost calculator?', 'One that breaks down materials, labour, scaffold, and disposal. This tool does all, free.'],
     ],
@@ -104,7 +104,7 @@ export const SLUGS_4: SlugDef[] = [
     tipsH: 'Roofing takeoff - did you know?',
     tips: [
       ['What a full takeoff includes', 'Tiles (by type and count), underlay/membrane (m² + rolls), battens (linear metres), nails/screws (by type), ridge/hip tiles, valley gutter, flashing (apron/step/valley), verge trim, ventilation. A professional takeoff leaves nothing to guess.'],
-      ['Batten calculation', 'Batten length = roof_area ÷ batten_gauge. At 35° pitch with 345mm batten gauge: 100 m² ÷ 0.345 = 290 linear metres of batten per slope. Add 10% for cuts. 25mm × 50mm treated timber is UK standard.'],
+      ['Batten calculation', 'Batten length = roof_area ÷ batten_gauge. At 35° pitch with 345mm batten gauge: 100 m² ÷ 0.345 = 290 linear metres of batten per slope. Add 10% for cuts. 25mm × 50mm treated timber is NZ standard.'],
       ['Membrane/underlay calculation', 'Membrane rolls: typically 1.5m × 50m = 75 m² per roll. Coverage with 150mm horizontal laps: ~60 m² effective. 100 m² roof: 100 ÷ 60 = 1.67 → 2 rolls. Add 1 roll for complex roofs. Use breathable membrane for cold roofs.'],
       ['Fixings and accessories', 'Nails: tile nails (~2 per tile), batten nails (~1 per batten intersection). Screws: for metal roofing, ~8/m². Dry ridge kit: 1 kit per 10m ridge. Ventilation: 1 tile vent per 5-10 m² of roof space (check Part F).'],
     ],
@@ -133,10 +133,10 @@ export const SLUGS_4: SlugDef[] = [
     hero: 'Price roofing jobs from material quantities, labour rates, waste, and overhead. Get a professional quote with margin and tax included. Free, no signup.',
     tipsH: 'Roofing quoting - did you know?',
     tips: [
-      ['The quoting formula', 'Quote = (materials × 1.waste) + labour + overhead + margin. Materials at trade price (not retail). Labour: day rate × days. Overhead: 15-25% of (materials + labour). Margin: 15-30% on top. VAT/tax on the total.'],
+      ['The quoting formula', 'Quote = (materials × 1.waste) + labour + overhead + margin. Materials at trade price (not retail). Labour: day rate × days. Overhead: 15-25% of (materials + labour). Margin: 15-30% on top. GST/tax on the total.'],
       ['Material markup vs trade price', 'Roofers typically buy at 20-40% below retail. Quote materials at retail or slight discount (10% off retail shows customer they are getting a deal). Never quote at trade price - that gives away your buying advantage.'],
-      ['Labour calculation', 'Labour = crew_size × day_rate × days. 3-man crew at £350/day each = £1,050/day. 100 m² concrete tile roof: ~3-4 days stripping and re-roofing. Labour: £3,150-4,200. Scaffold + skip on top.'],
-      ['Common quoting mistakes', 'Forgetting scaffold (£500-1,500), underestimating waste, not pricing flashing/ridge/vents separately, no provision for timber repairs (rot found during strip). Always add a 10% contingency line.'],
+      ['Labour calculation', 'Labour = crew_size × day_rate × days. 3-man crew at NZ$600/day each = NZ$1,800/day. 100 m² concrete tile roof: ~3-4 days stripping and re-roofing. Labour: NZ$5,400-7,200. Scaffold + skip on top.'],
+      ['Common quoting mistakes', 'Forgetting scaffold (NZ$1,000-3,000), underestimating waste, not pricing flashing/ridge/vents separately, no provision for timber repairs (rot found during strip). Always add a 10% contingency line.'],
     ],
     formulas: [
       ['Quote total', 'quote = (materials + labour + overhead) × (1 + margin%) × (1 + tax%)'],
@@ -145,7 +145,7 @@ export const SLUGS_4: SlugDef[] = [
       ['Overhead', 'overhead = (materials + labour) × 20%'],
     ],
     faqs: [
-      ['How do I price a roofing job?', '(materials × 1.waste + labour + overhead) × (1 + margin) × (1 + VAT). 100 m² concrete re-roof: materials £3k, labour £4k, overhead £1.4k, 20% margin, 20% VAT = ~£12.8k quote.'],
+      ['How do I price a roofing job?', '(materials × 1.waste + labour + overhead) × (1 + margin) × (1 + GST). 100 m² concrete re-roof: materials NZ$5k, labour NZ$7k, overhead NZ$2.4k, 20% margin, 15% GST = ~NZ$18.4k quote.'],
       ['What margin should I add to a roofing quote?', '15-30% is typical. 15% for competitive work, 20% standard, 25-30% for specialist work or small jobs (overhead is proportionally higher on small jobs).'],
       ['What overhead percentage for roofing?', '15-25% of (materials + labour). Covers insurance, vehicle, phone, office, advertising. Sole traders: 15%. Companies with premises/staff: 25%.'],
       ['Best free roofing quote calculator?', 'One that handles materials, labour, overhead, margin, and tax. This tool does all, free - and you can import quantities from the takeoff tab.'],

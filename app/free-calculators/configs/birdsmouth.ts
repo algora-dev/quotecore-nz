@@ -87,11 +87,11 @@ export const birdsmouthConfig: TradeConfig = {
       },
       {
         title: 'Bird\'s mouth on stair stringers',
-        body: "Stair stringers use the same principle: the seat cut rests on the landing or floor, the plumb cut butts against the header. The pitch is set by the rise and going of the stairs - UK building regs typically cap stair pitch at 42° for domestic stairs. The ⅓-depth rule applies equally to stringers; an over-cut stringer will crack under load.",
+        body: "Stair stringers use the same principle: the seat cut rests on the landing or floor, the plumb cut butts against the header. The pitch is set by the rise and going of the stairs - NZ building code typically caps stair pitch at 42° for domestic stairs. The ⅓-depth rule applies equally to stringers; an over-cut stringer will crack under load.",
       },
       {
         title: 'Choosing the seat width',
-        body: "The seat width should match the wall plate width so the rafter bears fully on the timber below - commonly 75mm or 100mm in the UK. A wider seat gives more bearing area but increases the notch depth. If the notch exceeds ⅓ of the rafter depth at your chosen seat width, move to a deeper rafter rather than reducing the bearing.",
+        body: "The seat width should match the wall plate width so the rafter bears fully on the timber below - commonly 75mm or 100mm in New Zealand. A wider seat gives more bearing area but increases the notch depth. If the notch exceeds ⅓ of the rafter depth at your chosen seat width, move to a deeper rafter rather than reducing the bearing.",
       },
     ],
     formulas: [

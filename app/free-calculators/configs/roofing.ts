@@ -155,7 +155,7 @@ export const roofingConfig: TradeConfig = {
         'Actual roof area = 80 m² × 1.2208 = 97.66 m²',
         'Rafter length = span / cos(35°) = 5m / 0.8192 = 6.10m (half the building width as span)',
         'With 10% waste: 97.66 × 1.10 = 107.43 m² of material needed',
-        'At £2.50/m² for concrete tiles: 107.43 × £2.50 = £268.58 material cost',
+        'At NZ$30/m² for concrete tiles: 107.43 × NZ$30 = NZ$3,228.90 material cost',
       ],
     },
     assumptions: [
@@ -165,7 +165,7 @@ export const roofingConfig: TradeConfig = {
       'Batten calculations assume a mono-pitch roof and do not include extra battens for hips, valleys, or ridge lines.',
       'All measurements are estimates. Verify on-site before ordering materials.',
     ],
-    whenToAskPro: 'This calculator provides estimates for planning purposes only. For structural roof design, load calculations, building regulations compliance, or roofs with complex geometry (multiple pitches, curved sections, or unusual materials), consult a qualified roofing contractor or structural engineer. Building control approval may be required for roof modifications in the UK.',
+    whenToAskPro: 'This calculator provides estimates for planning purposes only. For structural roof design, load calculations, building regulations compliance, or roofs with complex geometry (multiple pitches, curved sections, or unusual materials), consult a qualified roofing contractor or structural engineer. Building consent may be required for roof modifications in New Zealand.',
     related: [
       {
         href: '/free-construction-calculator',

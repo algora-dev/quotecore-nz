@@ -61,10 +61,10 @@ export const SLUGS_1: SlugDef[] = [
     hero: 'Calculate roof pitch in degrees, as a rise/run ratio, or as a percentage. Enter any one value and the calculator converts instantly. Includes pitch factor for surface area. Free, no signup.',
     tipsH: 'Roof pitch - did you know?',
     tips: [
-      ['What exactly is roof pitch?', 'Roof pitch is the steepness of a roof, expressed as an angle in degrees or as a ratio of rise to run. UK uses degrees (e.g. 35°). US uses rise/run (e.g. 6:12 = 6 inches rise per 12 inches run). Both describe the same thing.'],
+      ['What exactly is roof pitch?', 'Roof pitch is the steepness of a roof, expressed as an angle in degrees or as a ratio of rise to run. New Zealand uses degrees (e.g. 35°). US uses rise/run (e.g. 6:12 = 6 inches rise per 12 inches run). Both describe the same thing.'],
       ['Degrees vs ratio conversion', 'To convert ratio to degrees: pitch° = arctan(rise ÷ run). A 6:12 roof = arctan(0.5) = 26.57°. To convert degrees to ratio: tan(pitch°). At 35°, tan(35) = 0.700, so the ratio is ~7:10.'],
       ['Why pitch matters for materials', 'Pitch determines roof surface area. The pitch factor (1 ÷ cos(pitch°)) converts plan area to actual roof area. At 35°, the factor is 1.221 - 100 m² plan becomes 122.1 m² of roof surface.'],
-      ['Minimum pitch by material', 'Concrete/clay tiles need 17.5°+ in UK; metal standing seam 3°+; slate 20°+; felt/membrane flat roofs need 1:80 fall (~0.7°). Below minimums, water ponds and penetrates.'],
+      ['Minimum pitch by material', 'Concrete/clay tiles need 17.5°+ in New Zealand; metal standing seam 3°+; slate 20°+; felt/membrane flat roofs need 1:80 fall (~0.7°). Below minimums, water ponds and penetrates.'],
     ],
     formulas: [
       ['Pitch from rise/run', 'pitch° = arctan(rise ÷ run)'],
@@ -91,9 +91,9 @@ export const SLUGS_1: SlugDef[] = [
     hero: 'Convert roof pitch between degrees, rise/run ratio, and percentage instantly. Enter any one value and get the others automatically. Free, no signup.',
     tipsH: 'Pitch conversion - did you know?',
     tips: [
-      ['Why three pitch formats exist', 'Degrees (UK/Europe - precise). Rise/run ratios (US - directly describes rafter geometry). Percentages (commercial flat roofing - 1:80 fall = 1.25%).'],
+      ['Why three pitch formats exist', 'Degrees (New Zealand/Europe - precise). Rise/run ratios (US - directly describes rafter geometry). Percentages (commercial flat roofing - 1:80 fall = 1.25%).'],
       ['Degrees to ratio', 'Calculate tan(pitch°). At 35°, tan(35) = 0.700, ratio = 7:10. For Imperial 12-based: 0.700 × 12 = 8.4, so 8.4:12.'],
-      ['Ratio to degrees', 'arctan(rise ÷ run). For 9:12: arctan(0.75) = 36.87°. Most common conversion between UK and US specs.'],
+      ['Ratio to degrees', 'arctan(rise ÷ run). For 9:12: arctan(0.75) = 36.87°. Most common conversion between NZ and US specs.'],
       ['Common pitch values', '15° = 1:3.73 = 26.8% · 22.5° = 1:2.41 = 41.4% · 30° = 1:1.73 = 57.7% · 35° = 1:1.43 = 70% · 45° = 1:1.00 = 100%.'],
     ],
     formulas: [
@@ -124,7 +124,7 @@ export const SLUGS_1: SlugDef[] = [
       ['Plan area vs actual roof area', 'Plan area is the footprint from above. Actual roof area is the sloped surface. At 35°, 100 m² plan = 122.1 m² roof. Forgetting this is the #1 cause of under-ordering.'],
       ['The pitch factor formula', 'Factor = 1 ÷ cos(pitch°). The sloped surface is the hypotenuse; plan area is the adjacent side. Dividing by cosine gives the true area.'],
       ['Measuring irregular roofs', 'Break into rectangles and triangles. L-shaped: each rectangle separately. Hipped ends: base × height ÷ 2. Add sections before applying pitch factor.'],
-      ['Metric vs imperial', 'UK/AU: m². US: "squares" (1 square = 100 sq ft). 1 m² = 10.764 sq ft = 0.1076 squares. 1 square = 9.29 m².'],
+      ['Metric vs imperial', 'NZ/AU: m². US: "squares" (1 square = 100 sq ft). 1 m² = 10.764 sq ft = 0.1076 squares. 1 square = 9.29 m².'],
     ],
     formulas: [
       ['Roof surface area', 'area = plan_area × (1 ÷ cos(pitch°))'],
@@ -183,8 +183,8 @@ export const SLUGS_1: SlugDef[] = [
     tips: [
       ['Metric to imperial', '1m = 3.281ft = 39.37in. A 4.88m rafter = 16.01ft. Round up to next standard Imperial length when ordering.'],
       ['Imperial to metric', '1ft = 0.3048m. 1in = 25.4mm. A 16ft rafter = 4.877m. Verify converted length is available locally.'],
-      ['Converting pitch ratios', 'US: rise:12 (e.g. 6:12). To degrees: arctan(rise/12). UK degrees to US: tan(pitch°) × 12. At 35°: 8.4:12.'],
-      ['Standard timber lengths', 'UK: 4.8m, 5.4m, 6.0m. US: 12ft, 14ft, 16ft, 20ft. AU: 4.8m, 5.4m, 6.0m. Check local availability.'],
+      ['Converting pitch ratios', 'US: rise:12 (e.g. 6:12). To degrees: arctan(rise/12). NZ degrees to US: tan(pitch°) × 12. At 35°: 8.4:12.'],
+      ['Standard timber lengths', 'NZ: 4.8m, 5.4m, 6.0m. US: 12ft, 14ft, 16ft, 20ft. AU: 4.8m, 5.4m, 6.0m. Check local availability.'],
     ],
     formulas: [
       ['Metres → feet', 'feet = metres × 3.281'],
@@ -241,7 +241,7 @@ export const SLUGS_1: SlugDef[] = [
     hero: 'Convert hip and valley rafter lengths and angles between metric and imperial. Enter pitch and run in any system, get results in both. Free, no signup.',
     tipsH: 'Hip & valley conversion - did you know?',
     tips: [
-      ['Hip length metric vs imperial', 'A 6.31m hip (35°, 4m run) = 20.70ft. Standard US lumber: 22ft would cover it with waste. UK: 6.6m or 7.2m C24.'],
+      ['Hip length metric vs imperial', 'A 6.31m hip (35°, 4m run) = 20.70ft. Standard US lumber: 22ft would cover it with waste. NZ: 6.6m or 7.2m C24.'],
       ['Backing angle in degrees and ratio', 'Backing angle is always in degrees (it is a bevel, not a slope). At 35° pitch: 24.2° backing. Convert to percentage: tan(24.2°) × 100 = 44.9%.'],
       ['Side cut as a bevel angle', 'Side cut = arctan(cos(pitch°) ÷ sin(45°)). At 35°: 49.2°. This is set on a circular saw bevel gauge. In Imperial: same degrees - angles are unit-independent.'],
       ['Why angles don\'t need conversion', 'Angles in degrees are the same in metric and imperial. Only linear measurements (lengths) need conversion. A 49.2° cut is 49.2° whether you measure the timber in mm or inches.'],

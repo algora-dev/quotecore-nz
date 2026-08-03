@@ -133,10 +133,10 @@ export const SLUGS_3: SlugDef[] = [
     hero: 'Calculate roof sheathing (plywood/OSB) sheet quantities from roof area. Enter dimensions and pitch for sheet count with waste and cut waste. Free, no signup.',
     tipsH: 'Roof sheathing - did you know?',
     tips: [
-      ['Standard sheet sizes', 'UK: 2440 × 1220mm (8 × 4 ft) = 2.98 m² per sheet. US: 4 × 8 ft = 32 sq ft. Thickness: 12mm (UK min for rafters at 400mm), 15mm (600mm centres), 18mm (UK general). US: 7/16" OSB standard, 1/2" or 5/8" for high wind.'],
+      ['Standard sheet sizes', 'NZ: 2440 × 1220mm (8 × 4 ft) = 2.98 m² per sheet. US: 4 × 8 ft = 32 sq ft. Thickness: 12mm (NZ min for rafters at 400mm), 15mm (600mm centres), 18mm (NZ general). US: 7/16" OSB standard, 1/2" or 5/8" for high wind.'],
       ['Sheet calculation', 'Sheets = roof_area ÷ sheet_area × (1 + waste%). At 10% waste: 100 m² ÷ 2.98 × 1.10 = 36.9 → 37 sheets. For US: 2,236 sq ft ÷ 32 × 1.10 = 76.9 → 77 sheets.'],
       ['Waste for sheathing', 'Standard: 10%. Hips/valleys: 15% (diagonal cuts waste more). Staggered pattern (recommended): 10-12%. H-clips between sheets on rafters for spacing and support.'],
-      ['Nailing schedule for sheathing', '8d ring-shank nails at 150mm OC on edges, 300mm OC in field (UK: 50mm nails at 150mm edges, 300mm field). That is ~32 nails per 8×4 sheet. 1 box (5,000 nails) covers ~150 sheets.'],
+      ['Nailing schedule for sheathing', '8d ring-shank nails at 150mm OC on edges, 300mm OC in field (NZ: 50mm nails at 150mm edges, 300mm field). That is ~32 nails per 8×4 sheet. 1 box (5,000 nails) covers ~150 sheets.'],
     ],
     formulas: [
       ['Sheets needed', 'sheets = ceil(roof_area ÷ sheet_area × (1 + waste%))'],
@@ -146,7 +146,7 @@ export const SLUGS_3: SlugDef[] = [
     ],
     faqs: [
       ['How many sheets of plywood do I need for a roof?', 'roof_area ÷ sheet_area × (1 + waste%). 100 m² at 10% waste: 100 ÷ 2.98 × 1.10 = 37 sheets. US: 2,236 sq ft ÷ 32 × 1.10 = 77 sheets.'],
-      ['What thickness for roof sheathing?', 'UK: 12mm min at 400mm centres, 15mm at 600mm. US: 7/16" OSB standard, 5/8" for high wind zones. Check span ratings on panel stamp.'],
+      ['What thickness for roof sheathing?', 'NZ: 12mm min at 400mm centres, 15mm at 600mm. US: 7/16" OSB standard, 5/8" for high wind zones. Check span ratings on panel stamp.'],
       ['How much waste for roof sheathing?', '10% standard, 15% for roofs with hips/valleys (diagonal cuts). Staggered patterns: 10-12%.'],
       ['Best free roof sheathing calculator?', 'One that calculates sheets, nails, and waste from roof area. This tool does all, free.'],
     ],
