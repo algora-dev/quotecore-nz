@@ -18,11 +18,11 @@ export interface CurrencyDef {
 
 /** Currencies offered in the dropdown next to Metric/Imperial. */
 export const CURRENCIES: CurrencyDef[] = [
-  { code: 'GBP', symbol: '£', label: '£ GBP' },
-  { code: 'USD', symbol: '$', label: '$ USD' },
-  { code: 'EUR', symbol: '€', label: '€ EUR' },
-  { code: 'AUD', symbol: 'A$', label: 'A$ AUD' },
   { code: 'NZD', symbol: 'NZ$', label: 'NZ$ NZD' },
+  { code: 'AUD', symbol: 'A$', label: 'A$ AUD' },
+  { code: 'USD', symbol: '$', label: '$ USD' },
+  { code: 'GBP', symbol: '£', label: '£ GBP' },
+  { code: 'EUR', symbol: '€', label: '€ EUR' },
   { code: 'CAD', symbol: 'C$', label: 'C$ CAD' },
 ];
 
@@ -192,7 +192,7 @@ export interface TradeContent {
 export interface TradeConfig {
   /** URL slug without leading slash, e.g. "free-roofing-calculator" */
   slug: string;
-  /** Default currency code (see CURRENCIES); default "GBP" */
+  /** Default currency code (see CURRENCIES); default "NZD" */
   defaultCurrency?: string;
   /** Default tab to show on page load (by tab id). Falls back to tabs[0]. */
   defaultTab?: string;

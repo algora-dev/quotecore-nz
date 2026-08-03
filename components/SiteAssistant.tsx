@@ -35,7 +35,7 @@ const quickQuestions = [
 
 const trialCTA = {
   label: "Start your free 14-day trial",
-  href: "https://quote-core.com/free-trial",
+  href: "/free-trial",
 };
 
 const freeToolsCTA = {
@@ -76,7 +76,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
     return {
       sender: "assistant",
       text: "QuoteCore+ starts with a 14-day free trial with full access. After that: Lite (free, limited), Starter at $19/month for solo traders, Pro at $39/month for growing businesses, Pro Plus at $59/month for high-volume teams, and Premium (contact us for pricing). All paid plans include a free trial with no card required.",
-      link: { label: "See full pricing details", href: "https://quote-core.com/#pricing" },
+      link: { label: "See full pricing details", href: "/pricing" },
     };
   }
 
@@ -121,7 +121,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
       sender: "assistant",
       text: "The Roof Takeoff Builder lets you enter your measurements manually and calculates roof area, ridges, hips, valleys, barges, spouting, underlay, and fixings - all with the correct pitch factors applied. You can also add material pricing and labour rates for a full cost breakdown. It's free, no signup needed.",
       links: [
-        { label: "Try the Roof Takeoff Builder", href: "https://quote-core.com/free-roofing-takeoff-builder" },
+        { label: "Try the Roof Takeoff Builder", href: "/free-roofing-takeoff-builder" },
         freeToolsCTA,
       ],
     };
@@ -132,7 +132,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
       sender: "assistant",
       text: "The Roofing Calculator handles roof pitch, rafter and hip/valley lengths, surface area, and material quantities all in one tool. Free, no signup needed.",
       links: [
-        { label: "Try the Roofing Calculator", href: "https://quote-core.com/free-roofing-calculator" },
+        { label: "Try the Roofing Calculator", href: "/free-roofing-calculator" },
         freeToolsCTA,
       ],
     };
@@ -190,6 +190,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
       links: [
         trialCTA,
         { label: "See how it works", href: "/#how-it-works" },
+        { label: "Learn about AI Scan Assist", href: "/features/ai-scan-assist" },
       ],
     };
   }

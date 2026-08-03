@@ -52,7 +52,7 @@ const faqSchema = {
       name: "Do invoices include payment instructions?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Every invoice includes a payment instructions panel with the amount due, payment reference, and due date. Customers can copy payment details with one click.",
+        text: "Yes. Every invoice includes a payment instructions panel with the amount due, payment reference, and due date. Customers can copy payment details with a single click.",
       },
     },
     {
@@ -69,13 +69,13 @@ const faqSchema = {
 const steps = [
   { num: 1, title: "Start from a quote or from scratch", text: "Generate an invoice from an accepted quote in QuoteCore+, import a quote from another tool, or create a blank invoice from scratch. Three ways in, same professional result." },
   { num: 2, title: "Line items flow automatically", text: "When starting from a quote, line items, descriptions, quantities, and pricing flow directly from the quote's Smart Components™. No re-entry, no formatting." },
-  { num: 3, title: "Payment instructions included", text: "Every invoice includes a payment instructions panel with amount due, payment reference, and due date. Customers copy details with one click." },
+  { num: 3, title: "Payment instructions included", text: "Every invoice includes a payment instructions panel with amount due, payment reference, and due date. Customers copy details with a single click." },
   { num: 4, title: "Send and track", text: "Send the invoice to your customer. They can mark payment as sent or dispute the invoice. You see the status of every invoice without chasing emails." },
 ];
 
 const faqs = [
   { q: "Do I need a quote to create an invoice?", a: "No. You can generate an invoice from an accepted quote in QuoteCore+, import a quote from another tool, or create a blank invoice from scratch. The invoicing tool works standalone." },
-  { q: "Do invoices include payment instructions?", a: "Yes. Every invoice includes a payment instructions panel with the amount due, payment reference, and due date. Customers can copy payment details with one click." },
+  { q: "Do invoices include payment instructions?", a: "Yes. Every invoice includes a payment instructions panel with the amount due, payment reference, and due date. Customers can copy payment details with a single click." },
   { q: "Can customers confirm payment or dispute an invoice online?", a: "Yes. Invoices include action buttons for customers to mark payment as sent or dispute the invoice. QuoteCore+ does not process payments - customers pay using the included payment instructions (such as bank details) and mark payment as sent. This gives both parties a clear record of invoice status." },
   { q: "Do invoices include GST and my NZ business details?", a: "Yes. Invoices show GST inclusive/exclusive amounts, your GST number, and your NZBN. You can set up your business details once and every invoice includes them automatically. GST is calculated at the current NZ rate - verify at ird.govt.nz." },
 ];
@@ -170,7 +170,7 @@ Turn accepted contractor quotes into professional NZD invoices.
             Invoicing is a standalone tool. You can generate an invoice from an accepted quote in QuoteCore+, import a quote from another tool, or create a blank invoice from scratch. However you start, the result is a branded, professional invoice document with line items, totals, and payment instructions.
           </p>
           <p className="mt-4 leading-7 text-zinc-600">
-            Every invoice includes a payment instructions panel with the amount due, payment reference, and due date. Customers can copy payment details with one click, mark payment as sent, or dispute the invoice. You see the status of every invoice without chasing emails.
+            Every invoice includes a payment instructions panel with the amount due, payment reference, and due date. Customers can copy payment details with a single click, mark payment as sent, or dispute the invoice. You see the status of every invoice without chasing emails.
           </p>
         </section>
 

@@ -34,7 +34,15 @@ const features = [
     steps: ["Upload a roof plan", "Measure sections digitally", "Generate a complete takeoff", "Send to quote builder"],
   },
   {
-    title: "Smart Components™",
+    title: "AI Scan Assist",
+    description:
+      "Upload a roof plan and AI identifies roof areas, ridges, hips, valleys, barges and spouting automatically. Verify, adjust and swap components.",
+    href: "/features/ai-scan-assist",
+    keyword: "AI roof plan scanning",
+    steps: ["Upload plan", "AI identifies elements", "Verify and swap components", "Carry to quote"],
+  },
+  {
+    title: "Smart Components\u2112",
     description:
       "Reusable quoting components that know their own measurements, waste allowances, and pricing rules. Build a roof quote in minutes, not hours.",
     href: "/features/smart-components",
@@ -44,7 +52,7 @@ const features = [
   {
     title: "Material Ordering",
     description:
-      "Turn an accepted quote into a material order in seconds. Quantities, codes, and supplier details flow straight from the quote.",
+      "Create material orders from saved quotes. Quantities, codes, and supplier details flow straight from the quote.",
     href: "/features/material-ordering",
     keyword: "material ordering software",
     steps: ["Accept a quote", "Generate a material order", "Send to your supplier", "Track the order"],
@@ -52,18 +60,26 @@ const features = [
   {
     title: "Invoicing",
     description:
-      "Turn accepted quotes into professional invoices with line items, payment instructions, and online payment tracking.",
+      "Create professional invoices from accepted quotes with line items, payment instructions, and online payment tracking.",
     href: "/features/invoicing",
     keyword: "contractor invoicing software",
     steps: ["Accept a quote", "Generate an invoice", "Customer pays", "Track status"],
   },
   {
+    title: "Sending & Tracking",
+    description:
+      "Send quotes, orders and invoices directly. Track opens and reads. Set up automatic follow-ups that cancel themselves.",
+    href: "/features/sending-and-tracking",
+    keyword: "quote tracking software",
+    steps: ["Send a document", "Track opens and reads", "Automate follow-ups", "Cancel on accept/decline"],
+  },
+  {
     title: "Supplier Resources",
     description:
-      "Search supplier pricing catalogs and component libraries by area or product type. Import ready-made components or convert catalogs in bulk.",
+      "Search supplier pricing catalogues and component libraries by area or product type. Import ready-made components or convert catalogues in bulk.",
     href: "/features/supplier-resources",
-    keyword: "supplier pricing catalogs",
-    steps: ["Search suppliers", "Browse catalogs and libraries", "Import or convert", "Quote with real pricing"],
+    keyword: "supplier pricing catalogues",
+    steps: ["Search suppliers", "Browse catalogues and libraries", "Import or convert", "Quote with real pricing"],
   },
 ];
 
@@ -130,7 +146,7 @@ export default function FeaturesHubPage() {
         {/* Feature table */}
         <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">
           <h2 className="text-center text-2xl font-semibold tracking-tight">What each feature does</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-zinc-600">Five connected tools that take you from plan to payment.</p>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-zinc-600">Seven connected tools that take you from plan to payment.</p>
           <div className="mt-8 overflow-hidden rounded-xl border border-slate-200">
             <table className="w-full text-left text-sm">
               <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
@@ -141,9 +157,11 @@ export default function FeaturesHubPage() {
               </thead>
               <tbody className="divide-y divide-slate-100">
                 <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 font-medium text-slate-900">Digital Roof Takeoff</td><td className="px-5 py-3 text-slate-600">Upload plans, measure roof geometry, and calculate areas automatically</td></tr>
-                <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 font-medium text-slate-900">Smart Components™</td><td className="px-5 py-3 text-slate-600">Store reusable pricing and quantity rules so every quote is consistent</td></tr>
+                <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 font-medium text-slate-900">AI Scan Assist</td><td className="px-5 py-3 text-slate-600">AI identifies roof areas and components from your plan - verify and adjust everything</td></tr>
+                <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 font-medium text-slate-900">Smart Components&#8482;</td><td className="px-5 py-3 text-slate-600">Store reusable pricing and quantity rules so every quote is consistent</td></tr>
                 <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 font-medium text-slate-900">Material Ordering</td><td className="px-5 py-3 text-slate-600">Create orders from saved quotes with quantities and supplier details carried over</td></tr>
                 <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 font-medium text-slate-900">Invoicing</td><td className="px-5 py-3 text-slate-600">Create invoices from accepted quotes with configurable payment methods</td></tr>
+                <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 font-medium text-slate-900">Sending &amp; Tracking</td><td className="px-5 py-3 text-slate-600">Send documents, track opens/reads, automate follow-ups with cancellation conditions</td></tr>
                 <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 font-medium text-slate-900">Supplier Resources</td><td className="px-5 py-3 text-slate-600">Import supplier catalogues and build component libraries from CSV</td></tr>
               </tbody>
             </table>
