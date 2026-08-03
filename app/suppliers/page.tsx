@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const supplierBenefits = [
   {
     title: "Reach active buyers",
-    body: "Every contractor using QuoteCore+ is actively quoting, ordering materials, and buying. Your products appear where purchasing decisions are made - not on a passive directory page.",
+    body: "Contractors using QuoteCore+ are actively quoting, ordering materials, and buying. Your products appear where purchasing decisions are made - not on a passive directory page.",
   },
   {
     title: "Upload your catalogue",

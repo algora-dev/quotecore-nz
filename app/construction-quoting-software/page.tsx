@@ -472,7 +472,7 @@ Construction quoting software for New Zealand measured trades.
                   </p>
 
                   <p>
-                    The product started from roofing experience, but the problem is much wider than roofing. Any trade that needs to quote, order, manage, invoice and get paid can run into the same disconnected admin.
+                    The product started from roofing experience, but the problem is much wider than roofing. Construction and other measured trades can run into the same disconnected admin.
                   </p>
 
                   <p className="font-medium italic text-zinc-800">
