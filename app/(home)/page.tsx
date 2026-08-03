@@ -234,21 +234,18 @@ export default function HomePage() {
           <div className="relative mx-auto max-w-7xl px-6 pt-12 lg:px-8 lg:pt-16">
             <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-10 xl:gap-12">
               <div className="relative z-20 flex-1 text-center lg:flex-[1.12] lg:text-left">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">
-                  Roofing quoting, takeoff and job workflow software
-                </p>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Built in New Zealand for measured trade work</p>
                 <h1 className="mt-6 text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl">
-                  Built for roofing. Powerful enough for every trade.
+                  The quoting tool that gets long-run roofing.
                 </h1>
-                <p className="mt-5 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg sm:leading-8">
-                  Use digital takeoff, AI Scan Assist and Smart Components&#8482; to turn roof measurements into materials, labour and accurate NZD pricing - then create, send and track the quote, order and invoice from the same connected job.
+                <p className="mt-4 text-xl font-semibold leading-tight text-zinc-700 sm:text-2xl">
+                  Finally a measuring and quoting app that understands long-run roofing, built by a Kiwi roofer for Kiwi roofs.
                 </p>
-
-                <p className="mt-4 text-sm font-medium text-zinc-700">
-                  <a href="/pricing" className="text-[#FF6B35] underline underline-offset-2 hover:text-[#E55A28]">
-                    Plans from free to $59 NZD/month
-                  </a>
-                  {" "}- full-featured 14-day trial, no card required.
+                <p className="mt-4 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
+                  AI roof scans, digital takeoffs, and Smart Components&#8482; for roofing and selected measured trades.
+                </p>
+                <p className="mt-3 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
+                  QuoteCore+ doesn&apos;t ask you to change how you work. It adapts to how you work, and helps you do it better. Create your Smart Components&#8482; once, and every quote you build makes the next one faster and easier. Free tools, calculators, material ordering, invoicing, job management. All connected, all working the way you already work. No matter how you work, QuoteCore+ can work for you.
                 </p>
 
                 <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
