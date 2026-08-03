@@ -63,7 +63,7 @@ const features = [
       "Create professional invoices from accepted quotes with line items, payment instructions, and online payment tracking.",
     href: "/features/invoicing",
     keyword: "contractor invoicing software",
-    steps: ["Accept a quote", "Generate an invoice", "Customer pays", "Track status"],
+    steps: ["Accept a quote", "Generate an invoice", "Customer marks paid", "Track status"],
   },
   {
     title: "Sending & Tracking",
@@ -79,7 +79,7 @@ const features = [
       "Search supplier pricing catalogues and component libraries by area or product type. Import ready-made components or convert catalogues in bulk.",
     href: "/features/supplier-resources",
     keyword: "supplier pricing catalogues",
-    steps: ["Search suppliers", "Browse catalogues and libraries", "Import or convert", "Quote with real pricing"],
+    steps: ["Search suppliers", "Browse catalogues and libraries", "Import or convert", "Quote with indicative pricing"],
   },
 ];
 

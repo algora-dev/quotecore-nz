@@ -68,7 +68,7 @@ const faqSchema = {
       name: "Can I use supplier pricing if I don't have my own prices yet?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Supplier resources are designed for contractors who don't have established pricing yet. Search for a supplier in your area, import their component library or catalog, and start quoting with real pricing from day one. You can adjust the imported prices to match your trade discount or markup.",
+        text: "Yes. Supplier resources are designed for contractors who don't have established pricing yet. Search for a supplier in your area, import their component library or catalog, and start quoting with indicative supplier pricing. You can adjust the imported prices to match your trade discount or markup.",
       },
     },
   ],
@@ -78,14 +78,14 @@ const steps = [
   { num: 1, title: "Search for suppliers", text: "Search by your area, by product type, or by supplier name. Find suppliers who have published their pricing catalogs and component libraries publicly on QuoteCore+." },
   { num: 2, title: "Browse catalogs and libraries", text: "Open a supplier's component library to see ready-made Smart Components™ with pricing, measurement types, and waste rules. Or open their catalog (CSV) to see raw pricing data - product codes, names, and prices." },
   { num: 3, title: "Import or convert", text: "Import a supplier's component library directly into your account. Or use the catalog to component converter to turn a CSV catalog into Smart Components™ - map columns to fields, convert in bulk, then fine-tune individually." },
-  { num: 4, title: "Quote with real pricing", text: "Your imported components are ready to use in quotes immediately. Adjust prices to match your trade discount or markup. Every time you quote, these components calculate automatically." },
+  { num: 4, title: "Quote with indicative pricing", text: "Your imported components are ready to use in quotes immediately. Adjust prices to match your trade discount or markup. Every time you quote, these components calculate automatically." },
 ];
 
 const faqs = [
   { q: "What are supplier resources in QuoteCore+?", a: "Supplier resources are publicly available pricing catalogs and component libraries published by roofing and construction suppliers. Users can search by area or product type, find a supplier's catalog or library, and import components directly into their own account to use for quoting." },
   { q: "What is the difference between a catalog and a component library?", a: "A catalog is a CSV file of pricing from a supplier - product codes, names, and prices. A component library is a full set of Smart Components™ that a supplier has created, including measurement types, waste rules, labour rates, and pricing. Component libraries are ready to use immediately; catalogs can be converted into components." },
   { q: "What is the catalog to component converter?", a: "The catalog to component converter lets you open a supplier catalog (CSV) and convert each row into a Smart Component. You select which columns map to which component fields - name, price, measurement type, product code - and the converter creates all the components at once. You can then fine-tune each component individually." },
-  { q: "Can I use supplier pricing if I don't have my own prices yet?", a: "Yes. Supplier resources are designed for contractors who don't have established pricing yet. Search for a supplier in your area, import their component library or catalog, and start quoting with real pricing from day one. You can adjust the imported prices to match your trade discount or markup." },
+  { q: "Can I use supplier pricing if I don't have my own prices yet?", a: "Yes. Supplier resources are designed for contractors who don't have established pricing yet. Search for a supplier in your area, import their component library or catalog, and start quoting with indicative supplier pricing. You can adjust the imported prices to match your trade discount or markup." },
   { q: "Which NZ suppliers can I find in supplier resources?", a: "Any NZ roofing supplier can publish their catalogue on QuoteCore+. This includes suppliers like Roofing Industries (roof.co.nz) and Stratco (stratco.co.nz) that supply long-run steel, corrugated, tray, and other roofing profiles common in NZ. Suppliers are referenced as suppliers, not partners or integrations. Check supplier coverage in your area by searching the supplier directory." },
 ];
 
@@ -107,7 +107,7 @@ export default function SupplierResourcesPage() {
 Import New Zealand supplier pricing and component libraries.
             </h1>
             <p className="mt-4 text-lg text-zinc-600">
-              Search for suppliers in your area, browse their pricing catalogs and component libraries, and import ready-made components directly into your account. No more calling around for price lists. No more manual data entry. Real pricing, ready to quote with.
+              Search for suppliers in your area, browse their pricing catalogs and component libraries, and import ready-made components directly into your account. No more calling around for price lists. No more manual data entry. Indicative supplier pricing, ready to quote with.
             </p>
             <div className="mt-6 flex gap-3">
               <a href="/free-trial" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]">
@@ -280,7 +280,7 @@ Import New Zealand supplier pricing and component libraries.
         <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight">Who it&apos;s for</h2>
           <p className="mt-4 leading-7 text-zinc-600">
-            Contractors who need pricing data to quote accurately. If you&apos;re new to a market, working with a new supplier, or simply don&apos;t have your own pricing library built up yet, supplier resources give you real, current pricing to start quoting with immediately.
+            Contractors who need pricing data to quote accurately. If you&apos;re new to a market, working with a new supplier, or simply don&apos;t have your own pricing library built up yet, supplier resources give you indicative supplier pricing to start quoting with immediately.
           </p>
           <p className="mt-4 leading-7 text-zinc-600">
             Also for contractors who receive supplier price lists as PDFs or spreadsheets. Instead of manually entering each item, import the catalog and convert it to Smart Components™ in one pass.
@@ -293,7 +293,7 @@ Import New Zealand supplier pricing and component libraries.
           <div className="mt-6 space-y-4">
             <div className="rounded-xl border border-slate-200 p-6">
               <h3 className="font-semibold text-slate-900">No baseline pricing</h3>
-              <p className="mt-2 text-sm text-zinc-600">New contractors or contractors entering a new market don&apos;t have pricing data. Supplier resources provide real, current pricing to start quoting from day one.</p>
+              <p className="mt-2 text-sm text-zinc-600">New contractors or contractors entering a new market don&apos;t have pricing data. Supplier resources provide indicative supplier pricing to start quoting from.</p>
             </div>
             <div className="rounded-xl border border-slate-200 p-6">
               <h3 className="font-semibold text-slate-900">Manual price list entry</h3>
