@@ -40,7 +40,7 @@ const trialCTA = {
 
 const freeToolsCTA = {
   label: "Browse all free tools",
-  href: "https://quote-core.com/free-tools",
+  href: "/free-tools",
 };
 
 function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
@@ -50,8 +50,8 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(how.*work|system work|workflow|process|walkthrough|what does quotecore|what is quotecore|what.*quotecore.*do|tell me about)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ is quoting and job management software built for roofing and trade contractors. Upload a roof plan, AI traces it, you verify the measurements, and the system calculates material quantities and builds a professional quote. From complex plan to quote in under 3 minutes for less than a dollar.",
-      sectionLink: { label: "See How it works", href: "https://quote-core.com/#how-it-works" },
+      text: "QuoteCore+ is roofing quoting, takeoff and job workflow software built for Kiwi contractors. Upload a roof plan, AI Scan Assist identifies multiple roof areas plus ridges, hips, valleys, barges and spouting, you verify and adjust, then Smart Components calculate materials, labour and pricing in NZD. From a saved quote you can create, send and track quotes, orders and invoices - all from the same connected job.",
+      sectionLink: { label: "See How it works", href: "/#how-it-works" },
       links: [
         trialCTA,
         freeToolsCTA,
@@ -66,7 +66,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
       text: "The free trial gives you 14 days of full access to QuoteCore+ - every feature, including AI plan takeoff, Smart Components, quoting, material orders, and invoicing. You get 20 AI scan points included, which is enough to quote several real jobs. No credit card required, just sign up with your email. After the trial you can continue on the free Lite plan or upgrade when you're ready.",
       links: [
         trialCTA,
-        { label: "See how it works", href: "https://quote-core.com/#how-it-works" },
+        { label: "See how it works", href: "/#how-it-works" },
       ],
     };
   }
@@ -186,10 +186,10 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(ai|ai takeoff|plan takeoff|upload.*plan|trace.*plan|ai.*scan|ai assist|ai scan)/.test(message)) {
     return {
       sender: "assistant",
-      text: "AI plan takeoff is QuoteCore+'s core feature. Upload a roof plan image and the AI traces the geometry, detects lines, and classifies them using industry-leading vision models. You verify everything on an interactive canvas, then the system calculates measurements and material quantities. It takes the most tedious part of quoting and does it in seconds. Available in the paid app and the 14-day free trial (20 AI scan points included).",
+      text: "AI Scan Assist is QuoteCore+'s plan takeoff feature. Upload a roof plan image and AI identifies multiple roof areas, ridges, hips, valleys, barges and spouting. You verify everything on an interactive canvas, name each area, assign pitches and materials, then swap detected placeholders for saved Smart Components. Available in the paid app and the 14-day free trial (20 AI scan points included).",
       links: [
         trialCTA,
-        { label: "See how it works", href: "https://quote-core.com/#how-it-works" },
+        { label: "See how it works", href: "/#how-it-works" },
       ],
     };
   }
@@ -210,8 +210,8 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(quote|quotes|quoting|preview|track|send quote)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ helps you build, preview, send, and track professional quotes. Upload a plan, AI traces it, Smart Components calculate materials, and the quote is pre-filled. You set pricing and terms, then send it. Customers can accept online and you get notified. From complex plan to quote in under 3 minutes for less than a dollar.",
-      sectionLink: { label: "See How it works", href: "https://quote-core.com/#how-it-works" },
+      text: "QuoteCore+ helps you build, preview, send, and track professional quotes. Upload a plan, AI Scan Assist identifies roof areas and elements, Smart Components calculate materials, and the quote is built from your saved rules. You set pricing and terms in NZD, then send it. Customers can accept online and you get notified.",
+      sectionLink: { label: "See How it works", href: "/#how-it-works" },
       links: [
         trialCTA,
         { label: "Try the Quote Generator (free)", href: "https://quote-core.com/free-quote-generator" },
@@ -223,7 +223,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(invoice|invoicing|paid|payment)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ supports invoicing as part of the connected quote-to-getting-paid workflow. Accepted quotes become invoices with one click. You can also create standalone invoices.",
+      text: "QuoteCore+ supports invoicing as part of the connected quote-to-getting-paid workflow. Create and edit an invoice from a saved quote, or start from scratch. Configure payment methods per invoice - bank details, Stripe links or PayPal links - and recipients can mark paid or dispute directly.",
       links: [
         trialCTA,
         { label: "Try the Invoice Generator (free)", href: "https://quote-core.com/free-invoice-generator" },
@@ -235,7 +235,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(material|materials|order|orders)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ turns accepted quotes into material orders automatically. No re-entering line items - the quote data flows straight into the order. You can also create standalone POs.",
+      text: "Create a material order from a saved quote with all quantities and supplier details carried over, or start from scratch with a line-by-line order. Edit quantities, choose from three display formats, and send it straight to your supplier.",
       links: [
         trialCTA,
         { label: "Try the PO Generator (free)", href: "https://quote-core.com/free-purchase-order-generator" },
@@ -256,7 +256,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(follow up|follow-up|reminder|reminders)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ sends automated follow-up reminders on quotes you've sent, so nothing falls through the cracks. You can see quote status at a glance.",
+      text: "QuoteCore+ sends automated follow-up reminders on quotes, orders and invoices you've sent. Follow-ups can be time-based or triggered by acceptance/decline, with configurable delays. They cancel themselves when a quote is accepted or declined.",
       link: trialCTA,
     };
   }
@@ -277,8 +277,8 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(feature|features|what.*include|what.*do|overview)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ includes: AI plan takeoff, Smart Components (reusable roofing assemblies), quote builder with customer acceptance tracking, material orders, invoicing, follow-up reminders, supplier catalogs, templates, and a resource library. Everything connects - takeoff feeds the quote, the accepted quote becomes a material order, and the job flows through to invoicing.",
-      sectionLink: { label: "See How it works", href: "https://quote-core.com/#how-it-works" },
+      text: "QuoteCore+ includes: AI Scan Assist (plan takeoff), Smart Components (reusable roofing assemblies), quote builder with customer acceptance tracking, sending and tracking with automated follow-ups, material orders, invoicing, supplier catalogues, templates, and a resource library. Everything connects - takeoff feeds the quote, the quote can become a material order, and the job flows through to invoicing.",
+      sectionLink: { label: "See How it works", href: "/#how-it-works" },
       link: trialCTA,
     };
   }

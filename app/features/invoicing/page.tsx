@@ -196,7 +196,7 @@ Turn accepted contractor quotes into professional NZD invoices.
           <div className="mt-6 rounded-xl border border-slate-200 p-6">
             <p className="text-sm text-zinc-600">Invoicing a residential re-roof in Auckland for NZ$16,500 (GST inclusive):</p>
             <ol className="mt-4 space-y-3 text-sm text-zinc-600">
-              <li><strong>1. Generate from accepted quote:</strong> The accepted quote (NZ$16,500 incl GST) converts to an invoice with one click. Line items, quantities, and pricing carry over.</li>
+              <li><strong>1. Create from accepted quote:</strong> The accepted quote (NZ$16,500 incl GST) converts to an invoice. Line items, quantities, and pricing carry over. You can edit before sending.</li>
               <li><strong>2. GST breakdown:</strong> Subtotal: NZ$14,347.83. GST (15%): NZ$2,152.17. Total: NZ$16,500.00.</li>
               <li><strong>3. Payment instructions:</strong> Bank transfer to 12-3456-7890123-01. Reference: INV-2026-042. Due: 14 days from issue.</li>
               <li><strong>4. Customer actions:</strong> Customer receives the invoice, marks payment as sent once they transfer the funds, and the invoice status updates for both parties.</li>

@@ -746,7 +746,7 @@ export default function HomePage() {
                 <div className="max-w-2xl">
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Supplier Network</p>
                   <h2 className="mt-4 text-3xl font-semibold leading-tight text-white sm:text-4xl">
-                    Our goal is to build the largest roofing supplier network in the world.
+                    Our goal is to build the most useful roofing supplier network for Kiwi contractors.
                   </h2>
                   <p className="mt-5 text-base leading-7 text-zinc-300 sm:text-lg sm:leading-8">
                     We have a very unique way to do it. We connect quality roofing suppliers with contractors who quote, order, and buy materials every day. If you supply roofing materials and want to grow, we want to work with you.
