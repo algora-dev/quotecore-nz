@@ -11,7 +11,7 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 export const metadata: Metadata = {
   title: "Digital Roof Takeoff Software for NZ Roofers | QuoteCore+",
   description:
-    "Upload New Zealand roof plans, review metric measurements with AI Scan Assist or manual drawing, and connect approved quantities to an NZD roofing quote.",
+    "Upload New Zealand roof plans, review metric measurements with AI Scan Assist or manual drawing, and connect approved quantities to a priced roofing quote.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/digital-roof-takeoff",
     languages: hreflangLanguages("/features/digital-roof-takeoff"),
@@ -35,7 +35,7 @@ const softwareSchema = {
   description: "Digital roof takeoff software with AI Scan Assist and manual drawing tools. Upload plans, measure digitally, and auto-calculate pitch, waste, and material quantities.",
   url: `${site.url}/features/digital-roof-takeoff`,
   publisher: { "@id": `${site.url}/#organization` },
-  offers: { "@type": "Offer", price: "0", priceCurrency: "NZD", description: "14-day free trial, no credit card required" },
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD", description: "14-day free trial, no credit card required" },
 };
 
 const breadcrumbSchema = {
@@ -107,8 +107,8 @@ const faqs = [
   { q: "Does QuoteCore+ have AI takeoff scanning?", a: "Yes. AI Scan Assist can scan an uploaded roof plan and automatically identify individual roof areas, ridges, hips, valleys, and barges. You can review and adjust what it finds before generating the takeoff. You can also skip AI entirely and draw everything manually." },
   { q: "Can I use QuoteCore+ takeoff without AI?", a: "Yes. The manual drawing tool lets you upload a plan and draw all areas, lines, and points yourself. You have full control over every measurement. AI Scan Assist is optional." },
   { q: "Does the takeoff calculate pitch automatically?", a: "Yes. When you draw a roof section, the pitch and pitch type are auto-calculated. Areas, waste allowances, and material quantities all update automatically based on the pitch. You just draw what you see and the system handles the calculations." },
-  { q: "What roof types does the takeoff support?", a: "The takeoff builder supports hips, valleys, ridges, eaves, flashings, and custom components. It works with long-run steel, corrugate, tray, tile, shingle, and membrane roof types common in NZ." },
-  { q: "Can I use NZ supplier pricing in my takeoff?", a: "Yes. Smart Components store your pricing, so you can set up components using current pricing from NZ suppliers like Roofing Industries or Stratco. The takeoff quantities flow through to your NZD quote with GST noted separately." },
+  { q: "What roof types does the takeoff support?", a: "The takeoff builder supports hips, valleys, ridges, eaves, flashings, and custom components. It works with long-run steel, corrugated, tray, tile, shingle, and membrane roof types common in NZ." },
+  { q: "Can I use NZ supplier pricing in my takeoff?", a: "Yes. Smart Components store your pricing, so you can set up components using current pricing from NZ suppliers like Roofing Industries or Stratco. The takeoff quantities flow through to your quote with GST noted separately." },
 ];
 
 export default function DigitalRoofTakeoffPage() {
@@ -145,11 +145,11 @@ Digital roof takeoff software for New Zealand roofing contractors.
 
         <NzContextPanel
           title="Measure New Zealand roof plans in the units your team uses"
-          intro="Review plans in metric, capture the roof geometry and pass approved measurements into a connected NZD quote. AI Scan Assist remains reviewable and manual drawing is always available."
+          intro="Review plans in metric, capture the roof geometry and pass approved measurements into a connected quote. AI Scan Assist remains reviewable and manual drawing is always available."
           items={[
             { title: "Metric measurements", description: "Measure roof areas and linear details in metres, millimetres and square metres." },
             { title: "Long-run roofing detail", description: "Capture ridges, hips, valleys, barges and other roof elements needed for a complete takeoff." },
-            { title: "Connected NZD quoting", description: "Use reviewed takeoff quantities with your reusable material, labour and waste pricing rules." },
+            { title: "Connected quoting", description: "Use reviewed takeoff quantities with your reusable material, labour and waste pricing rules." },
           ]}
         />
 
@@ -263,11 +263,11 @@ Digital roof takeoff software for New Zealand roofing contractors.
             <p className="text-sm text-zinc-600">A 180 m² gable roof in Auckland with a 25-degree pitch and long-run steel cladding:</p>
             <ol className="mt-4 space-y-3 text-sm text-zinc-600">
               <li><strong>1. Upload plan:</strong> Load the roof plan (PDF or image) into the takeoff builder.</li>
-              <li><strong>2. Draw roof area:</strong> Trace the two roof planes. Total area: 180 m². Pitch auto-calculated at 25 degrees.</li>
+              <li><strong>2. Draw roof area:</strong> Trace the roof perimeter. The system calculates the plan area and applies the 25-degree pitch to give the true roof area: 198 m².</li>
               <li><strong>3. Linear details:</strong> Draw the ridge (12 m), two hips (8 m each), barges (12 m total), and eaves (24 m total).</li>
-              <li><strong>4. Waste allowance:</strong> 10% waste added for long-run steel offcuts and laps. Total material area: 198 m².</li>
-              <li><strong>5. Smart Components:</strong> Each measurement links to a Smart Component with pricing - e.g. long-run roofing at NZ$32/m² + GST, ridge flashing at NZ$18/m + GST.</li>
-              <li><strong>6. Quote total:</strong> The takeoff flows into the quote with NZD pricing, GST noted separately, and supplier-ready material order.</li>
+              <li><strong>4. Waste allowance:</strong> 10% waste added for long-run steel offcuts and laps. Total material area: 218 m².</li>
+              <li><strong>5. Smart Components:</strong> Each measurement links to a Smart Component with pricing - e.g. corrugated long-run roofing at $32/m² + GST, ridge flashing at $18/m + GST.</li>
+              <li><strong>6. Quote total:</strong> The takeoff flows into the quote with supplier pricing, GST noted separately, and a supplier-ready material order.</li>
             </ol>
             <p className="mt-4 text-xs text-slate-500">Pricing is indicative only. Use current supplier pricing from Roofing Industries (roof.co.nz) or Stratco (stratco.co.nz) for accurate quotes.</p>
           </div>

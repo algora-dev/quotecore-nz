@@ -18,7 +18,7 @@ export interface CurrencyDef {
 
 /** Currencies offered in the dropdown next to Metric/Imperial. */
 export const CURRENCIES: CurrencyDef[] = [
-  { code: 'NZD', symbol: 'NZ$', label: 'NZ$ NZD' },
+  { code: 'NZD', symbol: 'NZ$', label: 'NZ$ (local)' },
   { code: 'AUD', symbol: 'A$', label: 'A$ AUD' },
   { code: 'USD', symbol: '$', label: '$ USD' },
   { code: 'GBP', symbol: '£', label: '£ GBP' },

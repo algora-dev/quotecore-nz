@@ -9,7 +9,7 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 export const metadata: Metadata = {
   title: "Construction Quoting Software NZ | QuoteCore+",
   description:
-    "Construction quoting software for New Zealand measured trades. Build metric estimates, NZD quotes, material orders and invoices in one connected workflow.",
+    "Construction quoting software for New Zealand measured trades. Build metric estimates, professional quotes, material orders and invoices in one connected workflow.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/construction-quoting-software",
     languages: hreflangLanguages("/construction-quoting-software"),
@@ -266,7 +266,7 @@ Construction quoting software for New Zealand measured trades.
           intro="Use the measurements, rates and repeatable rules behind your work to produce consistent documents from the first estimate through to the final invoice."
           items={[
             { title: "Metric estimating", description: "Calculate work from area, length, quantity, hours and fixed charges using metric job measurements." },
-            { title: "NZD and GST", description: "Keep local pricing and tax treatment clear across quotes, orders and invoices." },
+            { title: "Currency and GST", description: "Price work in USD or apply your own NZD supplier rates, and present GST clearly on customer documents." },
             { title: "Built for focused teams", description: "Give sole traders and small teams a connected alternative to scattered spreadsheets and generic documents." },
           ]}
         />

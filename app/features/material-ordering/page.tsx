@@ -196,8 +196,8 @@ Create supplier-ready material orders for New Zealand jobs.
           <div className="mt-6 rounded-xl border border-slate-200 p-6">
             <p className="text-sm text-zinc-600">Ordering materials for a 180 m² residential re-roof in Wellington, using long-run steel from Roofing Industries:</p>
             <ol className="mt-4 space-y-3 text-sm text-zinc-600">
-              <li><strong>1. Generate order from quote:</strong> The accepted quote has 198 m² of 0.40mm corrugate long-run, 12 m ridge, 16 m hip, 12 m barge, and underlay.</li>
-              <li><strong>2. Review line items:</strong> Each item shows product code, quantity, cut lengths (e.g. 6 m lengths for the ridge), and NZD pricing + GST.</li>
+              <li><strong>1. Generate order from quote:</strong> The accepted quote has 198 m² of 0.40mm corrugated long-run, 12 m ridge, 16 m hip, 12 m barge, and underlay.</li>
+              <li><strong>2. Review line items:</strong> Each item shows product code, quantity, cut lengths (e.g. 6 m lengths for the ridge), and pricing + GST.</li>
               <li><strong>3. Add delivery details:</strong> Site address in Wellington, delivery date, and contact on site. Freight noted separately.</li>
               <li><strong>4. Send to supplier:</strong> The order goes to Roofing Industries with all product codes, quantities, and specifications. You keep a copy in QuoteCore+.</li>
             </ol>

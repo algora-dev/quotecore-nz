@@ -10,14 +10,14 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 export const metadata: Metadata = {
   title: "Roofing & Construction Software Features NZ | QuoteCore+",
   description:
-    "Explore digital roof takeoffs, reusable NZD pricing rules, material ordering and invoicing for New Zealand roofing and measured trade businesses.",
+    "Explore digital roof takeoffs, reusable pricing rules, material ordering and invoicing for New Zealand roofing and measured trade businesses.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features",
     languages: hreflangLanguages("/features"),
   },
   openGraph: {
     title: "Roofing & Construction Software Features NZ | QuoteCore+",
-    description: "Take New Zealand trade work from metric measurement to NZD quote, supplier-ready order and invoice in one connected platform.",
+    description: "Take New Zealand trade work from metric measurement to quote, supplier-ready order and invoice in one connected platform.",
     url: "https://www.quote-core.co.nz/features",
     siteName: "QuoteCore+",
     type: "website",
@@ -118,7 +118,7 @@ export default function FeaturesHubPage() {
           title="A quoting workflow grounded in New Zealand trade work"
           intro="QuoteCore+ keeps measurements, pricing, approvals, material orders and invoices connected while giving New Zealand contractors the local context their jobs require."
           items={[
-            { title: "NZD and GST", description: "Build prices in New Zealand dollars and carry the right GST treatment through quotes and invoices." },
+            { title: "Currency and GST", description: "Price work in USD or apply your own NZD supplier rates, and present GST clearly on customer documents." },
             { title: "Metric by default", description: "Work with metres, millimetres, square metres and the measurement types used on New Zealand jobs." },
             { title: "One connected workflow", description: "Move from takeoff to quote, approval, supplier-ready order and invoice without re-entering the same job data." },
           ]}

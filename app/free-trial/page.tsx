@@ -11,7 +11,7 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
   title: "Free 14-Day Trial NZ - No Card Required | QuoteCore+",
-  description: "Try QuoteCore+ free for 14 days. Measure jobs, build professional quotes in NZD, track acceptances, and manage materials orders. No credit card needed.",
+  description: "Try QuoteCore+ free for 14 days. Measure jobs, build professional quotes, track acceptances, and manage materials orders. No credit card needed.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/free-trial",
     languages: hreflangLanguages("/free-trial"),

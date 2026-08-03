@@ -35,7 +35,7 @@ const softwareSchema = {
   description: "Send quotes, orders and invoices directly from QuoteCore+. Track opens and reads. Configure time-based and event-based automated follow-ups with cancellation conditions.",
   url: `${SITE_URL}/features/sending-and-tracking`,
   publisher: { "@id": `${SITE_URL}/#organization` },
-  offers: { "@type": "Offer", price: "0", priceCurrency: "NZD", description: "14-day free trial, no credit card required" },
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD", description: "14-day free trial, no credit card required" },
 };
 
 const breadcrumbSchema = {

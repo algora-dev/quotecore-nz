@@ -8,12 +8,12 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 export const metadata: Metadata = {
   title: "Done-for-you roofing quote service NZ | QuoteCore+",
   description:
-    "Send QuoteCore+ your plans, scope, photos and pricing. We measure the job, build the quote in NZD, and you stay in control of final approval.",
+    "Send QuoteCore+ your plans, scope, photos and pricing. We measure the job, build the quote, and you stay in control of final approval.",
   alternates: { canonical: "https://www.quote-core.co.nz/services", languages: hreflangLanguages("/services") },
   openGraph: {
     title: "Done-for-you roofing quote service NZ | QuoteCore+",
     description:
-      "Send QuoteCore+ your plans, scope, photos and pricing. We measure the job, build the quote in NZD, and you stay in control of final approval.",
+      "Send QuoteCore+ your plans, scope, photos and pricing. We measure the job, build the quote, and you stay in control of final approval.",
     url: "https://www.quote-core.co.nz/services",
     siteName: "QuoteCore+",
     type: "website",

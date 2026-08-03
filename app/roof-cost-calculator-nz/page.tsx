@@ -206,7 +206,7 @@ export default function RoofCostCalculatorNZPage() {
               <tbody className="divide-y divide-slate-100">
                 <tr>
                   <td className="py-2 pr-4 text-slate-600">Main roof area</td>
-                  <td className="py-2 pr-4 text-slate-600">Corrugate .40g Long Run</td>
+                  <td className="py-2 pr-4 text-slate-600">Corrugated .40g Long Run</td>
                   <td className="py-2 pr-4 text-slate-600">Per m&sup2;</td>
                   <td className="py-2 text-slate-600">Included or excluded by component</td>
                 </tr>
@@ -277,7 +277,7 @@ export default function RoofCostCalculatorNZPage() {
                 </thead>
                 <tbody className="divide-y divide-slate-200">
                   <tr>
-                    <td className="py-1.5 pr-4">Corrugate .40g Long Run</td>
+                    <td className="py-1.5 pr-4">Corrugated .40g Long Run</td>
                     <td className="py-1.5 pr-4">$32.50</td>
                     <td className="py-1.5 pr-4">$8.00</td>
                     <td className="py-1.5">per m&sup2;</td>

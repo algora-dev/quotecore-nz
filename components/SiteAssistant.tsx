@@ -50,7 +50,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(how.*work|system work|workflow|process|walkthrough|what does quotecore|what is quotecore|what.*quotecore.*do|tell me about)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ is roofing quoting, takeoff and job workflow software built for Kiwi contractors. Upload a roof plan, AI Scan Assist identifies multiple roof areas plus ridges, hips, valleys, barges and spouting, you verify and adjust, then Smart Components calculate materials, labour and pricing in NZD. From a saved quote you can create, send and track quotes, orders and invoices - all from the same connected job.",
+      text: "QuoteCore+ is roofing quoting, takeoff and job workflow software built for Kiwi contractors. Upload a roof plan, AI Scan Assist identifies multiple roof areas plus ridges, hips, valleys, barges and spouting, you verify and adjust, then Smart Components calculate materials, labour and pricing in USD. From a saved quote you can create, send and track quotes, orders and invoices - all from the same connected job.",
       sectionLink: { label: "See How it works", href: "/#how-it-works" },
       links: [
         trialCTA,
@@ -211,7 +211,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(quote|quotes|quoting|preview|track|send quote)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ helps you build, preview, send, and track professional quotes. Upload a plan, AI Scan Assist identifies roof areas and elements, Smart Components calculate materials, and the quote is built from your saved rules. You set pricing and terms in NZD, then send it. Customers can accept online and you get notified.",
+      text: "QuoteCore+ helps you build, preview, send, and track professional quotes. Upload a plan, AI Scan Assist identifies roof areas and elements, Smart Components calculate materials, and the quote is built from your saved rules. You set pricing and terms in USD, then send it. Customers can accept online and you get notified.",
       sectionLink: { label: "See How it works", href: "/#how-it-works" },
       links: [
         trialCTA,

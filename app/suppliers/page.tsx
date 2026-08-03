@@ -29,7 +29,7 @@ const supplierBenefits = [
   },
   {
     title: "Upload your catalogue",
-    body: "Add your products with three things contractors need: a product code or SKU, a product name or description, and a current price in NZD. That is the core of what turns a quote from a guess into an order. Contractors can find your materials and include them in quotes without chasing price lists or phone calls.",
+    body: "Add your products with three things contractors need: a product code or SKU, a product name or description, and a current price. That is the core of what turns a quote from a guess into an order. Contractors can find your materials and include them in quotes without chasing price lists or phone calls.",
   },
   {
     title: "Be found by region",
@@ -58,7 +58,7 @@ const howItWorks = [
   {
     step: "02",
     title: "Upload your catalogue",
-    body: "Provide your product list with three core fields: product code or SKU, product name or description, and current NZD price. We help you get it into the format contractors can use.",
+    body: "Provide your product list with three core fields: product code or SKU, product name or description, and current price. We help you get it into the format contractors can use.",
   },
   {
     step: "03",
@@ -95,7 +95,7 @@ const faqs = [
   },
   {
     q: "What does a supplier catalogue need to include?",
-    a: "Three things matter most: a product code or SKU, a product name or description, and a current NZD price. Those three fields let contractors specify your products in a quote and generate a purchase order without calling you. Beyond that, pack quantities, coverage area, product images, and lead times all help contractors choose your products with confidence.",
+    a: "Three things matter most: a product code or SKU, a product name or description, and a current price. Those three fields let contractors specify your products in a quote and generate a purchase order without calling you. Beyond that, pack quantities, coverage area, product images, and lead times all help contractors choose your products with confidence.",
   },
   {
     q: "How is this different from a supplier directory?",
@@ -234,7 +234,7 @@ export default function SuppliersPage() {
                 {[
                   { label: "Product code / SKU", desc: "The identifier contractors use to order. Without it, they cannot put your product on a purchase order." },
                   { label: "Product name / description", desc: "A clear name and short description so contractors know exactly what they are specifying." },
-                  { label: "Price (NZD)", desc: "Current, accurate pricing in New Zealand dollars. If the price is wrong, the quote is wrong, and the contractor loses money or the job." },
+                  { label: "Price", desc: "Current, accurate pricing. If the price is wrong, the quote is wrong, and the contractor loses money or the job." },
                 ].map((item) => (
                   <div key={item.label} className="rounded-xl border-2 border-[#FF6B35]/20 bg-orange-50/30 p-5">
                     <p className="text-sm font-semibold text-[#FF6B35]">{item.label}</p>

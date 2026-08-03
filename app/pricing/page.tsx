@@ -11,11 +11,11 @@ import { breadcrumbSchema, jsonLd, pricingOffers, site } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Roofing & Construction Quoting Software Pricing NZ | QuoteCore+",
   description:
-    "Compare QuoteCore+ plans in NZD. Start with a 14-day full-feature trial with no credit card, then choose the quote and storage limits that fit your New Zealand trade business.",
+    "Compare QuoteCore+ plans in USD. Start with a 14-day full-feature trial with no credit card, then choose the quote and storage limits that fit your New Zealand trade business.",
   alternates: { canonical: `${site.url}/pricing` },
   openGraph: {
     title: "QuoteCore+ Pricing New Zealand",
-    description: "Compare QuoteCore+ monthly plans and limits in NZD for New Zealand trade businesses.",
+    description: "Compare QuoteCore+ monthly plans and limits in USD for New Zealand trade businesses.",
     url: `${site.url}/pricing`,
     siteName: "QuoteCore+",
     type: "website",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "Is QuoteCore+ pricing shown in New Zealand dollars?",
-    answer: "Yes. Prices on this page are shown in NZD. GST is calculated at checkout where applicable.",
+    answer: "No. QuoteCore+ bills in USD. This page shows USD pricing. Local taxes (such as GST in New Zealand) may apply at checkout.",
   },
   {
     question: "Is a credit card required for the trial?",
@@ -70,7 +70,7 @@ export default function PricingPage() {
       <main className="min-h-screen bg-white text-zinc-950">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Pricing" }]} />
         <section className="mx-auto max-w-7xl px-6 pb-14 pt-12 text-center lg:px-8 lg:pb-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#BD4A1A]">NZD monthly plans</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#BD4A1A]">USD monthly plans</p>
           <h1 className="mx-auto mt-4 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
             QuoteCore+ pricing for New Zealand trade businesses.
           </h1>
@@ -91,11 +91,11 @@ export default function PricingPage() {
                 <h2 className="text-xl font-semibold">{plan.displayName}</h2>
                 <p className="mt-2 min-h-10 text-sm leading-6 text-zinc-600">{plan.subtitle}</p>
                 <div className="mt-6 rounded-xl border border-zinc-200 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">NZD</p>
-                  <p className="mt-1 text-3xl font-semibold">{plan.nzd}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">USD</p>
+                  <p className="mt-1 text-3xl font-semibold">{plan.usd}</p>
                   {!plan.isFree && !plan.comingSoon && <p className="text-xs text-zinc-500">per month</p>}
                 </div>
-                {plan.originalNzd && <p className="mt-3 text-xs text-zinc-500">Regular monthly price: <s>{plan.originalNzd}</s></p>}
+                {plan.originalUsd && <p className="mt-3 text-xs text-zinc-500">Regular monthly price: <s>{plan.originalUsd}</s></p>}
                 <ul className="mt-6 flex-1 space-y-3">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex gap-3 text-sm text-zinc-700">
@@ -114,7 +114,7 @@ export default function PricingPage() {
               </article>
             ))}
           </div>
-          <p className="mx-auto mt-8 max-w-3xl px-6 text-center text-sm text-zinc-600">NZD pricing shown. GST is calculated at checkout where applicable.</p>
+          <p className="mx-auto mt-8 max-w-3xl px-6 text-center text-sm text-zinc-600">USD pricing shown. Local taxes may apply at checkout.</p>
         </section>
 
         <section className="mx-auto max-w-4xl px-6 py-20 lg:px-8">

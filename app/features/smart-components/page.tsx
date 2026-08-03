@@ -11,7 +11,7 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 export const metadata: Metadata = {
   title: "Reusable Quoting Components for NZ Trades | QuoteCore+",
   description:
-    "Create reusable NZD pricing rules for materials, labour, services, metric coverage and waste. Quote repeatable New Zealand trade work consistently.",
+    "Create reusable pricing rules for materials, labour, services, metric coverage and waste. Quote repeatable New Zealand trade work consistently.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/smart-components",
     languages: hreflangLanguages("/features/smart-components"),
@@ -86,7 +86,7 @@ const faqs = [
   { q: "What measurement types do Smart Components™ support?", a: "Smart Components™ support area-based measurements (square metres, square feet, roofing squares), linear measurements (metres, feet), volume, per-unit counts, and fixed-cost items. You choose the measurement type that fits the component, and it calculates accordingly." },
   { q: "Can I import components from my supplier's price list?", a: "Yes. You can import components from supplier catalogs and price lists. You can also search for supplier component libraries by area or product type and add them to your account. This gives you a baseline pricing source even if you don't have your own prices yet." },
   { q: "Can I create my own Smart Components™?", a: "Yes. You can create Smart Components™ for any material, assembly, service, or workflow you use regularly. There is no limit to what can be a component - if it has a price and a measurement, it can be a Smart Component." },
-  { q: "Can I use NZ supplier pricing in Smart Components?", a: "Yes. Import pricing from NZ suppliers like Roofing Industries (roof.co.nz) or Stratco (stratco.co.nz) via their CSV catalogues. Set up components with NZD pricing and apply GST treatment appropriately. Re-import when supplier pricing changes." },
+  { q: "Can I use NZ supplier pricing in Smart Components?", a: "Yes. Import pricing from NZ suppliers like Roofing Industries (roof.co.nz) or Stratco (stratco.co.nz) via their CSV catalogues. Set up components with pricing and apply GST treatment appropriately. Re-import when supplier pricing changes." },
 ];
 
 export default function SmartComponentsPage() {
@@ -124,7 +124,7 @@ export default function SmartComponentsPage() {
           title="Store the pricing logic behind repeatable New Zealand work"
           intro="Smart Components turn materials, labour, services and fees into reusable rules so your team can quote consistently without rebuilding every calculation."
           items={[
-            { title: "NZD and GST", description: "Store cost and selling prices in New Zealand dollars and apply the appropriate tax treatment." },
+            { title: "Currency and GST", description: "Store cost and selling prices and apply the appropriate tax treatment." },
             { title: "Metric coverage and waste", description: "Base calculations on area, length, quantity, coverage, laps and waste allowances." },
             { title: "Your products and rates", description: "Keep the product codes, supplier prices, labour rates and margins that match how your business works." },
           ]}
@@ -243,13 +243,13 @@ export default function SmartComponentsPage() {
           <div className="mt-6 rounded-xl border border-slate-200 p-6">
             <p className="text-sm text-zinc-600">Setting up a long-run roofing component for a typical NZ residential job:</p>
             <ol className="mt-4 space-y-3 text-sm text-zinc-600">
-              <li><strong>1. Component name:</strong> 0.40mm long-run roofing (corrugate profile)</li>
+              <li><strong>1. Component name:</strong> 0.40mm long-run roofing (corrugated profile)</li>
               <li><strong>2. Measurement type:</strong> Area (m²)</li>
-              <li><strong>3. Material cost:</strong> NZ$32/m² + GST (based on Roofing Industries pricing)</li>
-              <li><strong>4. Labour rate:</strong> NZ$18/m² + GST</li>
+              <li><strong>3. Material cost:</strong> $32/m² + GST (based on Roofing Industries pricing)</li>
+              <li><strong>4. Labour rate:</strong> $18/m² + GST</li>
               <li><strong>5. Waste allowance:</strong> 10% for offcuts and laps</li>
               <li><strong>6. Coverage:</strong> 1.0 (effective width accounted for in pricing)</li>
-              <li><strong>7. Auto-calculation:</strong> On a 180 m² roof, the component calculates 198 m² with waste. Total: NZ$6,336 + GST material + NZ$3,564 + GST labour = NZ$9,900 + GST.</li>
+              <li><strong>7. Auto-calculation:</strong> On a 180 m² plan area with a 25-degree pitch (pitch factor 1.103), the true roof area is 198 m². With 10% waste, total material area: 218 m². Material: 218 × $32 = $6,976 + GST. Labour: 218 × $18 = $3,924 + GST. Total: $10,900 + GST.</li>
             </ol>
             <p className="mt-4 text-xs text-slate-500">Pricing is indicative only. Use current supplier pricing from Roofing Industries (roof.co.nz) or Stratco (stratco.co.nz) for accurate quotes.</p>
           </div>

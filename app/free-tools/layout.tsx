@@ -7,7 +7,7 @@ const NZ_URL = site.url;
 export const metadata = {
   title: 'Free Tools for Kiwi Trades - Calculators, Generators & Takeoff | QuoteCore+ NZ',
   description:
-    'Free professional trade tools for New Zealand: roof takeoff builder, roofing calculators, quote generator, invoice generator, and purchase order generator. NZD pricing, GST included. No signup required.',
+    'Free professional trade tools for New Zealand: roof takeoff builder, roofing calculators, quote generator, invoice generator, and purchase order generator. Local pricing (NZD), GST included. No signup required.',
   alternates: {
     canonical: `${NZ_URL}/free-tools`,
     languages: {
@@ -19,7 +19,7 @@ export const metadata = {
   openGraph: {
     title: 'Free Tools for Kiwi Trades - Calculators, Generators & Takeoff',
     description:
-      'Free professional trade tools for New Zealand: roof takeoff builder, roofing calculators, quote generator, and more. NZD pricing, GST included. No signup required.',
+      'Free professional trade tools for New Zealand: roof takeoff builder, roofing calculators, quote generator, and more. Local pricing (NZD), GST included. No signup required.',
     url: `${NZ_URL}/free-tools`,
     type: 'website',
     locale: 'en_NZ',
@@ -28,7 +28,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Free Tools for Kiwi Trades - Calculators, Generators & More',
-    description: 'Free professional trade tools for New Zealand. NZD pricing, GST included. No signup required.',
+    description: 'Free professional trade tools for New Zealand. Local pricing (NZD), GST included. No signup required.',
     images: ['/MainQCP.png'],
   },
 };

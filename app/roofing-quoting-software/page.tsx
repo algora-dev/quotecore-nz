@@ -10,7 +10,7 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 export const metadata: Metadata = {
   title: "Roofing Quoting Software NZ | QuoteCore+",
   description:
-    "Measure New Zealand roofing jobs in metric, build NZD quotes, track approval, prepare supplier-ready material orders and create invoices in one workflow.",
+    "Measure New Zealand roofing jobs in metric, build quotes, track approval, prepare supplier-ready material orders and create invoices in one workflow.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/roofing-quoting-software",
     languages: hreflangLanguages("/roofing-quoting-software"),
@@ -194,7 +194,7 @@ Roofing quoting software built for New Zealand contractors.
           intro="Quote long-run and measured roofing work with metric quantities, reusable pricing logic and job documents that carry the same information from takeoff to invoice."
           items={[
             { title: "Roof-specific measurements", description: "Connect roof area, ridges, hips, valleys, barges, flashings and waste to the quote." },
-            { title: "NZD and GST context", description: "Price local work in New Zealand dollars and present GST clearly on customer documents." },
+            { title: "Currency and GST", description: "Price local work in USD or apply your own NZD supplier rates, and present GST clearly on customer documents." },
             { title: "Supplier-ready output", description: "Convert accepted work into an order with quantities, cut lengths, delivery notes and fabrication detail." },
           ]}
         />

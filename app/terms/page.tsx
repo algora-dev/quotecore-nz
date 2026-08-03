@@ -573,7 +573,7 @@ export default function TermsOfServicePage() {
       <p>This exclusion does not apply where such loss is a direct and reasonably foreseeable result of a breach for which liability cannot lawfully be excluded.</p>
       <h3>23.2 General liability cap</h3>
       <p>Subject to sections 23.3 and 23.4, each party&apos;s total aggregate liability arising out of or relating to the Service or these Terms during any rolling 12-month period will not exceed the fees paid or payable by you for the Service during the 12 months immediately preceding the event giving rise to liability.</p>
-      <p>For a claim arising during a free trial or free Plan, our aggregate liability will not exceed NZD 100.</p>
+      <p>For a claim arising during a free trial or free Plan, our aggregate liability will not exceed USD 100.</p>
       <h3>23.3 Data, confidentiality and security cap</h3>
       <p>Our total aggregate liability for breach of confidentiality, breach of applicable data-protection obligations, or a security incident caused by our failure to use reasonable safeguards will not exceed two times (2x) the fees paid or payable by you for the Service during the 12 months immediately preceding the event giving rise to liability.</p>
       <h3>23.4 Liability that is not limited</h3>

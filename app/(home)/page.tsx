@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useState } from "react";
 import Script from "next/script";
@@ -52,12 +52,12 @@ const faqs = [
   {
     question: "What happens after the trial?",
     answer:
-      "You pick a plan that fits your business. Plans start from free and go up to $59 NZD per month. Your Smart Components\u2122, quotes, and settings carry over seamlessly.",
+      "You pick a plan that fits your business. Plans start from free and go up to $59/month. Your Smart Components\u2122, quotes, and settings carry over seamlessly.",
   },
   {
     question: "How much do plans cost?",
     answer:
-      "Plans range from free to $59 NZD per month. All paid plans include the full feature set - the difference is in usage limits like AI scan points and storage. See the pricing page for full details.",
+      "Plans range from free to $59/month. All paid plans include the full feature set - the difference is in usage limits like AI scan points and storage. See the pricing page for full details.",
   },
 ];
 
@@ -282,7 +282,7 @@ export default function HomePage() {
           <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6 py-4 text-sm text-zinc-600 lg:px-8">
             <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>No card required</span>
             <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>14-day full-access trial</span>
-            <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>Plans from free to $59 NZD/month</span>
+            <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>Plans from free to $59/month</span>
             <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>Built for roofing first</span>
           </div>
         </section>
@@ -664,7 +664,7 @@ export default function HomePage() {
                 </a>
               </div>
               <p className="mt-5 text-sm text-zinc-600">
-                Plans from free to $59 NZD/month. No card required. 14 days full access.
+                Plans from free to $59/month. No card required. 14 days full access.
               </p>
             </div>
           </div>

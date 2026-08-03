@@ -11,14 +11,14 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 export const metadata: Metadata = {
   title: "Contractor Invoicing Software for New Zealand Trades | QuoteCore+",
   description:
-    "Turn accepted quotes into professional NZD invoices with clear GST treatment, line items and customer payment instructions for New Zealand trade work.",
+    "Turn accepted quotes into professional invoices with clear GST treatment, line items and customer payment instructions for New Zealand trade work.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/invoicing",
     languages: hreflangLanguages("/features/invoicing"),
   },
   openGraph: {
     title: "Contractor Invoicing Software for New Zealand Trades | QuoteCore+",
-    description: "Create professional NZD invoices from accepted quotes or from scratch, with clear GST treatment and payment instructions.",
+    description: "Create professional invoices from accepted quotes or from scratch, with clear GST treatment and payment instructions.",
     url: "https://www.quote-core.co.nz/features/invoicing",
     siteName: "QuoteCore+",
     type: "website",
@@ -95,7 +95,7 @@ export default function InvoicingPage() {
           <div className="relative mx-auto max-w-3xl px-6 lg:px-8">
             <p className="text-sm font-medium text-[#FF6B35]">Feature</p>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-Turn accepted contractor quotes into professional NZD invoices.
+Turn accepted contractor quotes into professional invoices.
             </h1>
             <p className="mt-4 text-lg text-zinc-600">
               Create a branded, professional invoice from an accepted quote, import a quote from another tool, or start from scratch. Line items, pricing, and payment instructions flow automatically. No formatting, no spreadsheets.
@@ -113,9 +113,9 @@ Turn accepted contractor quotes into professional NZD invoices.
 
         <NzContextPanel
           title="Create invoices that fit a New Zealand trade workflow"
-          intro="Carry the agreed scope and value forward from a quote or create an invoice independently, with clear NZD totals and GST treatment for the customer."
+          intro="Carry the agreed scope and value forward from a quote or create an invoice independently, with clear totals and GST treatment for the customer."
           items={[
-            { title: "NZD totals", description: "Present line items, subtotals and invoice totals in New Zealand dollars." },
+            { title: "Invoice totals", description: "Present line items, subtotals and invoice totals clearly." },
             { title: "Clear GST treatment", description: "Show the tax treatment used on the invoice so totals are easy for both parties to understand." },
             { title: "Payment instructions", description: "Provide the reference and payment details the customer needs without implying that QuoteCore+ processes the payment." },
           ]}
@@ -194,10 +194,10 @@ Turn accepted contractor quotes into professional NZD invoices.
         <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight">Worked example: NZ roofing invoice with GST</h2>
           <div className="mt-6 rounded-xl border border-slate-200 p-6">
-            <p className="text-sm text-zinc-600">Invoicing a residential re-roof in Auckland for NZ$16,500 (GST inclusive):</p>
+            <p className="text-sm text-zinc-600">Invoicing a residential re-roof in Auckland for $16,500 (GST inclusive):</p>
             <ol className="mt-4 space-y-3 text-sm text-zinc-600">
-              <li><strong>1. Create from accepted quote:</strong> The accepted quote (NZ$16,500 incl GST) converts to an invoice. Line items, quantities, and pricing carry over. You can edit before sending.</li>
-              <li><strong>2. GST breakdown:</strong> Subtotal: NZ$14,347.83. GST (15%): NZ$2,152.17. Total: NZ$16,500.00.</li>
+              <li><strong>1. Create from accepted quote:</strong> The accepted quote ($16,500 incl GST) converts to an invoice. Line items, quantities, and pricing carry over. You can edit before sending.</li>
+              <li><strong>2. GST breakdown:</strong> Subtotal: $14,347.83. GST (15%): $2,152.17. Total: $16,500.00.</li>
               <li><strong>3. Payment instructions:</strong> Bank transfer to 12-3456-7890123-01. Reference: INV-2026-042. Due: 14 days from issue.</li>
               <li><strong>4. Customer actions:</strong> Customer receives the invoice, marks payment as sent once they transfer the funds, and the invoice status updates for both parties.</li>
               <li><strong>5. Business details:</strong> Your NZBN, GST number, and business address appear on every invoice.</li>

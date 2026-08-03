@@ -8,21 +8,21 @@ export const softwareId = `${siteUrl}/#software`;
 
 export function buildPricingOffers() {
   const prices = schemaPricingPlans
-    .map((plan) => plan.schemaPriceNzd)
+    .map((plan) => plan.schemaPriceUsd)
     .filter((price) => price > 0);
 
   return {
     "@type": "AggregateOffer",
     url: `${siteUrl}/#pricing`,
-    priceCurrency: "NZD",
+    priceCurrency: "USD",
     lowPrice: String(Math.min(...prices)),
     highPrice: String(Math.max(...prices)),
     offerCount: schemaPricingPlans.length,
     offers: schemaPricingPlans.map((plan) => ({
       "@type": "Offer",
       name: plan.displayName,
-      price: String(plan.schemaPriceNzd),
-      priceCurrency: "NZD",
+      price: String(plan.schemaPriceUsd),
+      priceCurrency: "USD",
       url: `${siteUrl}/#pricing`,
       availability: "https://schema.org/InStock",
       category: plan.isFree ? "Free trial or free plan" : "Subscription",

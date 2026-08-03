@@ -35,7 +35,7 @@ const softwareSchema = {
   description: "AI Scan Assist identifies multiple roof areas, ridges, hips, valleys, barges and spouting from uploaded roof plans. Users verify, adjust, swap Smart Components and carry everything into a priced quote.",
   url: `${SITE_URL}/features/ai-scan-assist`,
   publisher: { "@id": `${SITE_URL}/#organization` },
-  offers: { "@type": "Offer", price: "0", priceCurrency: "NZD", description: "14-day free trial with 20 AI scan points included, no credit card required" },
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD", description: "14-day free trial with 20 AI scan points included, no credit card required" },
 };
 
 const breadcrumbSchema = {
@@ -202,7 +202,7 @@ export default function AIScanAssistPage() {
                 <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 text-sm font-medium text-zinc-900">Component swapping</td><td className="px-5 py-3 text-sm text-zinc-700">Swap any placeholder via dropdown</td><td className="px-5 py-3 text-sm text-zinc-500">Assign components as you draw</td></tr>
                 <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 text-sm font-medium text-zinc-900">Adding non-detected items</td><td className="px-5 py-3 text-sm text-zinc-700">Add flashings, downpipes, etc after AI runs</td><td className="px-5 py-3 text-sm text-zinc-500">Draw and assign everything yourself</td></tr>
                 <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 text-sm font-medium text-zinc-900">Cost</td><td className="px-5 py-3 text-sm text-zinc-700">Uses AI scan points (20 trial, 50-100 paid)</td><td className="px-5 py-3 text-sm text-zinc-500">No scan points used</td></tr>
-                <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 text-sm font-medium text-zinc-900">Result</td><td className="px-5 py-3 text-sm text-zinc-700">Complete, priced roof takeoff in NZD</td><td className="px-5 py-3 text-sm text-zinc-500">Complete, priced roof takeoff in NZD</td></tr>
+                <tr className="hover:bg-orange-50/40"><td className="px-5 py-3 text-sm font-medium text-zinc-900">Result</td><td className="px-5 py-3 text-sm text-zinc-700">Complete, priced roof takeoff</td><td className="px-5 py-3 text-sm text-zinc-500">Complete, priced roof takeoff</td></tr>
               </tbody>
             </table>
           </div>
