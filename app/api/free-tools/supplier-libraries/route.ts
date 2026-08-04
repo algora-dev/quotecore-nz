@@ -57,7 +57,8 @@ export async function GET(request: Request) {
     }, {
       headers: { 'Cache-Control': 'public, max-age=300, s-maxage=600' },
     });
-  } catch (err) {
-    return NextResponse.json({ error: 'Failed to load supplier libraries' }, { status: 500 });
+  } catch (err: any) {
+    console.error('supplier-libraries error:', err);
+    return NextResponse.json({ error: 'Failed to load supplier libraries', detail: err?.message || String(err), stack: err?.stack?.split('\n').slice(0, 3) }, { status: 500 });
   }
 }

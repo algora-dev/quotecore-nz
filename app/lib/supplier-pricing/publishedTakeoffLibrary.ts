@@ -12,6 +12,10 @@ import { BUILT_IN_ORDER } from '../../free-roofing-takeoff-builder/calc';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
+if (!supabaseUrl || !supabaseKey) {
+  console.warn('[publishedTakeoffLibrary] Missing env vars:', { hasUrl: !!supabaseUrl, hasKey: !!supabaseKey });
+}
+
 function getSupabase() {
   return createClient(supabaseUrl, supabaseKey);
 }
