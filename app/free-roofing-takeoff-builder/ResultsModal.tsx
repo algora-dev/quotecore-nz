@@ -1,12 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
-import Link from 'next/link';
+import { useEffect, useState, lazy } from 'react';
 import type { ComponentSection, RoofComponentDef } from './types';
-import { COMPONENT_DEFS, computeMaterialCost, computeLabourCost, computeKnownPriceCost, isCustomFixed } from './calc';
+import { COMPONENT_DEFS, computeMaterialCost, computeLabourCost, computeKnownPriceCost } from './calc';
 import { ComponentSymbol, componentLabel } from './helpers';
 
-const COM_URL = 'https://quote-core.com';
+const SupplierEnquiryModal = lazy(() => import('./SupplierEnquiryModal').then(m => ({ default: m.SupplierEnquiryModal })));
 
 interface ResultsModalProps {
   sections: Record<string, ComponentSection>;
@@ -15,13 +14,17 @@ interface ResultsModalProps {
   grandTotal: number;
   unitSystem: 'metric' | 'imperial' | 'squares';
   allKeys: string[];
-  currencySymbol: string;
-  currencyCode: string;
   onClose: () => void;
+  supplier?: { name: string; slug: string; enquiriesEnabled: boolean } | null;
+  resultToken?: string;
+  resultUrl?: string;
+  currency?: string;
 }
 
-export function ResultsModal({ sections, totals, getComponentById, grandTotal, unitSystem, allKeys, currencySymbol, currencyCode, onClose }: ResultsModalProps) {
-  const cur = currencySymbol;
+export function ResultsModal({ sections, totals, getComponentById, grandTotal, unitSystem, allKeys, onClose, supplier, resultToken, resultUrl, currency }: ResultsModalProps) {
+  const [showEnquiry, setShowEnquiry] = useState(false);
+  const [showActions, setShowActions] = useState(false);
+  const cur = currency === 'NZD' ? 'NZ$' : currency === 'USD' ? '$' : currency === 'AUD' ? 'A$' : currency === 'GBP' ? '\u00a3' : '$';
   const hasPricing = grandTotal > 0;
   const lenUnit = unitSystem === 'metric' ? 'm' : 'ft';
   const areaUnit = unitSystem === 'metric' ? 'm\u00B2' : unitSystem === 'imperial' ? 'sq ft' : 'squares';
@@ -108,7 +111,7 @@ export function ResultsModal({ sections, totals, getComponentById, grandTotal, u
         const rate = (matCost.cost + labCost) / (withWaste || 1);
         const entryLabel = entry.label || `${label} ${section.entries.indexOf(entry) + 1}`;
         const desc = entry.knownPrice != null && entry.knownPrice > 0
-          ? `${entryLabel} - Known price ${cur}${entry.knownPrice.toFixed(2)}/${isFixed ? 'pc' : unit}${section.wastePercent > 0 && !isFixed ? ` (+${section.wastePercent}% waste)` : ''}`
+          ? `${entryLabel} - Known price ${'$'}${entry.knownPrice.toFixed(2)}/${isFixed ? 'pc' : unit}${section.wastePercent > 0 && !isFixed ? ` (+${section.wastePercent}% waste)` : ''}`
           : comp
             ? `${entryLabel} - ${comp.name}${section.wastePercent > 0 && !isFixed ? ` (+${section.wastePercent}% waste)` : ''}`
             : `${entryLabel}${section.wastePercent > 0 && !isFixed ? ` (+${section.wastePercent}% waste)` : ''}`;
@@ -119,19 +122,18 @@ export function ResultsModal({ sections, totals, getComponentById, grandTotal, u
     params.set('amount', grandTotal.toFixed(2));
     if (lines.length > 0) params.set('lines', encodeURIComponent(JSON.stringify(lines)));
     params.set('ref', 'free-roofing-takeoff-builder');
-    params.set('currency', currencyCode);
-    return `${COM_URL}/free-quote-generator?${params.toString()}`;
+    return `/free-quote-generator?${params.toString()}`;
   }
 
   return (
     <div id="print-root" className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/40 p-2 md:p-4 print:block print:static print:p-0 print:bg-white">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col print:shadow-none print:rounded-none print:max-h-none print:w-full print:max-w-none print:overflow-visible" id="takeoff-print">
+      <div role="dialog" aria-modal="true" aria-labelledby="takeoff-report-title" className="bg-white rounded-2xl shadow-xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col print:shadow-none print:rounded-none print:max-h-none print:w-full print:max-w-none print:overflow-visible" id="takeoff-print">
         <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4 border-b border-slate-100 print:border-slate-300">
           <div>
-            <h2 className="text-base md:text-lg font-semibold text-slate-900">Roof Takeoff Report</h2>
+            <h2 id="takeoff-report-title" className="text-base md:text-lg font-semibold text-slate-900">Roof Takeoff Report</h2>
             <p className="text-xs text-slate-400">Generated {new Date().toLocaleDateString('en-GB')}</p>
           </div>
-          <button onClick={onClose} className="p-2 text-slate-400 hover:text-slate-600 transition rounded-full hover:bg-slate-50 print:hidden min-h-[44px] min-w-[44px] flex items-center justify-center">
+          <button onClick={onClose} aria-label="Close roof takeoff report" className="p-2 text-slate-400 hover:text-slate-600 transition rounded-full hover:bg-slate-50 print:hidden min-h-[44px] min-w-[44px] flex items-center justify-center">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
         </div>
@@ -181,7 +183,7 @@ export function ResultsModal({ sections, totals, getComponentById, grandTotal, u
                         <div className="min-w-0 flex-1">
                           <span className="text-slate-500">{entry.label || `Entry ${idx + 1}`}</span>
                           {isPitchCalc && <span className="ml-2 text-slate-400">@ {entry.pitchDegrees}{'\u00b0'}</span>}
-                          {entry.knownPrice != null && entry.knownPrice > 0 && <span className="ml-2 text-[#BD4A1A] font-medium">{cur}{entry.knownPrice.toFixed(2)}/{isFixed ? 'pc' : isArea ? areaUnit : lenUnit}</span>}
+                          {entry.knownPrice != null && entry.knownPrice > 0 && <span className="ml-2 text-[#BD4A1A] font-medium">{'$'}{entry.knownPrice.toFixed(2)}/{isFixed ? 'pc' : isArea ? areaUnit : lenUnit}</span>}
                           {comp && <span className="ml-2 text-slate-400 truncate">{comp.name}</span>}
                         </div>
                         <div className="flex items-center gap-3 flex-shrink-0">
@@ -223,23 +225,89 @@ export function ResultsModal({ sections, totals, getComponentById, grandTotal, u
           )}
         </div>
 
-        <div className="flex items-center justify-between gap-3 px-4 md:px-6 py-3 md:py-4 border-t border-slate-100 print:hidden">
-          <button onClick={() => window.print()} className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 transition min-h-[44px]">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
-            Print / PDF
-          </button>
-          <div className="flex items-center gap-2">
-            <button onClick={onClose} className="px-4 py-2 text-sm font-medium rounded-full border border-slate-300 hover:bg-slate-50 transition min-h-[44px]">Close</button>
-            <a href={buildConvertToQuoteUrl()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-[#FF6B35] px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-[#ff5722] hover:shadow-[0_0_16px_rgba(255,107,53,0.4)]">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-              Convert to Quote
-            </a>
-            <Link href="https://app.quote-core.com/signup?ref=free-roofing-takeoff-builder" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-black px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-slate-800">
-              Save to QuoteCore+
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-            </Link>
+        <div className="flex items-center justify-end gap-2 px-4 md:px-6 py-3 md:py-4 border-t border-slate-100 print:hidden">
+          <div className="relative">
+            <button
+              onClick={() => setShowActions(v => !v)}
+              className="inline-flex items-center gap-1.5 rounded-full bg-black px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-slate-800 min-h-[44px]"
+            >
+              Actions
+              <svg className={`w-4 h-4 transition-transform ${showActions ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            {showActions && (
+              <>
+                <div className="fixed inset-0 z-40" onClick={() => setShowActions(false)} />
+                <div className="absolute right-0 bottom-full mb-2 w-56 rounded-xl border border-slate-200 bg-white shadow-lg z-50 overflow-hidden">
+                  {supplier?.enquiriesEnabled ? (
+                    <button
+                      onClick={() => { setShowActions(false); setShowEnquiry(true); }}
+                      className="flex items-center gap-2.5 w-full px-4 py-3 text-sm font-medium text-slate-700 hover:bg-orange-50/40 transition text-left border-b border-slate-100"
+                    >
+                      <svg className="w-4 h-4 text-[#FF6B35]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                      Send to Supplier
+                    </button>
+                  ) : (
+                    <div className="flex items-center gap-2.5 w-full px-4 py-3 text-sm font-medium text-slate-300 cursor-not-allowed border-b border-slate-100" title={supplier ? 'This supplier does not accept enquiries' : 'No supplier selected'}>
+                      <svg className="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                      Send to Supplier
+                    </div>
+                  )}
+                  <button
+                    onClick={() => {
+                      setShowActions(false);
+                      const printUrl = resultUrl || window.location.href;
+                      const win = window.open(printUrl, '_blank', 'noopener,noreferrer');
+                      if (win) { onClose(); }
+                    }}
+                    className="flex items-center gap-2.5 w-full px-4 py-3 text-sm font-medium text-slate-700 hover:bg-orange-50/40 transition text-left"
+                  >
+                    <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
+                    Print / Save as PDF
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowActions(false);
+                      const quoteUrl = buildConvertToQuoteUrl();
+                      const win = window.open(quoteUrl, '_blank', 'noopener,noreferrer');
+                      if (win) { onClose(); }
+                    }}
+                    className="flex items-center gap-2.5 w-full px-4 py-3 text-sm font-medium text-slate-700 hover:bg-orange-50/40 transition text-left"
+                  >
+                    <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    Convert to Quote
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowActions(false);
+                      const win = window.open('https://app.quote-core.com/signup?ref=free-roofing-takeoff-builder', '_blank', 'noopener,noreferrer');
+                      if (win) { onClose(); }
+                    }}
+                    className="flex items-center gap-2.5 w-full px-4 py-3 text-sm font-medium text-slate-700 hover:bg-orange-50/40 transition text-left"
+                  >
+                    <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1" /></svg>
+                    Open QuoteCore+
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
+
+        {/* Supplier enquiry modal */}
+        {showEnquiry && supplier && (
+          <SupplierEnquiryModal
+            supplierName={supplier.name}
+            supplierSlug={supplier.slug}
+            resultToken={resultToken}
+            resultUrl={resultUrl}
+            totals={totals}
+            sections={sections}
+            allKeys={allKeys}
+            getComponentById={getComponentById}
+            currency={currency}
+            onClose={() => setShowEnquiry(false)}
+          />
+        )}
       </div>
 
       <style jsx global>{`

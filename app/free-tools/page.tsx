@@ -6,8 +6,6 @@ import { TOOLS, CALCULATORS, CALCULATOR_COUNT, NZ_TOOL_DESCRIPTIONS } from './to
 import CalculatorSearchGrid from './CalculatorSearchGrid';
 import { QuoteGeneratorSection, RoofTakeoffSection, CalculatorsSection, PurchaseOrderSection, InvoiceSection } from './ToolSections';
 
-const COM_URL = 'https://quote-core.com';
-
 export default function FreeToolsPage() {
   const roofingCalcs = CALCULATORS.filter(c => c.industry === 'Roofing');
   const concreteCalcs = CALCULATORS.filter(c => c.industry === 'Concrete');
@@ -15,7 +13,7 @@ export default function FreeToolsPage() {
   const landscapingCalcs = CALCULATORS.filter(c => c.industry === 'Landscaping');
 
   function toolHref(slug: string, ported: boolean) {
-    return ported ? `/${slug}` : `${COM_URL}/${slug}`;
+    return ported ? `/${slug}` : `https://quote-core.com/${slug}`;
   }
 
   function toolDesc(slug: string, fallback: string) {
@@ -46,9 +44,9 @@ export default function FreeToolsPage() {
             <Link href="/roof-cost-calculator-nz" prefetch={false} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:border-[#FF6B35] hover:bg-orange-50/40 transition-all">Price a roof</Link>
             <Link href="/free-roofing-takeoff-builder" prefetch={false} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:border-[#FF6B35] hover:bg-orange-50/40 transition-all">Measure a roof</Link>
             <Link href="/free-roofing-calculator" prefetch={false} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:border-[#FF6B35] hover:bg-orange-50/40 transition-all">Calculate materials</Link>
-            <Link href="https://quote-core.com/free-quote-generator" prefetch={false} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:border-[#FF6B35] hover:bg-orange-50/40 transition-all">Create a quote</Link>
-            <Link href="https://quote-core.com/free-invoice-generator" prefetch={false} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:border-[#FF6B35] hover:bg-orange-50/40 transition-all">Create an invoice</Link>
-            <Link href="https://quote-core.com/free-purchase-order-generator" prefetch={false} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:border-[#FF6B35] hover:bg-orange-50/40 transition-all">Create a purchase order</Link>
+            <Link href="/free-quote-generator" prefetch={false} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:border-[#FF6B35] hover:bg-orange-50/40 transition-all">Create a quote</Link>
+            <Link href="/free-invoice-generator" prefetch={false} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:border-[#FF6B35] hover:bg-orange-50/40 transition-all">Create an invoice</Link>
+            <Link href="/free-purchase-order-generator" prefetch={false} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:border-[#FF6B35] hover:bg-orange-50/40 transition-all">Create a purchase order</Link>
           </div>
           <p className="mt-4 text-sm text-slate-500">Not sure where to begin? Start with the <Link href="/free-roofing-takeoff-builder" className="text-[#BD4A1A] underline">Roof Takeoff Builder</Link>.</p>
         </section>

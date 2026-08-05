@@ -4,8 +4,6 @@ import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics';
 import { ImageCarousel } from './ImageCarousel';
 
-const COM_URL = 'https://quote-core.com';
-
 function ToolCtaCentered({ href, label, external, onClick }: { href: string; label: string; external?: boolean; onClick?: () => void }) {
   return (
     <div className="mt-6 flex justify-center">
@@ -43,7 +41,7 @@ export function QuoteGeneratorSection() {
         </div>
         <div className="order-1 lg:order-2">
           <ImageCarousel images={['/free-tools/quote1.png', '/free-tools/quote2.png', '/free-tools/quote3.png', '/free-tools/quote4.png']} alt="Free Quote Generator" />
-          <ToolCtaCentered href={`${COM_URL}/free-quote-generator`} external label="Create a Free Quote" onClick={() => trackEvent('free_tools_hub_click', { tool: 'quote-generator' })} />
+          <ToolCtaCentered href={`/free-quote-generator`} label="Create a Free Quote" onClick={() => trackEvent('free_tools_hub_click', { tool: 'quote-generator' })} />
         </div>
       </div>
     </section>
@@ -123,7 +121,7 @@ export function PurchaseOrderSection() {
         </div>
         <div className="order-1 lg:order-2">
           <ImageCarousel images={['/free-tools/order1.png']} alt="Free Purchase Order Generator" />
-          <ToolCtaCentered href={`${COM_URL}/free-purchase-order-generator`} external label="Create a Free Purchase Order" onClick={() => trackEvent('free_tools_hub_click', { tool: 'po-generator' })} />
+          <ToolCtaCentered href={`/free-purchase-order-generator`} label="Create a Free Purchase Order" onClick={() => trackEvent('free_tools_hub_click', { tool: 'po-generator' })} />
         </div>
       </div>
     </section>
@@ -140,7 +138,7 @@ export function InvoiceSection() {
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 md:gap-10 items-center">
         <div className="order-2 lg:order-1">
           <ImageCarousel images={['/free-tools/invoice1.png']} alt="Free Invoice Generator" />
-          <ToolCtaCentered href={`${COM_URL}/free-invoice-generator`} external label="Create a Free Invoice" onClick={() => trackEvent('free_tools_hub_click', { tool: 'invoice-generator' })} />
+          <ToolCtaCentered href={`/free-invoice-generator`} label="Create a Free Invoice" onClick={() => trackEvent('free_tools_hub_click', { tool: 'invoice-generator' })} />
         </div>
         <div className="order-1 lg:order-2">
           <p className="text-xs md:text-sm text-slate-500 leading-relaxed">Create professional invoices with GST 15% calculations. Pre-fill from a quote or start fresh - download as PDF, no signup.</p>
