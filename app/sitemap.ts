@@ -21,6 +21,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/free-trial",
     "/free-tools",
+    "/free-quote-generator",
+    "/free-invoice-generator",
+    "/free-purchase-order-generator",
     "/free-roofing-takeoff-builder",
     "/roof-cost-calculator-nz",
     "/free-calculators",
@@ -38,9 +41,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/cookie-policy",
     "/coffee-terms",
   ];
+  const generatorPaths = ["/free-quote-generator", "/free-invoice-generator", "/free-purchase-order-generator"];
   return routes.map((path) => ({
     url: `${site.url}${path === "/" ? "/" : path}`,
     changeFrequency: path === "/" ? "weekly" : "monthly",
-    priority: path === "/" ? 1 : 0.7,
+    priority: path === "/" ? 1 : generatorPaths.includes(path) ? 0.9 : 0.7,
   }));
 }
