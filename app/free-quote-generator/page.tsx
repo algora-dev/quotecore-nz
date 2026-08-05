@@ -342,7 +342,7 @@ function QuoteGeneratorForm() {
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-4 py-4 flex items-center justify-between">
           <Link href="/free-tools" className="flex items-center gap-2">
-            <img src="/logo.png" alt="QuoteCore+" className="h-8" />
+            <img src="/MainQCP.png" alt="QuoteCore+" className="h-8" />
           </Link>
           <div className="flex items-center gap-3">
             <FreeToolsAuthButton compact />
@@ -915,7 +915,7 @@ function QuoteGeneratorForm() {
 
               {!isAuthed && (
                 <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-center gap-2 opacity-60">
-                  <img src="/logo.png" alt="QuoteCore+" className="h-4 w-auto" />
+                  <img src="/MainQCP.png" alt="QuoteCore+" className="h-4 w-auto" />
                   <p className="text-[10px] text-slate-400">
                     This quote was generated using QuoteCore+ Free Tools -{" "}
                     <span className="text-slate-500 font-medium">quote-core.co.nz</span>
