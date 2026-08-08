@@ -4,7 +4,7 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.quote-core.co.nz';
 
 export const metadata: Metadata = {
-  title: 'Free Purchase Order Generator | quote-core.co.nz',
+  title: 'Free Purchase Order Generator for NZ Suppliers | QuoteCore+',
   description:
     'Free online purchase order generator for NZ trades. Create professional POs for suppliers with line items and delivery dates. No signup - download as PDF.',
   openGraph: {
@@ -103,8 +103,24 @@ export default function POLayout({ children }: { children: React.ReactNode }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <h1 className="sr-only">Free Purchase Order Generator for NZ Suppliers</h1>
       {children}
+      {/* Server-rendered SEO content */}
       <section className="mx-auto max-w-3xl px-4 py-12 md:py-16">
+        <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-4">How it works</h2>
+        <ol className="list-decimal list-inside space-y-1.5 text-sm text-slate-600 mb-8">
+          <li>Enter your business details and supplier information</li>
+          <li>Add line items — product codes, descriptions, quantities</li>
+          <li>Set delivery details and any fabrication notes</li>
+          <li>GST is calculated at 15% automatically</li>
+          <li>Generate and download as PDF — no signup required</li>
+        </ol>
+
+        <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-4">Why use a purchase order?</h2>
+        <p className="text-sm text-slate-600 leading-relaxed mb-8">
+          NZ suppliers expect PO numbers to track orders and match deliveries. A clear purchase order prevents mix-ups on quantities, product codes, and delivery dates. It also creates a record you can reconcile against the supplier&apos;s invoice. When you&apos;re ready to connect everything, QuoteCore+ creates material orders from accepted quotes — quantities, codes, and supplier details carry straight through.
+        </p>
+
         <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-4">About the Free Purchase Order Generator</h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
           The quote-core.co.nz free purchase order generator helps Kiwi trades contractors create professional POs for suppliers in minutes.
