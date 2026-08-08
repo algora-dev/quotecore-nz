@@ -4,7 +4,7 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.quote-core.co.nz';
 
 export const metadata: Metadata = {
-  title: 'Free Quote Generator for NZ Trades | QuoteCore+',
+  title: 'Free Quote Generator | quote-core.co.nz',
   description:
     'Free online quote generator for NZ trades. Create professional quotes with line items, GST, and terms. No signup required - download as PDF.',
   openGraph: {
@@ -103,24 +103,9 @@ export default function QuoteLayout({ children }: { children: React.ReactNode })
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-      <h1 className="sr-only">Free Quote Generator for NZ Trades</h1>
       {children}
       {/* Server-rendered SEO content */}
       <section className="mx-auto max-w-3xl px-4 py-12 md:py-16">
-        <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-4">How it works</h2>
-        <ol className="list-decimal list-inside space-y-1.5 text-sm text-slate-600 mb-8">
-          <li>Enter your business name and contact details</li>
-          <li>Add line items — description, quantity, unit price</li>
-          <li>Set GST to 15% (NZ default) or adjust as needed</li>
-          <li>Add any notes, terms, or payment instructions</li>
-          <li>Generate and download as PDF — no signup required</li>
-        </ol>
-
-        <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-4">Why use a professional quote?</h2>
-        <p className="text-sm text-slate-600 leading-relaxed mb-8">
-          A clear, itemised quote helps NZ trades win more work. It shows GST compliance, sets expectations on scope and pricing, and creates a paper trail if disputes arise. Customers are more likely to approve a quote that looks professional than a handwritten estimate or a text message. When you&apos;re ready to move beyond manual quotes, QuoteCore+ turns accepted quotes into material orders and invoices without re-entering data.
-        </p>
-
         <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-4">About the Free Quote Generator</h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
           The quote-core.co.nz free quote generator helps Kiwi trades contractors create professional quotes in minutes.

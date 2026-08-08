@@ -7,13 +7,12 @@ import SiteFooter from "@/components/SiteFooter";
 import { pricingPlans } from "@/lib/pricing";
 import { buildFaqSchema } from "@/lib/schema";
 import { breadcrumbSchema, jsonLd, pricingOffers, site } from "@/lib/seo";
-import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
   title: "Roofing & Construction Quoting Software Pricing NZ | QuoteCore+",
   description:
     "Compare QuoteCore+ plans in USD. Start with a 14-day full-feature trial with no credit card, then choose the quote and storage limits that fit your New Zealand trade business.",
-  alternates: { canonical: `${site.url}/pricing`, languages: hreflangLanguages("/pricing") },
+  alternates: { canonical: `${site.url}/pricing` },
   openGraph: {
     title: "QuoteCore+ Pricing New Zealand",
     description: "Compare QuoteCore+ monthly plans and limits in USD for New Zealand trade businesses.",

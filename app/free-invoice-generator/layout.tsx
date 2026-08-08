@@ -4,7 +4,7 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.quote-core.co.nz';
 
 export const metadata: Metadata = {
-  title: 'Free Invoice Generator with GST | QuoteCore+',
+  title: 'Free Invoice Generator | quote-core.co.nz',
   description:
     'Free online invoice generator for NZ trades. Create professional invoices with line items, GST, and payment terms. No signup - download as PDF.',
   openGraph: {
@@ -103,24 +103,8 @@ export default function InvoiceLayout({ children }: { children: React.ReactNode 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-      <h1 className="sr-only">Free Invoice Generator with GST</h1>
       {children}
-      {/* Server-rendered SEO content */}
       <section className="mx-auto max-w-3xl px-4 py-12 md:py-16">
-        <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-4">How it works</h2>
-        <ol className="list-decimal list-inside space-y-1.5 text-sm text-slate-600 mb-8">
-          <li>Add your business name, address, and NZ bank details</li>
-          <li>Enter invoice line items with quantities and prices</li>
-          <li>GST is calculated at 15% automatically</li>
-          <li>Add payment terms and instructions (bank, Stripe, or PayPal)</li>
-          <li>Generate and download as PDF — no signup required</li>
-        </ol>
-
-        <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-4">Why use a professional invoice?</h2>
-        <p className="text-sm text-slate-600 leading-relaxed mb-8">
-          NZ trade businesses need invoices with clear GST treatment and payment details. A professional invoice gets paid faster — customers can see exactly what they&apos;re paying for and how to pay. Include your bank account number, reference the job, and set clear payment terms. When you&apos;re ready to streamline, QuoteCore+ creates invoices from accepted quotes, carrying line items and pricing straight through.
-        </p>
-
         <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-4">About the Free Invoice Generator</h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
           The quote-core.co.nz free invoice generator helps Kiwi trades contractors create professional invoices in minutes.

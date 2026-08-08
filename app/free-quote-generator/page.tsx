@@ -365,7 +365,7 @@ function QuoteGeneratorForm() {
       <div className="mx-auto max-w-4xl px-4 py-8">
         {/* Hero */}
         <section className="mb-8 print:hidden">
-          <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Free Quote Generator</h2>
+          <h1 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Free Quote Generator</h1>
           <p className="mt-2 text-sm text-slate-500 max-w-xl">
             Create a professional roofing or construction quote in minutes. Upload a photo of your
             existing quote and AI will fill in the form - or type it manually. No signup required.
