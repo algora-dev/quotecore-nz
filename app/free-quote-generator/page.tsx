@@ -10,7 +10,6 @@ import { ImageUpload, type ParsedUploadResult } from '../free-tools/shared/Image
 import { PromptBox } from '../free-tools/shared/PromptBox';
 import { SaveToAppButton, type FreeDocumentData } from '../free-tools/shared/SaveToAppButton';
 import { FreeToolsAuthProvider } from '@/components/free-tools/FreeToolsAuthProvider';
-import { FreeToolsAuthButton } from '@/components/free-tools/FreeToolsAuthButton';
 import { useFreeToolsEmail } from '@/components/free-tools/useFreeToolsEmail';
 import { FreeToolsSignupBanner } from '@/components/free-tools/FreeToolsSignupBanner';
 import BlogHeader from '@/components/BlogHeader';
@@ -338,17 +337,6 @@ function QuoteGeneratorForm() {
   return (
     <main className="min-h-screen bg-slate-50">
       <BlogHeader />
-      {/* Header */}
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-4xl px-4 py-4 flex items-center justify-between">
-          <Link href="/free-tools" className="flex items-center gap-2">
-            <img src="/MainQCP.png" alt="QuoteCore+" className="h-8" />
-          </Link>
-          <div className="flex items-center gap-3">
-            <FreeToolsAuthButton compact />
-          </div>
-        </div>
-      </header>
 
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-white">
