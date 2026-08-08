@@ -340,7 +340,7 @@ function POGeneratorForm() {
       <div className="mx-auto max-w-4xl px-4 py-8">
         {/* Hero */}
         <section className="mb-8 print:hidden">
-          <h1 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Free Purchase Order Generator</h1>
+          <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Free Purchase Order Generator</h2>
           <p className="mt-2 text-sm text-slate-500 max-w-xl">
             Create a professional purchase order for your suppliers. Upload a photo of your existing
             PO and AI will fill in the form - or paste your details, or type it manually. No signup required.
