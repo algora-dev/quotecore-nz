@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Script from "next/script";
 import CoffeePopup from "@/components/CoffeePopup";
 import BlogHeader from "@/components/BlogHeader";
+import HeroVideo from "@/components/HeroVideo";
 import SiteFooter from "@/components/SiteFooter";
 import YouTubeLite from "@/components/YouTubeLite";
 import { trackEvent } from "@/lib/analytics";
@@ -231,8 +232,12 @@ export default function HomePage() {
         }}
       />
 
+      <HeroVideo />
+
       <main className="min-h-screen bg-white text-zinc-950">
-        <BlogHeader />
+        <div className="hero-duplicate-header">
+          <BlogHeader />
+        </div>
 
         {/* 1. Hero */}
         <section id="hero-section" className="relative overflow-hidden bg-white pb-10">
