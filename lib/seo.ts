@@ -6,7 +6,7 @@ export const site = {
   email: "info@quote-core.com",
   linkedin: "https://www.linkedin.com/company/quotecore/",
   locale: "en-NZ",
-  currency: "USD",
+  currency: "NZD",
 };
 
 export function absoluteUrl(path = "/") {

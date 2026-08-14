@@ -92,11 +92,11 @@ export default function PricingPage() {
                 <h2 className="text-xl font-semibold">{plan.displayName}</h2>
                 <p className="mt-2 min-h-10 text-sm leading-6 text-zinc-600">{plan.subtitle}</p>
                 <div className="mt-6 rounded-xl border border-zinc-200 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">USD</p>
-                  <p className="mt-1 text-3xl font-semibold">{plan.usd}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">NZD</p>
+                  <p className="mt-1 text-3xl font-semibold">{plan.nzd}</p>
                   {!plan.isFree && !plan.comingSoon && <p className="text-xs text-zinc-500">per month</p>}
                 </div>
-                {plan.originalUsd && <p className="mt-3 text-xs text-zinc-500">Regular monthly price: <s>{plan.originalUsd}</s></p>}
+                {plan.originalNzd && <p className="mt-3 text-xs text-zinc-500">Regular monthly price: <s>{plan.originalNzd}</s></p>}
                 <ul className="mt-6 flex-1 space-y-3">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex gap-3 text-sm text-zinc-700">

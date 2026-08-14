@@ -1,9 +1,9 @@
 export type PricingPlan = {
   name: string;
   displayName: string;
-  usd: string;
-  schemaPriceUsd: number;
-  originalUsd: string | null;
+  nzd: string;
+  schemaPriceNzd: number;
+  originalNzd: string | null;
   subtitle: string;
   features: string[];
   featured: boolean;
@@ -17,9 +17,9 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Full trial",
     displayName: "Full trial",
-    usd: "14 Days Free",
-    schemaPriceUsd: 0,
-    originalUsd: null,
+    nzd: "14 Days Free",
+    schemaPriceNzd: 0,
+    originalNzd: null,
     subtitle: "A 14-day taste of everything",
     features: ["10 quotes", "100 MB storage", "All features unlocked", "No credit card needed"],
     featured: false,
@@ -30,9 +30,9 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Lite",
     displayName: "Lite",
-    usd: "Free",
-    schemaPriceUsd: 0,
-    originalUsd: null,
+    nzd: "Free",
+    schemaPriceNzd: 0,
+    originalNzd: null,
     subtitle: "For individuals just getting started",
     features: ["5 quotes", "50 MB storage"],
     featured: false,
@@ -43,9 +43,9 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Starter",
     displayName: "Starter",
-    usd: "$19",
-    schemaPriceUsd: 19,
-    originalUsd: "$40",
+    nzd: "$29",
+    schemaPriceNzd: 29,
+    originalNzd: "$60",
     subtitle: "For owner-operators and solo tradies",
     features: ["25 quotes", "500 MB storage", "All core features", "No card for trial"],
     featured: false,
@@ -56,9 +56,9 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Professional",
     displayName: "Professional",
-    usd: "$39",
-    schemaPriceUsd: 39,
-    originalUsd: "$90",
+    nzd: "$59",
+    schemaPriceNzd: 59,
+    originalNzd: "$110",
     subtitle: "For growing trade businesses",
     features: ["100 quotes", "3 GB storage", "All core features", "Priority support"],
     featured: true,
@@ -69,9 +69,9 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Pro Plus",
     displayName: "Pro Plus",
-    usd: "$59",
-    schemaPriceUsd: 59,
-    originalUsd: "$120",
+    nzd: "$99",
+    schemaPriceNzd: 99,
+    originalNzd: "$180",
     subtitle: "For established teams with high quote volume",
     features: ["200 quotes", "5 GB storage", "All core features", "Priority support"],
     featured: false,
@@ -82,9 +82,9 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Premium",
     displayName: "Premium",
-    usd: "Coming Soon",
-    schemaPriceUsd: 0,
-    originalUsd: null,
+    nzd: "Coming Soon",
+    schemaPriceNzd: 0,
+    originalNzd: null,
     subtitle: "Enterprise-level power for larger operations",
     features: ["Higher limits", "Advanced features", "Dedicated support"],
     featured: false,

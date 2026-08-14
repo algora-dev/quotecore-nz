@@ -4,7 +4,7 @@ export const nzMarket = {
   globalDomain: "https://quote-core.com",
   country: "New Zealand",
   locale: "en-NZ",
-  currency: "USD",
+  currency: "NZD",
   currencySymbol: "$",
   email: "info@quote-core.com",
   callUrl: "https://calendly.com/quote-core-info/15-minute-meeting",

@@ -35,7 +35,7 @@ const softwareSchema = {
   description: "Digital roof takeoff software with AI Scan Assist and manual drawing tools. Upload plans, measure digitally, and auto-calculate pitch, waste, and material quantities.",
   url: `${site.url}/features/digital-roof-takeoff`,
   publisher: { "@id": `${site.url}/#organization` },
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD", description: "14-day free trial, no credit card required" },
+  offers: { "@type": "Offer", price: "0", priceCurrency: "NZD", description: "14-day free trial, no credit card required" },
 };
 
 const breadcrumbSchema = {
