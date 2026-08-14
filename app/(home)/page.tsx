@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Script from "next/script";
 import CoffeePopup from "@/components/CoffeePopup";
 import BlogHeader from "@/components/BlogHeader";
+import HeroVideo from "@/components/HeroVideo";
 import SiteFooter from "@/components/SiteFooter";
 import YouTubeLite from "@/components/YouTubeLite";
 import { trackEvent } from "@/lib/analytics";
@@ -11,25 +12,25 @@ import { buildBreadcrumbSchema, buildFaqSchema, buildSoftwareApplicationSchema }
 
 const testimonials = [
   {
-    name: "Tony Edwards",
-    business: "NZ Audio Visual",
+    name: "Greg Kepp",
+    business: "Sky High Roofing",
     quote:
-      "As an AV company offering a wide range of services and products, finding one app that can handle everything has always been difficult. QuoteCore+ has made it easy to streamline our quoting with smart components and catalogue uploads covering everything we provide. It does 90% of what we need perfectly, and the flexibility of the app lets us make the other 10% work too - all in one place. It saves us serious time, admin, and money.",
+      "We haven't had to print out a roof plan since we started using QuoteCore+. I was sceptical at first, but once you get used to measuring everything on screen it's hard to imagine going back, not to mention its at least 4x faster than our old process. We're still only using a fraction of what the app offers but very happy so far",
+    initials: "GK",
+  },
+  {
+    name: "Tony Edwards",
+    business: "NZAV",
+    quote:
+      "We offer a really diverse range of AV products and services, and most quoting software we tried just wasn't flexible enough for us. With QuoteCore+, Smart Components combined with catalogue uploads let us do everything that used to need three different apps. Having everything in one place is so handy. We've just started using the digital takeoff system too, which is very cool!",
     initials: "TE",
   },
   {
-    name: "Tom Harris",
-    business: "Harris Flooring Ltd",
+    name: "Rob Mander",
+    business: "FMR Solutions",
     quote:
-      "QuoteCore+ paid for itself from the first quote. The biggest difference for us has been how much faster we go from measuring, quoting to getting the customer approval. No more chasing people, auto follow ups make that so easy for us while we're on the tools! It makes the whole quoting process feel more professional and saves us a lot of time.",
-    initials: "TH",
-  },
-  {
-    name: "Adam Westbrook",
-    business: "Westbrook Fencing Co.",
-    quote:
-      "QuoteCore+ gave us our weekends back. We used to spend Sundays catching up on quotes, but now we get them finished on Friday and can actually switch off. It has made the whole quoting process quicker, easier, and a lot less stressful.",
-    initials: "AW",
+      "We'd tried other options and just couldn't get their systems working the way we needed. QuoteCore+ nailed it with their Smart Components system, they're so simple, and allow us to price everything the way we already have for years. If it existed earlier, I might be retired by now!",
+    initials: "RM",
   },
 ];
 
@@ -78,15 +79,15 @@ export default function HomePage() {
     {
       number: "01",
       title: "Measure",
-      body: "Upload a plan and use AI Scan Assist to identify multiple roof areas, ridges, hips, valleys, barges and spouting automatically. Name each roof area, assign different pitches and materials, then verify and adjust everything manually. Digital takeoff tools handle angles, pitches and complex roof geometry - no pen and paper required.",
+      body: "Upload your plan, let AI identify roof area and components for you to confirm, or easily add them yourself. Our digital canvas removes the need to print out plans, and is very easy to use. (Desktop only)",
       images: [
         { src: "/how-it-works/how-it-works-1-3.png", label: "Digital takeoff" },
       ],
     },
     {
       number: "02",
-      title: "Price",
-      body: "Smart Components\u2122 apply your stored materials, labour rates, waste allowances, and pricing rules. No rebuilding from scratch - the logic is already there.",
+      title: "Pricing",
+      body: "Smart Components allow you to store all your material, labour, waste, and pricing logic. Build them once, use them in every quote! Smart components let you digitally configure how you already work!",
       images: [
         { src: "/how-it-works-smart-components-editor.png", label: "Component editor" },
       ],
@@ -94,7 +95,7 @@ export default function HomePage() {
     {
       number: "03",
       title: "Quote",
-      body: "Build a professional, customisable quote in minutes. Preview what the customer sees, add terms, and send it directly from the platform.",
+      body: "Build professional, fully editable quotes within a few clicks of adding your measurements, build multiple header/footer templates to suit different clients.",
       images: [
         { src: "/how-it-works/how-it-works-2-2.png", label: "Quote editor" },
         { src: "/how-it-works/how-it-works-2-3.png", label: "Customer preview" },
@@ -103,7 +104,7 @@ export default function HomePage() {
     {
       number: "04",
       title: "Send",
-      body: "Send quotes, orders and invoices directly from QuoteCore+ with attachments. Track when recipients open and read them. Automatic follow-ups chase outstanding quotes for you - and cancel themselves when a quote is accepted or declined.",
+      body: "Send customers your quotes, orders, invoices directly from the QuoteCore+ app. Know when they have opened the document, schedule automatic follow ups that send from custom triggers you can easily set.",
       images: [
         { src: "/how-it-works/how-it-works-3.png", label: "Message centre" },
       ],
@@ -111,7 +112,7 @@ export default function HomePage() {
     {
       number: "05",
       title: "Order",
-      body: "Create a material order from a saved quote with all quantities and supplier details carried over, or start from scratch with a line-by-line order. Edit quantities, add or remove items, choose from three display formats, and send it straight to your supplier. You can also upload a supplier photo or PDF and AI converts it into editable line items.",
+      body: "Create material orders from scratch, or within a couple of clicks from a saved quote. Multiple order form layout options, header/footer templates for multiple suppliers, ability to add images and drawings to orders.",
       images: [
         { src: "/how-it-works-order-form.png", label: "Order form" },
         { src: "/how-it-works/how-it-works-4.png", label: "Material orders" },
@@ -120,7 +121,7 @@ export default function HomePage() {
     {
       number: "06",
       title: "Invoice",
-      body: "Create and edit an invoice from the same saved quote, or start from scratch with a line-by-line invoice. No re-entering information - the quote, order, and invoice all stay connected. Configure payment methods per invoice - bank details, Stripe links or PayPal links - and recipients can mark paid or dispute directly. You can also upload an existing invoice image and AI converts it into editable line items.",
+      body: "Create custom invoices from scratch, or within a couple of clicks from a saved quote. Header/footer templates for multiple suppliers, ability to add images and drawings to orders.",
       images: [
         { src: "/how-it-works/how-it-works-5-2.png", label: "Invoice view" },
       ],
@@ -231,8 +232,12 @@ export default function HomePage() {
         }}
       />
 
+      <HeroVideo />
+
       <main className="min-h-screen bg-white text-zinc-950">
-        <BlogHeader />
+        <div className="hero-duplicate-header">
+          <BlogHeader />
+        </div>
 
         {/* 1. Hero */}
         <section id="hero-section" className="relative overflow-hidden bg-white pb-10">
@@ -336,7 +341,7 @@ export default function HomePage() {
           </div>
 
           <div className="mb-10 hidden flex-wrap items-center justify-center gap-2 lg:flex">
-            {["Measure", "Price", "Quote", "Send", "Order", "Invoice"].map((label, i) => (
+            {["Measure", "Pricing", "Quote", "Send", "Order", "Invoice"].map((label, i) => (
               <React.Fragment key={label}>
                 <span className={`inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium ${i === activeStep ? "bg-[#FF6B35] text-white" : "bg-zinc-100 text-zinc-600"}`}>
                   {label}
@@ -587,7 +592,7 @@ export default function HomePage() {
               <h2 className="mt-3 text-3xl font-semibold text-zinc-950 sm:text-4xl">
                 What users say
               </h2>
-              <p className="mt-3 text-sm text-zinc-500">From trades already using QuoteCore+. Roofing case studies coming soon.</p>
+
             </div>
 
             <ul className="sr-only">
