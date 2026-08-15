@@ -1,0 +1,17 @@
+fix: normalize section widths + upgrade pricing cards (consistency pass)
+
+Mirrors the .com consistency pass:
+- Feature pages (7) + features hub + free-tools: body/FAQ/Related
+  sections 3xl->5xl to match showcase width; hero + CTA containers
+  aligned to the same 5xl column, left-aligned
+- Roof cost calculator: content container 3xl->5xl
+- Long-form pages (construction-quoting, roofing-quoting): stray 3xl
+  sections aligned to their 4xl body column
+- Pricing: FAQ section 4xl->7xl to match hero/plans; FAQ header
+  left-aligned; cards uniform height (items-stretch + h-full +
+  fixed-height price blocks) with tiered hover treatments — standard
+  plans soft orange hover, Pro Plus/Premium gradient + deeper shadow,
+  featured Professional keeps strongest frame
+
+Known follow-up (flagged, not changed): page copy still says USD in
+eyebrow/FAQ/footer while cards display NZD (from b3fbd9b).
