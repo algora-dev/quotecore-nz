@@ -175,7 +175,7 @@ export default function FreeToolsPage() {
         </section>
 
         {/* Why free? */}
-        <section className="mx-auto max-w-3xl px-2 md:px-6 py-10 md:py-16 text-center">
+        <section className="mx-auto max-w-5xl px-2 md:px-6 py-10 md:py-16 text-center">
           <h2 className="text-lg md:text-2xl font-semibold text-slate-900">Why are these free?</h2>
           <p className="mt-3 text-xs md:text-sm text-slate-500 leading-relaxed">
             We build tools for Kiwi trades. These calculators and generators are the same ones powering QuoteCore+ - our full quoting and job management platform built for New Zealand contractors. We give them away because they should be free. If you want the full system - takeoffs, components, quotes, orders, invoices, scheduling - that is where QuoteCore+ comes in.

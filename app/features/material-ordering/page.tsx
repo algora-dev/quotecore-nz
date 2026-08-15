@@ -92,7 +92,7 @@ export default function MaterialOrderingPage() {
         {/* Hero */}
         <section className="relative overflow-hidden pb-12 pt-16">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,107,53,0.08),transparent_40%)]" />
-          <div className="relative mx-auto max-w-3xl px-6 lg:px-8">
+          <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
             <p className="text-sm font-medium text-[#FF6B35]">Feature</p>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
 Create supplier-ready material orders for New Zealand jobs.
@@ -164,7 +164,7 @@ Create supplier-ready material orders for New Zealand jobs.
         </section>
 
         {/* What it is */}
-        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+        <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight">What is material ordering in QuoteCore+?</h2>
           <p className="mt-4 leading-7 text-zinc-600">
             Material ordering is a standalone tool. You can generate an order from an accepted quote in QuoteCore+, import a quote from another tool, or start with a blank order from scratch. However you start, the order builder gives you a supplier-ready document with quantities, product codes, cut lengths, and delivery details.
@@ -175,7 +175,7 @@ Create supplier-ready material orders for New Zealand jobs.
         </section>
 
         {/* How it works */}
-        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+        <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight">How it works</h2>
           <div className="mt-8 space-y-8">
             {steps.map((step) => (
@@ -191,7 +191,7 @@ Create supplier-ready material orders for New Zealand jobs.
         </section>
 
         {/* Worked example */}
-        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+        <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight">Worked example: NZ long-run steel order</h2>
           <div className="mt-6 rounded-xl border border-slate-200 p-6">
             <p className="text-sm text-zinc-600">Ordering materials for a 180 m² residential re-roof in Wellington, using long-run steel from Roofing Industries:</p>
@@ -206,7 +206,7 @@ Create supplier-ready material orders for New Zealand jobs.
         </section>
 
         {/* Who it's for */}
-        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+        <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight">Who it&apos;s for</h2>
           <p className="mt-4 leading-7 text-zinc-600">
             Contractors who order materials from suppliers. Whether you quote in QuoteCore+ or elsewhere, the material ordering tool gives you a clean, supplier-ready document without re-counting or re-formatting.
@@ -214,7 +214,7 @@ Create supplier-ready material orders for New Zealand jobs.
         </section>
 
         {/* What it solves */}
-        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+        <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight">What problem it solves</h2>
           <div className="mt-6 space-y-4">
             <div className="rounded-xl border border-slate-200 p-6">
@@ -233,7 +233,7 @@ Create supplier-ready material orders for New Zealand jobs.
         </section>
 
         {/* FAQ */}
-        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+        <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight">Frequently asked questions</h2>
           <div className="mt-6 space-y-4">
             {faqs.map((faq) => (
@@ -246,7 +246,7 @@ Create supplier-ready material orders for New Zealand jobs.
         </section>
 
         {/* Related */}
-        <section className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+        <section className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight">Related</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <Link href="/features/smart-components" className="rounded-xl border border-slate-200 p-6 transition-all hover:border-orange-200 hover:bg-orange-50/40">
@@ -269,7 +269,7 @@ Create supplier-ready material orders for New Zealand jobs.
         </section>
 
         {/* CTA */}
-        <section className="mx-auto max-w-3xl px-6 pb-24 lg:px-8">
+        <section className="mx-auto max-w-5xl px-6 pb-24 lg:px-8">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 px-8 py-10 text-center">
             <h2 className="text-2xl font-semibold tracking-tight">Try material ordering free</h2>
             <p className="mt-2 text-zinc-600">14 days, all features, no credit card required.</p>

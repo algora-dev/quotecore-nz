@@ -176,7 +176,7 @@ export default function RoofCostCalculatorNZPage() {
 
       {/* Content sections below calculator */}
       <div className="border-t border-slate-200 bg-white px-4 py-8">
-        <div className="mx-auto max-w-3xl space-y-8">
+        <div className="mx-auto max-w-5xl space-y-8">
 
           {/* How component-based pricing works */}
           <section>

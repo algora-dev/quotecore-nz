@@ -200,7 +200,7 @@ Roofing quoting software built for New Zealand contractors.
         />
 
         {/* Problem section */}
-        <section className="mx-auto max-w-3xl px-6 py-16 lg:px-8">
+        <section className="mx-auto max-w-4xl px-6 py-16 lg:px-8">
           <p className="text-lg leading-8 text-zinc-700">
             Most roofing businesses do not lose time because they cannot measure a roof.
           </p>
