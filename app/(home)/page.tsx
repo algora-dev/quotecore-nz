@@ -7,6 +7,7 @@ import BlogHeader from "@/components/BlogHeader";
 import HeroVideo from "@/components/HeroVideo";
 import SiteFooter from "@/components/SiteFooter";
 import YouTubeLite from "@/components/YouTubeLite";
+import DemoToolCard from "@/components/DemoToolCard";
 import { trackEvent } from "@/lib/analytics";
 import { buildBreadcrumbSchema, buildFaqSchema, buildSoftwareApplicationSchema } from "@/lib/schema";
 
@@ -404,6 +405,8 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <DemoToolCard />
 
         {/* 3. Smart Components */}
         <section id="smart-components" className="py-12 lg:py-16 bg-zinc-50">
