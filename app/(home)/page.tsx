@@ -278,11 +278,7 @@ export default function HomePage() {
               </div>
 
               <div className="relative z-10 flex flex-1 items-center justify-center overflow-hidden lg:flex-1">
-                <YouTubeLite
-                  videoId="X379HDoDE_o"
-                  title="Create a complex roofing quote in under 3 minutes"
-                  className="w-full"
-                />
+                <DemoToolCard />
               </div>
             </div>
           </div>
@@ -405,8 +401,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
-        <DemoToolCard />
 
         {/* 3. Smart Components */}
         <section id="smart-components" className="py-12 lg:py-16 bg-zinc-50">
