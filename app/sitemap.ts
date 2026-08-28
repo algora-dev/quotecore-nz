@@ -18,6 +18,7 @@ const lastModified: Record<string, string> = {
   "/features/sending-and-tracking": "2026-08-03",
   "/features/supplier-resources": "2026-08-03",
   "/construction-quoting-software": "2026-08-03",
+  "/done-for-you-setup": "2026-08-28",
   "/contact": "2026-07-24",
   "/free-trial": "2026-08-03",
   "/free-tools": "2026-08-05",

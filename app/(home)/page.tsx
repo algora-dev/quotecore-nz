@@ -5,6 +5,7 @@ import Script from "next/script";
 import CoffeePopup from "@/components/CoffeePopup";
 import BlogHeader from "@/components/BlogHeader";
 import HeroVideo from "@/components/HeroVideo";
+import DoneForYouBanner from "@/components/DoneForYouBanner";
 import SiteFooter from "@/components/SiteFooter";
 import YouTubeLite from "@/components/YouTubeLite";
 import DemoToolCard from "@/components/DemoToolCard";
@@ -234,6 +235,8 @@ export default function HomePage() {
       />
 
       <HeroVideo />
+
+      <DoneForYouBanner />
 
       <main className="min-h-screen bg-white text-zinc-950">
         <div className="hero-duplicate-header">
