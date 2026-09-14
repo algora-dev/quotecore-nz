@@ -1,0 +1,135 @@
+{
+  "version": "3.0.0",
+  "duration": 30300,
+  "scenes": [
+    {
+      "id": "opening",
+      "start": 0,
+      "duration": 2300,
+      "title": "Does this<br><span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">look familiar?</span></span>",
+      "rows": [],
+      "rowDelays": [],
+      "glowDelays": [
+        900
+      ]
+    },
+    {
+      "id": "plans",
+      "start": 2420,
+      "duration": 3150,
+      "title": "Print the plans.",
+      "rows": [
+        "Measure by hand.",
+        "<span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">Write it all down.</span></span>"
+      ],
+      "rowDelays": [
+        360,
+        770
+      ],
+      "glowDelays": [
+        1580
+      ]
+    },
+    {
+      "id": "site",
+      "start": 5690,
+      "duration": 3250,
+      "title": "Drive out.",
+      "rows": [
+        "Measure the roof.",
+        "<span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">Drive back.</span></span> Start pricing."
+      ],
+      "rowDelays": [
+        360,
+        770
+      ],
+      "glowDelays": [
+        1580
+      ]
+    },
+    {
+      "id": "satellite",
+      "start": 9060,
+      "duration": 3000,
+      "title": "Measure from satellite.",
+      "rows": [
+        "Apply your <span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">square area rate.</span></span>"
+      ],
+      "rowDelays": [
+        420
+      ],
+      "glowDelays": [
+        1380
+      ]
+    },
+    {
+      "id": "pricing",
+      "start": 12180,
+      "duration": 3350,
+      "title": "Transfer the measurements.",
+      "rows": [
+        "To a <span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">spreadsheet or app.</span></span>",
+        "Work out the price."
+      ],
+      "rowDelays": [
+        360,
+        800
+      ],
+      "glowDelays": [
+        1630
+      ]
+    },
+    {
+      "id": "documents",
+      "start": 15650,
+      "duration": 3500,
+      "title": "Move the numbers again.",
+      "rows": [
+        "Build the quote.",
+        "Then the <span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">order</span></span>. Then the <span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">invoice</span></span>."
+      ],
+      "rowDelays": [
+        360,
+        900
+      ],
+      "glowDelays": [
+        1570,
+        2110
+      ]
+    }
+  ],
+  "final": {
+    "id": "workflow",
+    "start": 19300,
+    "duration": 9800,
+    "title": "We built QuoteCore+<br>around the way you already work.",
+    "rows": [
+      "<span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">Measure digitally</span></span> or add your measurements.",
+      "Your pricing is calculated <span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">automatically.</span></span><small>(using your saved rates and rules)</small>",
+      "<span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">Generate and send</span></span> the quote.",
+      "Easily send an <span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">order or invoice</span></span> from the same job."
+    ],
+    "rowDelays": [
+      1050,
+      2650,
+      4250,
+      5700
+    ],
+    "glowDelays": [
+      1810,
+      3470,
+      5020,
+      6500
+    ],
+    "reuseDelay": 7750,
+    "reuse": "Everything saved. <span class=\"qch-em\"><span class=\"qch-glow\" aria-hidden=\"true\"></span><span class=\"qch-em-ink\">Ready to reuse.</span></span>"
+  },
+  "motion": {
+    "entryDuration": 560,
+    "exitDuration": 240,
+    "travelPixels": 16,
+    "glowDuration": 1150,
+    "scale": false,
+    "overlap": false
+  }
+}

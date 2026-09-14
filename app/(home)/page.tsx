@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Script from "next/script";
 import CoffeePopup from "@/components/CoffeePopup";
 import BlogHeader from "@/components/BlogHeader";
-import HeroVideo from "@/components/HeroVideo";
+import RefinedHeroExperience from "@/components/hero/RefinedHeroExperience";
 import DoneForYouBanner from "@/components/DoneForYouBanner";
 import SiteFooter from "@/components/SiteFooter";
 import YouTubeLite from "@/components/YouTubeLite";
@@ -234,7 +234,7 @@ export default function HomePage() {
         }}
       />
 
-      <HeroVideo />
+      <RefinedHeroExperience />
 
       <DoneForYouBanner />
 
@@ -249,9 +249,9 @@ export default function HomePage() {
             <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-10 xl:gap-12">
               <div className="relative z-20 flex-1 text-center lg:flex-[1.12] lg:text-left">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF6B35]">Built in New Zealand for measured trade work</p>
-                <h1 className="mt-6 text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl">
+                <h2 className="mt-6 text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl">
                   The quoting tool that gets long-run roofing.
-                </h1>
+                </h2>
                 <p className="mt-4 text-xl font-semibold leading-tight text-zinc-700 sm:text-2xl">
                   Finally a measuring and quoting app that understands long-run roofing, built by a Kiwi roofer for Kiwi roofs.
                 </p>
