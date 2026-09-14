@@ -76,7 +76,7 @@ export default function RefinedHeroExperience() {
         <BlogHeader />
       </div>
 
-      <div ref={heroRef}>
+      <div ref={heroRef} className={heroGone ? "qc-video-mode" : ""}>
         {heroGone ? (
           /* Original hero video takes over once the animation has finished */
           <HeroVideo includeHeader={false} />
@@ -115,6 +115,12 @@ export default function RefinedHeroExperience() {
         /* Hero starts at the very top of the page: 100svh, no header offset */
         body.qc-refined-hero-active #quotecore-workflow-hero {
           margin-top: 0;
+        }
+
+        /* Video mode: the fixed header overlays the page, so push the video
+           frame down so its top sits at the bottom of the header (h-20 = 5rem) */
+        .qc-video-mode {
+          padding-top: 5rem;
         }
 
         /* Fade the animation out once finished, before the video swap */
