@@ -45,22 +45,28 @@ export default function RefinedHeroExperience() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [animDone]);
 
-  // When the animation completes (or is skipped), transition to video mode
+  // When the animation completes (or is skipped), transition to video mode.
+  // Note: the controller's 'quotecore:hero' event does NOT bubble,
+  // so we listen directly on the hero section element.
   useEffect(() => {
-    const el = heroRef.current;
-    if (!el || animDone) return;
+    if (animDone) return;
+    const root = heroRef.current?.querySelector("[data-qch-hero]") ?? document.getElementById("quotecore-workflow-hero");
+    if (!root) return;
     const onHeroEvent = (e: Event) => {
       const detail = (e as CustomEvent).detail;
       if (detail?.type === "complete" || detail?.type === "skip") {
-        setAnimDone(true);
-        setMenuVisible(true);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        // Let the fade-out finish, then unmount the hero and mount the video
-        window.setTimeout(() => setHeroGone(true), 900);
+        // Hold the final frame for half a second, then fade out and swap to video
+        window.setTimeout(() => {
+          setAnimDone(true);
+          setMenuVisible(true);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          // Let the fade-out finish, then unmount the hero and mount the video
+          window.setTimeout(() => setHeroGone(true), 900);
+        }, 500);
       }
     };
-    el.addEventListener("quotecore:hero", onHeroEvent as EventListener);
-    return () => el.removeEventListener("quotecore:hero", onHeroEvent as EventListener);
+    root.addEventListener("quotecore:hero", onHeroEvent as EventListener);
+    return () => root.removeEventListener("quotecore:hero", onHeroEvent as EventListener);
   }, [animDone]);
 
   return (
