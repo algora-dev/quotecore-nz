@@ -33,7 +33,7 @@
   padding-block-start: var(--qch-top);
   pointer-events: none;
   opacity: 0;
-  text-align: left;
+  text-align: center;
 }
 .qch-scene--workflow { opacity: 1; }
 .qch-hero[data-qch-enhanced] .qch-scene--workflow,
@@ -53,9 +53,11 @@
   letter-spacing: -.057em;
 }
 .qch-list {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   list-style: none;
+  width: fit-content;
+  text-align: left;
 }
 .qch-item {
   display: grid;
@@ -123,7 +125,9 @@
   color: var(--qch-muted);
 }
 .qch-reuse {
-  margin: 35px 0 0 31px;
+  margin: 35px auto 0;
+  width: fit-content;
+  text-align: left;
   font-size: clamp(24px, 2.32vw, 33px);
   font-weight: 600;
   line-height: 1.28;
@@ -189,7 +193,7 @@
   .qch-workflow-list .qch-bullet { inline-size: 5px; block-size: 5px; }
   .qch-workflow-list .qch-item + .qch-item { margin-block-start: 20px; }
   .qch-item small { font-size: 13px; line-height: 1.42; margin-block-start: 5px; }
-  .qch-reuse { margin: 29px 0 0 21px; font-size: clamp(22px, 5.9vw, 29px); line-height: 1.32; letter-spacing: -.031em; }
+  .qch-reuse { margin: 29px auto 0; font-size: clamp(22px, 5.9vw, 29px); line-height: 1.32; letter-spacing: -.031em; }
 }
 @media (max-width: 360px) {
   .qch-stage { inline-size: calc(100% - 40px); }

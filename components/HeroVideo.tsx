@@ -21,7 +21,7 @@ import BlogHeader from "./BlogHeader";
  * - Mobile: video fits within the screen using object-contain
  */
 
-export default function HeroVideo() {
+export default function HeroVideo({ includeHeader = true }: { includeHeader?: boolean }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const heroBlockRef = useRef<HTMLDivElement>(null);
   const [isMuted, setIsMuted] = useState(true);
@@ -94,7 +94,7 @@ export default function HeroVideo() {
   return (
     <>
       {/* ── Header (normal, visible from start) ── */}
-      <BlogHeader />
+      {includeHeader && <BlogHeader />}
 
       {/* ── Hero block: video + transition text ── */}
       <div
