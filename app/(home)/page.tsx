@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Script from "next/script";
 import CoffeePopup from "@/components/CoffeePopup";
 import BlogHeader from "@/components/BlogHeader";
-import RefinedHeroExperience from "@/components/hero/RefinedHeroExperience";
+import AnimatedHero from "@/components/hero/AnimatedHero";
 import DoneForYouBanner from "@/components/DoneForYouBanner";
 import SiteFooter from "@/components/SiteFooter";
 import YouTubeLite from "@/components/YouTubeLite";
@@ -234,7 +234,7 @@ export default function HomePage() {
         }}
       />
 
-      <RefinedHeroExperience />
+      <AnimatedHero />
 
       <DoneForYouBanner />
 
