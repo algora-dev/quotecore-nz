@@ -23,16 +23,18 @@ import HeroVideo from "@/components/HeroVideo";
  * always rendered in HTML for crawlability.
  */
 
-type SceneId = "s1" | "s2" | "s3" | "s4" | "s5" | "s6" | "s7" | "s8";
+type SceneId =
+  | "s0" | "s1" | "s2" | "s3" | "s4" | "s5" | "s6" | "s7" | "s8";
 
-const SCENES: SceneId[] = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"];
+const SCENES: SceneId[] = ["s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"];
 
 // Per-scene timing (ms). Entrance ~550-600ms, glow begins after settle.
 const TIMING: Record<
   Exclude<SceneId, "s8">,
   { settle: number; glowIn: number; glowHold: number; glowOut: number; exit: number }
 > = {
-  s1: { settle: 750, glowIn: 500, glowHold: 1100, glowOut: 350, exit: 450 },
+  s0: { settle: 700, glowIn: 0, glowHold: 0, glowOut: 0, exit: 450 },
+  s1: { settle: 650, glowIn: 500, glowHold: 800, glowOut: 350, exit: 450 },
   s2: { settle: 650, glowIn: 500, glowHold: 1100, glowOut: 350, exit: 450 },
   s3: { settle: 650, glowIn: 500, glowHold: 1000, glowOut: 350, exit: 450 },
   s4: { settle: 650, glowIn: 500, glowHold: 950, glowOut: 350, exit: 450 },
@@ -113,13 +115,22 @@ export default function AnimatedHero() {
       await wait(350);
       if (cancelled) return;
 
-      for (const id of SCENES.slice(0, 7)) {
+      for (const id of SCENES.slice(0, 8)) {
         const t = TIMING[id as Exclude<SceneId, "s8">];
         setScene(id);
         await wait(t.settle);
         if (cancelled) return;
 
-        if (id === "s4") {
+        if (id === "s0") {
+          // Orientation scene: no emphasis glow, just a comfortable hold.
+          await wait(1500);
+          if (cancelled) return;
+        } else if (id === "s1") {
+          // Hook: soft glow on "familiar?", isolated, brief.
+          setGlow("s1");
+          await wait(t.glowIn + t.glowHold);
+          if (cancelled) return;
+        } else if (id === "s4") {
           setGlow("s4a");
           await wait(t.glowHold);
           if (cancelled) return;
@@ -136,12 +147,9 @@ export default function AnimatedHero() {
           setGlow("s6c");
           await wait(650);
           if (cancelled) return;
-        } else if (id !== "s1") {
+        } else {
           setGlow(id);
           await wait(t.glowIn + t.glowHold);
-          if (cancelled) return;
-        } else {
-          await wait(1700);
           if (cancelled) return;
         }
 
@@ -218,18 +226,31 @@ export default function AnimatedHero() {
 
           {/* Stage: grid-stacked scenes; container height = final scene (no CLS) */}
           <div className="nzah-stage mx-auto grid w-full max-w-[1050px] place-items-center px-6 py-16">
-            {/* Scene 1 — opening invitation */}
-            <div className={sceneClass("s1")} aria-hidden={scene !== "s1"}>
-              <p className="text-center text-sm font-medium tracking-wide text-zinc-500 sm:text-base">
-                Faster measurement to quote. Built for roofers, builders and trades.
+            {/* Scene 0 — orientation */}
+            <div className={sceneClass("s0")} aria-hidden={scene !== "s0"}>
+              <h2 className="nzah-big text-center">
+                From{" "}
+                <em className="nzah-em nzah-em-faint">measurement</em> to{" "}
+                <em className="nzah-em nzah-em-faint">quote</em> — faster.
+              </h2>
+              <p className="nzah-sub mt-5 text-center text-lg font-semibold sm:text-xl">
+                Built for roofers, builders and trades.
               </p>
-              <h2 className="nzah-big mt-5 text-center">
-                Does any of this look familiar?
+            </div>
+
+            {/* Scene 1 — hook (isolated) */}
+            <div className={sceneClass("s1")} aria-hidden={scene !== "s1"}>
+              <h2 className="nzah-big nzah-huge text-center">
+                Does any of this look{" "}
+                <em className={glow === "s1" ? "nzah-em nzah-em-on" : "nzah-em"}>
+                  familiar?
+                </em>
               </h2>
             </div>
 
             {/* Scene 2 — printed plans */}
             <div className={sceneClass("s2")} aria-hidden={scene !== "s2"}>
+              <p className="nzah-label">From plans</p>
               <p className="nzah-big text-center">Print the plans.</p>
               <p className="nzah-sub mt-4 text-center">
                 Measure with ruler and pen.
@@ -242,6 +263,7 @@ export default function AnimatedHero() {
 
             {/* Scene 3 — site measurements */}
             <div className={sceneClass("s3")} aria-hidden={scene !== "s3"}>
+              <p className="nzah-label">On site</p>
               <p className="nzah-big text-center">Drive to site to measure.</p>
               <p className="nzah-sub mt-4 text-center">
                 <em className={glow === "s3" ? "nzah-em nzah-em-on" : "nzah-em"}>
@@ -253,6 +275,7 @@ export default function AnimatedHero() {
 
             {/* Scene 4 — satellite imagery */}
             <div className={sceneClass("s4")} aria-hidden={scene !== "s4"}>
+              <p className="nzah-label">From satellite</p>
               <p className="nzah-big text-center">
                 Measure from{" "}
                 <em className={glow === "s4a" ? "nzah-em nzah-em-on" : "nzah-em"}>
@@ -271,6 +294,7 @@ export default function AnimatedHero() {
 
             {/* Scene 5 — pricing */}
             <div className={sceneClass("s5")} aria-hidden={scene !== "s5"}>
+              <p className="nzah-label">Pricing</p>
               <p className="nzah-big text-center">
                 Transfer your measurements into a{" "}
                 <em className={glow === "s5" ? "nzah-em nzah-em-on" : "nzah-em"}>
@@ -283,6 +307,7 @@ export default function AnimatedHero() {
 
             {/* Scene 6 — quoting and documents */}
             <div className={sceneClass("s6")} aria-hidden={scene !== "s6"}>
+              <p className="nzah-label">Quoting</p>
               <p className="nzah-big text-center">
                 Transfer your pricing into{" "}
                 <em className={glow === "s6a" ? "nzah-em nzah-em-on" : "nzah-em"}>
@@ -304,6 +329,7 @@ export default function AnimatedHero() {
 
             {/* Scene 7 — turning point */}
             <div className={sceneClass("s7")} aria-hidden={scene !== "s7"}>
+              <p className="nzah-label">A better way</p>
               <h2 className="nzah-big text-center">
                 We built QuoteCore+ around{" "}
                 <em className={glow === "s7" ? "nzah-em nzah-em-on" : "nzah-em"}>
@@ -316,6 +342,7 @@ export default function AnimatedHero() {
             {/* Scene 8 — connected workflow (final, persists) */}
             <div className={sceneClass("s8")} aria-hidden={scene !== "s8"}>
               <div className="w-full max-w-[780px]">
+                <p className="nzah-label nzah-label--left">One connected workflow</p>
                 <ul className="space-y-4 sm:space-y-5">
                   <li className={`nzah-bullet ${bullets >= 1 ? "nzah-bullet-on" : ""}`}>
                     Measure digitally or{" "}
@@ -356,7 +383,7 @@ export default function AnimatedHero() {
                     We can help you set it up around how you currently measure and
                     price jobs.
                   </p>
-                  <p className="mt-2 text-sm text-zinc-500">(See below.)</p>
+                  <p className="mt-2 text-sm font-semibold text-zinc-600">See below ↓</p>
                 </div>
               </div>
             </div>
@@ -450,6 +477,22 @@ const nzahSceneCss = `
   }
 
   /* Typography */
+  .nzah-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #BD4A1A;
+    margin: 0 0 0.9rem;
+    text-align: center;
+  }
+  .nzah-label--left {
+    text-align: left;
+  }
+  .nzah-huge {
+    font-size: clamp(2.25rem, 5.5vw, 4rem);
+    max-width: 20ch;
+  }
   .nzah-big {
     font-size: clamp(1.75rem, 4.5vw, 3.25rem);
     font-weight: 700;
@@ -478,6 +521,9 @@ const nzahSceneCss = `
     text-shadow:
       0 0 18px rgba(255, 107, 53, 0.55),
       0 0 42px rgba(255, 176, 92, 0.35);
+  }
+  .nzah-em-faint {
+    text-shadow: 0 0 14px rgba(255, 107, 53, 0.28);
   }
 
   /* Scene 8 bullets */
