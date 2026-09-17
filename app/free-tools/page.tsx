@@ -37,6 +37,29 @@ export default function FreeToolsPage() {
           </div>
         </section>
 
+        {/* The NZ free tools suite — featured on-domain tools */}
+        <section className="mx-auto max-w-5xl px-2 md:px-6 py-8 md:py-10">
+          <h2 className="text-lg md:text-2xl font-semibold text-slate-900 mb-2">The NZ free tools suite</h2>
+          <p className="text-sm text-slate-500 mb-4">Professional takeoff and estimating tools that run right here on quote-core.co.nz. Metric measurements, NZD pricing, GST inclusive. No signup required.</p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ['/free-roof-takeoff', 'Roof Takeoff Tool', 'Upload a roof plan (PDF or image), calibrate the scale and measure areas, ridges, hips, valleys and spouting.'],
+              ['/free-roofing-calculator', 'Roofing Calculator', 'Pitch, rafter and hip/valley lengths, roof areas, battens and materials with NZ roof profiles.'],
+              ['/free-roof-pitch-calculator', 'Roof Pitch Calculator', 'Convert pitch between degrees, rise/run and percentage, with the pitch factor for roof area.'],
+              ['/free-cladding-takeoff', 'Wall &amp; Cladding Takeoff', 'Measure wall and cladding areas, trims, battens and openings from elevation plans.'],
+              ['/free-flooring-takeoff', 'Flooring Takeoff', 'Measure floor areas, plank, carpet, tile, underlay, skirting and scotia from floor plans.'],
+              ['/measurement-to-quote-tool', 'Measurement-to-Quote Tool', 'Turn your measurements into a priced, branded quote with GST.'],
+              ['/free-construction-calculator', 'Construction Calculator', 'Areas, volumes, timber lengths and more, including the bird&rsquo;s beak (birdsmouth) cut calculator.'],
+            ].map(([href, title, desc]) => (
+              <Link key={href} href={href} prefetch={false} className="rounded-xl border border-slate-200 bg-white px-4 py-3 hover:border-[#FF6B35] hover:bg-orange-50/40 transition-all">
+                <span className="block text-sm font-semibold text-slate-900">{title}</span>
+                <span className="mt-1 block text-xs leading-relaxed text-slate-500">{desc}</span>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-4 text-sm text-slate-500">Need something else? <a href="https://quote-core.com/free-tools" className="text-[#BD4A1A] underline underline-offset-2">Browse our full range of 50+ free tools</a> on quote-core.com.</p>
+        </section>
+
         {/* What do you need to do? routing */}
         <section className="mx-auto max-w-5xl px-2 md:px-6 py-8 md:py-12">
           <h2 className="text-lg md:text-2xl font-semibold text-slate-900 mb-4">What do you need to do?</h2>
