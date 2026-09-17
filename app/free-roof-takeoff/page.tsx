@@ -242,7 +242,7 @@ export default function FreeRoofTakeoffPage() {
         <p className="mt-3 text-sm leading-relaxed text-slate-600">
           In the U.S. and Canada this workflow may be called a roof takeoff, roof measurement, roofing quantity takeoff
           or roof estimating from plans - in the UK, Australia and New Zealand, a roof take-off or roof plan measurement.
-          QuoteCore+ supports imperial units (square feet, linear feet), pitch ratios like 6:12 and roofing squares, as
+          QuoteCore+ supports imperial units (square feet, metres), pitch ratios like 6:12 and roofing squares, as
           well as metric.
         </p>
         <div className="mt-6 rounded-xl border border-slate-200 bg-white px-5 py-4">

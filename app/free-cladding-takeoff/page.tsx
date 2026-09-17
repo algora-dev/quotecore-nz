@@ -41,7 +41,7 @@ const FAQS = [
   {
     question: 'What wall measurements can I take?',
     answer:
-      'Wall areas, building wrap and soffit areas, cavity batten runs, horizontal cladding areas (cedar, corrugate or your own), window and door trims, corner trims, opening counts, and custom lengths or areas for any material.',
+      'Wall areas, building wrap and soffit areas, cavity batten runs, horizontal cladding areas (cedar, weatherboard, corrugate or your own), window and door trims, corner trims, opening counts, and custom lengths or areas for any material.',
   },
   {
     question: 'Can I upload a PDF plan?',
@@ -101,7 +101,7 @@ const MEASUREMENTS = [
   ['Wall areas', 'Trace any wall or elevation on your plan to get its area'],
   ['Building wrap & soffit', 'Full-surface areas straight off the elevation'],
   ['Cavity battens', 'Full-surface batten coverage, by wall area'],
-  ['Cladding areas', 'Cedar, corrugate or your own cladding, by area'],
+  ['Cladding areas', 'cedar, weatherboard, corrugate or your own cladding, by area'],
   ['Window & door trims', 'Perimeter trim runs around every opening'],
   ['Corner trims', 'External and internal corner runs by length'],
   ['Openings', 'Count windows and doors priced per unit'],
@@ -124,7 +124,7 @@ export default function FreeCladdingTakeoffPage() {
         <p className="mt-4 text-base leading-relaxed text-slate-600">
           Upload an elevation, wall plan or architectural drawing (PNG, JPG, WebP or PDF) and measure siding and cladding
           areas, trims, openings, battens and other linear runs directly in your browser. Exterior walls, facades and
-          interior walls, any material. Square feet or square metres - no signup required.
+          interior walls, any material. Square metres by default (imperial available) - no signup required.
         </p>
         <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           {TRUST_POINTS.map(point => (
@@ -275,12 +275,7 @@ export default function FreeCladdingTakeoffPage() {
           materials, labour, pricing and quotations. QuoteCore Plus&rsquo;s free tool handles the measurement stage
           directly in your browser - external walls, internal walls, any material.
         </p>
-        <p className="mt-3 text-sm leading-relaxed text-slate-600">
-          <strong>A note on terminology:</strong> &ldquo;cladding&rdquo; is commonly searched as <strong>siding</strong>
-          in the U.S. and Canada, and this tool is designed for both workflows - a siding takeoff, elevation takeoff or
-          wall takeoff all follow the same steps here. Exterior wall areas in square feet or m², trims in linear feet or
-          metres, openings counted per unit.
-        </p>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600"><strong>A note on terminology:</strong> in New Zealand, cladding covers weatherboard, brick, render, corrugate and sheet systems - whatever the elevation wears. Areas in square metres, trims in metres, openings counted per unit.</p>
         <p className="mt-3 text-sm leading-relaxed text-slate-600">
           Finished measuring? <strong>Turn your measurements into a quote</strong> with the{' '}
           <Link href="/measurement-to-quote-tool" className="text-[#BD4A1A] underline underline-offset-2">free Measurement-to-Quote Tool</Link>, or

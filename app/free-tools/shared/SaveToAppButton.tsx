@@ -127,6 +127,16 @@ export function SaveToAppButton({ documentType, documentData }: SaveToAppButtonP
         }),
       });
 
+      // NZ site fallback: the app-side save/eligibility endpoints live on
+      // quote-core.com. On the NZ marketing site they 404 - hand the user
+      // across to the .com signup flow (the deliberate trial handoff point)
+      // instead of showing an error.
+      if (res.status === 404) {
+        window.open('https://quote-core.com/signup', '_blank', 'noopener');
+        setModal({ type: 'none' });
+        return;
+      }
+
       if (!res.ok) {
         throw new Error('Failed to check eligibility');
       }

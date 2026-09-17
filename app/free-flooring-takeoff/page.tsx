@@ -123,8 +123,7 @@ export default function FreeFlooringTakeoffPage() {
         </h1>
         <p className="mt-4 text-base leading-relaxed text-slate-600">
           Upload a floor plan (PNG, JPG, WebP or PDF), set the drawing scale, and measure floor areas, timber or hardwood
-          plank, LVP and laminate, carpet, tile, underlay, skirting and scotia directly in your browser. Any floor
-          covering, any units. No signup required.
+          plank, LVP and laminate, carpet, tile, underlay, skirting and scotia directly in your browser. Any floor covering. Metric by default. No signup required.
         </p>
         <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           {TRUST_POINTS.map(point => (
@@ -250,12 +249,7 @@ export default function FreeFlooringTakeoffPage() {
           calculate materials, labour, pricing and quotations. QuoteCore Plus&rsquo;s free tool handles the measurement
           stage directly in your browser - timber plank, carpet, tile, any material.
         </p>
-        <p className="mt-3 text-sm leading-relaxed text-slate-600">
-          <strong>Flooring takeoff for U.S. contractors:</strong> areas in square feet, baseboard and shoe molding /
-          quarter-round lengths in linear feet, transitions per unit. Whether you call the trim skirting or baseboard,
-          the flooring hardwood, LVP, vinyl plank, laminate or carpet - the same plan takeoff covers it, and the
-          measurements feed your flooring estimate directly.
-        </p>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600"><strong>NZ flooring takeoffs:</strong> areas in square metres, skirting and scotia runs in metres, transition strips per unit. Whether the floor is timber plank, carpet, tile, vinyl, hybrid or laminate, the same plan takeoff covers it, and the measurements feed your estimate directly - price with GST if you quote GST-inclusive.</p>
         <p className="mt-3 text-sm leading-relaxed text-slate-600">
           Finished measuring? <strong>Turn your measurements into a quote</strong> with the{' '}
           <Link href="/measurement-to-quote-tool" className="text-[#BD4A1A] underline underline-offset-2">free Measurement-to-Quote Tool</Link>, or
