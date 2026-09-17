@@ -6,12 +6,12 @@ export const roofingConfig: TradeConfig = {
   slug: 'free-roofing-calculator',
   defaultCurrency: 'NZD',
   name: 'Roofing Calculator',
-  metaTitle: 'Roofing Calculator - Pitch, Area, Rafter Length, Materials | QuoteCore+',
+  metaTitle: 'Roofing Calculator NZ - Pitch, Rafter Length, Roof Area & Materials | QuoteCore+',
   metaDescription:
-    'Free roofing calculator. Calculate roof pitch, rafter length, roof surface area, quantities and complex pricing. No signup required - works on mobile and desktop.',
-  ogTitle: 'Roofing Calculator - Pitch, Area, Rafter Length, Materials',
+    'Free roofing calculator for New Zealand roofers. Calculate roof pitch, rafter length, roof surface area, quantities and pricing in NZD. Metric-first, no signup - works on mobile and desktop.',
+  ogTitle: 'Roofing Calculator NZ - Pitch, Area, Rafter Length, Materials',
   ogDescription:
-    'Free roofing calculator. Calculate roof pitch, rafter length, roof surface area, and material quantities. No signup required.',
+    'Free NZ roofing calculator. Calculate roof pitch, rafter length, roof surface area, and material quantities. No signup required.',
 
   tabs: [
     { id: 'roof-area', label: 'Roof Area', kind: 'area' },
@@ -88,9 +88,9 @@ export const roofingConfig: TradeConfig = {
   },
 
   content: {
-    h1: 'Roofing Calculator',
+    h1: 'Roofing Calculator NZ',
     heroText:
-      'Calculate roof pitch, rafter length, roof surface area, quantities and complex pricing. No signup required - works on mobile and desktop.',
+      'Free roofing calculator for New Zealand roofers. Calculate roof pitch, rafter length, roof surface area, quantities and pricing in NZD (GST-exclusive by default). Metric-first, no signup - works on mobile and desktop.',
     tipsHeading: 'Roofing calculation tips',
     tips: [
       {
@@ -98,12 +98,16 @@ export const roofingConfig: TradeConfig = {
         body: 'Use a digital level or smartphone app placed on the roof surface to get a direct degree reading. Alternatively, measure 1 metre horizontally from the roof edge, then measure the vertical rise at that point. The arctangent of rise / run gives you the pitch in degrees.',
       },
       {
+        title: 'NZ roofing terminology: long-run, corrugate, spouting, bird\u2019s beak',
+        body: 'New Zealand roofers say long-run (tray-profile steel roofing) and corrugate (corrugated iron profile) where overseas sites say standing seam or metal sheet. Gutters are spouting, and the notch where a rafter sits on the top plate is a bird\u2019s beak (often written birdsmouth or bird\u2019s mouth) - all three names mean the same cut, and the Rafter tab calculates it.',
+      },
+      {
         title: 'When to use rafter vs hip/valley pitch factors',
         body: 'Use the rafter pitch factor for simple gable or lean-to roofs where the slope runs in one direction. Use the hip/valley factor for hipped roofs where the slope changes direction - this includes the compound angle that increases the actual surface area.',
       },
       {
         title: 'Common waste percentages by material',
-        body: 'Concrete tiles: 5-10%. Clay tiles: 10-15% (fragile, more breakage). Metal sheets: 5%. Asphalt shingles: 10-15%. Membrane: 5%. Add an extra 5% for complex roof shapes with many valleys, hips, or dormers that require numerous cuts.',
+        body: 'Concrete tiles: 5-10%. Clay tiles: 10-15% (fragile, more breakage). Long-run and corrugate steel: 5%. Asphalt shingles: 10-15%. Butynol/membrane: 5%. Add an extra 5% for complex roof shapes with many valleys, hips, or dormers that require numerous cuts.',
       },
       {
         title: 'Why plan area differs from actual roof area',
@@ -140,7 +144,11 @@ export const roofingConfig: TradeConfig = {
       },
       {
         q: 'What waste percentage should I add for roofing materials?',
-        a: 'Typical waste percentages: concrete tiles 5-10%, clay tiles 10-15% (fragile), metal sheets 5%, asphalt shingles 10-15%, membrane 5%. Add more for complex roof shapes with many cuts.',
+        a: 'Typical waste percentages: concrete tiles 5-10%, clay tiles 10-15% (fragile), long-run and corrugate steel 5%, asphalt shingles 10-15%, butynol/membrane 5%. Add more for complex roof shapes with many cuts.',
+      },
+      {
+        q: 'Does the pricing include GST?',
+        a: 'No. Prices you enter are treated as GST-exclusive material rates in NZD, which is how most NZ suppliers quote trade pricing. Add 15% GST at the quote stage if you need a GST-inclusive figure.',
       },
       {
         q: 'What is the best free roofing calculator?',

@@ -6,12 +6,12 @@ export const constructionConfig: TradeConfig = {
   slug: 'free-construction-calculator',
   defaultCurrency: 'NZD',
   name: 'Construction Calculator',
-  metaTitle: 'Free Construction Calculator - Areas, Materials & Angles | QuoteCore+',
+  metaTitle: 'Construction Calculator NZ - Areas, Timber & Angles | QuoteCore+',
   metaDescription:
-    'Free construction calculator for builders. Work out floor and wall areas, timber and stud lengths, material quantities with waste, and cutting angles. No signup required.',
-  ogTitle: 'Free Construction Calculator - Areas, Materials & Angles',
+    'Free construction calculator for NZ builders. Work out floor and wall areas, timber and stud lengths, material quantities with waste, and cutting angles. Metric-first, no signup.',
+  ogTitle: 'Construction Calculator NZ - Areas, Materials & Angles',
   ogDescription:
-    'Free construction calculator. Floor and wall areas, timber and stud lengths, material quantities and cutting angles for builders. No signup required.',
+    'Free NZ construction calculator. Floor and wall areas, timber and stud lengths, material quantities and cutting angles for builders. No signup required.',
 
   tabs: [
     { id: 'area-materials', label: 'Area & Materials', kind: 'area' },
@@ -98,9 +98,9 @@ export const constructionConfig: TradeConfig = {
   },
 
   content: {
-    h1: 'Construction Calculator',
+    h1: 'Construction Calculator NZ',
     heroText:
-      'Free construction calculator for builders and site managers. Work out floor and wall areas, timber and stud lengths, material quantities with waste allowances, and cutting angles. No signup required - works on mobile and desktop.',
+      'Free construction calculator for New Zealand builders and site managers. Work out floor and wall areas, timber and stud lengths, material quantities with waste allowances, and cutting angles. Metric-first, pricing in NZD (GST-exclusive), no signup - works on mobile and desktop.',
     tipsHeading: 'Construction calculation tips',
     tips: [
       {
@@ -132,8 +132,12 @@ export const constructionConfig: TradeConfig = {
         body: 'Deduct windows and doors from wall areas when ordering plasterboard, insulation, or cladding - but only deduct openings larger than about 0.5 m². Small openings generate offcuts you cannot reuse, so leaving them in your figure builds in a sensible margin.',
       },
       {
-        title: "Cutting a bird's mouth in rafters and stringers",
-        body: "A bird's mouth is the notch that lets a rafter or stair stringer sit flat on a wall plate or landing. The seat cut is horizontal and the plumb cut vertical: measured from the timber edge, the seat cut angle equals the slope angle and the plumb cut equals 90° minus the slope. Never notch deeper than one-third of the timber depth - it weakens the member.",
+        title: "Cutting a bird's beak (birdsmouth) in rafters and stringers",
+        body: "A bird's beak - often written birdsmouth or bird's mouth - is the notch that lets a rafter or stair stringer sit flat on a wall plate or landing. The seat cut is horizontal and the plumb cut vertical: measured from the timber edge, the seat cut angle equals the slope angle and the plumb cut equals 90° minus the slope. Never notch deeper than one-third of the timber depth - it weakens the member.",
+      },
+      {
+        title: 'NZ timber sizes and GST on material pricing',
+        body: 'NZ framing uses metric sizes (90×45, 140×45, 190×45) at 400mm or 600mm centres, and plasterboard in 2.88 m² sheets. The default rates in this calculator are NZD and GST-exclusive, which matches how most NZ merchants quote trade accounts - add 15% GST at quote stage for GST-inclusive totals.',
       },
     ],
     formulas: [
