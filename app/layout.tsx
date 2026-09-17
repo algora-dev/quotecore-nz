@@ -85,6 +85,9 @@ export default function RootLayout({
             gtag('config', 'G-HV8F4G8BN1');
           `}
         </Script>
+        <Script id="ms-clarity" strategy="afterInteractive">
+          {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","yjvmsx2huf");`}
+        </Script>
         <Script
           id="combined-schema"
           type="application/ld+json"
