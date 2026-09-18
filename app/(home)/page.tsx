@@ -5,6 +5,7 @@ import Script from "next/script";
 import CoffeePopup from "@/components/CoffeePopup";
 import BlogHeader from "@/components/BlogHeader";
 import AnimatedHero from "@/components/hero/AnimatedHero";
+import VideoShowcase from "@/components/VideoShowcase";
 import DoneForYouBanner from "@/components/DoneForYouBanner";
 import SiteFooter from "@/components/SiteFooter";
 import YouTubeLite from "@/components/YouTubeLite";
@@ -236,8 +237,6 @@ export default function HomePage() {
 
       <AnimatedHero />
 
-      <DoneForYouBanner />
-
       <main className="min-h-screen bg-white text-zinc-950">
         <div className="hero-duplicate-header">
           <BlogHeader />
@@ -287,6 +286,9 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* 1a. "Another piece of software" objection — directly below the hero CTAs */}
+        <DoneForYouBanner />
+
         {/* Trust band */}
         <section className="border-y border-zinc-100 bg-white">
           <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6 py-4 text-sm text-zinc-600 lg:px-8">
@@ -325,6 +327,9 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* 1c. Product video showcase */}
+        <VideoShowcase />
 
         {/* 2. Core Workflow */}
         <section id="how-it-works" className="mx-auto w-full max-w-7xl px-6 py-10 lg:px-8 lg:py-16">

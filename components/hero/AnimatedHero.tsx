@@ -2,58 +2,52 @@
 
 import { useEffect, useRef, useState } from "react";
 import BlogHeader from "@/components/BlogHeader";
-import HeroVideo from "@/components/HeroVideo";
 
 /**
- * Animated intro hero (v5) for the NZ homepage — brief 2026-09-18.
+ * Animated intro hero (v6) for the NZ homepage — 2026-09-18.
  *
- * Phase 1: MEASURE -> PRICE -> QUOTE
- *   Each word enters (small translate + fade, ease-out), pulses once with a
- *   per-letter orange glow (text-shadow only, no scale => no reflow), then a
- *   thin orange arrow lands glowing between words. Supporting line appears
- *   after the QUOTE pulse: "Measure once. Price and quote in one simple flow."
- *
+ * Phase 1: MEASURE -> PRICE -> QUOTE (per-letter glow pulses, glowing
+ * arrows) + "Measure once. Price and quote in one simple flow."
  * Phase 2: "Built by roofers. For roofing and construction businesses."
- *   Supporting: "Designed around the way you already work."
+ * Phase 3: "Designed around the way you already work." (own beat, glow pulse)
  *
- * Phase 3: Whole intro slides up and out; the hero video slides into place
- * and only starts playing once the intro has finished (and the video is
- * visible). A large play button lets impatient users skip the intro.
+ * After the intro slides up it disappears entirely — the homepage's own hero
+ * section ("Built in New Zealand for measured trade work") is what follows.
+ * The hero video now lives in its own section further down the page
+ * (components/VideoShowcase.tsx) and only plays on user click.
  *
- * Shell behaviour (matches previous versions):
- * - Landing view: only the animation, full screen, no chrome
- * - Menu fades in as a fixed overlay on first scroll
- * - Reduced motion: static composition, video behaves normally
- * - All copy is rendered in HTML for crawlability
+ * The menu (BlogHeader) fades in ~0.5s after load in its frosted
+ * semi-transparent state and stays visible throughout.
  */
 
-// Timeline (ms from sequence start) — v5 spec timings.
+// Timeline (ms from sequence start).
 const T = {
+  menuFadeIn: 500,
   word1Enter: 200,
   word1Glow: 550,
   arrow1: 920,
-  // Inter-word gaps (arrow period) tightened ~25% per Shaun 2026-09-18
+  // Inter-word gaps (arrow period) tightened ~25%
   word2Enter: 1185,
   word2Glow: 1535,
   arrow2: 1905,
   word3Enter: 2185,
   word3Glow: 2535,
-  supportLine: 3435,
-  // Supporting line visible ~25% shorter; later phases shift up to match.
-  phase1Exit: 4925,
-  phase2Enter: 5325,
+  // QUOTE pulse ends ~2975 — supporting text arrives almost immediately after
+  supportLine: 3205,
+  // Supporting line holds ~1.5s
+  phase1Exit: 4705,
+  phase2Enter: 5105,
   // Main line holds alone, then the Phase 3 line appears underneath with its
   // own glow pulse (same treatment as MEASURE/PRICE/QUOTE).
-  phase2Support: 6825,
+  phase2Support: 6605,
   // Both lines hold so everything can be read...
-  phase2Exit: 8625,
-  finish: 9375,
+  phase2Exit: 8405,
+  finish: 9150,
 } as const;
 
 const WORDS = ["MEASURE", "PRICE", "QUOTE"] as const;
 
 export default function AnimatedHero() {
-  // Which phase-1 words have entered / are glowing / arrows shown
   const [entered, setEntered] = useState(0); // 0..3
   const [glowWord, setGlowWord] = useState(-1); // index currently pulsing
   const [arrows, setArrows] = useState(0); // 0..2
@@ -72,7 +66,7 @@ export default function AnimatedHero() {
   const cancelledRef = useRef(false);
   const timersRef = useRef<number[]>([]);
 
-  // Hide the page's duplicate BlogHeader while the hero experience is active
+  // Hide the page's duplicate BlogHeader while the intro is active
   useEffect(() => {
     document.body.classList.add("qc-refined-hero-active");
     return () => {
@@ -80,45 +74,43 @@ export default function AnimatedHero() {
     };
   }, []);
 
-  // Fade the menu in on first scroll; once done it stays
+  // Keep the menu state in sync with scroll once it has faded in
   useEffect(() => {
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        setMenuVisible(window.scrollY > 24);
+        setMenuVisible(window.scrollY > 24 || menuAlwaysRef.current);
         ticking = false;
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  const menuAlwaysRef = useRef(false);
 
-  const announceIntroComplete = () => {
-    document.body.dataset.qcIntroComplete = "1";
-    window.dispatchEvent(new Event("qc:intro-complete"));
-  };
-
-  const finishToVideo = () => {
+  const finishIntro = () => {
     if (animDone) return;
     setAnimDone(true);
     setMenuVisible(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    // Let the exit animation read, then swap to video mode.
+    // Let the exit animation read, then remove the intro entirely —
+    // the homepage's own hero section follows.
     timersRef.current.push(
-      window.setTimeout(() => setHeroGone(true), 850),
-      // Tell the video it may start playing (it waits until visible).
-      window.setTimeout(announceIntroComplete, 700)
+      window.setTimeout(() => {
+        document.body.classList.remove("qc-refined-hero-active");
+        setHeroGone(true);
+      }, 850)
     );
   };
 
-  // Skip button: cancel remaining intro, hand straight to the video.
-  const skipToVideo = () => {
+  // Skip button: cancel remaining intro and drop straight into the page
+  const skipIntro = () => {
     cancelledRef.current = true;
     timersRef.current.forEach(clearTimeout);
     setIntroExit(true);
-    finishToVideo();
+    finishIntro();
   };
 
   useEffect(() => {
@@ -130,16 +122,17 @@ export default function AnimatedHero() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduced) {
-      // Static composition: everything visible, no motion, video behaves normally.
+      // Static composition: everything visible, no motion, page follows.
       setEntered(3);
       setArrows(2);
       setSupportLine(true);
       setPhase2Main(true);
       setPhase2Support(true);
       setAnimDone(true);
+      menuAlwaysRef.current = true;
       setMenuVisible(true);
+      document.body.classList.remove("qc-refined-hero-active");
       setHeroGone(true);
-      announceIntroComplete();
       return;
     }
 
@@ -158,6 +151,12 @@ export default function AnimatedHero() {
         }, 440)
       );
     };
+
+    // Menu fades in shortly after load, frosted, and stays
+    at(T.menuFadeIn, () => {
+      menuAlwaysRef.current = true;
+      setMenuVisible(true);
+    });
 
     // --- Phase 1 ---
     at(T.word1Enter, () => setEntered(1));
@@ -184,9 +183,9 @@ export default function AnimatedHero() {
       );
     });
 
-    // --- Phase 3: handoff ---
+    // --- Handoff: intro leaves, homepage hero follows ---
     at(T.phase2Exit, () => setIntroExit(true));
-    at(T.finish, () => finishToVideo());
+    at(T.finish, () => finishIntro());
 
     // Reveal the skip button shortly after the sequence is underway
     at(1200, () => setShowSkip(true));
@@ -199,22 +198,12 @@ export default function AnimatedHero() {
   }, []);
 
   if (heroGone) {
-    return (
-      <>
-        <div className={`nzah-hero-header ${menuVisible ? "nzah-hero-header--visible" : ""}`}>
-          <BlogHeader />
-        </div>
-        <div className="nzah-video-mode">
-          <HeroVideo includeHeader={false} />
-        </div>
-        <style>{nzahShellCss}</style>
-      </>
-    );
+    return null;
   }
 
   return (
     <>
-      {/* Fixed header overlay: hidden at top, fades in on scroll */}
+      {/* Fixed header overlay: fades in ~0.5s after load, frosted, stays */}
       <div className={`nzah-hero-header ${menuVisible ? "nzah-hero-header--visible" : ""}`}>
         <BlogHeader />
       </div>
@@ -224,7 +213,7 @@ export default function AnimatedHero() {
           className="nzah-hero relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-white"
           aria-label="QuoteCore+ — measure, price and quote in one place"
         >
-          {/* Accessible reading equivalent (spec) */}
+          {/* Accessible reading equivalent */}
           <p className="sr-only">
             Measure, price and quote. Measure once. Price and quote in one simple
             flow. Built by roofers. For roofing and construction businesses.
@@ -260,7 +249,7 @@ export default function AnimatedHero() {
               </p>
             </div>
 
-            {/* ---------- Phase 2 ---------- */}
+            {/* ---------- Phase 2 + Phase 3 ---------- */}
             <div
               className={`nzah-phase nzah-phase2 ${
                 phase2Main ? "nzah-phase2-on" : ""
@@ -282,20 +271,21 @@ export default function AnimatedHero() {
             </div>
           </div>
 
-          {/* Large skip button while the intro runs */}
+          {/* Skip button while the intro runs */}
           {showSkip && (
             <button
               type="button"
-              onClick={skipToVideo}
+              onClick={skipIntro}
               className="nzah-skip group"
-              aria-label="Skip intro and play video"
+              aria-label="Skip intro"
             >
               <span className="nzah-skip-btn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none" />
+                  <path d="M5 4l10 8-10 8V4z" fill="currentColor" stroke="none" />
+                  <path d="M19 5v14" />
                 </svg>
               </span>
-              <span className="nzah-skip-label">Skip intro &amp; play</span>
+              <span className="nzah-skip-label">Skip intro</span>
             </button>
           )}
 
@@ -353,12 +343,12 @@ function GlowArrow({ shown }: { shown: boolean }) {
 }
 
 const nzahShellCss = `
-  /* Hide the page's duplicate BlogHeader while this hero is active */
+  /* Hide the page's duplicate BlogHeader while the intro is active */
   body.qc-refined-hero-active .hero-duplicate-header {
     display: none !important;
   }
 
-  /* Fixed header: out of view at top, fades/slides in on scroll */
+  /* Fixed header: fades in ~0.5s after load, frosted semi-transparent */
   .nzah-hero-header {
     position: fixed;
     top: 0;
@@ -375,13 +365,14 @@ const nzahShellCss = `
     transform: translateY(0);
     pointer-events: auto;
   }
-
-  /* Video mode: fixed header overlays the page, push video below it */
-  .nzah-video-mode {
-    padding-top: 5rem;
+  /* Frosted state over the intro */
+  .nzah-hero-header header {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.72) !important;
   }
 
-  /* Intro handoff: whole intro slides up and out (video takes its place) */
+  /* Intro handoff: whole intro slides up and out (homepage hero follows) */
   .nzah-intro-exit {
     animation: nzahIntroExit 750ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
@@ -419,7 +410,6 @@ const nzahSceneCss = `
       opacity 400ms cubic-bezier(0.22, 1, 0.36, 1),
       transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
   }
-  /* Phase 1 and Phase 2 overlap in the same spot */
   .nzah-phase:not(.nzah-phase2),
   .nzah-phase2 {
     position: absolute;
