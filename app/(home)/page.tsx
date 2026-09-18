@@ -80,7 +80,7 @@ function SmartComponentsShowcase() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
   return (
-    <div className="flex-1 flex items-center justify-center">
+    <div className="flex flex-1 flex-col items-center">
       <button
         type="button"
         onClick={() => setOpen(true)}
@@ -98,6 +98,14 @@ function SmartComponentsShowcase() {
           className="h-auto w-full"
         />
       </button>
+      <a
+        href="https://www.youtube.com/watch?v=aFXJwOiliPI&t=14s"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]"
+      >
+        <span aria-hidden="true">▶</span> Click to watch a short video on Smart Components
+      </a>
       {open && (
         <div
           className="fixed inset-0 z-[70] flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm"
@@ -410,7 +418,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
-            <div className="flex flex-col gap-3 lg:w-[460px] lg:shrink-0">
+            <div className="flex flex-col gap-3 lg:w-[390px] lg:shrink-0">
               {steps.map((item, i) => (
                 <div key={item.number} className="contents">
                   <button
