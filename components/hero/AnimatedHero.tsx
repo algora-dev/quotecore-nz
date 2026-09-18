@@ -39,15 +39,15 @@ const T = {
   word3Enter: 2185,
   word3Glow: 2535,
   supportLine: 3435,
-  // Hold the full Phase 1 composition ~1s longer so it can be read.
-  phase1Exit: 5450,
-  phase2Enter: 5850,
+  // Supporting line visible ~25% shorter; later phases shift up to match.
+  phase1Exit: 4925,
+  phase2Enter: 5325,
   // Main line holds alone, then the Phase 3 line appears underneath with its
   // own glow pulse (same treatment as MEASURE/PRICE/QUOTE).
-  phase2Support: 7350,
+  phase2Support: 6825,
   // Both lines hold so everything can be read...
-  phase2Exit: 9150,
-  finish: 9900,
+  phase2Exit: 8625,
+  finish: 9375,
 } as const;
 
 const WORDS = ["MEASURE", "PRICE", "QUOTE"] as const;
