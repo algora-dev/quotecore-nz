@@ -41,11 +41,11 @@ const T = {
   // Hold the full Phase 1 composition ~1s longer so it can be read.
   phase1Exit: 5450,
   phase2Enter: 5850,
-  phase2Support: 6150,
-  // Phase 2 lingers 0.5s longer before the handoff...
-  phase2Exit: 7050,
-  // ...and the final beat holds 0.5s longer before the intro leaves.
-  finish: 7800,
+  // Main line holds alone, then the supporting line appears underneath...
+  phase2Support: 7350,
+  // ...then both hold before the handoff.
+  phase2Exit: 8900,
+  finish: 9650,
 } as const;
 
 const WORDS = ["MEASURE", "PRICE", "QUOTE"] as const;
