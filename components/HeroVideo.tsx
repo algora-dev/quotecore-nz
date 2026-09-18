@@ -25,9 +25,11 @@ export default function HeroVideo({ includeHeader = true }: { includeHeader?: bo
   const videoRef = useRef<HTMLVideoElement>(null);
   const heroBlockRef = useRef<HTMLDivElement>(null);
   const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
   const [heroCollapsed, setHeroCollapsed] = useState(false);
+  const [mayPlay, setMayPlay] = useState(false);
+  const autoStartedRef = useRef(false);
 
   // Mark body so MarketingHome knows to hide its own BlogHeader
   useEffect(() => {
@@ -36,6 +38,42 @@ export default function HeroVideo({ includeHeader = true }: { includeHeader?: bo
       document.body.classList.remove("hero-video-active");
     };
   }, []);
+
+  // The animated intro must finish before the video starts. The intro fires
+  // "qc:intro-complete" when done (or immediately for reduced motion).
+  useEffect(() => {
+    const allow = () => setMayPlay(true);
+    window.addEventListener("qc:intro-complete", allow);
+    // In case the event fired before this component mounted (reduced motion)
+    if (document.body.dataset.qcIntroComplete === "1") setMayPlay(true);
+    return () => window.removeEventListener("qc:intro-complete", allow);
+  }, []);
+
+  // Once allowed, start playback only when the video is actually visible.
+  useEffect(() => {
+    if (!mayPlay || autoStartedRef.current) return;
+    const v = videoRef.current;
+    if (!v) return;
+    const tryPlay = () => {
+      if (autoStartedRef.current) return;
+      const rect = v.getBoundingClientRect();
+      const visible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (visible) {
+        autoStartedRef.current = true;
+        v.play().catch(() => {
+          // Autoplay can still be refused; leave paused for manual play.
+          autoStartedRef.current = false;
+        });
+      }
+    };
+    tryPlay();
+    window.addEventListener("scroll", tryPlay, { passive: true });
+    window.addEventListener("resize", tryPlay, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", tryPlay);
+      window.removeEventListener("resize", tryPlay);
+    };
+  }, [mayPlay]);
 
   // Collapse hero block (video + transition text) once user scrolls past it
   useEffect(() => {
@@ -109,7 +147,6 @@ export default function HeroVideo({ includeHeader = true }: { includeHeader?: bo
         >
           <video
             ref={videoRef}
-            autoPlay
             muted
             playsInline
             preload="auto"
