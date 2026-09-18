@@ -31,18 +31,21 @@ import HeroVideo from "@/components/HeroVideo";
 const T = {
   word1Enter: 200,
   word1Glow: 550,
-  arrow1: 850,
-  word2Enter: 1150,
-  word2Glow: 1500,
-  arrow2: 1800,
-  word3Enter: 2100,
-  word3Glow: 2450,
-  supportLine: 3350,
-  phase1Exit: 4450,
-  phase2Enter: 4850,
-  phase2Support: 5150,
-  phase2Exit: 6550,
-  finish: 7300,
+  arrow1: 950,
+  word2Enter: 1250,
+  word2Glow: 1600,
+  arrow2: 2000,
+  word3Enter: 2300,
+  word3Glow: 2650,
+  supportLine: 3550,
+  // Hold the full Phase 1 composition ~1s longer so it can be read.
+  phase1Exit: 5450,
+  phase2Enter: 5850,
+  phase2Support: 6150,
+  // Phase 2 lingers 0.5s longer before the handoff...
+  phase2Exit: 7050,
+  // ...and the final beat holds 0.5s longer before the intro leaves.
+  finish: 7800,
 } as const;
 
 const WORDS = ["MEASURE", "PRICE", "QUOTE"] as const;
@@ -469,16 +472,30 @@ const nzahSceneCss = `
     flex-shrink: 0;
     opacity: 0;
     transform: translateX(-8px);
-    filter: drop-shadow(0 0 6px rgba(255, 107, 53, 0.65));
     transition:
       opacity 250ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 250ms cubic-bezier(0.22, 1, 0.36, 1),
-      filter 550ms ease;
+      transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
   }
+  /* Arrow lands glowing, the pulse fades out; next word enters as it fades */
   .nzah-arrow-on {
     opacity: 1;
     transform: translateX(0);
-    filter: drop-shadow(0 0 0 rgba(255, 107, 53, 0));
+    animation: nzahArrowPulse 480ms ease-out forwards;
+  }
+  @keyframes nzahArrowPulse {
+    0% {
+      filter:
+        drop-shadow(0 0 4px rgba(255, 107, 53, 0.95))
+        drop-shadow(0 0 12px rgba(255, 107, 53, 0.55));
+    }
+    45% {
+      filter:
+        drop-shadow(0 0 3px rgba(255, 107, 53, 0.55))
+        drop-shadow(0 0 8px rgba(255, 107, 53, 0.28));
+    }
+    100% {
+      filter: drop-shadow(0 0 0 rgba(255, 107, 53, 0));
+    }
   }
   .nzah-arrow svg {
     display: block;
@@ -611,6 +628,9 @@ const nzahSceneCss = `
     .nzah-p1-sub,
     .nzah-skip-btn {
       transition: none !important;
+    }
+    .nzah-arrow-on {
+      animation: none !important;
     }
   }
 `;
