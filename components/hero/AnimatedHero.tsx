@@ -41,11 +41,12 @@ const T = {
   // Hold the full Phase 1 composition ~1s longer so it can be read.
   phase1Exit: 5450,
   phase2Enter: 5850,
-  // Main line holds alone, then the supporting line appears underneath...
+  // Main line holds alone, then the Phase 3 line appears underneath with its
+  // own glow pulse (same treatment as MEASURE/PRICE/QUOTE).
   phase2Support: 7350,
-  // ...then both hold before the handoff.
-  phase2Exit: 8900,
-  finish: 9650,
+  // Both lines hold so everything can be read...
+  phase2Exit: 9150,
+  finish: 9900,
 } as const;
 
 const WORDS = ["MEASURE", "PRICE", "QUOTE"] as const;
@@ -59,6 +60,7 @@ export default function AnimatedHero() {
   const [phase1Gone, setPhase1Gone] = useState(false);
   const [phase2Main, setPhase2Main] = useState(false);
   const [phase2Support, setPhase2Support] = useState(false);
+  const [p3Glow, setP3Glow] = useState(false);
   const [introExit, setIntroExit] = useState(false);
 
   const [menuVisible, setMenuVisible] = useState(false);
@@ -170,7 +172,16 @@ export default function AnimatedHero() {
     // --- Phase 2 ---
     at(T.phase1Exit, () => setPhase1Gone(true));
     at(T.phase2Enter, () => setPhase2Main(true));
-    at(T.phase2Support, () => setPhase2Support(true));
+    // --- Phase 3: own beat — enters with a glow pulse, then sits readable ---
+    at(T.phase2Support, () => {
+      setPhase2Support(true);
+      setP3Glow(true);
+      timersRef.current.push(
+        window.setTimeout(() => {
+          if (!cancelledRef.current) setP3Glow(false);
+        }, 900)
+      );
+    });
 
     // --- Phase 3: handoff ---
     at(T.phase2Exit, () => setIntroExit(true));
@@ -260,7 +271,13 @@ export default function AnimatedHero() {
                 <br />
                 For roofing and construction businesses.
               </h2>
-              <p className="nzah-p2-sub">Designed around the way you already work.</p>
+              <p
+                className={`nzah-p2-sub ${phase2Support ? "nzah-p2-sub-on" : ""} ${
+                  p3Glow ? "nzah-p2-sub-glow" : ""
+                }`}
+              >
+                Designed around the way you already work.
+              </p>
             </div>
           </div>
 
@@ -539,6 +556,26 @@ const nzahSceneCss = `
     font-weight: 600;
     color: #3f3f46;
     text-align: center;
+    /* Hidden until its own beat (Phase 3) fires */
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 500ms ease,
+      transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+      text-shadow 250ms ease;
+    visibility: hidden;
+  }
+  .nzah-p2-sub-on {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  /* Entry glow pulse — same layering as the word letters */
+  .nzah-p2-sub-glow {
+    text-shadow:
+      0 0 5px rgba(255, 107, 53, 0.48),
+      0 0 13px rgba(255, 107, 53, 0.24),
+      0 0 28px rgba(255, 107, 53, 0.10);
   }
 
   /* ---------- Skip button ---------- */
@@ -626,6 +663,7 @@ const nzahSceneCss = `
     .nzah-phase2,
     .nzah-arrow,
     .nzah-p1-sub,
+    .nzah-p2-sub,
     .nzah-skip-btn {
       transition: none !important;
     }
