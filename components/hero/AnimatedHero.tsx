@@ -31,13 +31,14 @@ import HeroVideo from "@/components/HeroVideo";
 const T = {
   word1Enter: 200,
   word1Glow: 550,
-  arrow1: 950,
-  word2Enter: 1250,
-  word2Glow: 1600,
-  arrow2: 2000,
-  word3Enter: 2300,
-  word3Glow: 2650,
-  supportLine: 3550,
+  arrow1: 920,
+  // Inter-word gaps (arrow period) tightened ~25% per Shaun 2026-09-18
+  word2Enter: 1185,
+  word2Glow: 1535,
+  arrow2: 1905,
+  word3Enter: 2185,
+  word3Glow: 2535,
+  supportLine: 3435,
   // Hold the full Phase 1 composition ~1s longer so it can be read.
   phase1Exit: 5450,
   phase2Enter: 5850,
