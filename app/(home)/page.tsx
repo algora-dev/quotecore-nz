@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Script from "next/script";
-import CoffeePopup from "@/components/CoffeePopup";
+import SetupHelpModal from "@/components/SetupHelpModal";
 import BlogHeader from "@/components/BlogHeader";
 import AnimatedHero from "@/components/hero/AnimatedHero";
 import VideoShowcase from "@/components/VideoShowcase";
@@ -722,7 +722,7 @@ export default function HomePage() {
         <SiteFooter />
       </main>
 
-      <CoffeePopup />
+      <SetupHelpModal />
       <style>{`
         .brand-wordmark {
           white-space: nowrap;
