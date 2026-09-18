@@ -7,9 +7,9 @@ import { site } from "@/lib/seo";
  * lastModified dates reflect actual content changes per page (from git history).
  */
 const lastModified: Record<string, string> = {
-  "/": "2026-08-07",
+  "/": "2026-09-18",
   "/about": "2026-08-03",
-  "/features": "2026-08-03",
+  "/features": "2026-09-18",
   "/features/digital-roof-takeoff": "2026-08-03",
   "/features/smart-components": "2026-08-03",
   "/features/material-ordering": "2026-08-03",
@@ -20,7 +20,7 @@ const lastModified: Record<string, string> = {
   "/construction-quoting-software": "2026-08-03",
   "/done-for-you-setup": "2026-08-28",
   "/contact": "2026-07-24",
-  "/free-trial": "2026-08-03",
+  "/free-trial": "2026-09-18",
   "/free-tools": "2026-09-17",
   "/free-roof-takeoff": "2026-09-17",
   "/free-roof-pitch-calculator": "2026-09-17",
@@ -38,7 +38,7 @@ const lastModified: Record<string, string> = {
   "/free-concrete-calculator": "2026-08-01",
   "/free-landscaping-calculator": "2026-08-01",
   "/free-birds-mouth-calculator": "2026-08-01",
-  "/pricing": "2026-08-08",
+  "/pricing": "2026-09-18",
   "/privacy": "2026-08-02",
   "/roofing-quoting-software": "2026-08-03",
   "/services": "2026-08-03",

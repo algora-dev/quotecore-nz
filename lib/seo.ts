@@ -32,29 +32,16 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
   };
 }
 
-export const pricingOffers = [
-  {
-    "@type": "Offer",
-    name: "Starter",
-    price: "30",
-    priceCurrency: site.currency,
-    url: `${site.url}/pricing`,
-  },
-  {
-    "@type": "Offer",
-    name: "Professional",
-    price: "65",
-    priceCurrency: site.currency,
-    url: `${site.url}/pricing`,
-  },
-  {
-    "@type": "Offer",
-    name: "Pro Plus",
-    price: "99",
-    priceCurrency: site.currency,
-    url: `${site.url}/pricing`,
-  },
-];
+import { schemaPricingPlans } from "./pricing";
+
+// Derived from lib/pricing.ts so schema prices can never drift from the site.
+export const pricingOffers = schemaPricingPlans.map((plan) => ({
+  "@type": "Offer",
+  name: plan.displayName,
+  price: String(plan.schemaPriceNzd),
+  priceCurrency: site.currency,
+  url: `${site.url}/pricing`,
+}));
 
 export const organizationSchema = {
   "@type": "Organization",

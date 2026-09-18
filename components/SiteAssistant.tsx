@@ -141,7 +141,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(quote gen|make a quote|create.*quote|write.*quote|build.*quote|estimate gen)/.test(message)) {
     return {
       sender: "assistant",
-      text: "The Free Quote Generator creates professional, printable quotes with your logo, business details, and itemised line items. Download as PDF, no signup required. For the full connected workflow - takeoff to quote to material orders to invoicing - start a free trial.",
+      text: "The Free Quote Generator creates professional, printable quotes with your logo, business details, and itemised line items. Download as PDF, no signup required. For the full connected workflow - takeoff to quote to material orders to invoicing - plans start at $29/month.",
       links: [
         { label: "Try the Quote Generator", href: "https://quote-core.com/free-quote-generator" },
         trialCTA,
