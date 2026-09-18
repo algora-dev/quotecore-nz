@@ -204,7 +204,7 @@ export default function FreeToolsPage() {
             We build tools for Kiwi trades. These calculators and generators are the same ones powering QuoteCore+ - our full quoting and job management platform built for New Zealand contractors. We give them away because they should be free. If you want the full system - takeoffs, components, quotes, orders, invoices, scheduling - that is where QuoteCore+ comes in.
           </p>
           <Link
-            href="/free-trial"
+            href="/free-tools"
             className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-[#FF6B35] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#E55A2B] hover:shadow-[0_0_16px_rgba(255,107,53,0.4)] min-h-[44px]"
           >
             Try QuoteCore+ Free

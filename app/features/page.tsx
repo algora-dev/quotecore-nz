@@ -175,13 +175,13 @@ export default function FeaturesHubPage() {
         {/* CTA */}
         <section className="mx-auto max-w-5xl px-6 pb-24 lg:px-8">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 px-8 py-10 text-center">
-            <h2 className="text-2xl font-semibold tracking-tight">Try all features free for 14 days</h2>
+            <h2 className="text-2xl font-semibold tracking-tight">Try the workflow free with our tools</h2>
             <p className="mt-2 text-zinc-600">No credit card required. Full access to every feature.</p>
             <a
-              href="/free-trial"
+              href="/free-tools"
               className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]"
             >
-              Start free trial
+              Try our free tools
             </a>
           </div>
         </section>

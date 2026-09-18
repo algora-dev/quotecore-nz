@@ -35,7 +35,7 @@ const softwareSchema = {
   description: "Send quotes, orders and invoices directly from QuoteCore+. Track opens and reads. Configure time-based and event-based automated follow-ups with cancellation conditions.",
   url: `${SITE_URL}/features/sending-and-tracking`,
   publisher: { "@id": `${SITE_URL}/#organization` },
-  offers: { "@type": "Offer", price: "0", priceCurrency: "NZD", description: "14-day free trial, no credit card required" },
+  offers: { "@type": "Offer", price: "29", priceCurrency: "NZD", description: "Paid subscription from NZD $29/month" },
 };
 
 const breadcrumbSchema = {
@@ -116,14 +116,14 @@ export default function SendingAndTrackingPage() {
               Send quotes, orders and invoices directly from QuoteCore+ with attachments. Track when recipients open and read them. Set up automatic follow-ups with configurable delays and cancellation conditions - so chasing happens on its own.
             </p>
             <div className="mt-6 flex gap-3">
-              <a href="/free-trial" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]">
-                Start free trial
+              <a href="/free-tools" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]">
+                Try our free tools
               </a>
               <Link href="/features" className="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-2.5 text-sm font-medium text-slate-900 transition-colors hover:border-[#FF6B35]/40">
                 All features
               </Link>
             </div>
-            <p className="mt-3 text-sm text-zinc-500">14-day trial, no card required</p>
+            <p className="mt-3 text-sm text-zinc-500">Free tools - no signup, no card</p>
           </div>
         </section>
 
@@ -279,9 +279,9 @@ export default function SendingAndTrackingPage() {
         <section className="relative overflow-hidden bg-white py-16 sm:py-20">
           <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
             <h2 className="text-3xl font-semibold sm:text-4xl">Stop chasing. Start tracking.</h2>
-            <p className="mt-4 text-base text-zinc-600">Send, track and follow up automatically. 14-day trial, no card required.</p>
-            <a href="/free-trial" className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]">
-              Start free trial
+            <p className="mt-4 text-base text-zinc-600">Send, track and follow up automatically. Free tools - no signup, no card.</p>
+            <a href="/free-tools" className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]">
+ our free tools
             </a>
           </div>
         </section>

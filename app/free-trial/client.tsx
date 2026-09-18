@@ -16,9 +16,9 @@ export default function FreeTrialClient() {
             <img src="/free-trial-icon.png" alt="" className="h-9 w-9 object-contain" aria-hidden="true" />
           </span>
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight">Start your free trial</h2>
+            <h2 className="text-2xl font-semibold tracking-tight">Create your account</h2>
             <p className="mt-3 text-base leading-7 text-zinc-600">
-              No credit card required. 14-day access. Your account pauses unless you choose a plan.
+              Choose a plan when you're ready — plans from $29/month. Or test the workflow with our free tools first, no signup required.
             </p>
           </div>
         </div>
@@ -27,7 +27,7 @@ export default function FreeTrialClient() {
           onClick={() => { trackEvent("create_account_click"); setShowEarlyAccess(true); }}
           className="mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#FF6B35] px-5 py-4 text-base font-semibold text-white shadow-[0_18px_45px_rgba(255,107,53,0.24)] transition-colors hover:bg-[#E55A28]"
         >
-          Create my free account
+          Create my account
         </button>
       </div>
       {showEarlyAccess && <EarlyAccessPopup forceOpen onClose={() => setShowEarlyAccess(false)} />}

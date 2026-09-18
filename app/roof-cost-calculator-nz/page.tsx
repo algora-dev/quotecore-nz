@@ -494,10 +494,10 @@ export default function RoofCostCalculatorNZPage() {
                 <span className="text-slate-500"> - AI-assisted roof takeoff from uploaded plans</span>
               </li>
               <li>
-                <Link href="/free-trial" className="font-medium text-[#BD4A1A] hover:underline">
-                  Free Trial
+                <Link href="/free-tools" className="font-medium text-[#BD4A1A] hover:underline">
+                  Free Tools
                 </Link>
-                <span className="text-slate-500"> - Try QuoteCore+ free for 14 days, no card required</span>
+                <span className="text-slate-500"> - Test the workflow with our free tools, no signup</span>
               </li>
               <li>
                 <a href={`${COM_URL}/free-roof-pricing-calculator`} className="font-medium text-[#BD4A1A] hover:underline">

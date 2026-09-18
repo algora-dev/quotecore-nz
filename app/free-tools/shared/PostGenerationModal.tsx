@@ -184,7 +184,7 @@ export function PostGenerationModal({
           {/* Save to App */}
           <TooltipButton
             label="Save to App"
-            tooltip="Sign up for a free 14-day trial. Save, edit, send quotes and use all features of the app"
+            tooltip="Create a QuoteCore+ account. Save, edit, send quotes and use all features of the app"
             onClick={onSaveToApp}
             variant="accent"
             icon={saveIcon}

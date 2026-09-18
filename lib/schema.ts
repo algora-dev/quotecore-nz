@@ -25,7 +25,7 @@ export function buildPricingOffers() {
       priceCurrency: "NZD",
       url: `${siteUrl}/#pricing`,
       availability: "https://schema.org/InStock",
-      category: plan.isFree ? "Free trial or free plan" : "Subscription",
+      category: "Subscription",
       description: `${plan.subtitle}. ${plan.features.join(", ")}.`,
     })),
   };

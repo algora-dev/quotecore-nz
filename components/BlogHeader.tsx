@@ -63,11 +63,11 @@ export default function BlogHeader({ backLabel, backHref = "/" }: { backLabel?: 
               App
             </a>
             <a
-              href="/free-trial"
+              href="/pricing"
               className={trialButton}
-              onClick={() => trackEvent("free_trial_click", { location: "nav" })}
+              onClick={() => trackEvent("get_started_click", { location: "nav" })}
             >
-              Start free trial
+              Get started
             </a>
           </div>
 
@@ -127,11 +127,11 @@ export default function BlogHeader({ backLabel, backHref = "/" }: { backLabel?: 
               App
             </a>
             <a
-              href="/free-trial"
+              href="/pricing"
               className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full bg-[#FF6B35] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]"
-              onClick={() => { trackEvent("free_trial_click", { location: "nav-menu" }); setMenuOpen(false); }}
+              onClick={() => { trackEvent("get_started_click", { location: "nav-menu" }); setMenuOpen(false); }}
             >
-              Start free trial
+              Get started
             </a>
             <a
               href="/contact"

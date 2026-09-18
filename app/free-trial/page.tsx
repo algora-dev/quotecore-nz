@@ -10,8 +10,8 @@ import { buildSoftwareApplicationSchema } from "@/lib/schema";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
-  title: "Free 14-Day Trial NZ - No Card Required | QuoteCore+",
-  description: "Try QuoteCore+ free for 14 days. Measure jobs, build professional quotes, track acceptances, and manage materials orders. No credit card needed.",
+  title: "Get Started | QuoteCore+ NZ",
+  description: "Get started with QuoteCore+ — test the workflow with our free tools (no signup), then choose a plan from $29/month. Measure jobs, build quotes, manage orders and invoicing.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/free-trial",
     languages: hreflangLanguages("/free-trial"),
@@ -20,19 +20,19 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    question: "Do I need a credit card to sign up?",
-    answer: "No. Your free trial is completely free. We'll only ask for payment if you decide to upgrade.",
+    question: "Do you offer a free trial?",
+    answer: "No - we skip the trial. Our free tools (takeoff builder, calculators, quote, invoice and PO generators) work instantly with no signup, so you can test the workflow before paying anything. Paid plans start at $29/month.",
   },
   {
-    question: "How long is the trial?",
-    answer: "14 days from the date you sign up.",
+    question: "How much does QuoteCore+ cost?",
+    answer: "Plans start at $29/month for Starter, with Pro at $59/month and Pro Plus at $99/month. Compare plans and limits on the pricing page.",
   },
   {
-    question: "What happens when the trial ends?",
-    answer: "You'll be automatically put on the Lite (Free) plan and be able to upgrade from there if you wish. All your saved data remains stored.",
+    question: "Can I try QuoteCore+ before paying?",
+    answer: "Yes - through the free tools. Takeoff builder, calculators, and the quote, invoice and PO generators work instantly in your browser with no signup and no card.",
   },
   {
-    question: "Can I send real quotes to real customers during the trial?",
+    question: "Can I send real quotes to real customers?",
     answer: "Yes. Quote, measure, and send to customers from day one.",
   },
   {
@@ -40,8 +40,8 @@ const faqs = [
     answer: "You can chat to \"Q\" our smart assistant in the bottom right corner, check the <a href=\"https://app.quote-core.com/docs\" class=\"text-[#BD4A1A] underline underline-offset-2 hover:text-[#FF6B35]\">docs</a>, or <a href=\"https://quote-core.com/contact\" class=\"text-[#BD4A1A] underline underline-offset-2 hover:text-[#FF6B35]\">contact us here</a>.",
   },
   {
-    question: "What is included in the free trial?",
-    answer: "Your 14-day free trial gives you full access to every QuoteCore+ feature. That includes the digital takeoff tool, quote builder, Smart Components, order, invoices, and all the AI Assist features. You can send real quotes/orders/invoices to real customers from day one and save everything to your account - nothing is locked.",
+    question: "What is included in the app?",
+    answer: "Every QuoteCore+ feature: the digital takeoff tool, quote builder, Smart Components, orders, invoices, and all the AI Assist features. You can send real quotes/orders/invoices to real customers from day one and save everything to your account - nothing is locked.",
   },
   {
     question: "How do I get started?",
@@ -122,7 +122,7 @@ export default function FreeTrialPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(buildBreadcrumbSchema([
             { name: "Home", url: `${siteUrl}/` },
-            { name: "Free Trial", url: `${siteUrl}/free-trial` },
+            { name: "Get Started", url: `${siteUrl}/free-trial` },
           ])),
         }}
       />
@@ -133,27 +133,27 @@ export default function FreeTrialPage() {
       />
       <main className="min-h-screen bg-white text-zinc-950">
        <BlogHeader backLabel="Back to homepage" backHref="/" />
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Free Trial" }]} />
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Get Started" }]} />
 
         <section className="relative overflow-hidden bg-[linear-gradient(180deg,#fff_0%,#fff7f2_52%,#fff_100%)]">
           <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-6 py-12 lg:grid-cols-[1fr_0.68fr] lg:px-8 lg:py-16 xl:grid-cols-[0.98fr_0.58fr_0.95fr] xl:gap-8">
             <div className="xl:pt-6">
               <p className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-[#FF6B35] shadow-sm">
                 <span className="text-base leading-none">*</span>
-                14-day free trial
+                Get started
               </p>
               <h1 className="mt-6 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-                Try QuoteCore+ free for 14 days.
+                Get started with QuoteCore+.
               </h1>
 
               <p className="mt-4 max-w-2xl text-xl font-semibold leading-snug text-zinc-700 sm:text-2xl">
-                Test the full quoting workflow.
+                From measurement to customer-ready quote.
                 <br />
-                No card. No commitment.
+                One connected workflow.
               </p>
 
               <p className="mt-4 max-w-xl text-base leading-7 text-zinc-600 sm:text-lg">
-                See how fast you can go from measurement to customer-ready quote before you spend a penny.
+                Test the workflow with our free tools first (no signup, no card), or create an account and dive straight in — plans from $29/month.
               </p>
 
               <div className="mt-10 max-w-xl space-y-6 text-zinc-600 hidden" aria-hidden="true">
@@ -164,9 +164,9 @@ export default function FreeTrialPage() {
 
               <div className="mt-8 hidden max-w-xl overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_22px_70px_rgba(15,23,42,0.08)] sm:grid sm:grid-cols-3">
                 {[
-                  { title: "Full access", text: "All features included", icon: "lock" as const },
-                  { title: "14 days", text: "Risk-free trial", icon: "calendar" as const },
-                  { title: "Pause anytime", text: "No charges", icon: "pause" as const },
+                  { title: "Free tools", text: "No signup needed", icon: "lock" as const },
+                  { title: "From $29/month", text: "Starter plan", icon: "calendar" as const },
+                  { title: "Built by roofers", text: "For trade work", icon: "pause" as const },
                 ].map(({ title, text, icon }, index) => (
                   <div
                     key={title}

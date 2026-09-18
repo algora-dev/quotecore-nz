@@ -59,9 +59,9 @@ const faqs = [
       "It replaces disconnected spreadsheets, documents and manual quoting systems with one connected workflow. Contractors can measure and quote long-run roofing accurately, reuse proven roofing components, work with NZD pricing and GST, create professional quotes faster, prepare supplier-ready material orders, convert accepted work into invoices, and keep job information organised.",
   },
   {
-    question: "Is a card required to start?",
+    question: "Do you offer a free trial?",
     answer:
-      "No. You get full access to every feature for 14 days with no card required. If you decide to continue, you choose a plan that fits your business.",
+      "No — we skip the trial. Our free tools (takeoff builder, calculators, quote, invoice and PO generators) work instantly with no signup, so you can test the workflow before paying anything. When you want the full connected app, plans start at $29/month.",
   },
   {
     question: "How much do plans cost?",
@@ -263,11 +263,11 @@ export default function HomePage() {
 
                 <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
                   <a
-                    href="/free-trial"
+                    href="/pricing"
                     className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]"
-                    onClick={() => trackEvent("free_trial_click", { location: "hero" })}
+                    onClick={() => trackEvent("get_started_click", { location: "hero" })}
                   >
-                    Start free trial
+                    Get started
                   </a>
                   <a
                     href="#how-it-works"
@@ -292,9 +292,9 @@ export default function HomePage() {
         {/* Trust band */}
         <section className="border-y border-zinc-100 bg-white">
           <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6 py-4 text-sm text-zinc-600 lg:px-8">
-            <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>No card required</span>
-            <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>14-day full-access trial</span>
-            <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>Plans from free to $59/month</span>
+            <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>Free tools — no signup</span>
+            <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>Built by a Kiwi roofer</span>
+            <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>Plans from $29/month</span>
             <span className="flex items-center gap-2"><svg viewBox="0 0 24 24" className="h-4 w-4 text-[#FF6B35]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>Built for roofing first</span>
           </div>
         </section>
@@ -449,11 +449,11 @@ export default function HomePage() {
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <a
-                    href="/free-trial"
+                    href="/free-tools"
                     className="inline-flex items-center justify-center rounded-full bg-[#FF6B35] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]"
-                    onClick={() => trackEvent("free_trial_click", { location: "smart_components" })}
+                    onClick={() => trackEvent("free_tools_click", { location: "smart_components" })}
                   >
-                    Start free trial
+                    Try our free tools
                   </a>
                   <a
                     href="/features/smart-components"
@@ -656,16 +656,16 @@ export default function HomePage() {
                 Build your next roofing quote in QuoteCore+.
               </h2>
               <p className="mt-5 text-base leading-7 text-zinc-500 sm:text-lg sm:leading-8">
-                Start with full access for 14 days. No card required. From first measurement to final invoice - all in one connected workflow.
+                From first measurement to final invoice — all in one connected workflow. Test the workflow with our free tools, or go straight to the app.
               </p>
 
               <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                 <a
-                  href="/free-trial"
+                  href="/pricing"
                   className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#FF6B35] px-9 text-base font-semibold text-white transition-colors hover:bg-[#E55A28]"
-                  onClick={() => trackEvent("free_trial_click", { location: "bottom_cta" })}
+                  onClick={() => trackEvent("get_started_click", { location: "bottom_cta" })}
                 >
-                  Start free trial
+                  Get started
                   <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M5 12h14" />
                     <path d="M13 6l6 6-6 6" />
@@ -679,7 +679,7 @@ export default function HomePage() {
                 </a>
               </div>
               <p className="mt-5 text-sm text-zinc-600">
-                Plans from free to $59/month. No card required. 14 days full access.
+                Plans from $29/month. Free tools — no signup, no card.
               </p>
             </div>
           </div>

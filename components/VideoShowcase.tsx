@@ -47,9 +47,6 @@ export default function VideoShowcase() {
         <h2 className="mx-auto max-w-3xl text-center text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl">
           Measuring and quoting costing your business?
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-base leading-7 text-zinc-600">
-          See how QuoteCore+ turns the whole job — measure, price, quote — into one simple flow.
-        </p>
 
         <div className="relative mx-auto mt-8 aspect-video w-full overflow-hidden rounded-2xl border border-zinc-200 bg-black shadow-sm">
           <video

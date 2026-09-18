@@ -8,7 +8,7 @@ export const nzMarket = {
   currencySymbol: "$",
   email: "info@quote-core.com",
   callUrl: "https://calendly.com/quote-core-info/15-minute-meeting",
-  trialUrl: "/free-trial",
+  trialUrl: "/pricing",
 };
 
 export const nzNav = [

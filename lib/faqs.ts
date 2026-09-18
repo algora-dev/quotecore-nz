@@ -27,7 +27,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "How do I get started?",
     answer:
-      "Simply create a free account and test the full system risk-free for 14 days.",
+      "Start with our free tools — no signup needed, they work instantly. When you want the full connected workflow, choose a plan from $29/month.",
   },
   {
     question: "Why do contractors switch to QuoteCore+?",

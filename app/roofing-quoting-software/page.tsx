@@ -124,7 +124,7 @@ const faqs = [
   },
   {
     q: "Is there a free trial?",
-    a: "Yes. QuoteCore+ offers a 14-day free trial with no credit card required.",
+    a: "No - we skip the trial. Our free tools (takeoff builder, calculators, generators) work instantly with no signup, so you can test the workflow before paying anything. Paid plans start at $29/month.",
   },
 ];
 
@@ -178,10 +178,10 @@ Roofing quoting software built for New Zealand contractors.
 
             <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a
-                href="/free-trial"
+                href="/free-tools"
                 className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-[#E55A28]"
               >
-                Start your free 14-day trial
+                Try our free tools
               </a>
             </div>
 
@@ -392,13 +392,13 @@ Roofing quoting software built for New Zealand contractors.
           </p>
 
           <a
-            href="/free-trial"
+            href="/free-tools"
             className="mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-10 py-3 text-base font-semibold text-white transition-colors hover:bg-[#E55A28]"
           >
-            Start your free 14-day trial
+ our free tools
           </a>
 
-          <p className="mt-4 text-sm text-zinc-500">No card required. 14 days free.</p>
+          <p className="mt-4 text-sm text-zinc-500">No signup needed - our free tools work instantly.</p>
         </section>
 
         <SiteFooter />

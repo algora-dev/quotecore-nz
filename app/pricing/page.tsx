@@ -12,7 +12,7 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 export const metadata: Metadata = {
   title: "Roofing & Construction Quoting Software Pricing NZ | QuoteCore+",
   description:
-    "Compare QuoteCore+ plans in USD. Start with a 14-day full-feature trial with no credit card, then choose the quote and storage limits that fit your New Zealand trade business.",
+    "Compare QuoteCore+ NZ plans — Starter, Pro, Pro Plus and Premium. No trial needed: test the workflow with our free tools first, then choose the plan that fits your trade business.",
   alternates: { canonical: `${site.url}/pricing`, languages: hreflangLanguages("/pricing") },
   openGraph: {
     title: "QuoteCore+ Pricing New Zealand",
@@ -41,12 +41,14 @@ const faqs = [
     answer: "No. QuoteCore+ bills in USD. This page shows USD pricing. Local taxes (such as GST in New Zealand) may apply at checkout.",
   },
   {
-    question: "Is a credit card required for the trial?",
-    answer: "No. You can start the 14-day Full trial without entering a credit card.",
+    question: "Do you offer a free trial?",
+    answer:
+      "No. Instead, our free tools — takeoff builder, calculators, quote, invoice and PO generators — work instantly with no signup, so you can test the workflow before paying anything.",
   },
   {
-    question: "What happens when the trial ends?",
-    answer: "The account moves to the Lite free plan unless you choose to upgrade to a paid plan.",
+    question: "What happens if I'm not sure which plan fits?",
+    answer:
+      "Start with the free tools to see how the workflow fits your jobs, then pick the plan that matches your quote volume. You can change plans as your business grows.",
   },
   {
     question: "What limits differ between plans?",
@@ -88,10 +90,10 @@ export default function PricingPage() {
             QuoteCore+ pricing for New Zealand trade businesses.
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-600">
-            Start with every feature for 14 days, no card required. Compare the quote and storage limits before choosing the plan that fits your workload.
+            No trial needed. Test the workflow with our free tools first, then compare the quote and storage limits to find the plan that fits your workload.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link href="/free-trial" className="inline-flex min-h-11 items-center justify-center rounded-full bg-black px-7 text-sm font-semibold text-white transition-shadow hover:shadow-[0_0_18px_rgba(255,107,53,0.32)]">Start free trial</Link>
+            <Link href="/free-tools" className="inline-flex min-h-11 items-center justify-center rounded-full bg-black px-7 text-sm font-semibold text-white transition-shadow hover:shadow-[0_0_18px_rgba(255,107,53,0.32)]">Try our free tools</Link>
             <Link href="/features" className="inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 px-7 text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-500">Compare features</Link>
           </div>
         </section>
@@ -125,8 +127,8 @@ export default function PricingPage() {
                 {plan.comingSoon ? (
                   <span className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 px-6 text-sm font-semibold text-zinc-500">Coming soon</span>
                 ) : (
-                  <Link href="/free-trial" className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-full px-6 text-sm font-semibold transition-colors ${plan.featured ? "bg-black text-white hover:bg-zinc-800" : "border border-zinc-300 text-zinc-900 hover:border-zinc-500"}`}>
-                    {plan.isFree ? "Start free trial" : "Try this plan"}
+                  <Link href="https://app.quote-core.com/signup" className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-full px-6 text-sm font-semibold transition-colors ${plan.featured ? "bg-black text-white hover:bg-zinc-800" : "border border-zinc-300 text-zinc-900 hover:border-zinc-500"}`}>
+                    Choose plan
                   </Link>
                 )}
               </article>

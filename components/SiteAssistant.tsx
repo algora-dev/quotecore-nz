@@ -26,7 +26,7 @@ interface ChatMessage {
 
 const quickQuestions = [
   "What is QuoteCore+?",
-  "How does the free trial work?",
+  "How do I get started?",
   "What are Smart Components?",
   "What free tools are available?",
   "How much does it cost?",
@@ -34,8 +34,8 @@ const quickQuestions = [
 ];
 
 const trialCTA = {
-  label: "Start your free 14-day trial",
-  href: "/free-trial",
+  label: "Try our free tools",
+  href: "/free-tools",
 };
 
 const freeToolsCTA = {
@@ -63,7 +63,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(trial|free trial|14 day|14-day|sign up|signup|register|try it|test it|demo)/.test(message)) {
     return {
       sender: "assistant",
-      text: "The free trial gives you 14 days of full access to QuoteCore+ - every feature, including AI plan takeoff, Smart Components, quoting, material orders, and invoicing. You get 20 AI scan points included, which is enough to quote several real jobs. No credit card required, just sign up with your email. After the trial you can continue on the free Lite plan or upgrade when you're ready.",
+      text: "There's no free trial - the app is paid, from $29/month for Starter. But you can test the workflow with our free tools instantly, no signup: takeoff builder, roofing calculator, quote, invoice and PO generators. When you want the full connected app, choose a plan that fits.",
       links: [
         trialCTA,
         { label: "See how it works", href: "/#how-it-works" },
@@ -75,7 +75,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(price|pricing|cost|how much|plan|plans|tier|limit|upgrade|cancel|subscription|per month|per month|starter|lite|pro|premium)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ starts with a 14-day free trial with full access. After that: Lite (free, limited), Starter at $19/month for solo traders, Pro at $39/month for growing businesses, Pro Plus at $59/month for high-volume teams, and Premium (contact us for pricing). All paid plans include a free trial with no card required.",
+      text: "QuoteCore+ plans: Starter at $29/month for solo tradies, Pro at $59/month for growing businesses, Pro Plus at $99/month for high-volume teams, and Premium (contact us for pricing). No trial - but the free tools work instantly without signing up, so you can test the workflow first.",
       link: { label: "See full pricing details", href: "/pricing" },
     };
   }
@@ -186,7 +186,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(ai|ai takeoff|plan takeoff|upload.*plan|trace.*plan|ai.*scan|ai assist|ai scan)/.test(message)) {
     return {
       sender: "assistant",
-      text: "AI Scan Assist is QuoteCore+'s plan takeoff feature. Upload a roof plan image and AI identifies multiple roof areas, ridges, hips, valleys, barges and spouting. You verify everything on an interactive canvas, name each area, assign pitches and materials, then swap detected placeholders for saved Smart Components. Available in the paid app and the 14-day free trial (20 AI scan points included).",
+      text: "AI Scan Assist is QuoteCore+'s plan takeoff feature. Upload a roof plan image and AI identifies multiple roof areas, ridges, hips, valleys, barges and spouting. You verify everything on an interactive canvas, name each area, assign pitches and materials, then swap detected placeholders for saved Smart Components. Available in the paid app - 50 AI scan points on Pro, 100 on Pro Plus.",
       links: [
         trialCTA,
         { label: "See how it works", href: "/#how-it-works" },
@@ -199,7 +199,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(how do i|how to|can i|can you|do you have|does.*have|does.*support)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ handles the full workflow from measurement to payment - AI plan takeoff, Smart Components, quoting, material orders, invoicing, and customer acceptance tracking. The best way to see if it does what you need is to start a risk-free 14-day trial. No card needed, full feature access, and you get 20 AI scan points to test on real jobs. If you'd rather just try the free tools first, those work instantly without signing up.",
+      text: "QuoteCore+ handles the full workflow from measurement to payment - AI plan takeoff, Smart Components, quoting, material orders, invoicing, and customer acceptance tracking. The best way to see if it does what you need is to try the free tools - they work instantly without signing up. When you want the full connected workflow, plans start at $29/month.",
       links: [
         trialCTA,
         freeToolsCTA,
@@ -333,7 +333,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/\bfree\b/.test(message)) {
     return {
       sender: "assistant",
-      text: "You can start with a risk-free 14-day trial - full access to every feature including AI takeoff, no card needed. After the trial, continue on the free Lite plan or upgrade. We also have free tools that work instantly without signing up: takeoff builder, roofing calculator, smart component creator, quote generator, invoice generator, and PO generator.",
+      text: "QuoteCore+ is a paid app with plans from $29/month. We also have free tools that work instantly without signing up: takeoff builder, roofing calculator, smart component creator, quote generator, invoice generator, and PO generator.",
       links: [
         trialCTA,
         freeToolsCTA,
@@ -344,7 +344,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   // ── Fallback (doesn't know) ────────────────────────────────────────
   return {
     sender: "assistant",
-    text: "I'm not sure about that one. I'd recommend checking the docs library for detailed guides, or getting in touch and we'll get back to you. You can also start a free 14-day trial to explore the app firsthand.",
+    text: "I'm not sure about that one. I'd recommend checking the docs library for detailed guides, or getting in touch and we'll get back to you. You can also try the free tools to explore the workflow firsthand.",
     links: [
       { label: "Open the docs library", href: `${docsBaseUrl}/docs` },
       trialCTA,
@@ -538,7 +538,7 @@ export default function SiteAssistant() {
                   <img src="/q.png" alt="Q assistant mascot" className="mx-auto h-16 w-16 rounded-full object-contain" />
                   <h2 className="mt-3 text-lg font-semibold text-zinc-800">Hey, I'm Q.</h2>
                   <p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-zinc-500">
-                    Ask me about QuoteCore+, the free trial, Smart Components, our free tools, or pricing. I'll keep it short.
+                    Ask me about QuoteCore+, the free tools, Smart Components, or pricing. I'll keep it short.
                   </p>
                 </div>
 

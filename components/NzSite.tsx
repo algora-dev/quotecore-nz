@@ -33,7 +33,7 @@ export function NzHeader() {
             href={nzMarket.trialUrl}
             className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#BD4A1A] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#A03E15]"
           >
-            Start free trial
+            Get started
           </a>
         </div>
       </div>
@@ -51,7 +51,7 @@ export function NzFooter() {
       <p>
         <a href="/pricing" className="hover:text-zinc-800">Pricing</a>
         {" · "}
-        <a href="/free-trial" className="hover:text-zinc-800">Free Trial</a>
+        <a href="/free-tools" className="hover:text-zinc-800">Free Tools</a>
         {" · "}
         <a href="/contact" className="hover:text-zinc-800">Contact</a>
         {" · "}

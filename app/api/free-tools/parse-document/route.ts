@@ -227,7 +227,7 @@ export async function POST(req: NextRequest) {
       resolved.tier === 1
         ? ' Sign up free at the top of the page for higher daily limits.'
         : resolved.tier === 2
-          ? ' QuoteCore+ app accounts get higher daily limits - start a free trial.'
+          ? ' QuoteCore+ app accounts get higher daily limits.'
           : ' Try again tomorrow.';
     return NextResponse.json(
       {

@@ -47,7 +47,7 @@ export default function FreeCalculatorsLayout({ children }: { children: ReactNod
               Free Tools
             </Link>
             <Link
-              href="/free-trial"
+              href="/free-tools"
               className="rounded-full bg-[#FF6B35] px-4 py-1.5 text-sm font-semibold text-white transition-all hover:bg-[#ff5722] hover:shadow-[0_0_12px_rgba(255,107,53,0.4)]"
             >
               Sign up
@@ -72,8 +72,8 @@ export default function FreeCalculatorsLayout({ children }: { children: ReactNod
               <a href={`${COM_URL}/free-quote-generator`} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-slate-600 hover:text-slate-900">
                 Quote Generator
               </a>
-              <Link href="/free-trial" className="text-xs font-medium text-[#BD4A1A] hover:text-[#ff5722]">
-                Start free trial
+              <Link href="/free-tools" className="text-xs font-medium text-[#BD4A1A] hover:text-[#ff5722]">
+                Try our free tools
               </Link>
             </div>
           </div>

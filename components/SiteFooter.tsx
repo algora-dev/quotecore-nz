@@ -45,7 +45,7 @@ export default function SiteFooter() {
               <Link href="/about" className={linkClass}>About</Link>
               <Link href="/services" className={linkClass}>Services</Link>
               <Link href="/contact" className={linkClass}>Contact</Link>
-              <Link href="/free-trial" className={linkClass}>Start free trial</Link>
+              <Link href="/free-tools" className={linkClass}>Free Tools</Link>
               <a href="https://app.quote-core.com/docs" className={linkClass}>Documentation</a>
             </div>
           </nav>

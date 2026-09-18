@@ -101,7 +101,7 @@ export function TradePage({ config }: { config: TradeConfig }) {
                 </svg>
               </div>
               <div>
-                <p className="font-semibold text-slate-900 text-sm">Start free trial</p>
+                <p className="font-semibold text-slate-900 text-sm">Try our free tools</p>
                 <p className="text-xs text-slate-500 mt-0.5">Full quoting, takeoff, and job management</p>
               </div>
             </div>

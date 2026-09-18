@@ -97,7 +97,7 @@ const faqSchema = {
       name: "Can I try it before paying?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. QuoteCore+ offers a 14-day free trial with no credit card required.",
+        text: "No - we skip the trial. Our free tools (takeoff builder, calculators, generators) work instantly with no signup, so you can test the workflow before paying anything. Paid plans start at $29/month.",
       },
     },
   ],
@@ -159,7 +159,7 @@ const faqs = [
   },
   {
     q: "Can I try it before paying?",
-    a: "Yes. QuoteCore+ offers a 14-day free trial with no credit card required.",
+    a: "No - we skip the trial. Our free tools (takeoff builder, calculators, generators) work instantly with no signup, so you can test the workflow before paying anything. Paid plans start at $29/month.",
   },
   {
     q: "Who do I contact with questions?",
@@ -241,10 +241,10 @@ Construction quoting software for New Zealand measured trades.
 
             <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a
-                href="/free-trial"
+                href="/free-tools"
                 className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-[#E55A28]"
               >
-                Start free 14-day trial
+                Try our free tools
               </a>
 
               <a
@@ -257,7 +257,7 @@ Construction quoting software for New Zealand measured trades.
               </a>
             </div>
 
-            <p className="mt-3 text-sm text-zinc-400">No card required. 14 days free.</p>
+            <p className="mt-3 text-sm text-zinc-400">No signup needed - our free tools work instantly.</p>
           </div>
         </section>
 
@@ -532,13 +532,13 @@ Construction quoting software for New Zealand measured trades.
           </p>
 
           <a
-            href="/free-trial"
+            href="/free-tools"
             className="mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-10 py-3 text-base font-semibold text-white transition-colors hover:bg-[#E55A28]"
           >
-            Start your free 14-day trial
+            Try our free tools
           </a>
 
-          <p className="mt-4 text-sm text-zinc-400">No card required. 14 days free.</p>
+          <p className="mt-4 text-sm text-zinc-400">No signup needed - our free tools work instantly.</p>
         </section>
 
         <SiteFooter />
