@@ -64,7 +64,7 @@ const steps = [
 const packages = [
   {
     name: 'Done-For-You Estimating Setup',
-    price: '$499',
+    price: '$899',
     tagline: 'Best for individual contractors and smaller businesses that want us to build the core of their estimating system.',
     items: [
       'Up to 20 custom components built for you',
@@ -80,7 +80,7 @@ const packages = [
   },
   {
     name: 'Complete Done-For-You Setup',
-    price: '$999',
+    price: '$1,799',
     tagline: 'Best for businesses with more products, services or a more detailed estimating system.',
     highlight: true,
     items: [
@@ -222,7 +222,7 @@ export default function DoneForYouSetupPage() {
                 <p className="mt-1 text-4xl font-bold tracking-tight text-slate-900">
                   {pkg.price}
                   <span className="ml-2 align-middle text-sm font-medium text-slate-500">
-                    one-time · USD
+                    one-time · NZD
                   </span>
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">
@@ -230,7 +230,7 @@ export default function DoneForYouSetupPage() {
                 </p>
                 <h4 className="mt-6 text-xs font-semibold uppercase tracking-wide text-slate-500">
                   {pkg.highlight
-                    ? 'Everything in the $499 setup, plus:'
+                    ? 'Everything in the $899 setup, plus:'
                     : 'Includes'}
                 </h4>
                 <ul className="mt-3 space-y-2.5">

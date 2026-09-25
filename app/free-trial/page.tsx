@@ -123,7 +123,7 @@ function planStyles(plan: (typeof pricingPlans)[number]): string {
 const dfyPackages = [
   {
     name: "Done-For-You Estimating Setup",
-    price: "$499",
+    price: "$899",
     tagline: "Best for individual contractors and smaller businesses that want us to build the core of their estimating system.",
     highlight: false,
     items: [
@@ -138,7 +138,7 @@ const dfyPackages = [
   },
   {
     name: "Complete Done-For-You Setup",
-    price: "$999",
+    price: "$1,799",
     tagline: "Best for businesses with more products, services or a more detailed estimating system.",
     highlight: true,
     items: [
@@ -304,7 +304,7 @@ export default function FreeTrialPage() {
                     <p className="mt-2 text-sm leading-6 text-zinc-600">{pkg.tagline}</p>
                     <div className="mt-6">
                       <div className="flex min-h-[92px] w-full flex-col justify-center rounded-xl border border-zinc-200/80 bg-white/60 p-4">
-                        <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">USD</p>
+                        <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">NZD</p>
                         <p className="mt-1 text-2xl font-semibold">{pkg.price}</p>
                         <p className="text-xs text-zinc-500">one-time setup</p>
                       </div>

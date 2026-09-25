@@ -60,7 +60,7 @@ export default function SiteFooter() {
           </nav>
         </div>
         <div className="mt-10 flex flex-col gap-2 border-t border-zinc-200 pt-6 text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>? 2026 QuoteCore+. Built by <a href="https://t3labs.tech" className="hover:text-zinc-800">T3 Labs</a>.</p>
+          <p>2026 QuoteCore+. Built by <a href="https://t3labs.tech" className="hover:text-zinc-800">T3 Labs</a>.</p>
           <p>New Zealand website</p>
         </div>
       </div>
