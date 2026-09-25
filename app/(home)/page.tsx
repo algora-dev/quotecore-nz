@@ -10,6 +10,7 @@ import DoneForYouBanner from "@/components/DoneForYouBanner";
 import SiteFooter from "@/components/SiteFooter";
 import YouTubeLite from "@/components/YouTubeLite";
 import DemoToolCard from "@/components/DemoToolCard";
+import FreeTakeoffCTACard from "@/components/FreeTakeoffCTACard";
 import { trackEvent } from "@/lib/analytics";
 import { buildBreadcrumbSchema, buildFaqSchema, buildSoftwareApplicationSchema } from "@/lib/schema";
 
@@ -340,8 +341,13 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="relative z-10 flex flex-1 items-center justify-center overflow-hidden lg:flex-1">
-                <DemoToolCard />
+              <div className="relative z-10 flex flex-1 flex-col items-center justify-start gap-4 overflow-hidden lg:flex-1 lg:items-start lg:gap-5">
+                <div className="w-full max-w-xl">
+                  <DemoToolCard />
+                </div>
+                <div className="w-full max-w-xl">
+                  <FreeTakeoffCTACard />
+                </div>
               </div>
             </div>
           </div>
