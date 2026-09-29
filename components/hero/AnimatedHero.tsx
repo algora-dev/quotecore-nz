@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import BlogHeader from "@/components/BlogHeader";
 
 /**
- * Animated intro hero (v7) for the QuoteCore+ homepages - 2026-09-29.
+ * Animated intro hero (v7.1) for the QuoteCore+ homepages - 2026-09-29.
  *
  * The final composition stays visible as it builds:
  * MEASURE -> PRICE -> QUOTE
@@ -188,14 +188,14 @@ export default function AnimatedHero() {
               <p className="nzah-positioning-line">
                 <span
                   className={`nzah-positioning-phrase ${powerfulVisible ? "nzah-positioning-phrase-on" : ""} ${
-                    powerfulGlow ? "nzah-letter-on" : ""
+                    powerfulGlow ? "nzah-positioning-phrase-glow" : ""
                   }`}
                 >
                   Powerful tools.
                 </span>{" "}
                 <span
                   className={`nzah-positioning-phrase ${simpleVisible ? "nzah-positioning-phrase-on" : ""} ${
-                    simpleGlow ? "nzah-letter-on" : ""
+                    simpleGlow ? "nzah-positioning-phrase-glow" : ""
                   }`}
                 >
                   Made simple.
@@ -204,7 +204,7 @@ export default function AnimatedHero() {
 
               <p
                 className={`nzah-audience-line ${audienceVisible ? "nzah-audience-line-on" : ""} ${
-                  audienceGlow ? "nzah-letter-on" : ""
+                  audienceGlow ? "nzah-audience-line-glow" : ""
                 }`}
               >
                 For roofing and construction.
@@ -409,6 +409,31 @@ const nzahSceneCss = `
   .nzah-positioning-phrase-on {
     opacity: 1;
   }
+  .nzah-positioning-phrase-glow {
+    animation: nzahPhraseGlowPulse 560ms ease-out both;
+  }
+
+  @keyframes nzahPhraseGlowPulse {
+    0% {
+      text-shadow:
+        0 0 0 rgba(255, 107, 53, 0),
+        0 0 0 rgba(255, 107, 53, 0);
+      transform: scale(1);
+    }
+    28% {
+      text-shadow:
+        0 0 6px rgba(255, 107, 53, 0.72),
+        0 0 16px rgba(255, 107, 53, 0.38),
+        0 0 30px rgba(255, 107, 53, 0.16);
+      transform: scale(1.025);
+    }
+    100% {
+      text-shadow:
+        0 0 0 rgba(255, 107, 53, 0),
+        0 0 0 rgba(255, 107, 53, 0);
+      transform: scale(1);
+    }
+  }
 
   .nzah-audience-line {
     margin: 0.65rem 0 0;
@@ -416,7 +441,7 @@ const nzahSceneCss = `
     font-size: clamp(1.05rem, 2.3vw, 1.6rem);
     font-weight: 600;
     line-height: 1.4;
-    color: #3f3f46;
+    color: #09090b;
     text-align: center;
     opacity: 0;
     text-shadow: 0 0 0 rgba(255, 107, 53, 0);
@@ -426,6 +451,9 @@ const nzahSceneCss = `
   }
   .nzah-audience-line-on {
     opacity: 1;
+  }
+  .nzah-audience-line-glow {
+    animation: nzahPhraseGlowPulse 560ms ease-out both;
   }
 
   @media (max-width: 640px) {
@@ -459,7 +487,9 @@ const nzahSceneCss = `
     .nzah-audience-line {
       transition: none !important;
     }
-    .nzah-arrow-on {
+    .nzah-arrow-on,
+    .nzah-positioning-phrase-glow,
+    .nzah-audience-line-glow {
       animation: none !important;
     }
   }
