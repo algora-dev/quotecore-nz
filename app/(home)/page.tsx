@@ -6,16 +6,16 @@ import { hreflangLanguages } from '@/lib/seo/hreflang';
 import { buildBreadcrumbSchema, buildFaqSchema, buildSoftwareApplicationSchema, siteUrl } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Long-Run Roofing Quoting Software NZ | QuoteCore+',
+  title: 'Roofing & Construction Quoting Software NZ | QuoteCore+',
   description:
-    'QuoteCore+ is quoting software built for New Zealand roofing and construction. Measure long-run roofs, price in NZD with GST, send quotes, order materials and invoice, all in one place.',
+    'QuoteCore+ is measuring and quoting software built for New Zealand roofing and construction businesses. Measure roofs, price in NZD with GST, send quotes, order materials and invoice, all in one place.',
   alternates: {
     canonical: `${siteUrl}/`,
     languages: hreflangLanguages('/'),
   },
   openGraph: {
-    title: 'Roofing Quoting Software for New Zealand | QuoteCore+',
-    description: 'Measure long-run roofs, price in NZD with GST, quote, order materials and invoice. Built for New Zealand roofing first.',
+    title: 'Roofing & Construction Quoting Software NZ | QuoteCore+',
+    description: 'Measure roofs, price in NZD with GST, quote, order materials and invoice. Built for New Zealand roofing and construction businesses.',
     url: `${siteUrl}/`,
     siteName: 'QuoteCore+',
     type: 'website',

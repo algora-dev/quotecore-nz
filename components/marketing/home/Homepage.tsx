@@ -36,7 +36,7 @@ export default function MarketingHomepage({ config = homepageConfig, preview = f
           <div className={s.heroCopy}>
             <p className={s.eyebrow}>Built for New Zealand roofing first</p>
             <h1 id="hero-title"><span className={s.heroOrange}>Measure</span> the job.<br />Gain your <span className={s.heroOrange}>price</span>.<br /><span className={s.heroOrange}>Send</span> the quote.</h1>
-            <p className={s.heroLead}>Faster estimating and quoting for long-run roofing and construction businesses.</p>
+            <p className={s.heroLead}>Faster measuring and quoting for New Zealand roofing and construction businesses.</p>
             <p className={s.heroBody}>Built from industry experience and contractor feedback. Powerful tools, made simple.</p>
             <div className={s.heroDevice}><DeviceBadge /></div>
             <div className={s.heroActions}>{demo()}<DemoCallButton bookingHref={config.bookingHref} /><MarketingButton href="/pricing" variant="glass" size="large" className={`${s.button} ${s.heroPricing}`} icon={<Icon name="arrow" />}>Check Pricing</MarketingButton></div>
