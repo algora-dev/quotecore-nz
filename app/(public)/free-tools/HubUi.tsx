@@ -23,6 +23,7 @@ export function Action({children,variant='glass',className='',...props}:ButtonHT
  return <button type="button" {...props} className={`${controls.button} ${controls[variant]} ${s.action} ${className}`}>{children}</button>;
 }
 export function ActionLink({href,children,variant='glass',className='',onClick,ariaLabel}:{href:string;children:ReactNode;variant?:'primary'|'glass'|'ghost';className?:string;onClick?:()=>void;ariaLabel?:string}) {
- return <a href={href} onClick={onClick} aria-label={ariaLabel} className={`${controls.button} ${controls[variant]} ${s.action} ${className}`}>{children}</a>;
+ const external = /^https?:\/\//.test(href);
+ return <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} onClick={onClick} aria-label={ariaLabel} className={`${controls.button} ${controls[variant]} ${s.action} ${className}`}>{children}</a>;
 }
 export function Eyebrow({children}:{children:ReactNode}) {return <p className={s.eyebrow}><span aria-hidden="true"/>{children}</p>;}

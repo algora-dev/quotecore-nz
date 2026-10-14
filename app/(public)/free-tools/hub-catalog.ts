@@ -7,7 +7,7 @@ export const SITE_ORIGIN = 'https://www.quote-core.co.nz';
 export const HUB_URL = `${SITE_ORIGIN}/free-tools`;
 export const DEMO_HREF = '/takeoff-demo';
 export const CATEGORIES: {id:HubCategory; title:string; description:string; detail:string; featured:string[]}[] = [
-  {id:'measure',title:'Measure & price',description:'From a plan or measurements you already have.',detail:'Roofing · Cladding · Flooring',featured:['measurement-to-quote-tool','free-roof-takeoff']},
+  {id:'measure',title:'Measure & price',description:'From a plan or measurements you already have.',detail:'Roofing · Cladding · Flooring',featured:['free-digital-takeoff','measurement-to-quote-tool']},
   {id:'calculate',title:'Calculate',description:'Areas, materials, roof pitch, angles and cuts.',detail:'Quantities · Dimensions · Costs',featured:['free-roofing-calculator','free-construction-calculator','free-birds-mouth-calculator']},
   {id:'documents',title:'Create documents',description:'Quotes for customers. Orders for suppliers. Invoices for payment.',detail:'Quote · Purchase order · Invoice',featured:['free-quote-generator','free-purchase-order-generator','free-invoice-generator']},
 ];
@@ -18,13 +18,15 @@ export const EXAMPLE_QUESTIONS = [
   {id:'customer-quote',label:'Can I make a quote for my customer?',query:'I need to create a quote for my customer.'},
 ] as const;
 export const DIRECTORY_TOOLS = TOOL_REGISTRY.filter(t=>t.showInDirectory!==false);
+const GLOBAL_TOOL_ORIGIN = 'https://quote-core.com';
+
 export const FAQS = [
   {question:'Can I use these tools without an account?',answer:'Yes. Start measuring, calculating or creating a document without signing up. Document generation and AI assistance have daily limits. The generators show the current limits and the extra allowance available with a free, confirmed account.'},
-  {question:'Which tool should I use if I already have measurements?',answer:'Use Measurements to Pricing. Enter areas, lengths, counts or room dimensions, apply your material and labour rates, then turn the results into a free quote. You do not need to upload a plan.',href:'/measurement-to-quote-tool',link:'Open Measurements to Pricing'},
-  {question:'Can I measure a roofing, cladding or flooring plan?',answer:'Yes. The roof takeoff tool lets you upload a PDF or image plan, calibrate it against a known dimension, and measure areas and lengths. Check the scale and all measurements before relying on the result.',href:'/free-roof-takeoff',link:'Open the roof takeoff tool'},
+  {question:'Which tool should I use if I already have measurements?',answer:'Use Measurements to Pricing. Enter areas, lengths, counts or room dimensions, apply your material and labour rates, then turn the results into a free quote. You do not need to upload a plan.',href:`${GLOBAL_TOOL_ORIGIN}/measurement-to-quote-tool`,link:'Open Measurements to Pricing'},
+  {question:'Can I measure a roofing, cladding or flooring plan?',answer:'Yes. The roof takeoff tool lets you upload a PDF or image plan, calibrate it against a known dimension, and measure areas and lengths. Check the scale and all measurements before relying on the result.',href:`${GLOBAL_TOOL_ORIGIN}/free-digital-takeoff`,link:'Open Digital Takeoff'},
   {question:'Are the example component prices real market rates?',answer:'No. The example libraries use fictitious prices so you can see how components work. Replace material, labour and waste allowances with your own rates before quoting a customer.'},
-  {question:'Can I make a quote, purchase order or invoice as a PDF?',answer:'Yes. Each generator lets you review your document, then print or save it as a PDF. A free, confirmed account removes QuoteCore+ document branding and provides a higher shared daily allowance.',href:'/free-quote-generator',link:'Create a free quote'},
-  {question:'What is different about the paid QuoteCore+ app?',answer:'The free tools solve individual tasks. The paid app gives you saved pricing and component libraries, job records and a connected workflow for takeoffs, quotes, orders and invoices. Explore the demo for free before deciding whether the full app fits your business.',href:DEMO_HREF,link:'Try the QuoteCore+ demo'},
+  {question:'Can I make a quote, purchase order or invoice as a PDF?',answer:'Yes. Each generator lets you review your document, then print or save it as a PDF. A free, confirmed account removes QuoteCore+ document branding and provides a higher shared daily allowance.',href:`${GLOBAL_TOOL_ORIGIN}/free-quote-generator`,link:'Create a free quote'},
+  {question:'What is different about the paid QuoteCore+ app?',answer:'The free tools solve individual tasks. The paid app gives you saved pricing and component libraries, job records and a connected workflow for takeoffs, quotes, orders and invoices. Explore the demo for free before deciding whether the full app fits your business.',href:`${GLOBAL_TOOL_ORIGIN}/takeoff-demo`,link:'Try the QuoteCore+ demo'},
 ];
 export function categoryOf(tool: FreeTool): HubCategory {
   if(['free-quote-generator','free-invoice-generator','free-purchase-order-generator'].includes(tool.id)) return 'documents';
@@ -47,7 +49,7 @@ export function createHubSchema() {
   const tools = DIRECTORY_TOOLS.filter(t=>t.showInSchema!==false);
   return {'@context':'https://schema.org','@graph':[
     {'@type':'CollectionPage','@id':HUB_URL+'#page',url:HUB_URL,name:'Free Roofing & Construction Tools | QuoteCore+',description:'Free digital takeoffs, measurements to pricing, construction calculators, and quote, invoice and purchase order generators.',inLanguage:'en',mainEntity:{'@id':HUB_URL+'#tools'},breadcrumb:{'@id':HUB_URL+'#breadcrumb'}},
-    {'@type':'ItemList','@id':HUB_URL+'#tools',name:'QuoteCore+ free tool library',numberOfItems:tools.length,itemListElement:tools.map((t,i)=>({'@type':'ListItem',position:i+1,name:t.name,description:t.shortDescription,url:SITE_ORIGIN+t.url}))},
+    {'@type':'ItemList','@id':HUB_URL+'#tools',name:'QuoteCore+ free tool library',numberOfItems:tools.length,itemListElement:tools.map((t,i)=>({'@type':'ListItem',position:i+1,name:t.name,description:t.shortDescription,url:t.url}))},
     {'@type':'BreadcrumbList','@id':HUB_URL+'#breadcrumb',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:SITE_ORIGIN},{'@type':'ListItem',position:2,name:'Free tools',item:HUB_URL}]}
   ]};
 }

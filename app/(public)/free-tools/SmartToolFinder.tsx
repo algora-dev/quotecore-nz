@@ -348,6 +348,8 @@ export default function SmartToolFinder() {
                 </div>
                 <Link
                   href={`${rec.url}${rec.url.includes('?') ? '&' : '?'}source=tool-finder&intent=${encodeURIComponent(intentBucket ?? 'unclassified')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   prefetch={false}
                   onClick={() => onRecommendationClick(rec, i + 1)}
                   className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-black px-5 py-2.5 text-xs font-semibold text-white transition-all hover:shadow-[0_0_16px_rgba(255,107,53,0.45)] min-h-[40px]"

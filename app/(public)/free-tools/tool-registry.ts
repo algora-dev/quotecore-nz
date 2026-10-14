@@ -178,14 +178,19 @@ function toFreeTool(t: ToolEntry): FreeTool {
 /** NZ site: only these tool routes are hosted locally (owner decision 2026-10-14).
  * Everything else lives on quote-core.com, reachable via the wider-selection link.
  * free-roofing-takeoff-builder is deliberately unlisted (route stays live, owner request). */
-const NZ_HOSTED = new Set([
-  'measurement-to-quote-tool',
+const FLOW_TOOLS = new Set([
+  'free-digital-takeoff', 'measurement-to-quote-tool',
   'free-roof-takeoff', 'free-cladding-takeoff', 'free-flooring-takeoff',
   'free-roofing-calculator', 'free-construction-calculator', 'free-concrete-calculator',
   'free-landscaping-calculator', 'free-birds-mouth-calculator', 'free-roof-pitch-calculator',
   'free-quote-generator', 'free-invoice-generator', 'free-purchase-order-generator',
   'roof-cost-calculator-nz',
 ]);
+
+const GLOBAL_TOOL_ORIGIN = 'https://quote-core.com';
+const GLOBAL_TOOL_PATHS: Record<string, string> = {
+  'roof-cost-calculator-nz': '/free-roof-replacement-cost-calculator',
+};
 
 const NZ_ROOF_COST_CALCULATOR: FreeTool = {
   id: 'roof-cost-calculator-nz', name: 'Roof Cost Calculator NZ', url: '/roof-cost-calculator-nz',
@@ -200,7 +205,11 @@ export const TOOL_REGISTRY: FreeTool[] = [
   ...EXTRA_TOOLS,
   ...TOOLS.map(toFreeTool),
   NZ_ROOF_COST_CALCULATOR,
-].filter((t) => NZ_HOSTED.has(t.id));
+].filter((t) => FLOW_TOOLS.has(t.id))
+  .map((tool) => ({
+    ...tool,
+    url: `${GLOBAL_TOOL_ORIGIN}${GLOBAL_TOOL_PATHS[tool.id] ?? tool.url}`,
+  }));
 
 export const TOOL_COUNT = TOOL_REGISTRY.length;
 

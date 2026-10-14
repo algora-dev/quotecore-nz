@@ -77,6 +77,8 @@ export default function BrowseAllTools() {
             <Link
               key={tool.id}
               href={tool.url}
+              target="_blank"
+              rel="noopener noreferrer"
               prefetch={false}
               onClick={() => trackEvent('tool_directory_click', { tool_id: tool.id })}
               className="group block bg-white rounded-lg border border-slate-100 px-4 py-3.5 hover:border-slate-300 hover:bg-slate-50/60 transition-all"
