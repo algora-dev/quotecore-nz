@@ -36,7 +36,6 @@ export default function SiteFooter() {
               <Link href="/pricing" className={linkClass}>Pricing</Link>
               <Link href="/free-tools" className={linkClass}>Free tools</Link>
               <Link href="/free-calculators" className={linkClass}>Free calculators</Link>
-              <Link href="/free-roofing-takeoff-builder" className={linkClass}>Roof takeoff builder</Link>
               <Link href="/free-trial" className={linkClass}>Free trial</Link>
             </div>
           </nav>

@@ -1,0 +1,275 @@
+import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/seo/site-url';
+
+/**
+ * Centralised SEO utilities for the QuoteCore+ public site.
+ *
+ * Canonical base is https://quote-core.com for the global site.
+ * The NZ site (quotecore-nz repo) has its own lib/seo.ts.
+ */
+
+export { SITE_URL };
+
+export const ORG_NAME = 'QuoteCore+';
+export const ORG_LEGAL_NAME = 'T3 Play Limited';
+export const ORG_EMAIL = 'info@quote-core.com';
+export const ORG_LOGO = `${SITE_URL}/MainQCP.png`;
+export const ORG_LINKEDIN = 'https://www.linkedin.com/company/quotecore/';
+
+/** Is the current deploy a Vercel preview (not production)? */
+export const isPreview = () => {
+  if (typeof process !== 'undefined' && process.env.VERCEL_ENV) {
+    return process.env.VERCEL_ENV !== 'production';
+  }
+  return false;
+};
+
+/** Robots directive: indexable in production, noindex in preview/staging. */
+export function robotsDirective() {
+  if (isPreview()) {
+    return { index: false, follow: false };
+  }
+  return { index: true, follow: true };
+}
+
+/** Build a canonical URL for a path on the global site. */
+export function canonicalUrl(path: string): string {
+  const clean = path.startsWith('/') ? path : `/${path}`;
+  return `${SITE_URL}${clean}`;
+}
+
+/** Build standard OpenGraph metadata for a page. */
+export function buildOgMetadata({
+  title,
+  description,
+  path,
+  image = '/MainQCP.png',
+  type = 'website',
+}: {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  type?: 'website' | 'article';
+}): Metadata['openGraph'] {
+  return {
+    title,
+    description,
+    url: canonicalUrl(path),
+    siteName: ORG_NAME,
+    type,
+    images: [{ url: image, alt: title }],
+  };
+}
+
+/** Build Twitter card metadata. */
+export function buildTwitterMetadata({
+  title,
+  description,
+  image = '/MainQCP.png',
+}: {
+  title: string;
+  description: string;
+  image?: string;
+}): Metadata['twitter'] {
+  return {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: [image],
+  };
+}
+
+/** Full page metadata builder for marketing/blog pages. */
+export function buildPageMetadata({
+  title,
+  description,
+  path,
+  image,
+  type = 'website',
+}: {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  type?: 'website' | 'article';
+}): Metadata {
+  return {
+    title,
+    description,
+    alternates: { canonical: canonicalUrl(path) },
+    openGraph: buildOgMetadata({ title, description, path, image, type }),
+    twitter: buildTwitterMetadata({ title, description, image }),
+    robots: robotsDirective(),
+  };
+}
+
+// ── Structured data helpers ──────────────────────────
+
+export function organizationSchema() {
+  return {
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
+    name: ORG_NAME,
+    alternateName: ['QuoteCore', 'Quote Core', 'Quote Core Plus', 'QuoteCore Plus'],
+    url: `${SITE_URL}/`,
+    logo: ORG_LOGO,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: ORG_EMAIL,
+      contactType: 'customer support',
+    },
+    sameAs: [
+      ORG_LINKEDIN,
+      'https://www.trustpilot.com/review/quote-core.com',
+      'https://www.capterra.com/p/10023337/QuoteCore/',
+    ],
+  };
+}
+
+export function websiteSchema() {
+  return {
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    name: ORG_NAME,
+    url: `${SITE_URL}/`,
+    publisher: { '@id': `${SITE_URL}/#organization` },
+  };
+}
+
+export function breadcrumbSchema(items: { name: string; path: string }[]) {
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: canonicalUrl(item.path),
+    })),
+  };
+}
+
+export function blogPostingSchema({
+  title,
+  description,
+  slug,
+  datePublished,
+  dateModified,
+  authorName = 'Shaun',
+  authorRole = 'Founder, QuoteCore+',
+  image,
+}: {
+  title: string;
+  description: string;
+  slug: string;
+  datePublished: string;
+  dateModified?: string;
+  authorName?: string;
+  authorRole?: string;
+  image?: string;
+}) {
+  return {
+    '@type': 'BlogPosting',
+    headline: title,
+    description,
+    url: canonicalUrl(`/blog/${slug}`),
+    datePublished,
+    dateModified: dateModified || datePublished,
+    author: {
+      '@type': 'Person',
+      name: authorName,
+      jobTitle: authorRole,
+      url: `${SITE_URL}/about`,
+      sameAs: [ORG_LINKEDIN],
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: ORG_NAME,
+      url: `${SITE_URL}/`,
+      logo: {
+        '@type': 'ImageObject',
+        url: ORG_LOGO,
+        width: 512,
+        height: 512,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl(`/blog/${slug}`),
+    },
+    image: {
+      '@type': 'ImageObject',
+      url: image || `${SITE_URL}/og-image.png`,
+      width: 1200,
+      height: 630,
+    },
+  };
+}
+
+export function videoObjectSchema({
+  videoId,
+  title,
+  description,
+  uploadDate,
+  duration,
+  clips = [],
+}: {
+  videoId: string;
+  title: string;
+  description: string;
+  uploadDate: string;
+  duration: string;
+  clips?: { name: string; startOffset: number; endOffset?: number }[];
+}) {
+  const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+  return {
+    '@type': 'VideoObject',
+    '@id': `${watchUrl}#video`,
+    name: title,
+    description,
+    thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+    uploadDate,
+    duration,
+    contentUrl: watchUrl,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}`,
+    potentialAction: {
+      '@type': 'SeekToAction',
+      target: `${watchUrl}&t={seek_to_second_number}s`,
+      'startOffset-input': 'required name=seek_to_second_number',
+    },
+    ...(clips.length > 0
+      ? {
+          hasPart: clips.map((clip) => ({
+            '@type': 'Clip',
+            name: clip.name,
+            startOffset: clip.startOffset,
+            ...(clip.endOffset ? { endOffset: clip.endOffset } : {}),
+            url: `${watchUrl}&t=${clip.startOffset}s`,
+          })),
+        }
+      : {}),
+  };
+}
+
+/** Blog schema for the blog index page. */
+export function blogIndexSchema() {
+  return {
+    '@type': 'Blog' as const,
+    '@id': `${SITE_URL}/blog/#blog`,
+    name: 'QuoteCore+ Blog',
+    description:
+      'Practical guides for roofing and construction contractors on quoting, pricing, material ordering, job management, and getting more work.',
+    url: canonicalUrl('/blog'),
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    blogPost: [] as Record<string, unknown>[],
+  };
+}
+
+/** Combined @graph schema for the homepage / marketing pages. */
+export function siteGraphSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [organizationSchema(), websiteSchema()],
+  };
+}

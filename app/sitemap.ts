@@ -21,7 +21,7 @@ const lastModified: Record<string, string> = {
   "/done-for-you-setup": "2026-08-28",
   "/contact": "2026-07-24",
   "/free-trial": "2026-09-18",
-  "/free-tools": "2026-09-17",
+  "/free-tools": "2026-10-14",
   "/free-roof-takeoff": "2026-09-17",
   "/free-roof-pitch-calculator": "2026-09-17",
   "/free-cladding-takeoff": "2026-09-17",
