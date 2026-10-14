@@ -9,34 +9,35 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-flex items-center" aria-label="QuoteCore+ New Zealand home">
+            <Link href="/" className="inline-flex items-center" aria-label="QuoteCore+ home">
               <span className="brand-wordmark text-lg font-semibold text-zinc-950">QuoteCore<span className="brand-plus">+</span></span>
             </Link>
-            <p className="mt-3 max-w-xs text-sm leading-6 text-zinc-500">Quoting software for New Zealand roofing and measured trade businesses.</p>
-            <div className="mt-5">
-              <SocialIcons />
-            </div>
+            <p className="mt-3 max-w-xs text-sm leading-6 text-zinc-500">Roofing quoting, takeoff and job workflow software. Built for New Zealand roofing first, flexible enough for every trade.</p>
+            <SocialIcons className="mt-5 justify-start" />
           </div>
           <nav aria-label="Product">
             <h2 className="text-sm font-semibold text-zinc-950">Product</h2>
             <div className="mt-4 flex flex-col gap-3">
               <Link href="/features" className={linkClass}>All features</Link>
               <Link href="/features/digital-roof-takeoff" className={linkClass}>Digital roof takeoff</Link>
-              <Link href="/features/smart-components" className={linkClass}>Smart Components</Link>
+              <Link href="/features/smart-components" className={linkClass}>Smart Components™</Link>
               <Link href="/features/material-ordering" className={linkClass}>Material ordering</Link>
               <Link href="/features/invoicing" className={linkClass}>Invoicing</Link>
               <Link href="/features/supplier-resources" className={linkClass}>Supplier resources</Link>
             </div>
           </nav>
-          <nav aria-label="Industries and resources">
+          <nav aria-label="Explore">
             <h2 className="text-sm font-semibold text-zinc-950">Explore</h2>
             <div className="mt-4 flex flex-col gap-3">
-              <Link href="/roofing-quoting-software" className={linkClass}>Roofing software NZ</Link>
-              <Link href="/construction-quoting-software" className={linkClass}>Construction software NZ</Link>
+              <Link href="/roofing-quoting-software" className={linkClass}>Roofing software</Link>
+              <Link href="/roof-cost-calculator-nz" className={linkClass}>Roof cost calculator NZ</Link>
+              <Link href="/construction-quoting-software" className={linkClass}>Construction quoting software</Link>
+              <Link href="/takeoff-demo" className={linkClass}>Try the takeoff demo</Link>
+              <Link href="/pricing" className={linkClass}>Pricing</Link>
               <Link href="/free-tools" className={linkClass}>Free tools</Link>
               <Link href="/free-calculators" className={linkClass}>Free calculators</Link>
-              <Link href="/pricing" className={linkClass}>Pricing</Link>
-              <a href="https://quote-core.com/blog" className={linkClass}>Global resources and blog</a>
+              <Link href="/free-roofing-takeoff-builder" className={linkClass}>Roof takeoff builder</Link>
+              <Link href="/free-trial" className={linkClass}>Free trial</Link>
             </div>
           </nav>
           <nav aria-label="Company">
@@ -44,9 +45,9 @@ export default function SiteFooter() {
             <div className="mt-4 flex flex-col gap-3">
               <Link href="/about" className={linkClass}>About</Link>
               <Link href="/services" className={linkClass}>Services</Link>
+              <Link href="/suppliers" className={linkClass}>For suppliers</Link>
               <Link href="/contact" className={linkClass}>Contact</Link>
-              <Link href="/free-tools" className={linkClass}>Free Tools</Link>
-              <a href="https://app.quote-core.com/docs" className={linkClass}>Documentation</a>
+              <Link href="/free-trial" className={linkClass}>Get started</Link>
             </div>
           </nav>
           <nav aria-label="Legal and region">

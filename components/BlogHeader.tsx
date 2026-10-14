@@ -1,157 +1,190 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { appUrl } from "@/lib/app-url";
+import SocialIcons from "./SocialIcons";
+import { MarketingButton } from "./marketing/MarketingButton";
+import styles from "./BlogHeader.module.css";
+import controls from "./marketing/MarketingButton.module.css";
 
-const navItems = [
-  { label: "Features", href: "/features" },
-  { label: "Roofing Software NZ", href: "/roofing-quoting-software" },
-  { label: "Construction Software NZ", href: "/construction-quoting-software" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Free Tools", href: "/free-tools" },
-  { label: "Blog", href: "https://quote-core.com/blog", external: true },
-  { label: "Contact us", href: "/contact" },
-];
+type NavItem = { label: string; href: string; app?: boolean };
 
-export default function BlogHeader({ backLabel, backHref = "/" }: { backLabel?: string; backHref?: string }) {
+function buildNavItems(appHref: string, homepage: boolean): NavItem[] {
+  return [
+    { label: "Open the App", href: appHref, app: true },
+    { label: "Features", href: homepage ? "#workflow" : "/features" },
+    { label: "Pricing", href: homepage ? "#pricing" : "/pricing" },
+    { label: "Demo", href: "/takeoff-demo" },
+    { label: "Free Tools", href: "/free-tools" },
+    { label: "Contact us", href: "/contact" },
+  ];
+}
+
+export default function BlogHeader({ backLabel, backHref = "/", theme = "dark", homepage = false }: { backLabel?: string; backHref?: string; theme?: "light" | "dark"; homepage?: boolean }) {
+  const menuId = useId();
+  const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [appLink, setAppLink] = useState("https://app.quote-core.com");
+  const navItems = buildNavItems(appLink || "/login", homepage);
 
-  const headerButton =
-    "inline-flex h-12 min-w-[138px] items-center justify-center rounded-full px-5 text-sm transition-colors duration-200";
+  useEffect(() => {
+    setAppLink(appUrl());
+  }, []);
 
-  const contactButton =
-    `${headerButton} pill-shimmer border border-zinc-300 bg-white font-medium text-zinc-900 shadow-[0_6px_24px_rgba(255,255,255,0.18)_inset,0_10px_30px_rgba(0,0,0,0.04)] backdrop-blur-3xl hover:border-[#FF6B35]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:ring-offset-2`;
+  useEffect(() => {
+    let frame = 0;
+    const syncScroll = () => {
+      frame = 0;
+      setScrolled(window.scrollY > 18);
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(syncScroll);
+    };
+    syncScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
-  const freeToolsButton =
-    `${headerButton} bg-black font-semibold text-white shadow-[0_14px_34px_rgba(0,0,0,0.18)] hover:bg-slate-800 hover:shadow-[0_0_16px_rgba(255,107,53,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:ring-offset-2`;
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { setMenuOpen(false); menuButtonRef.current?.focus(); }
+    };
+    const onOutside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !headerRef.current?.contains(event.target)) setMenuOpen(false);
+    };
+    const onFocusOutside = (event: FocusEvent) => {
+      if (event.target instanceof Node && !headerRef.current?.contains(event.target)) setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onOutside);
+    document.addEventListener("focusin", onFocusOutside);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onOutside);
+      document.removeEventListener("focusin", onFocusOutside);
+    };
+  }, [menuOpen]);
 
-  const appButton =
-    `${headerButton} border border-zinc-300 bg-white font-medium text-zinc-900 hover:border-[#FF6B35]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:ring-offset-2`;
-
-  const trialButton =
-    `${headerButton} bg-[#FF6B35] font-semibold text-white shadow-[0_14px_34px_rgba(255,107,53,0.22)] hover:bg-[#E55A28] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:ring-offset-2`;
-
-  const menuButton =
-    "pill-shimmer inline-flex h-12 w-12 items-center justify-center rounded-full border border-zinc-300 bg-white text-zinc-900 shadow-[0_8px_22px_rgba(15,23,42,0.08)] transition-colors duration-200 hover:border-[#FF6B35]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:ring-offset-2";
+  const trackDemo = (location: string) => trackEvent("demo_tool_click", { location, mode: "takeoff" });
 
   return (
-    <header className="hero-header-transparent sticky top-0 z-50 border-b border-white/60 bg-white/72 shadow-[0_8px_30px_rgba(255,255,255,0.25)_inset,0_12px_40px_rgba(0,0,0,0.05)] backdrop-blur-[24px]">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-        <a href="/" className="flex items-center gap-3" aria-label="QuoteCore+ home">
-          <img src="/MainQCP.png" alt="QuoteCore+" width={160} height={44} loading="eager" decoding="async" className="h-10 w-auto sm:h-11" />
+    <header ref={headerRef} className={`${styles.header} ${theme === "dark" ? styles.dark : ""} ${scrolled ? styles.scrolled : ""}`}>
+      <div className={styles.inner}>
+        <a href="/" className={styles.logoLink} aria-label="QuoteCore+ home">
+          <img
+            src={theme === "dark" ? "/marketing/brand/quotecore-logo-white.png" : "/marketing/brand/quotecore-logo-transparent.png"}
+            alt="QuoteCore+"
+            width={theme === "dark" ? 788 : 481}
+            height={theme === "dark" ? 193 : 119}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            className={styles.logo}
+          />
         </a>
 
-        <div className="flex items-center gap-3">
-          <div className="hidden items-center gap-3 md:flex">
-            {backLabel && (
-              <a href={backHref} className={contactButton}>
-                {backLabel}
+        <div className={styles.actions}>
+          <div className={styles.desktopActions}>
+            {backLabel ? (
+              <a href={backHref} className={styles.backLink}>
+                ← {backLabel}
               </a>
-            )}
-            <a
-              href="/free-tools"
-              className={freeToolsButton}
-              onClick={() => trackEvent("free_tools_click", { location: "nav" })}
-            >
-              Free Tools
-            </a>
-            <a
-              href="https://app.quote-core.com"
-              className={appButton}
+            ) : null}
+            <MarketingButton
+              href={appLink || "/login"}
+              variant="glass"
+              size="large"
+              className={styles.signIn}
               onClick={() => trackEvent("app_click", { location: "nav" })}
             >
-              App
-            </a>
-            <a
-              href="/pricing"
-              className={trialButton}
-              onClick={() => trackEvent("get_started_click", { location: "nav" })}
+              Enter App
+            </MarketingButton>
+            <MarketingButton
+              href="/takeoff-demo"
+              variant="primary"
+              size="large"
+              onClick={() => trackDemo("nav")}
             >
-              Get started
-            </a>
+              Demo
+            </MarketingButton>
           </div>
 
+          <MarketingButton
+            href="/takeoff-demo"
+            variant="primary"
+            className={styles.mobileDemo}
+            onClick={() => trackDemo("nav-mobile")}
+            ariaLabel="Try the QuoteCore+ interactive demo"
+          >
+            Demo
+          </MarketingButton>
+
           <button
+            ref={menuButtonRef}
             type="button"
-            className={menuButton}
-            onClick={() => setMenuOpen((p) => !p)}
-            aria-label="Toggle menu"
+            className={`${controls.button} ${controls.glass} ${styles.menuButton}`}
+            onClick={() => setMenuOpen((previous) => !previous)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
+            aria-controls={menuId}
           >
             {menuOpen ? (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
               </svg>
             )}
           </button>
         </div>
       </div>
 
-      {menuOpen && (
-        <div className="bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
-          <div className="mx-auto max-w-7xl px-6 pb-4 pt-5 lg:px-8">
-            <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">Navigate</p>
-            <div className="flex flex-col">
+      {menuOpen ? (
+        <div id={menuId} className={styles.menuPanel}>
+          <div className={styles.menuInner}>
+            <p className={styles.menuLabel}>Explore QuoteCore+</p>
+            <nav className={styles.navList} aria-label="Marketing navigation">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="flex items-center justify-between border-b border-zinc-100 py-3.5 text-base font-medium text-zinc-800 transition-colors hover:text-[#FF6B35]"
-                  onClick={() => setMenuOpen(false)}
-                  {...("external" in item && item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className={styles.navItem}
+                  onClick={() => {
+                    if (item.app) trackEvent("app_click", { location: "menu-open-app" });
+                    setMenuOpen(false);
+                  }}
                 >
                   {item.label}
-                  {"external" in item && item.external ? (
-                    <svg className="h-4 w-4 text-zinc-300" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                      <path d="M11 3h6v6M17 3l-7 7M14 11v6a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1h6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  ) : (
-                    <svg className="h-4 w-4 text-zinc-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                  )}
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                  </svg>
                 </a>
               ))}
+            </nav>
+
+            <div className={styles.menuFooter}>
+              <SocialIcons className="justify-start" />
+              <a
+                href="https://quote-core.com"
+                className={styles.countryLink}
+                onClick={() => setMenuOpen(false)}
+              >
+                Switch to Global site
+              </a>
             </div>
           </div>
-          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 pb-6 pt-2 sm:flex-row lg:px-8">
-            <a
-              href="https://app.quote-core.com"
-              className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full border border-zinc-300 bg-white px-5 text-sm font-medium text-zinc-900 transition-colors duration-200 hover:border-[#FF6B35]/40"
-              onClick={() => { trackEvent("app_click", { location: "nav-menu" }); setMenuOpen(false); }}
-            >
-              App
-            </a>
-            <a
-              href="/pricing"
-              className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full bg-[#FF6B35] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]"
-              onClick={() => { trackEvent("get_started_click", { location: "nav-menu" }); setMenuOpen(false); }}
-            >
-              Get started
-            </a>
-            <a
-              href="/contact"
-              className="pill-shimmer inline-flex min-h-12 flex-1 items-center justify-center rounded-full border border-zinc-300 bg-white px-5 text-sm font-medium text-zinc-900 transition-colors duration-200 hover:border-[#FF6B35]/40"
-              onClick={() => { trackEvent("contact_click", { location: "nav-menu" }); setMenuOpen(false); }}
-            >
-              Contact us
-            </a>
-          </div>
-          <div className="mx-auto max-w-7xl px-6 pb-6 lg:px-8">
-            <a
-              href="https://quote-core.com"
-              className="inline-flex min-h-11 items-center rounded-full border border-zinc-300 px-4 text-sm font-medium text-zinc-800 transition-colors hover:border-[#FF6B35]/50"
-              onClick={() => setMenuOpen(false)}
-            >
-              Switch to Global
-            </a>
-          </div>
         </div>
-      )}
+      ) : null}
     </header>
   );
 }
