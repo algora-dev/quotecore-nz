@@ -15,8 +15,8 @@ function buildNavItems(appHref: string, homepage: boolean): NavItem[] {
     { label: "Open the App", href: appHref, app: true },
     { label: "Features", href: homepage ? "#workflow" : "/features" },
     { label: "Done For You", href: "/done-for-you-setup" },
-    { label: "Pricing", href: homepage ? "#pricing" : "/pricing" },
-    { label: "Demo", href: "/takeoff-demo" },
+    { label: "Pricing", href: homepage ? "#pricing" : "https://quote-core.com/pricing" },
+    { label: "Demo", href: "https://demo.quote-core.com" },
     { label: "Free Tools", href: "/free-tools" },
     { label: "Contact us", href: "/contact" },
   ];
@@ -109,7 +109,7 @@ export default function BlogHeader({ backLabel, backHref = "/", theme = "dark", 
               Enter App
             </MarketingButton>
             <MarketingButton
-              href="/takeoff-demo"
+              href="https://demo.quote-core.com"
               variant="primary"
               size="large"
               onClick={() => trackDemo("nav")}
@@ -119,7 +119,7 @@ export default function BlogHeader({ backLabel, backHref = "/", theme = "dark", 
           </div>
 
           <MarketingButton
-            href="/takeoff-demo"
+            href="https://demo.quote-core.com"
             variant="primary"
             className={styles.mobileDemo}
             onClick={() => trackDemo("nav-mobile")}

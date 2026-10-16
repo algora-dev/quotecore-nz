@@ -123,7 +123,7 @@ export default function AboutPage() {
               Try our free tools
             </a>
             <p className="mt-4 text-sm text-zinc-500">
-              <a href="/pricing" className="underline hover:text-zinc-900">See pricing</a> · <a href="/contact" className="underline hover:text-zinc-900">Contact us</a>
+              <a href="https://quote-core.com/pricing" className="underline hover:text-zinc-900">See pricing</a> · <a href="/contact" className="underline hover:text-zinc-900">Contact us</a>
             </p>
           </div>
         </section>

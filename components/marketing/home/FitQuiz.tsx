@@ -97,7 +97,7 @@ function track(name: string, params?: Record<string, string | number>) {
   w.gtag?.('event', name, params);
 }
 
-export function FitQuizDialog({ open, onClose, demoHref = '/demo', pricingHref = '/pricing', setupHref = '/#setup' }: {
+export function FitQuizDialog({ open, onClose, demoHref = 'https://demo.quote-core.com', pricingHref = 'https://quote-core.com/pricing', setupHref = '/#setup' }: {
   open: boolean; onClose: () => void; demoHref?: string; pricingHref?: string; setupHref?: string;
 }) {
   const [step, setStep] = useState(0);

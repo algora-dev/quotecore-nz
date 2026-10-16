@@ -321,7 +321,7 @@ export default function SuppliersPage() {
                 <h3 className="font-semibold text-slate-900">Smart Components&#8482;</h3>
                 <p className="mt-1 text-sm text-zinc-600">The component system that stores product codes and pricing from suppliers.</p>
               </a>
-              <a href="/pricing" className="rounded-xl border border-slate-200 bg-white p-6 transition-all hover:border-orange-200 hover:bg-orange-50/40">
+              <a href="https://quote-core.com/pricing" className="rounded-xl border border-slate-200 bg-white p-6 transition-all hover:border-orange-200 hover:bg-orange-50/40">
                 <h3 className="font-semibold text-slate-900">Pricing</h3>
                 <p className="mt-1 text-sm text-zinc-600">Plans for contractors who use supplier catalogues.</p>
               </a>

@@ -35,12 +35,12 @@ export function DemoWorkstation(_props: DemoWorkstationProps) {
     <div className="p-6 text-sm text-slate-600">
       The interactive demo workstation is available on{' '}
       <a
-        href="https://quote-core.com/takeoff-demo"
+        href="https://demo.quote-core.com"
         className="text-[#BD4A1A] underline underline-offset-2"
         target="_blank"
         rel="noopener noreferrer"
       >
-        quote-core.com/takeoff-demo
+        demo.quote-core.com
       </a>
       .
     </div>

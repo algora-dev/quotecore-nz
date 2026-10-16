@@ -38,7 +38,6 @@ const lastModified: Record<string, string> = {
   "/free-concrete-calculator": "2026-08-01",
   "/free-landscaping-calculator": "2026-08-01",
   "/free-birds-mouth-calculator": "2026-08-01",
-  "/pricing": "2026-09-18",
   "/privacy": "2026-08-02",
   "/roofing-quoting-software": "2026-08-03",
   "/services": "2026-08-03",

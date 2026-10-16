@@ -49,7 +49,7 @@ const takeoffCapture: Capture = {
 /** Isolated marketing section. No assistant API, microphone, account writes,
  * automatic carousel rotation, remote fonts or new production dependencies.
  */
-export function FeatureShowcase({ id = 'workflow', config = homepageConfig, initialFeature, initialScene, demoHref = '/takeoff-demo', features: suppliedFeatures = showcaseFeatures, onEvent }: FeatureShowcaseProps) {
+export function FeatureShowcase({ id = 'workflow', config = homepageConfig, initialFeature, initialScene, demoHref = 'https://demo.quote-core.com', features: suppliedFeatures = showcaseFeatures, onEvent }: FeatureShowcaseProps) {
   const candidates = validFeatures(suppliedFeatures);
   const features = candidates.length ? candidates : showcaseFeatures;
   const initialId = features.some(f => f.id === initialFeature) ? initialFeature! : features[0].id;

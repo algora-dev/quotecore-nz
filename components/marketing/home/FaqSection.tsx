@@ -9,7 +9,7 @@ import type { HomepageConfig } from './homepage-config';
 import s from './Homepage.module.css';
 import f from './FaqSection.module.css';
 
-export function FaqSection({ config, pricingHref = '/pricing', setupHref = '/done-for-you-setup' }: {
+export function FaqSection({ config, pricingHref = 'https://quote-core.com/pricing', setupHref = '/done-for-you-setup' }: {
   config: Pick<HomepageConfig, 'demoHref' | 'bookingHref'>;
   pricingHref?: string;
   setupHref?: string;

@@ -27,6 +27,22 @@ const nextConfig: NextConfig = {
         destination: "https://quote-core.com/blog/:path*",
         permanent: true,
       },
+      // Pricing and the interactive demo live on the global .com site (owner decision 2026-10-16).
+      {
+        source: "/pricing",
+        destination: "https://quote-core.com/pricing",
+        permanent: true,
+      },
+      {
+        source: "/demo",
+        destination: "https://demo.quote-core.com",
+        permanent: true,
+      },
+      {
+        source: "/takeoff-demo",
+        destination: "https://demo.quote-core.com",
+        permanent: true,
+      },
       {
         source: "/:path*",
         has: [{ type: "host", value: "quote-core.co.nz" }],

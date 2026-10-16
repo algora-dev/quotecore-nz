@@ -24,7 +24,7 @@ export function FinalCtaSection({ config }: { config: Pick<HomepageConfig, 'demo
           <span className={c.icon}><Icon name="calculator" size={23} /></span>
           <h3>Make it your own.</h3>
           <p>Choose the tools your business needs, see your price and get started.</p>
-          <div className={c.actions}><MarketingButton href="/pricing" variant="glass" icon={<Icon name="arrow" size={17} />}>See pricing &amp; build your plan</MarketingButton></div>
+          <div className={c.actions}><MarketingButton href="https://quote-core.com/pricing" variant="glass" icon={<Icon name="arrow" size={17} />}>See pricing &amp; build your plan</MarketingButton></div>
         </article>
         <article className={c.path}>
           <span className={c.icon}><Icon name="people" size={23} /></span>

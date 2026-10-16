@@ -8,13 +8,13 @@ export function boundedIndex(index: number, count: number): number {
 /** Navigation is a real anchor. Only a host-relative path or HTTPS URL is allowed. */
 export function safeDemoHref(value: string | undefined): string {
   const raw = value?.trim() ?? '';
-  if (!raw || /[\u0000-\u0020\\]/.test(raw)) return '/takeoff-demo';
+  if (!raw || /[\u0000-\u0020\\]/.test(raw)) return 'https://demo.quote-core.com';
   if (raw.startsWith('/') && !raw.startsWith('//')) return raw;
   try {
     const parsed = new URL(raw);
     if (parsed.protocol === 'https:' && !parsed.username && !parsed.password) return parsed.href;
   } catch { /* Use the existing demo route. */ }
-  return '/takeoff-demo';
+  return 'https://demo.quote-core.com';
 }
 
 export function tabDestination(key: string, index: number, count: number): number | null {

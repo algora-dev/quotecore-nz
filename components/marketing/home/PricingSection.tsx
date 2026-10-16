@@ -4,7 +4,7 @@ import s from './Homepage.module.css';
 import p from './PricingSection.module.css';
 
 /** Subscription pricing: a short introduction to the dedicated pricing tool. */
-export function PricingSection({ pricingHref = '/pricing' }: { pricingHref?: string }) {
+export function PricingSection({ pricingHref = 'https://quote-core.com/pricing' }: { pricingHref?: string }) {
   return <section id="pricing" className={p.section} aria-labelledby="pricing-title">
     <svg className={p.backdrop} viewBox="0 0 1440 360" preserveAspectRatio="none" aria-hidden="true" focusable="false">
       <defs>

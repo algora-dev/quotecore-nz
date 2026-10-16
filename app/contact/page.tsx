@@ -77,7 +77,7 @@ export default function ContactPage() {
                 <p>See QuoteCore+ in action and ask questions about how it fits your business.</p>
                 <span className={styles.routeLinks}>
                   <a className={styles.routeLink} href={bookingHref} target={bookingHref.startsWith("#") ? undefined : "_blank"} rel={bookingHref.startsWith("#") ? undefined : "noopener noreferrer"} onClick={() => trackEvent("book_call_click", { source: "contact_route_demo" })}>Choose a time <ArrowIcon /></a>
-                  <a className={styles.routeLink} href="/demo" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("contact_demo_click", { source: "contact_route_demo" })}>Try the demo yourself <ArrowIcon /></a>
+                  <a className={styles.routeLink} href="https://demo.quote-core.com" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("contact_demo_click", { source: "contact_route_demo" })}>Try the demo yourself <ArrowIcon /></a>
                 </span>
               </article>
               <a className={styles.routeCard} href="/done-for-you-setup" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("contact_setup_click", { source: "contact_route_setup" })}>

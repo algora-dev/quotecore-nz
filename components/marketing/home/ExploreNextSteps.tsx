@@ -9,7 +9,7 @@ import { validYouTubeId, type HomepageConfig } from './homepage-config';
 import n from './ExploreNextSteps.module.css';
 
 /** Small, optional next steps directly after the feature showcase. */
-export function ExploreNextSteps({ config, pricingHref = '/pricing', setupHref = '/#setup' }: {
+export function ExploreNextSteps({ config, pricingHref = 'https://quote-core.com/pricing', setupHref = '/#setup' }: {
   config: HomepageConfig; pricingHref?: string; setupHref?: string;
 }) {
   const panelId = useId();
