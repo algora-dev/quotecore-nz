@@ -24,12 +24,12 @@ export function FinalCtaSection({ config }: { config: Pick<HomepageConfig, 'demo
           <span className={c.icon}><Icon name="calculator" size={23} /></span>
           <h3>Make it your own.</h3>
           <p>Choose the tools your business needs, see your price and get started.</p>
-          <div className={c.actions}><MarketingButton href="https://quote-core.com/pricing" variant="glass" icon={<Icon name="arrow" size={17} />}>See pricing &amp; build your plan</MarketingButton></div>
+          <div className={c.actions}><MarketingButton href="/pricing" variant="glass" icon={<Icon name="arrow" size={17} />}>See pricing &amp; build your plan</MarketingButton></div>
         </article>
         <article className={c.path}>
           <span className={c.icon}><Icon name="people" size={23} /></span>
           <h3>Let’s talk it through.</h3>
-          <p>A free 15-minute demo call. Tell us how you work and ask what you need.</p>
+          <p>A free 20-minute tailored demo call. Tell us how you work and ask what you need.</p>
           <div className={c.actions}><DemoCallButton bookingHref={config.bookingHref} label="Book a free call" location="final-cta" /></div>
           <a className={c.setupLink} href="/done-for-you-setup" target="_blank" rel="noopener noreferrer">Want us to set it up? Explore Done For You<Icon name="arrow" size={14} /></a>
         </article>

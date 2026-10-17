@@ -247,7 +247,7 @@ export default function DoneForYouSetupPage() {
               <p className={styles.lightEyebrow}>Common questions</p>
               <h2 id="faq-title">Anything else you need to know.</h2>
               <p>The details that matter before you decide whether to book the call.</p>
-              <MarketingButton href="https://quote-core.com/pricing" variant="glass">View QuoteCore+ plans</MarketingButton>
+              <MarketingButton href="/pricing" variant="glass">View QuoteCore+ plans</MarketingButton>
             </div>
             <div className={styles.faqList}>
               {faqs.map((faq) => (

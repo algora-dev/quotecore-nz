@@ -305,7 +305,7 @@ export default function FreeRoofTakeoffPage() {
           Ready to price or quote? See{' '}
           <Link href="/roofing-takeoff-software" className="text-[#BD4A1A] underline underline-offset-2">roofing takeoff software</Link>{' '}
           or{' '}
-          <Link href="https://quote-core.com/pricing" className="text-[#BD4A1A] underline underline-offset-2">plans and pricing</Link>.
+          <Link href="/pricing" className="text-[#BD4A1A] underline underline-offset-2">plans and pricing</Link>.
         </p>
       </section>
 

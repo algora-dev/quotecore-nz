@@ -15,7 +15,7 @@ function buildNavItems(appHref: string, homepage: boolean): NavItem[] {
     { label: "Open the App", href: appHref, app: true },
     { label: "Features", href: homepage ? "#workflow" : "/features" },
     { label: "Done For You", href: "/done-for-you-setup" },
-    { label: "Pricing", href: homepage ? "#pricing" : "https://quote-core.com/pricing" },
+    { label: "Pricing", href: homepage ? "#pricing" : "/pricing" },
     { label: "Demo", href: "https://demo.quote-core.com" },
     { label: "Free Tools", href: "/free-tools" },
     { label: "Contact us", href: "/contact" },

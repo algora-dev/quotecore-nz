@@ -6,6 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE_URL } from "@/lib/seo/site-url";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
+import { publicPricing } from "@/lib/public-pricing";
 
 export const metadata: Metadata = {
   title: "Sending, Tracking & Automated Follow-ups NZ | QuoteCore+",
@@ -35,7 +36,7 @@ const softwareSchema = {
   description: "Send quotes, orders and invoices directly from QuoteCore+. Track opens and reads. Configure time-based and event-based automated follow-ups with cancellation conditions.",
   url: `${SITE_URL}/features/sending-and-tracking`,
   publisher: { "@id": `${SITE_URL}/#organization` },
-  offers: { "@type": "Offer", price: "29", priceCurrency: "NZD", description: "Paid subscription from NZD $29/month" },
+  offers: { "@type": "AggregateOffer", lowPrice: publicPricing.monthlyMin, highPrice: publicPricing.monthlyMax, priceCurrency: "NZD", offerCount: 1, url: `${SITE_URL}/pricing` },
 };
 
 const breadcrumbSchema = {

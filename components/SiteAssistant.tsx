@@ -50,7 +50,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(how.*work|system work|workflow|process|walkthrough|what does quotecore|what is quotecore|what.*quotecore.*do|tell me about)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ is roofing quoting, takeoff and job workflow software built for Kiwi contractors. Upload a roof plan, AI Scan Assist identifies multiple roof areas plus ridges, hips, valleys, barges and spouting, you verify and adjust, then Smart Components calculate materials, labour and pricing in USD. From a saved quote you can create, send and track quotes, orders and invoices - all from the same connected job.",
+      text: "QuoteCore+ is roofing and construction quoting, takeoff and job workflow software for New Zealand contractors. Upload a clear roof plan, calibrate it correctly, and AI Scan Assist can complete suitable roof geometry. Review the result and edit it if needed, then Smart Components calculate materials, labour and pricing. From a saved quote you can create, send and track quotes, orders and invoices - all from the same connected job.",
       sectionLink: { label: "See How it works", href: "/#how-it-works" },
       links: [
         trialCTA,
@@ -63,7 +63,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(trial|free trial|14 day|14-day|sign up|signup|register|try it|test it|demo)/.test(message)) {
     return {
       sender: "assistant",
-      text: "There's no free trial - the app is paid, from $29/month for Starter. But you can test the workflow with our free tools instantly, no signup: takeoff builder, roofing calculator, quote, invoice and PO generators. When you want the full connected app, choose a plan that fits.",
+      text: "There is no full-app trial. You can explore the interactive app demo or use the free tools instantly with no signup. When you want the connected paid app, use the pricing builder to configure the features and usage you need. Current configurations range from US$29 to US$259 per month (USD).",
       links: [
         trialCTA,
         { label: "See how it works", href: "/#how-it-works" },
@@ -75,7 +75,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(price|pricing|cost|how much|plan|plans|tier|limit|upgrade|cancel|subscription|per month|per month|starter|lite|pro|premium)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ plans: Starter at $29/month for solo tradies, Pro at $59/month for growing businesses, Pro Plus at $99/month for high-volume teams, and Premium (contact us for pricing). No trial - but the free tools work instantly without signing up, so you can test the workflow first.",
+      text: "QuoteCore+ uses configurable pricing rather than public fixed tiers. Current configurations range from US$29 to US$259 per month (USD), depending on the features and usage you choose. There is no full-app trial; explore the interactive app demo or free tools before subscribing.",
       link: { label: "See full pricing details", href: "/pricing" },
     };
   }
@@ -141,7 +141,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(quote gen|make a quote|create.*quote|write.*quote|build.*quote|estimate gen)/.test(message)) {
     return {
       sender: "assistant",
-      text: "The Free Quote Generator creates professional, printable quotes with your logo, business details, and itemised line items. Download as PDF, no signup required. For the full connected workflow - takeoff to quote to material orders to invoicing - plans start at $29/month.",
+      text: "The Free Quote Generator creates professional, printable quotes with your logo, business details, and itemised line items. Download as PDF, no signup required. For the full connected workflow - takeoff to quote to material orders to invoicing - current configurations range from US$29 to US$259 per month (USD).",
       links: [
         { label: "Try the Quote Generator", href: "https://quote-core.com/free-quote-generator" },
         trialCTA,
@@ -186,7 +186,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(ai|ai takeoff|plan takeoff|upload.*plan|trace.*plan|ai.*scan|ai assist|ai scan)/.test(message)) {
     return {
       sender: "assistant",
-      text: "AI Scan Assist is QuoteCore+'s plan takeoff feature. Upload a roof plan image and AI identifies multiple roof areas, ridges, hips, valleys, barges and spouting. You verify everything on an interactive canvas, name each area, assign pitches and materials, then swap detected placeholders for saved Smart Components. Available in the paid app - 50 AI scan points on Pro, 100 on Pro Plus.",
+      text: "AI Scan Assist is QuoteCore+'s roof-plan takeoff feature. On a clear, correctly calibrated plan, it can complete suitable roof geometry quickly and accurately. Plan quality and roof complexity affect when edits are needed, and every result remains editable in the same takeoff workspace before measurements flow into Smart Components and pricing.",
       links: [
         trialCTA,
         { label: "See how it works", href: "/#how-it-works" },
@@ -199,7 +199,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(how do i|how to|can i|can you|do you have|does.*have|does.*support)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ handles the full workflow from measurement to payment - AI plan takeoff, Smart Components, quoting, material orders, invoicing, and customer acceptance tracking. The best way to see if it does what you need is to try the free tools - they work instantly without signing up. When you want the full connected workflow, plans start at $29/month.",
+      text: "QuoteCore+ handles the full workflow from measurement to payment - AI plan takeoff, Smart Components, quoting, material orders, invoicing, and customer acceptance tracking. The best way to see if it does what you need is to try the free tools - they work instantly without signing up. When you want the full connected workflow, current configurations range from US$29 to US$259 per month (USD).",
       links: [
         trialCTA,
         freeToolsCTA,
@@ -333,7 +333,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/\bfree\b/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ is a paid app with plans from $29/month. We also have free tools that work instantly without signing up: takeoff builder, roofing calculator, smart component creator, quote generator, invoice generator, and PO generator.",
+      text: "QuoteCore+ is a paid app with configurable pricing ranging from US$29 to US$259 per month (USD). We also have free tools that work instantly without signing up: takeoff builder, roofing calculator, smart component creator, quote generator, invoice generator, and PO generator.",
       links: [
         trialCTA,
         freeToolsCTA,

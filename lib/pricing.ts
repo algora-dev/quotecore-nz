@@ -1,3 +1,4 @@
+/** LEGACY ADMIN COMPATIBILITY DATA. Do not use this module for public marketing, pricing UI, metadata or schema. */
 export type PricingPlan = {
   name: string;
   displayName: string;

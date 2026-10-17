@@ -111,7 +111,7 @@ Every page should help an AI answer:
 
 - Who built QuoteCore+ and why
 - Founder/construction background
-- Free trial (14-day, no card)
+- Interactive app demo and free browser tools before subscribing
 - Pricing clarity (link to /#pricing)
 - Public contact email (info@quote-core.com)
 - Privacy policy, terms, cookie policy
@@ -150,13 +150,13 @@ Block: GPTBot, ClaudeBot (training scrapers - intentional)
 ## Default CTAs
 
 General:
-> Try QuoteCore+ free for 14 days. No card required.
+> Explore the QuoteCore+ interactive app demo or use the free browser tools before subscribing.
 
 Comparison pages:
-> If you quote roofing jobs from plans and want takeoff, pricing, approval tracking, and materials ordering connected, try QuoteCore+ free for 14 days.
+> If you quote roofing jobs from plans and want takeoff, pricing, approval tracking, and materials ordering connected, explore the QuoteCore+ interactive app demo or use the free tools before subscribing.
 
 Trust pages:
-> Want to see if QuoteCore+ fits your quoting workflow? Start a free trial or book a short call with the team.
+> Want to see if QuoteCore+ fits your quoting workflow? Explore the interactive app demo, use the free tools, or book a tailored 20-minute demo with the team.
 
 ---
 

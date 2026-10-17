@@ -80,7 +80,7 @@ export default function OutputView({ areas, components, measureMode, unitSystem,
           <div className="border-b-2 border-black pb-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/MainQCP.png" alt="QuoteCore+" className="h-14 object-contain" />
-            <h1 className="mt-4 text-xl font-bold text-black">QUOTE BUILDER REPORT</h1>
+            <h2 className="mt-4 text-xl font-bold text-black">QUOTE BUILDER REPORT</h2>
             <p className="mt-1 text-sm text-black">Generated {today} - QuoteCore+ free quote builder</p>
             <p className="mt-1 text-xs text-black/60">
               Measurement units: {systemName} &middot; {measureMode === 'actual' ? 'Actual measurements' : 'Plan measurements with pitch applied'}
@@ -218,7 +218,7 @@ export default function OutputView({ areas, components, measureMode, unitSystem,
           )}
           <p className="mt-4 text-xs text-slate-400">
             Already have an account?{' '}
-            <Link href="/login" className="underline hover:text-slate-600">Log in</Link>
+            <Link href="https://app.quote-core.com/login" className="underline hover:text-slate-600">Log in</Link>
             {' '}&middot;{' '}
             <button onClick={onBackToBuilder} className="underline hover:text-slate-600">Back to the builder</button>
           </p>

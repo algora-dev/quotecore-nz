@@ -188,7 +188,7 @@ Show the result first, then offer:
 - Email the result
 - Ask about delivery
 - Request trade pricing
-- Try QuoteCore+ free trial (links to /free-trial on .co.nz)
+- Explore QuoteCore+ evaluation options (links to /free-trial on .co.nz, which explains there is no full-app trial and routes to the interactive demo, free tools, tailored demo and pricing)
 
 ### 5.6 Supporting Topic Cluster
 Create supporting pages that answer distinct questions and link naturally to the calculator:

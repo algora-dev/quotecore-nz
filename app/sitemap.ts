@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/seo";
 
 /**
- * NZ sitemap — canonical host only (https://www.quote-core.co.nz).
+ * NZ sitemap - canonical host only (https://www.quote-core.co.nz).
  * Static marketing routes; add new pages here when they ship.
  * lastModified dates reflect actual content changes per page (from git history).
  */
@@ -20,7 +20,8 @@ const lastModified: Record<string, string> = {
   "/construction-quoting-software": "2026-08-03",
   "/done-for-you-setup": "2026-08-28",
   "/contact": "2026-07-24",
-  "/free-trial": "2026-09-18",
+  "/pricing": "2026-10-16",
+    "/free-trial": "2026-09-18",
   "/free-tools": "2026-10-14",
   "/free-roof-takeoff": "2026-09-17",
   "/free-roof-pitch-calculator": "2026-09-17",

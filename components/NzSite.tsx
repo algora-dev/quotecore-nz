@@ -49,7 +49,7 @@ export function NzFooter() {
         materials, labour, and repeatable job components.
       </p>
       <p>
-        <a href="https://quote-core.com/pricing" className="hover:text-zinc-800">Pricing</a>
+        <a href="/pricing" className="hover:text-zinc-800">Pricing</a>
         {" · "}
         <a href="/free-tools" className="hover:text-zinc-800">Free Tools</a>
         {" · "}

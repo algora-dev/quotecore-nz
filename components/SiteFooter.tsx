@@ -33,7 +33,7 @@ export default function SiteFooter() {
               <Link href="/roof-cost-calculator-nz" className={linkClass}>Roof cost calculator NZ</Link>
               <Link href="/construction-quoting-software" className={linkClass}>Construction quoting software</Link>
               <Link href="https://demo.quote-core.com" className={linkClass}>Try the takeoff demo</Link>
-              <Link href="https://quote-core.com/pricing" className={linkClass}>Pricing</Link>
+              <Link href="/pricing" className={linkClass}>Pricing</Link>
               <Link href="/free-tools" className={linkClass}>Free tools</Link>
               <Link href="/free-calculators" className={linkClass}>Free calculators</Link>
               <Link href="/free-trial" className={linkClass}>Free trial</Link>

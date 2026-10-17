@@ -32,16 +32,16 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
   };
 }
 
-import { schemaPricingPlans } from "./pricing";
+import { publicPricing } from "./public-pricing";
 
-// Derived from lib/pricing.ts so schema prices can never drift from the site.
-export const pricingOffers = schemaPricingPlans.map((plan) => ({
-  "@type": "Offer",
-  name: plan.displayName,
-  price: String(plan.schemaPriceNzd),
+export const pricingOffers = [{
+  "@type": "AggregateOffer",
+  lowPrice: String(publicPricing.monthlyMin),
+  highPrice: String(publicPricing.monthlyMax),
   priceCurrency: site.currency,
   url: `${site.url}/pricing`,
-}));
+  offerCount: 1,
+}];
 
 export const organizationSchema = {
   "@type": "Organization",

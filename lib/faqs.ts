@@ -22,12 +22,12 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "Does QuoteCore+ create quotes automatically?",
     answer:
-      "Its possible with our app, but we suggest always checking and editing anything that our AI assist tools build for you, no system on the planet should be 100% trusted to automate quoting, unless it is 100% accurate. We've built multiple tools and features with different uses that you can use to make your quoting journey as frictionless as possible, leading to faster, more accurate, more efficient quoting, no matter your industry.",
+      "It is possible with our app, but you should review job measurements and pricing before relying on a quote commercially. On a clear, correctly calibrated roof plan, AI Scan Assist can complete the roof geometry accurately, while more complex or lower-quality plans are more likely to need manual adjustment. The same workspace keeps every measurement editable before pricing.",
   },
   {
     question: "How do I get started?",
     answer:
-      "Start with our free tools — no signup needed, they work instantly. When you want the full connected workflow, choose a plan from $29/month.",
+      "Start with our free tools - no signup needed, they work instantly. When you want the full connected workflow, use the pricing builder to configure the features and usage you need. Current configurations range from US$29 to US$259 per month (USD).",
   },
   {
     question: "Why do contractors switch to QuoteCore+?",

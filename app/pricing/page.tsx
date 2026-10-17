@@ -1,220 +1,120 @@
-import type { Metadata } from "next";
-import Script from "next/script";
-import Link from "next/link";
-import BlogHeader from "@/components/BlogHeader";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import SiteFooter from "@/components/SiteFooter";
-import { pricingPlans } from "@/lib/pricing";
-import { buildFaqSchema } from "@/lib/schema";
-import { breadcrumbSchema, jsonLd, pricingOffers, site } from "@/lib/seo";
-import { hreflangLanguages } from "@/lib/seo/hreflang";
+import type { Metadata } from 'next';
+import { MarketingCalculator } from '@/app/components/pricing/MarketingCalculator';
+import {
+  BulletList,
+  Container,
+  ConversionPaths,
+  FaqAccordion,
+  FeatureGrid,
+  FinalCta,
+  Hero,
+  PageScaffold,
+  ProductFrame,
+  Section,
+  SectionHeader,
+  SplitFeature,
+  type FaqItem,
+} from '@/components/marketing/page-v2/PageV2';
+import { buildBreadcrumbSchema, buildFaqSchema, buildPricingOffers } from '@/lib/schema';
+import { publicPricing } from '@/lib/public-pricing';
+import { hreflangLanguages } from '@/lib/seo/hreflang';
 
 export const metadata: Metadata = {
-  title: "Roofing & Construction Quoting Software Pricing NZ | QuoteCore+",
-  description:
-    "Compare QuoteCore+ NZ plans — Starter, Pro, Pro Plus and Premium. No trial needed: test the workflow with our free tools first, then choose the plan that fits your trade business.",
-  alternates: { canonical: `${site.url}/pricing`, languages: hreflangLanguages("/pricing") },
+  title: 'QuoteCore+ Pricing NZ | Build Your Plan',
+  description: 'Build a QuoteCore+ plan around your workload and selected tools. Current configurations range from US$29 to US$259/month (USD). Done For You Setup starts from NZ$899.',
+  alternates: { canonical: 'https://www.quote-core.co.nz/pricing', languages: hreflangLanguages('/pricing') },
   openGraph: {
-    title: "QuoteCore+ Pricing New Zealand",
-    description: "Compare QuoteCore+ monthly plans and limits in NZD for New Zealand trade businesses.",
-    url: `${site.url}/pricing`,
-    siteName: "QuoteCore+",
-    type: "website",
+    title: 'QuoteCore+ Pricing New Zealand | Build Your Plan',
+    description: 'Configure the workload and tools you need. Current QuoteCore+ configurations range from US$29 to US$259/month (USD).',
+    url: 'https://www.quote-core.co.nz/pricing', siteName: 'QuoteCore+', type: 'website',
   },
 };
 
-// Card styling per tier — richer treatment on higher tiers draws the eye up-range
-function planStyles(plan: (typeof pricingPlans)[number]): string {
-  const premium = plan.name === "Pro Plus" || plan.name === "Premium";
-  if (plan.featured) {
-    return "border-[#BD4A1A] bg-white shadow-[0_18px_50px_rgba(24,24,27,0.10)] hover:border-[#BD4A1A] hover:shadow-[0_26px_64px_rgba(189,74,26,0.22)]";
-  }
-  if (premium) {
-    return "border-zinc-300 bg-gradient-to-b from-white to-zinc-50 shadow-[0_10px_36px_rgba(24,24,27,0.07)] hover:border-zinc-400 hover:shadow-[0_22px_54px_rgba(24,24,27,0.15)]";
-  }
-  return "border-zinc-200 bg-white hover:border-orange-200 hover:bg-orange-50/40 hover:shadow-[0_0_24px_rgba(255,107,53,0.12)]";
-}
-
-const faqs = [
-  {
-    question: "Is QuoteCore+ pricing shown in New Zealand dollars?",
-    answer: "Yes. Prices on this page are shown in New Zealand dollars (NZD). Local taxes (such as GST in New Zealand) may apply at checkout.",
-  },
-  {
-    question: "Do you offer a free trial?",
-    answer:
-      "No. Instead, our free tools — takeoff builder, calculators, quote, invoice and PO generators — work instantly with no signup, so you can test the workflow before paying anything.",
-  },
-  {
-    question: "What happens if I'm not sure which plan fits?",
-    answer:
-      "Start with the free tools to see how the workflow fits your jobs, then pick the plan that matches your quote volume. You can change plans as your business grows.",
-  },
-  {
-    question: "What limits differ between plans?",
-    answer: "Plans differ by monthly quote allowance, storage and the support or usage features listed on each plan card.",
-  },
+const faqs: FaqItem[] = [
+  { question: 'How much does QuoteCore+ cost in New Zealand?', answer: `QuoteCore+ uses configurable monthly pricing built around your workload and selected tools. Current configurations range from US$${publicPricing.monthlyMin} to US$${publicPricing.monthlyMax} per month (shown in USD). Use the pricing builder on this page to choose your workload and tools and see the resulting monthly price.` },
+  { question: 'What is the cheapest QuoteCore+ setup?', answer: `The current pricing builder starts at US$${publicPricing.monthlyMin} per month for the minimum public configuration. Your exact monthly price changes with the workload and optional tools you choose.` },
+  { question: 'What can make my monthly price higher?', answer: 'The pricing builder changes the monthly total around your core job or quote allowance and optional tools such as Digital Takeoff, AI Scan Assist, offcut optimisation and Smart Assistant.' },
+  { question: 'Is there a free trial?', answer: 'No. There is no full-app trial. You can use the free tools, explore the interactive app demo, try the focused takeoff demo or book a tailored product demo before subscribing.' },
+  { question: 'Can I try QuoteCore+ before subscribing?', answer: 'Yes. The free tools work in the browser without a paid app account. The interactive demo opens a prepared fictional roofing workspace, and a tailored demo call lets us show a workflow relevant to your trade.' },
+  { question: 'Is Done For You included in the monthly subscription?', answer: `No. Done For You Setup is a separate one-time service starting from NZ$${publicPricing.doneForYouStarting}. It is for businesses that want help configuring agreed materials, labour, waste and pricing logic and learning the setup using their own workflow.` },
+  { question: 'Is GST included?', answer: 'The pricing builder shows the subscription configuration. The checkout flow is the final source for any GST or other tax treatment that applies to the purchase.' },
 ];
 
-const schema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "SoftwareApplication",
-      "@id": `${site.url}/#software`,
-      name: "QuoteCore+",
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "Web",
-      url: `${site.url}/pricing`,
-      description: "Roofing and construction quoting software for New Zealand measured trades.",
-      offers: pricingOffers.map((offer) => ({ ...offer, url: `${site.url}/pricing` })),
-    },
-    breadcrumbSchema([
-      { name: "Home", path: "/" },
-      { name: "Pricing", path: "/pricing" },
-    ]),
-  ],
-};
-
-const dfyPackages = [
-  {
-    name: "Done-For-You Estimating Setup",
-    price: "$899",
-    tagline: "Best for individual contractors and smaller businesses that want us to build the core of their estimating system.",
-    items: [
-      "Up to 20 custom components built for you",
-      "Your material pricing configured",
-      "Labour rates added",
-      "Waste rules added where required",
-      "Personalised walkthrough / training",
-      "Ongoing setup and product support for 6 months",
-      "6 months QuoteCore+ Pro included",
-    ],
-  },
-  {
-    name: "Complete Done-For-You Setup",
-    price: "$1,799",
-    tagline: "Best for businesses with more products, services or a more detailed estimating system.",
-    highlight: true,
-    items: [
-      "Up to 60 custom components built for you",
-      "Larger material and pricing setup",
-      "More complex labour and waste configurations",
-      "Help organising larger pricing lists or catalogues",
-      "More detailed workflow configuration",
-      "6 months QuoteCore+ Pro included",
-    ],
-  },
+const schemas = [
+  { '@context': 'https://schema.org', '@type': 'SoftwareApplication', '@id': 'https://www.quote-core.co.nz/#software', name: 'QuoteCore+', applicationCategory: 'BusinessApplication', operatingSystem: 'Web', url: 'https://www.quote-core.co.nz/pricing', offers: buildPricingOffers() },
+  buildBreadcrumbSchema([{ name: 'Home', url: 'https://www.quote-core.co.nz/' }, { name: 'Pricing', url: 'https://www.quote-core.co.nz/pricing' }]),
+  buildFaqSchema(faqs),
 ];
 
 export default function PricingPage() {
   return (
-    <>
-      <Script id="pricing-nz-schema" type="application/ld+json" dangerouslySetInnerHTML={jsonLd(schema)} />
-      <Script id="pricing-nz-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={jsonLd(buildFaqSchema(faqs))} />
-      <BlogHeader />
-      <main className="min-h-screen bg-white text-zinc-950">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Pricing" }]} />
-        <section className="mx-auto max-w-7xl px-6 pb-14 pt-12 text-center lg:px-8 lg:pb-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#BD4A1A]">NZD monthly plans</p>
-          <h1 className="mx-auto mt-4 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-            QuoteCore+ pricing for New Zealand trade businesses.
-          </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-600">
-            No trial needed. Test the workflow with our free tools first, then compare the quote and storage limits to find the plan that fits your workload.
-          </p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link href="/free-tools" className="inline-flex min-h-11 items-center justify-center rounded-full bg-black px-7 text-sm font-semibold text-white transition-shadow hover:shadow-[0_0_18px_rgba(255,107,53,0.32)]">Try our free tools</Link>
-            <Link href="/features" className="inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 px-7 text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-500">Compare features</Link>
-          </div>
-        </section>
+    <PageScaffold breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Pricing' }]} schemas={schemas}>
+      <Hero
+        eyebrow="QuoteCore+ pricing NZ"
+        title={<>Build a plan around the way you work.</>}
+        lead={`Choose your workload and the tools you need. The pricing builder creates the monthly setup and shows the price before you continue. Current configurations range from US$${publicPricing.monthlyMin} to US$${publicPricing.monthlyMax} per month (USD).`}
+        body="There is no full-app trial. If you want to try the workflow first, use the free tools, explore the interactive demo or book a tailored product demo."
+        primary={{ href: '#build-your-plan', label: 'Build your plan' }}
+        secondary={{ href: 'https://demo.quote-core.com', label: 'Explore the interactive demo' }}
+        proof={['Configurable monthly pricing (USD)', 'See the total before signup', 'Free tools and demos available first']}
+        visual={<ProductFrame src="/marketing/current-ux/job-space-overview.webp" alt="Current QuoteCore+ Job Space overview" width={2048} height={1112} eager caption="The pricing configuration changes with the tools and usage you choose. The connected job workflow stays the point." />}
+      />
 
-        <section className="border-y border-zinc-200 bg-zinc-50 py-16">
-          <div className="mx-auto grid max-w-7xl items-stretch gap-6 px-6 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
-            {pricingPlans.map((plan) => (
-              <article
-                key={plan.name}
-                className={`relative flex h-full flex-col rounded-[2rem] border p-8 transition-all duration-300 hover:-translate-y-1 ${planStyles(plan)} ${plan.comingSoon ? "opacity-75" : ""}`}
-              >
-                {plan.featured && <span className="absolute -top-3 right-6 rounded-full bg-zinc-950 px-3 py-1 text-xs font-semibold text-white">Most popular</span>}
-                <h2 className="text-xl font-semibold">{plan.displayName}</h2>
-                <p className="mt-2 min-h-10 text-sm leading-6 text-zinc-600">{plan.subtitle}</p>
-                <div className="mt-6">
-                  <div className="flex min-h-[92px] w-full flex-col justify-center rounded-xl border border-zinc-200/80 bg-white/60 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">NZD</p>
-                  <p className="mt-1 text-3xl font-semibold">{plan.nzd}</p>
-                  {!plan.isFree && !plan.comingSoon && <p className="text-xs text-zinc-500">per month</p>}
-                  </div>
-                </div>
-                {plan.originalNzd && <p className="mt-3 text-xs text-zinc-500">Regular monthly price: <s>{plan.originalNzd}</s></p>}
-                <ul className="mt-6 flex-1 space-y-3">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex gap-3 text-sm text-zinc-700">
-                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-[#BD4A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                {plan.comingSoon ? (
-                  <span className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 px-6 text-sm font-semibold text-zinc-500">Coming soon</span>
-                ) : (
-                  <Link href="https://app.quote-core.com/signup" className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-full px-6 text-sm font-semibold transition-colors ${plan.featured ? "bg-black text-white hover:bg-zinc-800" : "border border-zinc-300 text-zinc-900 hover:border-zinc-500"}`}>
-                    Choose plan
-                  </Link>
-                )}
-              </article>
-            ))}
-            {dfyPackages.map((pkg) => (
-              <article
-                key={pkg.name}
-                className={`relative flex h-full flex-col rounded-[2rem] border p-8 transition-all duration-300 hover:-translate-y-1 ${pkg.highlight ? "border-[#BD4A1A] bg-white shadow-[0_18px_50px_rgba(24,24,27,0.10)]" : "border-zinc-200 bg-white hover:border-orange-200 hover:bg-orange-50/40 hover:shadow-[0_0_24px_rgba(255,107,53,0.12)]"}`}
-              >
-                {pkg.highlight && <span className="absolute -top-3 right-6 rounded-full bg-zinc-950 px-3 py-1 text-xs font-semibold text-white">Most complete</span>}
-                <h2 className="text-xl font-semibold">{pkg.name}</h2>
-                <p className="mt-2 min-h-10 text-sm leading-6 text-zinc-600">{pkg.tagline}</p>
-                <div className="mt-6">
-                  <div className="flex min-h-[92px] w-full flex-col justify-center rounded-xl border border-zinc-200/80 bg-white/60 p-4">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">NZD</p>
-                    <p className="mt-1 text-3xl font-semibold">{pkg.price}</p>
-                    <p className="text-xs text-zinc-500">one-time setup</p>
-                  </div>
-                </div>
-                <ul className="mt-6 flex-1 space-y-3">
-                  {pkg.items.map((item) => (
-                    <li key={item} className="flex gap-3 text-sm text-zinc-700">
-                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-[#BD4A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/done-for-you-setup" className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-full px-6 text-sm font-semibold transition-colors ${pkg.highlight ? "bg-black text-white hover:bg-zinc-800" : "border border-zinc-300 text-zinc-900 hover:border-zinc-500"}`}>
-                  See what is included
-                </Link>
-              </article>
-            ))}
-          </div>
-          <p className="mx-auto mt-8 max-w-3xl px-6 text-center text-sm text-zinc-600">NZD pricing shown. Local taxes may apply at checkout.</p>
-        </section>
+      <Section tone="soft" id="build-your-plan">
+        <Container><SectionHeader eyebrow="Pricing builder" title="Choose the tools and usage that earn their place." lead="Use the same configurable pricing model used globally and see the monthly setup (in USD) before you continue." /></Container>
+        <MarketingCalculator />
+      </Section>
 
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#BD4A1A]">New Zealand pricing questions</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Know what happens before you start.</h2>
-          </div>
-          <div className="mt-10 divide-y divide-zinc-200 border-y border-zinc-200">
-            {faqs.map((faq) => (
-              <div key={faq.question} className="py-6">
-                <h3 className="font-semibold text-zinc-950">{faq.question}</h3>
-                <p className="mt-2 leading-7 text-zinc-600">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Link href="/contact" className="inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 px-7 text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-500">Ask a pricing question</Link>
-          </div>
-        </section>
-      </main>
-      <SiteFooter />
-    </>
+      <Section>
+        <Container>
+          <SectionHeader eyebrow="What changes the price" title="Configure the workload and tools you actually need." lead="The builder combines the core workload with the optional tools and allowances that fit the way you expect to work." />
+          <FeatureGrid columns={3} items={[
+            { title: 'Core workload', body: <p>Your expected job or quote volume sets the core allowance used by the builder.</p> },
+            { title: 'Digital Takeoff', body: <p>Add in-app plan measurement when you want to measure drawings directly in QuoteCore+.</p> },
+            { title: 'AI Scan Assist', body: <p>Choose the AI allowance that fits how often you expect to automate roof-plan takeoff.</p> },
+            { title: 'Offcut optimisation', body: <p>Add long-run offcut and cut-plan capability when it belongs in your roofing workflow.</p> },
+            { title: 'Smart Assistant', body: <p>Choose an Assistant allowance based on how much help you expect to use across supported account tasks.</p> },
+            { title: 'One monthly total', body: <p>The builder combines the choices into one monthly USD price before you continue.</p> },
+          ]} />
+        </Container>
+      </Section>
+
+      <Section tone="soft">
+        <Container>
+          <SplitFeature visual={<ProductFrame src="/marketing/current-ux/job-space-overview.webp" alt="Current QuoteCore+ Job Space showing the connected job workflow" width={2048} height={1112} caption="The configuration changes. The connected measured-job workflow stays together." />}>
+            <h2>The configuration changes. The connected workflow stays the point.</h2>
+            <p>QuoteCore+ is designed to keep the information for a measured job together instead of retyping it between takeoff, pricing, customer documents and the next stage of the work.</p>
+            <BulletList items={['Saved jobs and measurements', 'Reusable Smart Components', 'Customer quotes and activity', 'Material ordering and invoicing workflow', 'Phone, tablet and desktop access']} />
+          </SplitFeature>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <SectionHeader eyebrow="Try it before you subscribe" title="No full-app trial. Three useful ways to evaluate QuoteCore+." lead="Choose the route that gives you the evidence you need before subscribing." />
+          <ConversionPaths items={[
+            { title: 'Explore the interactive app demo', body: 'Open a prepared fictional roofing account and explore several important parts of the current QuoteCore+ workflow.', href: 'https://demo.quote-core.com', label: 'Explore the demo' },
+            { title: 'Use the free tools', body: 'Try takeoff, measurement-to-pricing, calculators and document tools in your browser without creating a paid app account.', href: '/free-tools', label: 'Browse free tools' },
+            { title: 'Book a tailored 20-minute demo', body: 'Tell us how you currently measure and price work. We will share our screen and show a workflow relevant to your trade and questions.', href: 'https://calendly.com/quote-core-info/15-minute-meeting', label: 'Book a tailored demo' },
+          ]} />
+        </Container>
+      </Section>
+
+      <Section tone="soft">
+        <Container>
+          <SplitFeature reverse visual={<ProductFrame src="/marketing/current-ux/smart-components-pricing-library.webp" alt="QuoteCore+ Smart Components pricing library" width={2048} height={1111} caption="Done For You Setup can help translate the agreed materials, labour, waste and pricing logic into the account you will use." />}>
+            <h2>Want us to help build the setup around your business?</h2>
+            <p>Done For You Setup is a separate one-time service starting from <strong>NZ${publicPricing.doneForYouStarting}</strong>. We can help translate agreed products, labour rates, waste rules and pricing logic into QuoteCore+ and teach you using your own workflow.</p>
+            <p>Your monthly subscription is still configured separately through the pricing builder above.</p>
+            <BulletList items={['Existing spreadsheets and price lists can be a starting point', 'The agreed setup is configured around your own pricing logic', 'Training focuses on the way your business will use QuoteCore+']} />
+          </SplitFeature>
+        </Container>
+      </Section>
+
+      <Section><Container><FaqAccordion faqs={faqs} title="Pricing FAQ" /></Container></Section>
+
+      <FinalCta title="See your price, then choose how you want to start." body="Build the configuration that fits your workload, or explore the product before you subscribe." primary={{ href: '#build-your-plan', label: 'Build your plan' }} secondary={{ href: 'https://demo.quote-core.com', label: 'Explore the demo' }} />
+      <div style={{ height: 72 }} />
+    </PageScaffold>
   );
 }
