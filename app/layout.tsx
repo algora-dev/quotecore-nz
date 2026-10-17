@@ -11,6 +11,10 @@ import { PillShimmerScript } from "./components/PillShimmerScript";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+// Kill switch: Q (SiteAssistant) is disabled site-wide while its knowledge base
+// is updated (owner, 2026-10-17). Flip to true to re-enable everywhere.
+const SITE_ASSISTANT_ENABLED = false;
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -62,7 +66,7 @@ export default function RootLayout({
         <AttributionTracker />
         <CookieConsent />
         <BrandFormatter />
-        <SiteAssistant />
+        {SITE_ASSISTANT_ENABLED && <SiteAssistant />}
         <PillShimmerScript />
         {/* Google Analytics 4 — loads gtag.js with Consent Mode default denied.
             Optional tracking scripts (Clarity, Meta Pixel, LinkedIn) are
