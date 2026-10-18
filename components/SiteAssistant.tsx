@@ -50,7 +50,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(how.*work|system work|workflow|process|walkthrough|what does quotecore|what is quotecore|what.*quotecore.*do|tell me about)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ is roofing and construction quoting, takeoff and job workflow software for New Zealand contractors. Upload a clear roof plan, calibrate it correctly, and AI Scan Assist can complete suitable roof geometry. Review the result and edit it if needed, then Smart Components calculate materials, labour and pricing. From a saved quote you can create, send and track quotes, orders and invoices - all from the same connected job.",
+      text: "QuoteCore+ is roofing and construction quoting, takeoff and job workflow software for New Zealand contractors. Upload a clear roof plan, calibrate it correctly, and Roof Scan Assist can complete suitable roof geometry. Review the result and edit it if needed, then Smart Components calculate materials, labour and pricing. From a saved quote you can create, send and track quotes, orders and invoices - all from the same connected job.",
       sectionLink: { label: "See How it works", href: "/#how-it-works" },
       links: [
         trialCTA,
@@ -186,11 +186,11 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(ai|ai takeoff|plan takeoff|upload.*plan|trace.*plan|ai.*scan|ai assist|ai scan)/.test(message)) {
     return {
       sender: "assistant",
-      text: "AI Scan Assist is QuoteCore+'s roof-plan takeoff feature. On a clear, correctly calibrated plan, it can complete suitable roof geometry quickly and accurately. Plan quality and roof complexity affect when edits are needed, and every result remains editable in the same takeoff workspace before measurements flow into Smart Components and pricing.",
+      text: "Roof Scan Assist is QuoteCore+'s roof-plan takeoff feature. On a clear, correctly calibrated plan, it can complete suitable roof geometry quickly and accurately. Plan quality and roof complexity affect when edits are needed, and every result remains editable in the same takeoff workspace before measurements flow into Smart Components and pricing.",
       links: [
         trialCTA,
         { label: "See how it works", href: "/#how-it-works" },
-        { label: "Learn about AI Scan Assist", href: "/features/ai-scan-assist" },
+        { label: "Learn about Roof Scan Assist", href: "/features/ai-scan-assist" },
       ],
     };
   }
@@ -211,7 +211,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(quote|quotes|quoting|preview|track|send quote)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ helps you build, preview, send, and track professional quotes. Upload a plan, AI Scan Assist identifies roof areas and elements, Smart Components calculate materials, and the quote is built from your saved rules. You set pricing and terms in USD, then send it. Customers can accept online and you get notified.",
+      text: "QuoteCore+ helps you build, preview, send, and track professional quotes. Upload a plan, Roof Scan Assist identifies roof areas and elements, Smart Components calculate materials, and the quote is built from your saved rules. You set pricing and terms in USD, then send it. Customers can accept online and you get notified.",
       sectionLink: { label: "See How it works", href: "/#how-it-works" },
       links: [
         trialCTA,
@@ -278,7 +278,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(feature|features|what.*include|what.*do|overview)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ includes: AI Scan Assist (plan takeoff), Smart Components (reusable roofing assemblies), quote builder with customer acceptance tracking, sending and tracking with automated follow-ups, material orders, invoicing, supplier catalogues, templates, and a resource library. Everything connects - takeoff feeds the quote, the quote can become a material order, and the job flows through to invoicing.",
+      text: "QuoteCore+ includes: Roof Scan Assist (plan takeoff), Smart Components (reusable roofing assemblies), quote builder with customer acceptance tracking, sending and tracking with automated follow-ups, material orders, invoicing, supplier catalogues, templates, and a resource library. Everything connects - takeoff feeds the quote, the quote can become a material order, and the job flows through to invoicing.",
       sectionLink: { label: "See How it works", href: "/#how-it-works" },
       link: trialCTA,
     };

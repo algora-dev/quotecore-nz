@@ -15,7 +15,7 @@ export const metadata:Metadata={
 };
 const jsonLd=[{'@context':'https://schema.org','@type':'WebApplication',name:roofingConfig.name,
   description:roofingConfig.ogDescription,applicationCategory:'CalculatorApplication',operatingSystem:'Web',
-  offers:{'@type':'Offer',price:'0',priceCurrency:'USD'},url},
+  offers:{'@type':'Offer',price:'0',priceCurrency:'NZD'},url},
   {'@context':'https://schema.org','@type':'FAQPage',mainEntity:ROOFING_FAQS.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}];
 export default function Layout({children}:{children:ReactNode}){
   return <FreeToolsAuthProvider><RoofingShell account={<RoofingAccountControl/>}>

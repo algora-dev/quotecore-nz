@@ -12,6 +12,7 @@ import {
 } from "@/components/marketing/page-v2/PageV2";
 import { homepageConfig } from "@/components/marketing/home/homepage-config";
 import { buildBreadcrumbSchema, buildFaqSchema, buildSoftwareApplicationSchema, siteUrl } from "@/lib/schema";
+import { hreflangLanguages } from "@/lib/seo/hreflang";
 import { publicPricing } from "@/lib/public-pricing";
 
 export const metadata: Metadata = {
@@ -19,11 +20,8 @@ export const metadata: Metadata = {
   description:
     "QuoteCore+ does not offer a full-app free trial. Explore the interactive app demo, use free tools, book a tailored 20-minute demo, or build a paid plan from US$29/month (USD).",
   alternates: {
-    canonical: "https://quote-core.co.nz/free-trial",
-    languages: {
-      "en-NZ": "https://quote-core.co.nz/free-trial",
-      "en": "https://quote-core.com/free-trial",
-    },
+    canonical: "https://www.quote-core.co.nz/free-trial",
+    languages: hreflangLanguages("/free-trial"),
   },
 };
 

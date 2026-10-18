@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const faqs: FaqItem[] = [
   { question: 'How much does QuoteCore+ cost in New Zealand?', answer: `QuoteCore+ uses configurable monthly pricing built around your workload and selected tools. Current configurations range from US$${publicPricing.monthlyMin} to US$${publicPricing.monthlyMax} per month (shown in USD). Use the pricing builder on this page to choose your workload and tools and see the resulting monthly price.` },
   { question: 'What is the cheapest QuoteCore+ setup?', answer: `The current pricing builder starts at US$${publicPricing.monthlyMin} per month for the minimum public configuration. Your exact monthly price changes with the workload and optional tools you choose.` },
-  { question: 'What can make my monthly price higher?', answer: 'The pricing builder changes the monthly total around your core job or quote allowance and optional tools such as Digital Takeoff, AI Scan Assist, offcut optimisation and Smart Assistant.' },
+  { question: 'What can make my monthly price higher?', answer: 'The pricing builder changes the monthly total around your core job or quote allowance and optional tools such as Digital Takeoff, Roof Scan Assist, offcut optimisation and Smart Assistant.' },
   { question: 'Is there a free trial?', answer: 'No. There is no full-app trial. You can use the free tools, explore the interactive app demo, try the focused takeoff demo or book a tailored product demo before subscribing.' },
   { question: 'Can I try QuoteCore+ before subscribing?', answer: 'Yes. The free tools work in the browser without a paid app account. The interactive demo opens a prepared fictional roofing workspace, and a tailored demo call lets us show a workflow relevant to your trade.' },
   { question: 'Is Done For You included in the monthly subscription?', answer: `No. Done For You Setup is a separate one-time service starting from NZ$${publicPricing.doneForYouStarting}. It is for businesses that want help configuring agreed materials, labour, waste and pricing logic and learning the setup using their own workflow.` },
@@ -71,7 +71,7 @@ export default function PricingPage() {
           <FeatureGrid columns={3} items={[
             { title: 'Core workload', body: <p>Your expected job or quote volume sets the core allowance used by the builder.</p> },
             { title: 'Digital Takeoff', body: <p>Add in-app plan measurement when you want to measure drawings directly in QuoteCore+.</p> },
-            { title: 'AI Scan Assist', body: <p>Choose the AI allowance that fits how often you expect to automate roof-plan takeoff.</p> },
+            { title: 'Roof Scan Assist', body: <p>Choose the AI allowance that fits how often you expect to automate roof-plan takeoff.</p> },
             { title: 'Offcut optimisation', body: <p>Add long-run offcut and cut-plan capability when it belongs in your roofing workflow.</p> },
             { title: 'Smart Assistant', body: <p>Choose an Assistant allowance based on how much help you expect to use across supported account tasks.</p> },
             { title: 'One monthly total', body: <p>The builder combines the choices into one monthly USD price before you continue.</p> },

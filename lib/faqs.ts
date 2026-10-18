@@ -22,7 +22,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "Does QuoteCore+ create quotes automatically?",
     answer:
-      "It is possible with our app, but you should review job measurements and pricing before relying on a quote commercially. On a clear, correctly calibrated roof plan, AI Scan Assist can complete the roof geometry accurately, while more complex or lower-quality plans are more likely to need manual adjustment. The same workspace keeps every measurement editable before pricing.",
+      "It is possible with our app, but you should review job measurements and pricing before relying on a quote commercially. On a clear, correctly calibrated roof plan, Roof Scan Assist can complete the roof geometry accurately, while more complex or lower-quality plans are more likely to need manual adjustment. The same workspace keeps every measurement editable before pricing.",
   },
   {
     question: "How do I get started?",

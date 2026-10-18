@@ -71,7 +71,7 @@ const FAQS = [
   {
     question: 'Does the free roof takeoff use AI?',
     answer:
-      'No. Measuring in this free tool is manual - you draw each measurement on your own plan, so every result can be visually checked. AI Scan Assist, which scans plans automatically, is part of the full QuoteCore+ app.',
+      'No. Measuring in this free tool is manual - you draw each measurement on your own plan, so every result can be visually checked. Roof Scan Assist, which scans plans automatically, is part of the full QuoteCore+ app.',
   },
 ];
 
@@ -129,7 +129,7 @@ const COMPARISON: [string, string, string][] = [
   ['Upload & measure your own plan', 'Yes', 'Yes'],
   ['Pitch-calculated measurements', 'Yes', 'Yes'],
   ['Custom components with your pricing', 'Up to 7', 'Unlimited, saved libraries'],
-  ['AI Scan Assist', 'No - manual measuring', 'Yes'],
+  ['Roof Scan Assist', 'No - manual measuring', 'Yes'],
   ['Materials, ordering & invoicing', 'No', 'Yes'],
   ['Save takeoffs & manage jobs', 'No - session only', 'Yes'],
 ];

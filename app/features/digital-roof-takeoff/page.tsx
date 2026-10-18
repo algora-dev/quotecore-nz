@@ -11,7 +11,7 @@ import { hreflangLanguages } from "@/lib/seo/hreflang";
 export const metadata: Metadata = {
   title: "Digital Roof Takeoff Software for NZ Roofers | QuoteCore+",
   description:
-    "Upload New Zealand roof plans, review metric measurements with AI Scan Assist or manual drawing, and connect approved quantities to a priced roofing quote.",
+    "Upload New Zealand roof plans, review metric measurements with Roof Scan Assist or manual drawing, and connect approved quantities to a priced roofing quote.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/features/digital-roof-takeoff",
     languages: hreflangLanguages("/features/digital-roof-takeoff"),
@@ -32,7 +32,7 @@ const softwareSchema = {
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "Digital takeoff",
   operatingSystem: "Web",
-  description: "Digital roof takeoff software with AI Scan Assist and manual drawing tools. Upload plans, measure digitally, and auto-calculate pitch, waste, and material quantities.",
+  description: "Digital roof takeoff software with Roof Scan Assist and manual drawing tools. Upload plans, measure digitally, and auto-calculate pitch, waste, and material quantities.",
   url: `${site.url}/features/digital-roof-takeoff`,
   publisher: { "@id": `${site.url}/#organization` },
   offers: { "@type": "Offer", price: "29", priceCurrency: "NZD", description: "Paid subscription from NZD $29/month" },
@@ -65,7 +65,7 @@ const faqSchema = {
       name: "Does QuoteCore+ have AI takeoff scanning?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. AI Scan Assist can scan an uploaded roof plan and automatically identify individual roof areas, ridges, hips, valleys, and barges. You can review and adjust what it finds before generating the takeoff. You can also skip AI entirely and draw everything manually.",
+        text: "Yes. Roof Scan Assist can scan an uploaded roof plan and automatically identify individual roof areas, ridges, hips, valleys, and barges. You can review and adjust what it finds before generating the takeoff. You can also skip AI entirely and draw everything manually.",
       },
     },
     {
@@ -73,7 +73,7 @@ const faqSchema = {
       name: "Can I use QuoteCore+ takeoff without AI?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. The manual drawing tool lets you upload a plan and draw all areas, lines, and points yourself. You have full control over every measurement. AI Scan Assist is optional.",
+        text: "Yes. The manual drawing tool lets you upload a plan and draw all areas, lines, and points yourself. You have full control over every measurement. Roof Scan Assist is optional.",
       },
     },
     {
@@ -96,16 +96,16 @@ const faqSchema = {
 };
 
 const steps = [
-  { num: 1, title: "Upload your plan", text: "Upload a roof plan, drawing, or image. Both AI Scan Assist and manual drawing start from the same uploaded plan. No plan? You can also start from scratch with site measurements." },
-  { num: 2, title: "Draw or scan - your choice", text: "Use AI Scan Assist to automatically detect roof edges, ridges, valleys, and hips. Or switch to manual and draw every line yourself. Both paths give you the same result." },
+  { num: 1, title: "Upload your plan", text: "Upload a roof plan, drawing, or image. Both Roof Scan Assist and manual drawing start from the same uploaded plan. No plan? You can also start from scratch with site measurements." },
+  { num: 2, title: "Draw or scan - your choice", text: "Use Roof Scan Assist to automatically detect roof edges, ridges, valleys, and hips. Or switch to manual and draw every line yourself. Both paths give you the same result." },
   { num: 3, title: "Pitch and quantities auto-calculate", text: "When you draw a section, the pitch and pitch type are calculated automatically. Areas, waste allowances, and material quantities update in real time. You just draw what you see." },
   { num: 4, title: "Attach to components and send to quote", text: "Each measurement attaches to a Smart Component that already knows its pricing and waste rules. Your takeoff flows directly into the quote builder. No copy-pasting." },
 ];
 
 const faqs = [
   { q: "What is a digital roof takeoff?", a: "A digital roof takeoff is the process of measuring a roof from digital plans or drawings using software, instead of measuring manually on site or with paper plans. It calculates areas, lengths, and material quantities from the measurements you input." },
-  { q: "Does QuoteCore+ have AI takeoff scanning?", a: "Yes. AI Scan Assist can scan an uploaded roof plan and automatically identify individual roof areas, ridges, hips, valleys, and barges. You can review and adjust what it finds before generating the takeoff. You can also skip AI entirely and draw everything manually." },
-  { q: "Can I use QuoteCore+ takeoff without AI?", a: "Yes. The manual drawing tool lets you upload a plan and draw all areas, lines, and points yourself. You have full control over every measurement. AI Scan Assist is optional." },
+  { q: "Does QuoteCore+ have AI takeoff scanning?", a: "Yes. Roof Scan Assist can scan an uploaded roof plan and automatically identify individual roof areas, ridges, hips, valleys, and barges. You can review and adjust what it finds before generating the takeoff. You can also skip AI entirely and draw everything manually." },
+  { q: "Can I use QuoteCore+ takeoff without AI?", a: "Yes. The manual drawing tool lets you upload a plan and draw all areas, lines, and points yourself. You have full control over every measurement. Roof Scan Assist is optional." },
   { q: "Does the takeoff calculate pitch automatically?", a: "Yes. When you draw a roof section, the pitch and pitch type are auto-calculated. Areas, waste allowances, and material quantities all update automatically based on the pitch. You just draw what you see and the system handles the calculations." },
   { q: "What roof types does the takeoff support?", a: "The takeoff builder supports hips, valleys, ridges, eaves, flashings, and custom components. It works with long-run steel, corrugated, tray, tile, shingle, and membrane roof types common in NZ." },
   { q: "Can I use NZ supplier pricing in my takeoff?", a: "Yes. Smart Components store your pricing, so you can set up components using current pricing from NZ suppliers like Roofing Industries or Stratco. The takeoff quantities flow through to your quote with GST noted separately." },
@@ -130,7 +130,7 @@ export default function DigitalRoofTakeoffPage() {
 Digital roof takeoff software for New Zealand roofing contractors.
             </h1>
             <p className="mt-4 text-lg text-zinc-600">
-              Upload a plan, draw what you see, and let the system handle the rest. Pitch, waste, and material quantities auto-calculate. Use AI Scan Assist or draw manually - both paths lead to a complete, priced takeoff.
+              Upload a plan, draw what you see, and let the system handle the rest. Pitch, waste, and material quantities auto-calculate. Use Roof Scan Assist or draw manually - both paths lead to a complete, priced takeoff.
             </p>
             <div className="mt-6 flex gap-3">
               <a href="/free-tools" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF6B35] px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#E55A28]">
@@ -145,7 +145,7 @@ Digital roof takeoff software for New Zealand roofing contractors.
 
         <NzContextPanel
           title="Measure New Zealand roof plans in the units your team uses"
-          intro="Review plans in metric, capture the roof geometry and pass approved measurements into a connected quote. AI Scan Assist remains reviewable and manual drawing is always available."
+          intro="Review plans in metric, capture the roof geometry and pass approved measurements into a connected quote. Roof Scan Assist remains reviewable and manual drawing is always available."
           items={[
             { title: "Metric measurements", description: "Measure roof areas and linear details in metres, millimetres and square metres." },
             { title: "Long-run roofing detail", description: "Capture ridges, hips, valleys, barges and other roof elements needed for a complete takeoff." },
@@ -175,7 +175,7 @@ Digital roof takeoff software for New Zealand roofing contractors.
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#FF6B35]/10">
                 <svg className="h-5 w-5 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>
               </div>
-              <h3 className="mt-3 font-semibold text-slate-900">AI Scan Assist</h3>
+              <h3 className="mt-3 font-semibold text-slate-900">Roof Scan Assist</h3>
               <p className="mt-1 text-sm text-zinc-600">Upload a plan and let AI identify individual roof areas, ridges, hips, valleys, and barges automatically. Review and adjust before committing.</p>
             </div>
             <div className="rounded-xl border border-slate-200 p-5">
@@ -205,13 +205,13 @@ Digital roof takeoff software for New Zealand roofing contractors.
             <div className="rounded-xl border border-slate-200 p-6">
               <div className="flex items-center gap-3">
                 <span className="rounded-full bg-[#FF6B35]/10 px-3 py-1 text-xs font-semibold text-[#BD4A1A]">AI</span>
-                <h3 className="text-lg font-semibold">AI Scan Assist</h3>
+                <h3 className="text-lg font-semibold">Roof Scan Assist</h3>
               </div>
               <p className="mt-3 text-sm text-zinc-600">
-                Upload a roof plan and let AI Scan Assist do the heavy lifting. It scans the plan, identifies individual roof areas, ridges, hips, valleys, and barges, and draws them for you. Review what it found, adjust anything that needs tweaking, and commit.
+                Upload a roof plan and let Roof Scan Assist do the heavy lifting. It scans the plan, identifies individual roof areas, ridges, hips, valleys, and barges, and draws them for you. Review what it found, adjust anything that needs tweaking, and commit.
               </p>
               <p className="mt-3 text-sm text-zinc-600">
-                Perfect for when you have a clear plan and want to save time on the initial drawing. AI Scan Assist covers the core roof components - you stay in control of the final measurements.
+                Perfect for when you have a clear plan and want to save time on the initial drawing. Roof Scan Assist covers the core roof components - you stay in control of the final measurements.
               </p>
             </div>
             <div className="rounded-xl border border-slate-200 p-6">
@@ -223,7 +223,7 @@ Digital roof takeoff software for New Zealand roofing contractors.
                 Upload a plan and draw everything yourself. Trace roof areas, mark ridges, hips, valleys, and barges - but also add any custom components you have saved in your component library. You could add 30 different component types to a single roof, or hundreds if that's what the job needs. Full control over every line and measurement.
               </p>
               <p className="mt-3 text-sm text-zinc-600">
-                Ideal when you want complete control, when the plan is unusual, or when you have specialised components that AI Scan Assist doesn't cover. Digital measure lets you fully customise your takeoff with your entire component library.
+                Ideal when you want complete control, when the plan is unusual, or when you have specialised components that Roof Scan Assist doesn't cover. Digital measure lets you fully customise your takeoff with your entire component library.
               </p>
             </div>
           </div>

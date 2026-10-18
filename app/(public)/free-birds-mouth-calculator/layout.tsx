@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const jsonLd = [
   { '@context': 'https://schema.org', '@type': 'WebApplication', name: profile.name,
     description: profile.metaDescription, applicationCategory: 'CalculatorApplication', operatingSystem: 'Web',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, url },
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'NZD' }, url },
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: profile.faqs.map(f => ({
     '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a },
   })) },
