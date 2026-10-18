@@ -39,6 +39,12 @@ const nextConfig: NextConfig = {
         destination: "https://demo.quote-core.com",
         permanent: true,
       },
+      // Short DFY alias -> canonical /done-for-you-setup (was a bare 404)
+      {
+        source: "/done-for-you",
+        destination: "/done-for-you-setup",
+        permanent: true,
+      },
       {
         source: "/:path*",
         has: [{ type: "host", value: "quote-core.co.nz" }],
