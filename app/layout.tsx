@@ -55,6 +55,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Vercel previews/test deployments must not pollute acquisition data. Keep
+  // this compile-time so the NZ marketing site remains statically renderable.
+  const analyticsOn = process.env.VERCEL_ENV
+    ? process.env.VERCEL_ENV === "production"
+    : process.env.NODE_ENV === "production";
+  const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || "yjvmsx2huf";
+
   return (
     <html
       lang="en-NZ"
@@ -62,36 +69,50 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
-        <Analytics />
-        <AttributionTracker />
-        <CookieConsent />
         <BrandFormatter />
         {SITE_ASSISTANT_ENABLED && <SiteAssistant />}
         <PillShimmerScript />
-        {/* Google Analytics 4 — loads gtag.js with Consent Mode default denied.
-            Optional tracking scripts (Clarity, Meta Pixel, LinkedIn) are
-            loaded conditionally by CookieConsent after user accepts. */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-HV8F4G8BN1"
-          strategy="afterInteractive"
-        />
-        <Script id="ga4" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('consent', 'default', {
-              analytics_storage: 'denied',
-              ad_storage: 'denied',
-              ad_user_data: 'denied',
-              ad_personalization: 'denied'
-            });
-            gtag('js', new Date());
-            gtag('config', 'G-HV8F4G8BN1');
-          `}
-        </Script>
-        <Script id="ms-clarity" strategy="afterInteractive">
-          {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","yjvmsx2huf");`}
-        </Script>
+        {analyticsOn && <>
+          <Analytics />
+          <AttributionTracker />
+          <CookieConsent clarityProjectId={clarityProjectId} />
+          {/* Production-only GA4. Consent Mode defaults to denied; Clarity,
+              Meta and LinkedIn are loaded by CookieConsent after opt-in. */}
+          <Script id="ga4-consent-default" strategy="beforeInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              var qcAnalytics = false;
+              var qcMarketing = false;
+              try {
+                var qcMatch = document.cookie.split(';').map(function(v){ return v.trim(); }).find(function(v){ return v.indexOf('qc_cookie_consent=') === 0; });
+                if (qcMatch) {
+                  var qcPrefs = JSON.parse(decodeURIComponent(qcMatch.slice('qc_cookie_consent='.length)));
+                  qcAnalytics = qcPrefs && qcPrefs.analytics === true;
+                  qcMarketing = qcPrefs && qcPrefs.marketing === true;
+                }
+              } catch (e) {}
+              gtag('consent', 'default', {
+                analytics_storage: qcAnalytics ? 'granted' : 'denied',
+                ad_storage: qcMarketing ? 'granted' : 'denied',
+                ad_user_data: qcMarketing ? 'granted' : 'denied',
+                ad_personalization: qcMarketing ? 'granted' : 'denied',
+                wait_for_update: 500
+              });
+            `}
+          </Script>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-HV8F4G8BN1"
+            strategy="afterInteractive"
+          />
+          <Script id="ga4" strategy="afterInteractive">
+            {`
+              gtag('set', 'linker', { domains: ['quote-core.co.nz', 'quote-core.com'] });
+              gtag('js', new Date());
+              gtag('config', 'G-HV8F4G8BN1');
+            `}
+          </Script>
+        </>}
         <Script
           id="combined-schema"
           type="application/ld+json"

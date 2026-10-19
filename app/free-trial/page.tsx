@@ -58,7 +58,7 @@ const faqs = [
 
 export default function GetStartedPage() {
   const bookingHref = homepageConfig.bookingHref || "/contact";
-  const interactiveDemo = "https://quote-core.com/demo";
+  const interactiveDemo = "https://demo.quote-core.com";
 
   const schemas = [
     buildBreadcrumbSchema([

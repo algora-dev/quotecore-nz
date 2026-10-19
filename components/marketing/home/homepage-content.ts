@@ -47,7 +47,7 @@ export const homepageFaqs: HomepageFaq[] = [
     id: 'new-zealand',
     question: 'Is QuoteCore+ built for New Zealand roofing businesses?',
     answer: 'Yes. QuoteCore+ speaks New Zealand roofing. It handles long-run profiles and spouting terminology Kiwi roofers use, quotes in NZD with GST, and connects measuring, pricing, ordering and invoicing in one workflow.',
-    link: { label: 'See NZD pricing', destination: 'pricing' },
+    link: { label: 'See subscription pricing', destination: 'pricing' },
   },
 ];
 

@@ -20,9 +20,9 @@ import {
 } from '@/components/marketing/page-v2/PageV2';
 import { buildBreadcrumbSchema, buildFaqSchema, buildSoftwareApplicationSchema } from '@/lib/schema';
 import { hreflangLanguages } from '@/lib/seo/hreflang';
-import { safeBookingHref } from '@/components/marketing/home/homepage-config';
+import { workflowCallHref } from '@/lib/booking';
 
-const bookingHref = safeBookingHref(process.env.NEXT_PUBLIC_DFU_BOOKING_URL ?? '') || '/contact';
+const bookingHref = workflowCallHref;
 
 export const metadata: Metadata = {
   title: 'Offcut Optimiser: Long-Run Roofing Cut List & Offcut Planning | QuoteCore+',
@@ -164,7 +164,7 @@ export default function OffcutOptimiserPage() {
           <ConversionPaths items={[
             { title: 'Try the free roof takeoff', body: 'Measure a roof plan in the browser and see the geometry that sits upstream of cut planning.', href: '/free-roof-takeoff', label: 'Open the free roof takeoff' },
             { title: 'Book a tailored 20-minute demo', body: 'Show us how you quote long-run or metal roofing and we will demonstrate the workflow around your use case. No obligation.', href: bookingHref, label: 'Book a tailored demo' },
-            { title: 'Build your NZ configuration', body: 'Add Digital Takeoff and Offcut Optimiser in the pricing builder and see the resulting monthly subscription.', href: '/pricing', label: 'See NZ pricing' },
+            { title: 'Build your NZ configuration', body: 'Add Digital Takeoff and Offcut Optimiser in the pricing builder and see the resulting monthly subscription.', href: '/pricing', label: 'See subscription pricing' },
           ]} />
         </Container>
       </Section>

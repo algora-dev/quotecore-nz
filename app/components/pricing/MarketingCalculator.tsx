@@ -1,9 +1,11 @@
 'use client';
 
+import { workflowCallHref } from '@/lib/booking';
+
 import type { CSSProperties } from 'react';
 import { PricingCalculator, PREVIEW_CATALOG, buildSignupHref } from './calculator';
 
-const CALENDLY = 'https://calendly.com/quote-core-info/15-minute-meeting';
+const CALENDLY = workflowCallHref;
 const SHELL_STYLE = { '--qcp-header-offset': '80px' } as CSSProperties;
 
 export function MarketingCalculator({ notice }: { notice?: string } = {}) {
@@ -17,7 +19,7 @@ export function MarketingCalculator({ notice }: { notice?: string } = {}) {
         resultActions={{
           trade: 'roofing',
           links: {
-            demo: 'https://quote-core.com/demo',
+            demo: 'https://demo.quote-core.com',
             'free-tools': '/free-tools',
             'takeoff-roofing': '/free-roof-takeoff',
             'takeoff-cladding': '/free-cladding-takeoff',

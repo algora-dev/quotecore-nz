@@ -20,9 +20,9 @@ import {
 } from '@/components/marketing/page-v2/PageV2';
 import { buildBreadcrumbSchema, buildFaqSchema, buildSoftwareApplicationSchema } from '@/lib/schema';
 import { hreflangLanguages } from '@/lib/seo/hreflang';
-import { safeBookingHref } from '@/components/marketing/home/homepage-config';
+import { workflowCallHref } from '@/lib/booking';
 
-const bookingHref = safeBookingHref(process.env.NEXT_PUBLIC_DFU_BOOKING_URL ?? '') || '/contact';
+const bookingHref = workflowCallHref;
 
 export const metadata: Metadata = {
   title: 'Smart Assistant: AI Estimating Assistant for Contractors | QuoteCore+',
@@ -184,7 +184,7 @@ export default function SmartAssistantPage() {
           <ConversionPaths items={[
             { title: 'Explore the interactive app demo', body: 'Open the prepared roofing workspace and try the current QuoteCore+ experience at your own pace.', href: 'https://demo.quote-core.com', label: 'Explore the demo' },
             { title: 'Book a tailored 20-minute demo', body: 'Tell us how your team measures, prices and quotes and we will show where the assistant can remove work. No obligation.', href: bookingHref, label: 'Book a tailored demo' },
-            { title: 'Build your NZD configuration', body: 'Choose the Smart Assistant allowance that fits how often you expect to use conversational tasks.', href: '/pricing', label: 'See NZ pricing' },
+            { title: 'Build your subscription configuration', body: 'Choose the Smart Assistant allowance that fits how often you expect to use conversational tasks.', href: '/pricing', label: 'See subscription pricing' },
           ]} />
         </Container>
       </Section>

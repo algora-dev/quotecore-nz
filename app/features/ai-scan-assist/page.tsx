@@ -20,9 +20,9 @@ import {
 } from '@/components/marketing/page-v2/PageV2';
 import { buildBreadcrumbSchema, buildFaqSchema, buildSoftwareApplicationSchema } from '@/lib/schema';
 import { hreflangLanguages } from '@/lib/seo/hreflang';
-import { safeBookingHref } from '@/components/marketing/home/homepage-config';
+import { workflowCallHref } from '@/lib/booking';
 
-const bookingHref = safeBookingHref(process.env.NEXT_PUBLIC_DFU_BOOKING_URL ?? '') || '/contact';
+const bookingHref = workflowCallHref;
 
 export const metadata: Metadata = {
   title: 'Roof Scan Assist: AI Roof Takeoff From Roof Plans | QuoteCore+',
@@ -186,7 +186,7 @@ export default function RoofScanAssistPage() {
           <ConversionPaths items={[
             { title: 'Try Roof Scan Assist', body: 'Use the focused roof takeoff demo and see the AI-assisted plan workflow without creating a paid account.', href: 'https://quote-core.com/takeoff-demo?mode=ai', label: 'Try Roof Scan Assist' },
             { title: 'Book a tailored 20-minute demo', body: 'Tell us how your team measures and quotes roofing and we will show the workflow around your use case. No obligation.', href: bookingHref, label: 'Book a tailored demo' },
-            { title: 'Build your NZD configuration', body: 'Choose the Digital Takeoff and Roof Scan Assist usage that suits your volume and see the resulting monthly subscription.', href: '/pricing', label: 'See NZ pricing' },
+            { title: 'Build your subscription configuration', body: 'Choose the Digital Takeoff and Roof Scan Assist usage that suits your volume and see the resulting monthly subscription.', href: '/pricing', label: 'See subscription pricing' },
           ]} />
         </Container>
       </Section>

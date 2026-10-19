@@ -18,6 +18,7 @@ import {
   WorkflowRail,
   type FaqItem,
 } from '@/components/marketing/page-v2/PageV2';
+import { workflowCallHref } from '@/lib/booking';
 import { buildBreadcrumbSchema, buildFaqSchema, buildSoftwareApplicationSchema } from '@/lib/schema';
 import { hreflangLanguages } from '@/lib/seo/hreflang';
 
@@ -57,7 +58,7 @@ export default function FeaturesPage() {
         eyebrow="QuoteCore+ features"
         title={<>Everything from measuring and pricing to the quote, order and invoice.</>}
         lead="Take measurements, apply your own pricing rules, build the customer quote, send and track it, then carry accepted work into orders and invoices. Use the quick interactive tour or scroll through the workflow in detail below."
-        primary={{ href: 'https://quote-core.com/demo', label: 'Explore the interactive demo' }}
+        primary={{ href: 'https://demo.quote-core.com', label: 'Explore the interactive demo' }}
         secondary={{ href: '/pricing', label: 'Build your plan' }}
         proof={['Measure or enter quantities', 'Use your own pricing logic', 'Keep the job connected after the quote']}
         visual={<ProductFrame src="/marketing/current-ux/job-space-overview.webp" alt="Current QuoteCore+ Job Space overview with the connected job workflow" width={2048} height={1112} eager caption="Job Space keeps the job, pricing and document workflow together instead of splitting the work across disconnected tools." />}
@@ -67,7 +68,7 @@ export default function FeaturesPage() {
         <Container>
           <SectionHeader eyebrow="Quick product tour" title="Prefer to click through? Explore the core workflow in a few minutes." lead="This is the same interactive feature showcase used on the homepage. Use the tabs and examples for the short version, then continue below for a detailed scroll-through of the workflow." />
         </Container>
-        <WorkflowExplorer demoHref="https://quote-core.com/demo" />
+        <WorkflowExplorer demoHref="https://demo.quote-core.com" />
       </Section>
 
       <Section>
@@ -182,9 +183,9 @@ export default function FeaturesPage() {
         <Container>
           <SectionHeader eyebrow="Choose your next step" title="Choose the next step that suits you" lead="Use the route that answers what you need to know next." />
           <ConversionPaths items={[
-            { title: 'Explore the interactive app demo', body: 'Open a prepared QuoteCore+ roofing workspace and explore the current workflow at your own pace.', href: 'https://quote-core.com/demo', label: 'Explore the demo' },
-            { title: 'Book a tailored 20-minute demo', body: 'Tell us how you currently work and we will screen-share a workflow that is relevant to your trade and questions.', href: 'https://calendly.com/quote-core-info/15-minute-meeting', label: 'Book a tailored demo' },
-            { title: 'Build your plan', body: 'Choose the workload and tools your business needs and see the current monthly price before you continue.', href: '/pricing', label: 'Build your NZD configuration' },
+            { title: 'Explore the interactive app demo', body: 'Open a prepared QuoteCore+ roofing workspace and explore the current workflow at your own pace.', href: 'https://demo.quote-core.com', label: 'Explore the demo' },
+            { title: 'Book a tailored 20-minute demo', body: 'Tell us how you currently work and we will screen-share a workflow that is relevant to your trade and questions.', href: workflowCallHref, label: 'Book a tailored demo' },
+            { title: 'Build your plan', body: 'Choose the workload and tools your business needs and see the current monthly price before you continue.', href: '/pricing', label: 'Build your subscription configuration' },
           ]} />
         </Container>
       </Section>
@@ -202,7 +203,7 @@ export default function FeaturesPage() {
         </Container>
       </Section>
 
-      <FinalCta title="One workflow. Start at the part that matters to you." body="Explore the prepared app demo, build a pricing configuration or start with a free tool. QuoteCore+ keeps the measure-to-price workflow connected when you are ready to go further." primary={{ href: 'https://quote-core.com/demo', label: 'Explore the interactive demo' }} secondary={{ href: '/pricing', label: 'Build your plan' }} />
+      <FinalCta title="One workflow. Start at the part that matters to you." body="Explore the prepared app demo, build a pricing configuration or start with a free tool. QuoteCore+ keeps the measure-to-price workflow connected when you are ready to go further." primary={{ href: 'https://demo.quote-core.com', label: 'Explore the interactive demo' }} secondary={{ href: '/pricing', label: 'Build your plan' }} />
       <div style={{ height: 72 }} />
     </PageScaffold>
   );

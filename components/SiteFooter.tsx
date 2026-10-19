@@ -39,7 +39,7 @@ export default function SiteFooter() {
               <Link href="/pricing" className={linkClass}>Pricing</Link>
               <Link href="/free-tools" className={linkClass}>Free tools</Link>
               <Link href="/free-calculators" className={linkClass}>Free calculators</Link>
-              <Link href="/free-trial" className={linkClass}>Free trial</Link>
+              <Link href="/free-trial" className={linkClass}>Trial & demo options</Link>
             </div>
           </nav>
           <nav aria-label="Company">
@@ -49,7 +49,7 @@ export default function SiteFooter() {
               <Link href="/services" className={linkClass}>Services</Link>
               <Link href="/suppliers" className={linkClass}>For suppliers</Link>
               <Link href="/contact" className={linkClass}>Contact</Link>
-              <Link href="/free-trial" className={linkClass}>Get started</Link>
+              <Link href="https://demo.quote-core.com" className={linkClass}>Interactive demo</Link>
             </div>
           </nav>
           <nav aria-label="Legal and region">

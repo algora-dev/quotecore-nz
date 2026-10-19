@@ -38,7 +38,7 @@ export const pricingOffers = [{
   "@type": "AggregateOffer",
   lowPrice: String(publicPricing.monthlyMin),
   highPrice: String(publicPricing.monthlyMax),
-  priceCurrency: site.currency,
+  priceCurrency: publicPricing.currency,
   url: `${site.url}/pricing`,
   offerCount: 1,
 }];

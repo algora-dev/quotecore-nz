@@ -10,13 +10,13 @@ export function buildPricingOffers() {
   return {
     "@type": "AggregateOffer",
     url: `${siteUrl}/pricing`,
-    priceCurrency: "NZD",
+    priceCurrency: publicPricing.currency,
     lowPrice: String(publicPricing.monthlyMin),
     highPrice: String(publicPricing.monthlyMax),
     offerCount: 1,
     availability: "https://schema.org/InStock",
     category: "Configurable monthly subscription",
-    description: `Build a QuoteCore+ monthly configuration around workload and selected tools. Current New Zealand configurations range from NZ$${publicPricing.monthlyMin} to NZ$${publicPricing.monthlyMax} per month.`,
+    description: `Build a QuoteCore+ monthly configuration around workload and selected tools. Current New Zealand subscriptions are billed in USD and range from US$${publicPricing.monthlyMin} to US$${publicPricing.monthlyMax} per month.`,
   };
 }
 

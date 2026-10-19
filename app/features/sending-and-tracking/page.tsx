@@ -36,7 +36,7 @@ const softwareSchema = {
   description: "Send quotes, orders and invoices directly from QuoteCore+. Track opens and reads. Configure time-based and event-based automated follow-ups with cancellation conditions.",
   url: `${SITE_URL}/features/sending-and-tracking`,
   publisher: { "@id": `${SITE_URL}/#organization` },
-  offers: { "@type": "AggregateOffer", lowPrice: publicPricing.monthlyMin, highPrice: publicPricing.monthlyMax, priceCurrency: "NZD", offerCount: 1, url: `${SITE_URL}/pricing` },
+  offers: { "@type": "AggregateOffer", lowPrice: publicPricing.monthlyMin, highPrice: publicPricing.monthlyMax, priceCurrency: publicPricing.currency, offerCount: 1, url: `${SITE_URL}/pricing` },
 };
 
 const breadcrumbSchema = {

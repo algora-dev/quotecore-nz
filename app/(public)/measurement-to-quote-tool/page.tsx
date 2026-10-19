@@ -106,7 +106,7 @@ export default function Page() {
           <SectionHeader eyebrow="Next step" title="Choose the next step that suits you" />
           <ConversionPaths items={[
             { title: 'Explore the interactive app demo', body: 'See how saved measurements, pricing, quotes and the wider job workflow fit together in a prepared account.', href: 'https://demo.quote-core.com', label: 'Explore the demo' },
-            { title: 'Build your NZD configuration', body: 'Choose the workload and tools you want in the paid app and see the current monthly price.', href: '/pricing', label: 'See pricing' },
+            { title: 'Build your subscription configuration', body: 'Choose the workload and tools you want in the paid app and see the current monthly price.', href: '/pricing', label: 'See pricing' },
             { title: 'Bring your existing pricing with you', body: 'Done For You Setup can help translate agreed spreadsheets, products, labour and pricing logic into your QuoteCore+ account.', href: '/done-for-you-setup', label: 'Explore Done For You' },
           ]} />
         </Container>

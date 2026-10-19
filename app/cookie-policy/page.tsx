@@ -21,7 +21,7 @@ export default function CookiePolicyPage() {
 
       <div className="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:py-24">
         <h1 className="text-4xl font-semibold tracking-tight">Cookie Policy</h1>
-        <p className="mt-3 text-sm text-zinc-500">Last updated: 17 July 2026</p>
+        <p className="mt-3 text-sm text-zinc-500">Last updated: 19 October 2026</p>
 
         <div className="mt-6">
           <ManageCookiesButton />
@@ -108,7 +108,7 @@ export default function CookiePolicyPage() {
             <ul className="mt-3 ml-4 list-disc space-y-1.5">
               <li>The website will still work</li>
               <li>You can still view pages</li>
-              <li>You can still start a trial or contact us</li>
+              <li>You can still use the interactive demo, free tools, or contact us</li>
               <li>We will not use optional analytics cookies to track your visit</li>
               <li>We will not use marketing pixels such as Meta Pixel or LinkedIn Insight Tag for your visit</li>
               <li>Our reporting may be less accurate</li>

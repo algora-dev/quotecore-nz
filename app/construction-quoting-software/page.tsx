@@ -6,6 +6,7 @@ import NzContextPanel from "@/components/NzContextPanel";
 import YouTubeLite from "@/components/YouTubeLite";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
+import { workflowCallHref } from '@/lib/booking';
 export const metadata: Metadata = {
   title: "Construction Quoting Software NZ | QuoteCore+",
   description:
@@ -97,7 +98,7 @@ const faqSchema = {
       name: "Can I try it before paying?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No - we skip the trial. Our free tools (takeoff builder, calculators, generators) work instantly with no signup, so you can test the workflow before paying anything. Paid plans start at $29/month.",
+        text: "No - we skip the full-app trial. Our free tools (takeoff builder, calculators, generators) work instantly with no signup, so you can test the workflow before paying anything. Current paid configurations start at US$29/month (USD).",
       },
     },
   ],
@@ -159,7 +160,7 @@ const faqs = [
   },
   {
     q: "Can I try it before paying?",
-    a: "No - we skip the trial. Our free tools (takeoff builder, calculators, generators) work instantly with no signup, so you can test the workflow before paying anything. Paid plans start at $29/month.",
+    a: "No - we skip the full-app trial. Our free tools (takeoff builder, calculators, generators) work instantly with no signup, so you can test the workflow before paying anything. Current paid configurations start at US$29/month (USD).",
   },
   {
     q: "Who do I contact with questions?",
@@ -248,12 +249,12 @@ Construction quoting software for New Zealand measured trades.
               </a>
 
               <a
-                href="https://calendly.com/quote-core-info/15-minute-meeting"
+                href={workflowCallHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="pill-shimmer inline-flex min-h-12 items-center justify-center rounded-full border border-zinc-300 bg-white px-8 py-3 text-sm font-medium text-zinc-900 transition-colors duration-200 hover:border-[#FF6B35]/40"
               >
-                Book a 15-minute call
+                Book a free 20-minute call
               </a>
             </div>
 
@@ -502,12 +503,12 @@ Construction quoting software for New Zealand measured trades.
                         </a>{" "}
                         or book a free{" "}
                         <a
-                          href="https://calendly.com/quote-core-info/15-minute-meeting"
+                          href={workflowCallHref}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-[#FF6B35] hover:underline"
                         >
-                          15-minute call with Shaun
+                          20-minute call
                         </a>
                         .
                       </>

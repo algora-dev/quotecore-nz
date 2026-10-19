@@ -6,6 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import NzContextPanel from "@/components/NzContextPanel";
 import { site } from "@/lib/seo";
+import { publicPricing } from "@/lib/public-pricing";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ const softwareSchema = {
   description: "Digital roof takeoff software with Roof Scan Assist and manual drawing tools. Upload plans, measure digitally, and auto-calculate pitch, waste, and material quantities.",
   url: `${site.url}/features/digital-roof-takeoff`,
   publisher: { "@id": `${site.url}/#organization` },
-  offers: { "@type": "Offer", price: "29", priceCurrency: "NZD", description: "Paid subscription from NZD $29/month" },
+  offers: { "@type": "AggregateOffer", lowPrice: publicPricing.monthlyMin, highPrice: publicPricing.monthlyMax, priceCurrency: publicPricing.currency, offerCount: 1, url: `${site.url}/pricing`, description: `Current subscription configurations range from US$${publicPricing.monthlyMin} to US$${publicPricing.monthlyMax}/month (USD).` },
 };
 
 const breadcrumbSchema = {

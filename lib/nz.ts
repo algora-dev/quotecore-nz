@@ -1,3 +1,5 @@
+import { workflowCallHref } from '@/lib/booking';
+
 export const nzMarket = {
   market: "nz",
   domain: "https://www.quote-core.co.nz",
@@ -7,7 +9,7 @@ export const nzMarket = {
   currency: "NZD",
   currencySymbol: "$",
   email: "info@quote-core.com",
-  callUrl: "https://calendly.com/quote-core-info/15-minute-meeting",
+  callUrl: workflowCallHref,
   trialUrl: "/pricing",
 };
 
