@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { CommercialFinalCta, CommercialHeroActions } from "@/components/conversion/CommercialConversion";
 import NzContextPanel from "@/components/NzContextPanel";
 import YouTubeLite from "@/components/YouTubeLite";
 import { buildSoftwareApplicationSchema } from "@/lib/schema";
@@ -176,16 +177,9 @@ Roofing quoting software built for New Zealand contractors.
               </p>
             </div>
 
-            <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <a
-                href="/free-tools"
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-[#E55A28]"
-              >
-                Try our free tools
-              </a>
-            </div>
+            <CommercialHeroActions location="nz_roofing_quoting_software_hero" />
 
-            <p className="mt-3 text-sm text-zinc-500">No credit card required.</p>
+            <p className="mt-3 text-sm text-zinc-500">Prefer to start free? <a href="/free-tools" className="font-medium text-[#BD4A1A] hover:underline">Use the NZ free tools with no signup.</a></p>
           </div>
         </section>
 
@@ -382,23 +376,12 @@ Roofing quoting software built for New Zealand contractors.
         </section>
 
         {/* Final CTA */}
-        <section className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-8">
-          <h2 className="text-3xl font-semibold sm:text-5xl">
-  Quote. Manage. Grow.
-</h2>
-
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-zinc-600">
-            Stop running one roofing job through five different tools. QuoteCore+ gives you one connected workflow from first measurement to final payment.
-          </p>
-
-          <a
-            href="/free-tools"
-            className="mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-10 py-3 text-base font-semibold text-white transition-colors hover:bg-[#E55A28]"
-          >
- our free tools
-          </a>
-
-          <p className="mt-4 text-sm text-zinc-500">No signup needed - our free tools work instantly.</p>
+        <section className="mx-auto max-w-4xl px-6 py-24 lg:px-8">
+          <CommercialFinalCta
+            location="nz_roofing_quoting_software_final"
+            title="Quote. Manage. Grow."
+            body="Try the shared QuoteCore+ app demo yourself, or book a short call to see how your own roofing measurements, pricing and workflow would fit."
+          />
         </section>
 
         <SiteFooter />

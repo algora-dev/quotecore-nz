@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BlogHeader from "@/components/BlogHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { CommercialFinalCta, CommercialHeroActions } from "@/components/conversion/CommercialConversion";
 import NzContextPanel from "@/components/NzContextPanel";
 import YouTubeLite from "@/components/YouTubeLite";
 import { hreflangLanguages } from "@/lib/seo/hreflang";
@@ -240,25 +241,9 @@ Construction quoting software for New Zealand measured trades.
               </p>
             </div>
 
-            <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <a
-                href="/free-tools"
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-[#E55A28]"
-              >
-                Try our free tools
-              </a>
+            <CommercialHeroActions location="nz_construction_quoting_software_hero" />
 
-              <a
-                href={workflowCallHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pill-shimmer inline-flex min-h-12 items-center justify-center rounded-full border border-zinc-300 bg-white px-8 py-3 text-sm font-medium text-zinc-900 transition-colors duration-200 hover:border-[#FF6B35]/40"
-              >
-                Book a free 20-minute call
-              </a>
-            </div>
-
-            <p className="mt-3 text-sm text-zinc-400">No signup needed - our free tools work instantly.</p>
+            <p className="mt-3 text-sm text-zinc-500">Prefer to start free? <a href="/free-tools" className="font-medium text-[#BD4A1A] hover:underline">Use the NZ free tools with no signup.</a></p>
           </div>
         </section>
 
@@ -523,23 +508,12 @@ Construction quoting software for New Zealand measured trades.
         </section>
 
         {/* Final CTA */}
-        <section className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-8">
-          <h2 className="text-3xl font-semibold sm:text-5xl">
-  Quote. Manage. Grow.
-</h2>
-
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-zinc-600">
-            Stop managing one job with five different apps. QuoteCore+ gives construction and trade businesses one connected workflow from first quote to final payment.
-          </p>
-
-          <a
-            href="/free-tools"
-            className="mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-10 py-3 text-base font-semibold text-white transition-colors hover:bg-[#E55A28]"
-          >
-            Try our free tools
-          </a>
-
-          <p className="mt-4 text-sm text-zinc-400">No signup needed - our free tools work instantly.</p>
+        <section className="mx-auto max-w-4xl px-6 py-24 lg:px-8">
+          <CommercialFinalCta
+            location="nz_construction_quoting_software_final"
+            title="Quote. Manage. Grow."
+            body="Try the shared QuoteCore+ app demo yourself, or book a short call to map the workflow against the way your New Zealand trade business currently measures, prices and quotes."
+          />
         </section>
 
         <SiteFooter />
