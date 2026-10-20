@@ -14,7 +14,7 @@ const maxMonthlyCents =
   PREVIEW_CATALOG.assistant.heavy.monthlyCents;
 
 export const publicPricing = {
-  currency: 'USD',
+  currency: 'NZD',
   monthlyMin: centsToWhole(minMonthlyCents),
   monthlyMax: centsToWhole(maxMonthlyCents),
   doneForYouStarting: 899,
@@ -24,7 +24,7 @@ export const publicPricing = {
 } as const;
 
 export function publicPricingRange() {
-  return `US$${publicPricing.monthlyMin}-US$${publicPricing.monthlyMax}/month`;
+  return `from NZ$${publicPricing.monthlyMin}/month`;
 }
 
 export function doneForYouStartsFrom() {

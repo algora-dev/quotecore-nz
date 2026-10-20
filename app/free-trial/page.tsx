@@ -18,7 +18,7 @@ import { publicPricing } from "@/lib/public-pricing";
 export const metadata: Metadata = {
   title: "Try QuoteCore+ Before You Subscribe NZ | Demos & Free Tools",
   description:
-    "QuoteCore+ does not offer a full-app free trial. Explore the interactive app demo, use free tools, book a tailored 20-minute demo, or build a paid plan from US$29/month (USD).",
+    "QuoteCore+ does not offer a full-app free trial. Explore the interactive app demo, use free tools, book a tailored 20-minute demo, or build a paid plan from NZ$50/month.",
   alternates: {
     canonical: "https://www.quote-core.co.nz/free-trial",
     languages: hreflangLanguages("/free-trial"),
@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     question: "How much does the paid QuoteCore+ app cost in New Zealand?",
-    answer: `The public pricing builder creates a configuration around the features and usage you need. Current configurations range from US$${publicPricing.monthlyMin} to US$${publicPricing.monthlyMax} per month (USD).`,
+    answer: `The public pricing builder creates a configuration around the features and usage you need. Current configurations start from NZ$${publicPricing.monthlyMin} per month.`,
   },
   {
     question: "What is Done For You Setup?",
@@ -77,7 +77,7 @@ export default function GetStartedPage() {
         lead="Choose the evaluation path that answers what you actually want to know: explore the prepared app demo, use a practical free tool, book a tailored 20-minute walkthrough, or build your paid NZ configuration."
         primary={{ href: interactiveDemo, label: "Explore the interactive demo" }}
         secondary={{ href: "/free-tools", label: "Use free tools" }}
-        proof={["No full-app trial", "Free browser tools available", `Configurations from US$${publicPricing.monthlyMin}/month`]}
+        proof={["No full-app trial", "Free browser tools available", `Configurations from NZ$${publicPricing.monthlyMin}/month`]}
       />
 
       <Section tone="soft">
@@ -113,7 +113,7 @@ export default function GetStartedPage() {
               {
                 kicker: "Ready to price it",
                 title: "Build your paid configuration",
-                body: `Choose the features and usage you need. The pricing builder shows your monthly setup before signup, with current configurations from US$${publicPricing.monthlyMin} to US$${publicPricing.monthlyMax} (USD).`,
+                body: `Choose the features and usage you need. The pricing builder shows your monthly setup before signup, with current configurations starting from NZ$${publicPricing.monthlyMin}.`,
                 href: "/pricing",
                 label: "Build your plan",
               },

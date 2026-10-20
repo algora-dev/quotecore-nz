@@ -42,7 +42,7 @@ export function TradeLayoutShell({ config, children }: { config: TradeConfig; ch
     description: config.ogDescription,
     applicationCategory: 'CalculatorApplication',
     operatingSystem: 'Web',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'NZD' },
     url: `${SITE_URL}/${config.slug}`,
   };
 

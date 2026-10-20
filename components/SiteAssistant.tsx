@@ -63,7 +63,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(trial|free trial|14 day|14-day|sign up|signup|register|try it|test it|demo)/.test(message)) {
     return {
       sender: "assistant",
-      text: "There is no full-app trial. You can explore the interactive app demo or use the free tools instantly with no signup. When you want the connected paid app, use the pricing builder to configure the features and usage you need. Current configurations range from US$29 to US$259 per month (USD).",
+      text: "There is no full-app trial. You can explore the interactive app demo or use the free tools instantly with no signup. When you want the connected paid app, use the pricing builder to configure the features and usage you need. Current configurations start from NZ$50 per month.",
       links: [
         trialCTA,
         { label: "See how it works", href: "/#how-it-works" },
@@ -75,7 +75,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(price|pricing|cost|how much|plan|plans|tier|limit|upgrade|cancel|subscription|per month|per month|starter|lite|pro|premium)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ uses configurable pricing rather than public fixed tiers. Current configurations range from US$29 to US$259 per month (USD), depending on the features and usage you choose. There is no full-app trial; explore the interactive app demo or free tools before subscribing.",
+      text: "QuoteCore+ uses configurable pricing rather than public fixed tiers. Current configurations start from NZ$50 per month, depending on the features and usage you choose. There is no full-app trial; explore the interactive app demo or free tools before subscribing.",
       link: { label: "See full pricing details", href: "/pricing" },
     };
   }
@@ -141,7 +141,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(quote gen|make a quote|create.*quote|write.*quote|build.*quote|estimate gen)/.test(message)) {
     return {
       sender: "assistant",
-      text: "The Free Quote Generator creates professional, printable quotes with your logo, business details, and itemised line items. Download as PDF, no signup required. For the full connected workflow - takeoff to quote to material orders to invoicing - current configurations range from US$29 to US$259 per month (USD).",
+      text: "The Free Quote Generator creates professional, printable quotes with your logo, business details, and itemised line items. Download as PDF, no signup required. For the full connected workflow - takeoff to quote to material orders to invoicing - current configurations start from NZ$50 per month.",
       links: [
         { label: "Try the Quote Generator", href: "https://quote-core.com/free-quote-generator" },
         trialCTA,
@@ -199,7 +199,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/(how do i|how to|can i|can you|do you have|does.*have|does.*support)/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ handles the full workflow from measurement to payment - AI plan takeoff, Smart Components, quoting, material orders, invoicing, and customer acceptance tracking. The best way to see if it does what you need is to try the free tools - they work instantly without signing up. When you want the full connected workflow, current configurations range from US$29 to US$259 per month (USD).",
+      text: "QuoteCore+ handles the full workflow from measurement to payment - AI plan takeoff, Smart Components, quoting, material orders, invoicing, and customer acceptance tracking. The best way to see if it does what you need is to try the free tools - they work instantly without signing up. When you want the full connected workflow, current configurations start from NZ$50 per month.",
       links: [
         trialCTA,
         freeToolsCTA,
@@ -333,7 +333,7 @@ function getAnswer(rawMessage: string, docsBaseUrl: string): ChatMessage {
   if (/\bfree\b/.test(message)) {
     return {
       sender: "assistant",
-      text: "QuoteCore+ is a paid app with configurable pricing ranging from US$29 to US$259 per month (USD). We also have free tools that work instantly without signing up: takeoff builder, roofing calculator, smart component creator, quote generator, invoice generator, and PO generator.",
+      text: "QuoteCore+ is a paid app with configurable pricing starting from NZ$50 per month. We also have free tools that work instantly without signing up: takeoff builder, roofing calculator, smart component creator, quote generator, invoice generator, and PO generator.",
       links: [
         trialCTA,
         freeToolsCTA,

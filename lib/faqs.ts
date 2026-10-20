@@ -27,7 +27,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "How do I get started?",
     answer:
-      "Start with our free tools - no signup needed, they work instantly. When you want the full connected workflow, use the pricing builder to configure the features and usage you need. Current configurations range from US$29 to US$259 per month (USD).",
+      "Start with our free tools - no signup needed, they work instantly. When you want the full connected workflow, use the pricing builder to configure the features and usage you need. Current configurations start from NZ$50 per month.",
   },
   {
     question: "Why do contractors switch to QuoteCore+?",

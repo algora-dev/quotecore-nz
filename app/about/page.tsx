@@ -115,7 +115,7 @@ export default function AboutPage() {
           {/* CTA */}
           <div className="mt-10 rounded-[2rem] border border-[#FF6B35]/20 bg-[#FF6B35]/5 p-8 text-center">
             <p className="text-xl font-semibold text-zinc-950">See it for yourself.</p>
-            <p className="mt-2 text-zinc-500">Test the workflow with our free tools first - no signup. Current configurations range from US$29 to US$259 per month (USD).</p>
+            <p className="mt-2 text-zinc-500">Test the workflow with our free tools first - no signup. Current configurations start from NZ$50 per month.</p>
             <a
               href="/free-tools"
               className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6B35] px-10 py-3 text-base font-semibold text-white transition-colors hover:bg-[#E55A28]"

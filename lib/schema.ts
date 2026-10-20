@@ -16,7 +16,7 @@ export function buildPricingOffers() {
     offerCount: 1,
     availability: "https://schema.org/InStock",
     category: "Configurable monthly subscription",
-    description: `Build a QuoteCore+ monthly configuration around workload and selected tools. Current New Zealand subscriptions are billed in USD and range from US$${publicPricing.monthlyMin} to US$${publicPricing.monthlyMax} per month.`,
+    description: `Build a QuoteCore+ monthly configuration around workload and selected tools. Current New Zealand subscription configurations start from NZ$${publicPricing.monthlyMin} per month.`,
   };
 }
 

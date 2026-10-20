@@ -36,7 +36,7 @@ const softwareSchema = {
   description: "Digital roof takeoff software with Roof Scan Assist and manual drawing tools. Upload plans, measure digitally, and auto-calculate pitch, waste, and material quantities.",
   url: `${site.url}/features/digital-roof-takeoff`,
   publisher: { "@id": `${site.url}/#organization` },
-  offers: { "@type": "AggregateOffer", lowPrice: publicPricing.monthlyMin, highPrice: publicPricing.monthlyMax, priceCurrency: publicPricing.currency, offerCount: 1, url: `${site.url}/pricing`, description: `Current subscription configurations range from US$${publicPricing.monthlyMin} to US$${publicPricing.monthlyMax}/month (USD).` },
+  offers: { "@type": "AggregateOffer", lowPrice: publicPricing.monthlyMin, highPrice: publicPricing.monthlyMax, priceCurrency: publicPricing.currency, offerCount: 1, url: `${site.url}/pricing`, description: `Current subscription configurations start from NZ$${publicPricing.monthlyMin}/month.` },
 };
 
 const breadcrumbSchema = {

@@ -22,18 +22,18 @@ import { hreflangLanguages } from '@/lib/seo/hreflang';
 
 export const metadata: Metadata = {
   title: 'QuoteCore+ Pricing NZ | Build Your Plan',
-  description: 'Build a QuoteCore+ plan around your workload and selected tools. Current configurations range from US$29 to US$259/month (USD). Done For You Setup starts from NZ$899.',
+  description: 'Build a QuoteCore+ plan around your workload and selected tools. Current configurations start from NZ$50/month. Done For You Setup starts from NZ$899.',
   alternates: { canonical: 'https://www.quote-core.co.nz/pricing', languages: hreflangLanguages('/pricing') },
   openGraph: {
     title: 'QuoteCore+ Pricing New Zealand | Build Your Plan',
-    description: 'Configure the workload and tools you need. Current QuoteCore+ configurations range from US$29 to US$259/month (USD).',
+    description: 'Configure the workload and tools you need. Current QuoteCore+ configurations start from NZ$50/month.',
     url: 'https://www.quote-core.co.nz/pricing', siteName: 'QuoteCore+', type: 'website',
   },
 };
 
 const faqs: FaqItem[] = [
-  { question: 'How much does QuoteCore+ cost in New Zealand?', answer: `QuoteCore+ uses configurable monthly pricing built around your workload and selected tools. Current configurations range from US$${publicPricing.monthlyMin} to US$${publicPricing.monthlyMax} per month (shown in USD). Use the pricing builder on this page to choose your workload and tools and see the resulting monthly price.` },
-  { question: 'What is the cheapest QuoteCore+ setup?', answer: `The current pricing builder starts at US$${publicPricing.monthlyMin} per month for the minimum public configuration. Your exact monthly price changes with the workload and optional tools you choose.` },
+  { question: 'How much does QuoteCore+ cost in New Zealand?', answer: `QuoteCore+ uses configurable monthly pricing built around your workload and selected tools. Current configurations start from NZ$${publicPricing.monthlyMin} per month. Use the pricing builder on this page to choose your workload and tools and see the resulting monthly price.` },
+  { question: 'What is the cheapest QuoteCore+ setup?', answer: `The current pricing builder starts at NZ$${publicPricing.monthlyMin} per month for the minimum public configuration. Your exact monthly price changes with the workload and optional tools you choose.` },
   { question: 'What can make my monthly price higher?', answer: 'The pricing builder changes the monthly total around your core job or quote allowance and optional tools such as Digital Takeoff, Roof Scan Assist, offcut optimisation and Smart Assistant.' },
   { question: 'Is there a free trial?', answer: 'No. There is no full-app trial. You can use the free tools, explore the interactive app demo, try the focused takeoff demo or book a tailored product demo before subscribing.' },
   { question: 'Can I try QuoteCore+ before subscribing?', answer: 'Yes. The free tools work in the browser without a paid app account. The interactive demo opens a prepared fictional roofing workspace, and a tailored demo call lets us show a workflow relevant to your trade.' },
@@ -53,11 +53,11 @@ export default function PricingPage() {
       <Hero
         eyebrow="QuoteCore+ pricing NZ"
         title={<>Build a plan around the way you work.</>}
-        lead={`Choose your workload and the tools you need. The pricing builder creates the monthly setup and shows the price before you continue. Current configurations range from US$${publicPricing.monthlyMin} to US$${publicPricing.monthlyMax} per month (USD).`}
+        lead={`Choose your workload and the tools you need. The pricing builder creates the monthly setup and shows the price before you continue. Current configurations start from NZ$${publicPricing.monthlyMin} per month.`}
         body="There is no full-app trial. If you want to try the workflow first, use the free tools, explore the interactive demo or book a tailored product demo."
         primary={{ href: '#build-your-plan', label: 'Build your plan' }}
         secondary={{ href: 'https://demo.quote-core.com', label: 'Explore the interactive demo' }}
-        proof={['Configurable monthly pricing (USD)', 'See the total before signup', 'Free tools and demos available first']}
+        proof={['Configurable monthly pricing (NZD)', 'See the total before signup', 'Free tools and demos available first']}
         visual={<ProductFrame src="/marketing/current-ux/job-space-overview.webp" alt="Current QuoteCore+ Job Space overview" width={2048} height={1112} eager caption="The pricing configuration changes with the tools and usage you choose. The connected job workflow stays the point." />}
       />
 

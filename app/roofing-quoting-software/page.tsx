@@ -125,7 +125,7 @@ const faqs = [
   },
   {
     q: "Is there a free trial?",
-    a: "No - we skip the full-app trial. Our free tools (takeoff builder, calculators, generators) work instantly with no signup, so you can test the workflow before paying anything. Current paid configurations start at US$29/month (USD).",
+    a: "No - we skip the full-app trial. Our free tools (takeoff builder, calculators, generators) work instantly with no signup, so you can test the workflow before paying anything. Current paid configurations start from NZ$50/month.",
   },
 ];
 
