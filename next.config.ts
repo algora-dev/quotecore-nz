@@ -11,56 +11,13 @@ const nextConfig: NextConfig = {
     root: __dirname,
   },
   async redirects() {
-    // Canonical host is https://www.quote-core.co.nz (locked 2026-07-15).
-    // Every other hostname 308s straight to the www canonical - single hop,
-    // path and query string preserved by Next's :path* + automatic query
-    // forwarding. Do NOT redirect any of these to the global .com site.
+    // NZ site decommissioned (owner decision 2026-11-03): every .co.nz URL,
+    // any host, any path, permanently redirects to the .com homepage.
+    // Ported NZ content now lives on .com (/nz/* pages).
     return [
-      // Redirect NZ /blog to the global blog (NZ-specific content strategy TBD; for now, all blog content lives on .com)
-      {
-        source: "/blog",
-        destination: "https://quote-core.com/blog",
-        permanent: true,
-      },
-      {
-        source: "/blog/:path*",
-        destination: "https://quote-core.com/blog/:path*",
-        permanent: true,
-      },
-      // Interactive demo lives on the demo subdomain (owner decision 2026-10-16).
-      // /pricing now serves the local NZ pricing page (Wave 2, owner decision 2026-10-16 evening).
-      {
-        source: "/demo",
-        destination: "https://demo.quote-core.com",
-        permanent: true,
-      },
-      {
-        source: "/takeoff-demo",
-        destination: "https://demo.quote-core.com",
-        permanent: true,
-      },
-      // Short DFY alias -> canonical /done-for-you-setup (was a bare 404)
-      {
-        source: "/done-for-you",
-        destination: "/done-for-you-setup",
-        permanent: true,
-      },
       {
         source: "/:path*",
-        has: [{ type: "host", value: "quote-core.co.nz" }],
-        destination: "https://www.quote-core.co.nz/:path*",
-        permanent: true,
-      },
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "quotecore.co.nz" }],
-        destination: "https://www.quote-core.co.nz/:path*",
-        permanent: true,
-      },
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.quotecore.co.nz" }],
-        destination: "https://www.quote-core.co.nz/:path*",
+        destination: "https://quote-core.com/",
         permanent: true,
       },
     ];
